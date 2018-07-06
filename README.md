@@ -5,7 +5,7 @@ App that allows users to access popular music and play both in their own locatio
 
 
 
-## User Stories
+## Required User Stories
 
 The following **required** functionality is completed:
 
