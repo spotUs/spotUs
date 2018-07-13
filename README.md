@@ -44,3 +44,4 @@ What are your technical concerns?
   Spotify API
   Parse database structure
   
+  ![download](https://user-images.githubusercontent.com/37446660/42716565-fa9d4808-86b0-11e8-9258-62207da11f30.jpg)
