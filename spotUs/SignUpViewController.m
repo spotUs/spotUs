@@ -1,21 +1,23 @@
 //
-//  LoginViewController.m
+//  SignUpViewController.m
 //  spotUs
 //
 //  Created by Megan Ung on 7/16/18.
 //  Copyright © 2018 Lizbeth Alejandra Gonzalez. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "SignUpViewController.h"
 #import "ErrorAlert.h"
 
-@interface LoginViewController ()
-//TODO CONNECT THESE
+@interface SignUpViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *nameText;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UITextField *cityText;
+
 @end
 
-@implementation LoginViewController
+@implementation SignUpViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,27 +29,29 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
-- (void)loginUser {
-    NSString *username = self.usernameField.text;
-    NSString *password = self.passwordField.text;
-    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+- (void)registerUser {
+    // initialize a user object
+    PFUser *newUser = [PFUser user];
+    // set user properties
+    newUser.username = self.usernameField.text;
+    newUser.password = self.passwordField.text;
+    newUser[@"name"] = self.nameText.text;
+    newUser[@"city"] = self.cityText.text;
+    // call sign up function on the object
+    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (error != nil) {
-            NSLog(@"User log in failed: %@", error.localizedDescription);
+            NSLog(@"Error: %@", error.localizedDescription);
             [ErrorAlert showAlert:error.localizedDescription inVC:self];
         } else {
-            NSLog(@"User logged in successfully");
-            //TODO perform segue to HOME PAGE OR SOMETHING
-            //[self performSegueWithIdentifier:@"loginSegue" sender:nil];
+            NSLog(@"User registered successfully");
+            //TODO PERFORM SEGUE TO HOMEPAGE OR SOMETHING
+            //[self performSegueWithIdentifier:@"signupdetailsegue" sender:nil];
         }
     }];
 }
-
-- (IBAction)onTapLogin:(id)sender {
-    [self loginUser];
+- (IBAction)onTapSignUp:(id)sender {
+    [self registerUser];
 }
-
 
 /*
 #pragma mark - Navigation

@@ -53,7 +53,7 @@
         <!--HomeViewController-->
         <scene sceneID="5e1-TL-sYP">
             <objects>
-                <viewController title="HomeViewController" id="rET-8j-fqN" sceneMemberID="viewController">
+                <viewController title="HomeViewController" id="rET-8j-fqN" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XHb-nv-hFx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,6 +87,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="onTapLogin:" destination="rET-8j-fqN" eventType="touchUpInside" id="1TE-jJ-eZv"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="96K-2B-75h">
                                 <rect key="frame" x="88" y="222" width="199" height="30"/>
@@ -114,6 +117,10 @@
                         <viewLayoutGuide key="safeArea" id="jaO-SM-cBs"/>
                     </view>
                     <navigationItem key="navigationItem" id="uus-Vz-Wf1"/>
+                    <connections>
+                        <outlet property="passwordField" destination="M6I-EP-HTv" id="RJx-h0-8gf"/>
+                        <outlet property="usernameField" destination="96K-2B-75h" id="V1Q-v7-8Um"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gxV-rr-jXx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,7 +129,7 @@
         <!--SignUpViewController-->
         <scene sceneID="wvU-DR-YwU">
             <objects>
-                <viewController title="SignUpViewController" id="nON-2x-PR3" sceneMemberID="viewController">
+                <viewController title="SignUpViewController" id="nON-2x-PR3" customClass="SignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mk3-mf-plW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,6 +195,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign up"/>
                                 <connections>
+                                    <action selector="onTapSignUp:" destination="nON-2x-PR3" eventType="touchUpInside" id="aU3-1V-U4U"/>
                                     <segue destination="AcT-a9-Jv0" kind="show" id="BRF-7H-khq"/>
                                 </connections>
                             </button>
@@ -195,6 +203,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Xnh-Ye-7u8"/>
                     </view>
+                    <connections>
+                        <outlet property="cityText" destination="P1y-5Y-nZW" id="blg-mH-FUJ"/>
+                        <outlet property="nameText" destination="P1y-5Y-nZW" id="uat-uH-XXR"/>
+                        <outlet property="passwordField" destination="7dK-NT-7ro" id="Udr-q3-BTV"/>
+                        <outlet property="usernameField" destination="Tzr-f0-xT2" id="asA-hH-fj4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Aa-2a-INl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
