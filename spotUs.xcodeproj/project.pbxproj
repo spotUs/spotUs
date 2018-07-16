@@ -13,7 +13,9 @@
 		06F6BD4F20FD055C00E85B28 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4E20FD055C00E85B28 /* SystemConfiguration.framework */; };
 		06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F6BD5020FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard */; };
 		06F6BD6220FD102500E85B28 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F6BD6120FD102500E85B28 /* PlayerView.m */; };
+		06F6BD6620FD363A00E85B28 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD6520FD363A00E85B28 /* SpotifyMetadata.framework */; };
 		1F7879FDCD98413FDA8910D5 /* libPods-spotUsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3AA8DA663A100D73310B19 /* libPods-spotUsUITests.a */; };
+		33E4FAB924A352B967529EFE /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */; };
 		3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953AC20EFE6F800D0FF7D /* AppDelegate.m */; };
 		3E3953B020EFE6F800D0FF7D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953AF20EFE6F800D0FF7D /* ViewController.m */; };
 		3E3953B320EFE6F800D0FF7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E3953B120EFE6F800D0FF7D /* Main.storyboard */; };
@@ -24,7 +26,9 @@
 		3E3953D020EFE6F800D0FF7D /* spotUsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953CF20EFE6F800D0FF7D /* spotUsUITests.m */; };
 		3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */; };
 		446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */; };
+		6C83415A1856828FB8E13F87 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F19DAED675468262D7EDEE5 /* libPods-spotUsTests.a */; };
 		6CC2534A20FD08D500D7093E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2534920FD08D500D7093E /* City.m */; };
+		7D5D621B1CE2895F2D45F143 /* libPods-spotUsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6B1E47BAA19F7884B11A30 /* libPods-spotUsUITests.a */; };
 		6CC2534E20FD353500D7093E /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2534D20FD353500D7093E /* Track.m */; };
 		6CC2535120FD36E900D7093E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535020FD36E900D7093E /* LoginViewController.m */; };
 		6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535620FD39AD00D7093E /* ErrorAlert.m */; };
@@ -60,6 +64,7 @@
 		06F6BD6020FD102500E85B28 /* PlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
 		06F6BD6120FD102500E85B28 /* PlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
 		06F6BD6320FD11DF00E85B28 /* libParse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libParse.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		06F6BD6520FD363A00E85B28 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
 		0BEF20B752E7D336A9D98788 /* Pods-spotUsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsTests/Pods-spotUsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		119C420030297941D494C2F7 /* Pods-spotUs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUs.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUs/Pods-spotUs.release.xcconfig"; sourceTree = "<group>"; };
 		2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +98,7 @@
 		6CC2535B20FD48CD00D7093E /* CitiesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitiesViewController.h; sourceTree = "<group>"; };
 		6CC2535C20FD48CD00D7093E /* CitiesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
 		92D5B60A1BB3A5A6DD90A307 /* Pods-spotUsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsTests/Pods-spotUsTests.release.xcconfig"; sourceTree = "<group>"; };
+		A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA7B2F43A9D0AA143EDE2F37 /* Pods-spotUsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsUITests/Pods-spotUsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BBEAC91EB91AEDCCEFADB261 /* Pods-spotUsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsUITests/Pods-spotUsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF3AA8DA663A100D73310B19 /* libPods-spotUsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,7 +115,9 @@
 				06F6BD4D20FD055200E85B28 /* AVFoundation.framework in Frameworks */,
 				8A6689F27BF93C7B44C4034D /* libPods-spotUs.a in Frameworks */,
 				06F6BD4920FD04FB00E85B28 /* SpotifyAuthentication.framework in Frameworks */,
+				06F6BD6620FD363A00E85B28 /* SpotifyMetadata.framework in Frameworks */,
 				06F6BD4B20FD050300E85B28 /* SpotifyAudioPlayback.framework in Frameworks */,
+				33E4FAB924A352B967529EFE /* libPods-spotUs.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */,
+				6C83415A1856828FB8E13F87 /* libPods-spotUsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F7879FDCD98413FDA8910D5 /* libPods-spotUsUITests.a in Frameworks */,
+				7D5D621B1CE2895F2D45F143 /* libPods-spotUsUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,11 +145,15 @@
 		06F6BD3F20FCFC9700E85B28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				06F6BD6520FD363A00E85B28 /* SpotifyMetadata.framework */,
 				06F6BD6320FD11DF00E85B28 /* libParse.a */,
 				06F6BD4E20FD055C00E85B28 /* SystemConfiguration.framework */,
 				06F6BD4C20FD055200E85B28 /* AVFoundation.framework */,
 				06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */,
 				06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */,
+				A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */,
+				6F19DAED675468262D7EDEE5 /* libPods-spotUsTests.a */,
+				6E6B1E47BAA19F7884B11A30 /* libPods-spotUsUITests.a */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -159,6 +173,13 @@
 				06F6BD6120FD102500E85B28 /* PlayerView.m */,
 			);
 			path = "Spotify View Controllers";
+			sourceTree = "<group>";
+		};
+		06F6BD6820FD3CE800E85B28 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		3E39539F20EFE6F800D0FF7D = {
@@ -188,6 +209,7 @@
 		3E3953AA20EFE6F800D0FF7D /* spotUs */ = {
 			isa = PBXGroup;
 			children = (
+				06F6BD6820FD3CE800E85B28 /* API */,
 				06F6BD5C20FD0F4400E85B28 /* Spotify View Controllers */,
 				6CC2534B20FD08E300D7093E /* Models */,
 				3E3953AB20EFE6F800D0FF7D /* AppDelegate.h */,
