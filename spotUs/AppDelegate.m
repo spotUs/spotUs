@@ -43,6 +43,14 @@
         [self startAuthenticationFlow];
     });
     
+    //Parse setup
+    ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+        configuration.applicationId = @"spotusapp";
+        configuration.clientKey = @"fbuinterns";
+        configuration.server = @"https://spotusapp.herokuapp.com/parse";
+    }];
+    [Parse initializeWithConfiguration:config];
+    
     return YES;
 }
 
