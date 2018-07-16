@@ -29,6 +29,7 @@
 		6CC2535120FD36E900D7093E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535020FD36E900D7093E /* LoginViewController.m */; };
 		6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535620FD39AD00D7093E /* ErrorAlert.m */; };
 		6CC2535A20FD446E00D7093E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535920FD446E00D7093E /* SignUpViewController.m */; };
+		6CC2535D20FD48CD00D7093E /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535C20FD48CD00D7093E /* CitiesViewController.m */; };
 		8A6689F27BF93C7B44C4034D /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5A7B8164B3D985B4482606 /* libPods-spotUs.a */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,8 @@
 		6CC2535620FD39AD00D7093E /* ErrorAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorAlert.m; sourceTree = "<group>"; };
 		6CC2535820FD446E00D7093E /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		6CC2535920FD446E00D7093E /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		6CC2535B20FD48CD00D7093E /* CitiesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitiesViewController.h; sourceTree = "<group>"; };
+		6CC2535C20FD48CD00D7093E /* CitiesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
 		92D5B60A1BB3A5A6DD90A307 /* Pods-spotUsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsTests/Pods-spotUsTests.release.xcconfig"; sourceTree = "<group>"; };
 		BA7B2F43A9D0AA143EDE2F37 /* Pods-spotUsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsUITests/Pods-spotUsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BBEAC91EB91AEDCCEFADB261 /* Pods-spotUsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsUITests/Pods-spotUsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +207,8 @@
 				6CC2535620FD39AD00D7093E /* ErrorAlert.m */,
 				6CC2535820FD446E00D7093E /* SignUpViewController.h */,
 				6CC2535920FD446E00D7093E /* SignUpViewController.m */,
+				6CC2535B20FD48CD00D7093E /* CitiesViewController.h */,
+				6CC2535C20FD48CD00D7093E /* CitiesViewController.m */,
 			);
 			path = spotUs;
 			sourceTree = "<group>";
@@ -476,6 +481,7 @@
 				3E3953BB20EFE6F800D0FF7D /* main.m in Sources */,
 				6CC2534A20FD08D500D7093E /* City.m in Sources */,
 				6CC2534E20FD353500D7093E /* Track.m in Sources */,
+				6CC2535D20FD48CD00D7093E /* CitiesViewController.m in Sources */,
 				6CC2535120FD36E900D7093E /* LoginViewController.m in Sources */,
 				3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */,
 				06F6BD6220FD102500E85B28 /* PlayerView.m in Sources */,
