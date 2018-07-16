@@ -25,6 +25,9 @@
 		3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */; };
 		446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */; };
 		6CC2534A20FD08D500D7093E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2534920FD08D500D7093E /* City.m */; };
+		6CC2534E20FD353500D7093E /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2534D20FD353500D7093E /* Track.m */; };
+		6CC2535120FD36E900D7093E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535020FD36E900D7093E /* LoginViewController.m */; };
+		6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535620FD39AD00D7093E /* ErrorAlert.m */; };
 		8A6689F27BF93C7B44C4034D /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5A7B8164B3D985B4482606 /* libPods-spotUs.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +80,12 @@
 		3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIStoryboard.storyboard; sourceTree = "<group>"; };
 		6CC2534820FD08D500D7093E /* City.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
 		6CC2534920FD08D500D7093E /* City.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		6CC2534C20FD353500D7093E /* Track.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		6CC2534D20FD353500D7093E /* Track.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
+		6CC2534F20FD36E900D7093E /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		6CC2535020FD36E900D7093E /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		6CC2535520FD39AD00D7093E /* ErrorAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorAlert.h; sourceTree = "<group>"; };
+		6CC2535620FD39AD00D7093E /* ErrorAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorAlert.m; sourceTree = "<group>"; };
 		92D5B60A1BB3A5A6DD90A307 /* Pods-spotUsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsTests/Pods-spotUsTests.release.xcconfig"; sourceTree = "<group>"; };
 		BA7B2F43A9D0AA143EDE2F37 /* Pods-spotUsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsUITests/Pods-spotUsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BBEAC91EB91AEDCCEFADB261 /* Pods-spotUsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsUITests/Pods-spotUsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +195,10 @@
 				3E3953B920EFE6F800D0FF7D /* Info.plist */,
 				3E3953BA20EFE6F800D0FF7D /* main.m */,
 				06F6BD5020FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard */,
+				6CC2534F20FD36E900D7093E /* LoginViewController.h */,
+				6CC2535020FD36E900D7093E /* LoginViewController.m */,
+				6CC2535520FD39AD00D7093E /* ErrorAlert.h */,
+				6CC2535620FD39AD00D7093E /* ErrorAlert.m */,
 			);
 			path = spotUs;
 			sourceTree = "<group>";
@@ -213,6 +226,8 @@
 			children = (
 				6CC2534820FD08D500D7093E /* City.h */,
 				6CC2534920FD08D500D7093E /* City.m */,
+				6CC2534C20FD353500D7093E /* Track.h */,
+				6CC2534D20FD353500D7093E /* Track.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -452,8 +467,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E3953B020EFE6F800D0FF7D /* ViewController.m in Sources */,
+				6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */,
 				3E3953BB20EFE6F800D0FF7D /* main.m in Sources */,
 				6CC2534A20FD08D500D7093E /* City.m in Sources */,
+				6CC2534E20FD353500D7093E /* Track.m in Sources */,
+				6CC2535120FD36E900D7093E /* LoginViewController.m in Sources */,
 				3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */,
 				06F6BD6220FD102500E85B28 /* PlayerView.m in Sources */,
 			);

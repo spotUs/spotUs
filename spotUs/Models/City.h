@@ -11,7 +11,10 @@
 
 @interface City : PFObject <PFSubclassing>
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic) CLLocationCoordinate2D location;
+@property (nonatomic) double lat;
+@property (nonatomic) double lng;
 @property (nonatomic, strong) NSArray *tracks;
+
++ (void) addNewCity: ( NSString *)name atLat:(double)lat andLng:(double)lng withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 @end
