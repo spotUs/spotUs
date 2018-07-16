@@ -158,7 +158,6 @@
 		3E39539F20EFE6F800D0FF7D = {
 			isa = PBXGroup;
 			children = (
-				3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */,
 				06F6BD3F20FCFC9700E85B28 /* Frameworks */,
 				3E3953AA20EFE6F800D0FF7D /* spotUs */,
 				3E3953C320EFE6F800D0FF7D /* spotUsTests */,
@@ -190,6 +189,7 @@
 				3E3953AE20EFE6F800D0FF7D /* ViewController.h */,
 				3E3953AF20EFE6F800D0FF7D /* ViewController.m */,
 				3E3953B120EFE6F800D0FF7D /* Main.storyboard */,
+				3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */,
 				3E3953B420EFE6F800D0FF7D /* Assets.xcassets */,
 				3E3953B620EFE6F800D0FF7D /* LaunchScreen.storyboard */,
 				3E3953B920EFE6F800D0FF7D /* Info.plist */,
