@@ -9,10 +9,21 @@
 #import "City.h"
 
 @implementation City
-@dynamic name;
+@dynamic name, lat, lng, tracks;
 
 + (nonnull NSString *)parseClassName {
     return @"City";
+}
+
++ (void) addNewCity: (NSString *)name atLat:(double)lat andLng:(double)lng withCompletion: (PFBooleanResultBlock  _Nullable)completion {
+    
+    City *newCity = [[City alloc] init];
+    newCity.name = name;
+    newCity.lat = lat;
+    newCity.lng = lng;
+    newCity.tracks = [NSArray array];
+    
+    [newCity saveInBackgroundWithBlock: completion];
 }
 
 @end
