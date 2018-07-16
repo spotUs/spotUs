@@ -27,24 +27,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)registerUser {
-    // initialize a user object
-    PFUser *newUser = [PFUser user];
-    // set user properties
-    newUser.username = self.usernameField.text;
-    newUser.password = self.passwordField.text;
-    // call sign up function on the object
-    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-        if (error != nil) {
-            NSLog(@"Error: %@", error.localizedDescription);
-            [ErrorAlert showAlert:error.localizedDescription inVC:self];
-        } else {
-            NSLog(@"User registered successfully");
-            //TODO PERFORM SEGUE TO HOMEPAGE OR SOMETHING
-            //[self performSegueWithIdentifier:@"signupdetailsegue" sender:nil];
-        }
-    }];
-}
+
 
 - (void)loginUser {
     NSString *username = self.usernameField.text;
@@ -60,6 +43,11 @@
         }
     }];
 }
+
+- (IBAction)onTapLogin:(id)sender {
+    [self loginUser];
+}
+
 
 /*
 #pragma mark - Navigation
