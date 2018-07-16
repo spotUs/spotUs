@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "PlayerViewController.h"
+#import "PlayerView.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) SPTAuth *auth;
@@ -43,6 +43,14 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self startAuthenticationFlow];
     });
+    
+    //Parse setup
+    ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+        configuration.applicationId = @"spotusapp";
+        configuration.clientKey = @"fbuinterns";
+        configuration.server = @"https://spotusapp.herokuapp.com/parse";
+    }];
+    [Parse initializeWithConfiguration:config];
     
     return YES;
 }
@@ -91,7 +99,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SpotifyLoginStoryBoard" bundle:nil];
     UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"spotify"];
     
-    PlayerViewController *playerView = (PlayerViewController*)navigationController.topViewController;
+    PlayerView *playerView = (PlayerView*)navigationController.topViewController;
     playerView.player = self.player;
     self.window.rootViewController = navigationController;
 

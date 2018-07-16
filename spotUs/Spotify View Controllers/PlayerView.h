@@ -1,5 +1,5 @@
 //
-//  PlayerViewController.h
+//  PlayerView.h
 //  spotUs
 //
 //  Created by Martin Winton on 7/16/18.
@@ -10,9 +10,10 @@
 #import <SpotifyAuthentication/SpotifyAuthentication.h>
 #import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
 #import <SafariServices/SafariServices.h>
+#import <Parse/Parse.h>
 
 
-@interface PlayerViewController : UIViewController
+@interface PlayerView : UIViewController
 @property (nonatomic, strong) SPTAudioStreamingController *player;
 
 

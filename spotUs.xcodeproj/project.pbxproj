@@ -12,7 +12,7 @@
 		06F6BD4D20FD055200E85B28 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4C20FD055200E85B28 /* AVFoundation.framework */; };
 		06F6BD4F20FD055C00E85B28 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4E20FD055C00E85B28 /* SystemConfiguration.framework */; };
 		06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F6BD5020FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard */; };
-		06F6BD5520FD0A5F00E85B28 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F6BD5420FD0A5F00E85B28 /* PlayerViewController.m */; };
+		06F6BD6220FD102500E85B28 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F6BD6120FD102500E85B28 /* PlayerView.m */; };
 		1F7879FDCD98413FDA8910D5 /* libPods-spotUsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3AA8DA663A100D73310B19 /* libPods-spotUsUITests.a */; };
 		3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953AC20EFE6F800D0FF7D /* AppDelegate.m */; };
 		3E3953B020EFE6F800D0FF7D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953AF20EFE6F800D0FF7D /* ViewController.m */; };
@@ -23,6 +23,7 @@
 		3E3953C520EFE6F800D0FF7D /* spotUsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953C420EFE6F800D0FF7D /* spotUsTests.m */; };
 		3E3953D020EFE6F800D0FF7D /* spotUsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953CF20EFE6F800D0FF7D /* spotUsUITests.m */; };
 		446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */; };
+		6CC2534A20FD08D500D7093E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2534920FD08D500D7093E /* City.m */; };
 		8A6689F27BF93C7B44C4034D /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5A7B8164B3D985B4482606 /* libPods-spotUs.a */; };
 /* End PBXBuildFile section */
 
@@ -49,8 +50,10 @@
 		06F6BD4C20FD055200E85B28 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		06F6BD4E20FD055C00E85B28 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		06F6BD5020FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpotifyLoginStoryBoard.storyboard; sourceTree = "<group>"; };
-		06F6BD5320FD0A5F00E85B28 /* PlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		06F6BD5420FD0A5F00E85B28 /* PlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		06F6BD6020FD102500E85B28 /* PlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
+		06F6BD6120FD102500E85B28 /* PlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
+		06F6BD6320FD11DF00E85B28 /* libParse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libParse.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BEF20B752E7D336A9D98788 /* Pods-spotUsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsTests/Pods-spotUsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		119C420030297941D494C2F7 /* Pods-spotUs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUs.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUs/Pods-spotUs.release.xcconfig"; sourceTree = "<group>"; };
 		2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +73,8 @@
 		3E3953CB20EFE6F800D0FF7D /* spotUsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spotUsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E3953CF20EFE6F800D0FF7D /* spotUsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = spotUsUITests.m; sourceTree = "<group>"; };
 		3E3953D120EFE6F800D0FF7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CC2534820FD08D500D7093E /* City.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		6CC2534920FD08D500D7093E /* City.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		92D5B60A1BB3A5A6DD90A307 /* Pods-spotUsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsTests/Pods-spotUsTests.release.xcconfig"; sourceTree = "<group>"; };
 		BA7B2F43A9D0AA143EDE2F37 /* Pods-spotUsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsUITests/Pods-spotUsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BBEAC91EB91AEDCCEFADB261 /* Pods-spotUsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsUITests/Pods-spotUsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +118,7 @@
 		06F6BD3F20FCFC9700E85B28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				06F6BD6320FD11DF00E85B28 /* libParse.a */,
 				06F6BD4E20FD055C00E85B28 /* SystemConfiguration.framework */,
 				06F6BD4C20FD055200E85B28 /* AVFoundation.framework */,
 				06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */,
@@ -121,13 +127,21 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
-		06F6BD5220FD0A3800E85B28 /* View Controllers */ = {
+		06F6BD5620FD0E7A00E85B28 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				06F6BD5320FD0A5F00E85B28 /* PlayerViewController.h */,
 				06F6BD5420FD0A5F00E85B28 /* PlayerViewController.m */,
 			);
-			path = "View Controllers";
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		06F6BD5C20FD0F4400E85B28 /* Spotify View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				06F6BD6020FD102500E85B28 /* PlayerView.h */,
+				06F6BD6120FD102500E85B28 /* PlayerView.m */,
+			);
+			path = "Spotify View Controllers";
 			sourceTree = "<group>";
 		};
 		3E39539F20EFE6F800D0FF7D = {
@@ -140,6 +154,7 @@
 				3E3953A920EFE6F800D0FF7D /* Products */,
 				E0EE4162A9BF84223A4FBC30 /* Pods */,
 				A92BF87CE19CDA4C03DCAA09 /* Frameworks */,
+				06F6BD5620FD0E7A00E85B28 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,7 +171,8 @@
 		3E3953AA20EFE6F800D0FF7D /* spotUs */ = {
 			isa = PBXGroup;
 			children = (
-				06F6BD5220FD0A3800E85B28 /* View Controllers */,
+				06F6BD5C20FD0F4400E85B28 /* Spotify View Controllers */,
+				6CC2534B20FD08E300D7093E /* Models */,
 				3E3953AB20EFE6F800D0FF7D /* AppDelegate.h */,
 				3E3953AC20EFE6F800D0FF7D /* AppDelegate.m */,
 				3E3953AE20EFE6F800D0FF7D /* ViewController.h */,
@@ -187,6 +203,15 @@
 				3E3953D120EFE6F800D0FF7D /* Info.plist */,
 			);
 			path = spotUsUITests;
+			sourceTree = "<group>";
+		};
+		6CC2534B20FD08E300D7093E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6CC2534820FD08D500D7093E /* City.h */,
+				6CC2534920FD08D500D7093E /* City.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A92BF87CE19CDA4C03DCAA09 /* Frameworks */ = {
@@ -423,9 +448,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E3953B020EFE6F800D0FF7D /* ViewController.m in Sources */,
-				06F6BD5520FD0A5F00E85B28 /* PlayerViewController.m in Sources */,
 				3E3953BB20EFE6F800D0FF7D /* main.m in Sources */,
+				6CC2534A20FD08D500D7093E /* City.m in Sources */,
 				3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */,
+				06F6BD6220FD102500E85B28 /* PlayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,7 +632,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = Codepath.spotUs432432;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -629,7 +654,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				"OTHER_LDFLAGS[arch=*]" = "-Objc";
 				PRODUCT_BUNDLE_IDENTIFIER = Codepath.spotUs432432;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

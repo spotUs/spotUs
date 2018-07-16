@@ -10,6 +10,7 @@
 #import <SpotifyAuthentication/SpotifyAuthentication.h>
 #import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
 #import <SafariServices/SafariServices.h>
+#import <Parse/Parse.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, SPTAudioStreamingDelegate>
 

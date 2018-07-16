@@ -1,18 +1,18 @@
 //
-//  PlayerViewController.m
+//  PlayerView.m
 //  spotUs
 //
 //  Created by Martin Winton on 7/16/18.
 //  Copyright © 2018 Lizbeth Alejandra Gonzalez. All rights reserved.
 //
 
-#import "PlayerViewController.h"
+#import "PlayerView.h"
 
-@interface PlayerViewController () <SPTAudioStreamingDelegate>
+@interface PlayerView ()
 
 @end
 
-@implementation PlayerViewController
+@implementation PlayerView
 
 - (void)viewDidLoad {
     [super viewDidLoad];
