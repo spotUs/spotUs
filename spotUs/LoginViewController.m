@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "ErrorAlert.h"
 
 @interface LoginViewController ()
 //TODO CONNECT THESE
@@ -36,7 +37,7 @@
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
-            //[ErrorAlert showAlert:error.localizedDescription inVC:self];
+            [ErrorAlert showAlert:error.localizedDescription inVC:self];
         } else {
             NSLog(@"User registered successfully");
             //TODO PERFORM SEGUE TO HOMEPAGE OR SOMETHING
@@ -51,7 +52,7 @@
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
             NSLog(@"User log in failed: %@", error.localizedDescription);
-            //[ErrorAlert showAlert:error.localizedDescription inVC:self];
+            [ErrorAlert showAlert:error.localizedDescription inVC:self];
         } else {
             NSLog(@"User logged in successfully");
             //TODO perform segue to HOME PAGE OR SOMETHING
