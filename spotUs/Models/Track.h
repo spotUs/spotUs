@@ -11,5 +11,6 @@
 
 @interface Track : PFObject <PFSubclassing>
 @property (nonatomic, strong) NSString *spotifyID;
++ (void) addNewTrack: (NSString *)spotifyID withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 @end

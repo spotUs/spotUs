@@ -15,4 +15,11 @@
     return @"Track";
 }
 
++ (void) addNewTrack: (NSString *)spotifyID withCompletion: (PFBooleanResultBlock  _Nullable)completion{
+    Track *newTrack = [[Track alloc] init];
+    newTrack.spotifyID = spotifyID;
+    [newTrack saveInBackgroundWithBlock:completion];
+}
+
+
 @end
