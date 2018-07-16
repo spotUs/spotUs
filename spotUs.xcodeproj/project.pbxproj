@@ -21,6 +21,7 @@
 		3E3953C520EFE6F800D0FF7D /* spotUsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953C420EFE6F800D0FF7D /* spotUsTests.m */; };
 		3E3953D020EFE6F800D0FF7D /* spotUsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953CF20EFE6F800D0FF7D /* spotUsUITests.m */; };
 		446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */; };
+		6CC2534620FD083C00D7093E /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 6CC2534520FD083C00D7093E /* Models */; };
 		8A6689F27BF93C7B44C4034D /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5A7B8164B3D985B4482606 /* libPods-spotUs.a */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		3E3953CB20EFE6F800D0FF7D /* spotUsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spotUsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E3953CF20EFE6F800D0FF7D /* spotUsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = spotUsUITests.m; sourceTree = "<group>"; };
 		3E3953D120EFE6F800D0FF7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CC2534520FD083C00D7093E /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
 		92D5B60A1BB3A5A6DD90A307 /* Pods-spotUsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsTests/Pods-spotUsTests.release.xcconfig"; sourceTree = "<group>"; };
 		BA7B2F43A9D0AA143EDE2F37 /* Pods-spotUsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsUITests/Pods-spotUsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BBEAC91EB91AEDCCEFADB261 /* Pods-spotUsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsUITests/Pods-spotUsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		3E3953AA20EFE6F800D0FF7D /* spotUs */ = {
 			isa = PBXGroup;
 			children = (
+				6CC2534520FD083C00D7093E /* Models */,
 				3E3953AB20EFE6F800D0FF7D /* AppDelegate.h */,
 				3E3953AC20EFE6F800D0FF7D /* AppDelegate.m */,
 				3E3953AE20EFE6F800D0FF7D /* ViewController.h */,
@@ -305,6 +308,7 @@
 			files = (
 				3E3953B820EFE6F800D0FF7D /* LaunchScreen.storyboard in Resources */,
 				3E3953B520EFE6F800D0FF7D /* Assets.xcassets in Resources */,
+				6CC2534620FD083C00D7093E /* Models in Resources */,
 				3E3953B320EFE6F800D0FF7D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
