@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SpotifyAuthentication/SpotifyAuthentication.h>
+#import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
+#import <SafariServices/SafariServices.h>
+
 
 @interface PlayerViewController : UIViewController
+@property (nonatomic, strong) SPTAudioStreamingController *player;
+
 
 @end

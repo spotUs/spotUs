@@ -11,6 +11,8 @@
 		06F6BD4B20FD050300E85B28 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */; };
 		06F6BD4D20FD055200E85B28 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4C20FD055200E85B28 /* AVFoundation.framework */; };
 		06F6BD4F20FD055C00E85B28 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4E20FD055C00E85B28 /* SystemConfiguration.framework */; };
+		06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F6BD5020FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard */; };
+		06F6BD5520FD0A5F00E85B28 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F6BD5420FD0A5F00E85B28 /* PlayerViewController.m */; };
 		1F7879FDCD98413FDA8910D5 /* libPods-spotUsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3AA8DA663A100D73310B19 /* libPods-spotUsUITests.a */; };
 		3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953AC20EFE6F800D0FF7D /* AppDelegate.m */; };
 		3E3953B020EFE6F800D0FF7D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953AF20EFE6F800D0FF7D /* ViewController.m */; };
@@ -46,6 +48,9 @@
 		06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
 		06F6BD4C20FD055200E85B28 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		06F6BD4E20FD055C00E85B28 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		06F6BD5020FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpotifyLoginStoryBoard.storyboard; sourceTree = "<group>"; };
+		06F6BD5320FD0A5F00E85B28 /* PlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		06F6BD5420FD0A5F00E85B28 /* PlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		0BEF20B752E7D336A9D98788 /* Pods-spotUsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsTests/Pods-spotUsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		119C420030297941D494C2F7 /* Pods-spotUs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUs.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUs/Pods-spotUs.release.xcconfig"; sourceTree = "<group>"; };
 		2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +121,15 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
+		06F6BD5220FD0A3800E85B28 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				06F6BD5320FD0A5F00E85B28 /* PlayerViewController.h */,
+				06F6BD5420FD0A5F00E85B28 /* PlayerViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		3E39539F20EFE6F800D0FF7D = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +156,7 @@
 		3E3953AA20EFE6F800D0FF7D /* spotUs */ = {
 			isa = PBXGroup;
 			children = (
+				06F6BD5220FD0A3800E85B28 /* View Controllers */,
 				3E3953AB20EFE6F800D0FF7D /* AppDelegate.h */,
 				3E3953AC20EFE6F800D0FF7D /* AppDelegate.m */,
 				3E3953AE20EFE6F800D0FF7D /* ViewController.h */,
@@ -151,6 +166,7 @@
 				3E3953B620EFE6F800D0FF7D /* LaunchScreen.storyboard */,
 				3E3953B920EFE6F800D0FF7D /* Info.plist */,
 				3E3953BA20EFE6F800D0FF7D /* main.m */,
+				06F6BD5020FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard */,
 			);
 			path = spotUs;
 			sourceTree = "<group>";
@@ -303,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
 				3E3953B820EFE6F800D0FF7D /* LaunchScreen.storyboard in Resources */,
 				3E3953B520EFE6F800D0FF7D /* Assets.xcassets in Resources */,
 				3E3953B320EFE6F800D0FF7D /* Main.storyboard in Resources */,
@@ -406,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E3953B020EFE6F800D0FF7D /* ViewController.m in Sources */,
+				06F6BD5520FD0A5F00E85B28 /* PlayerViewController.m in Sources */,
 				3E3953BB20EFE6F800D0FF7D /* main.m in Sources */,
 				3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */,
 			);

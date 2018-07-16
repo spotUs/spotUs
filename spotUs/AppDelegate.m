@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "PlayerViewController.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) SPTAuth *auth;
@@ -83,13 +84,18 @@
     return NO;
 }
 
+
+
 - (void)audioStreamingDidLogin:(SPTAudioStreamingController *)audioStreaming {
-    [self.player playSpotifyURI:@"spotify:track:58s6EuEYJdlb0kO7awm3Vp" startingWithIndex:0 startingWithPosition:0 callback:^(NSError *error) {
-        if (error != nil) {
-            NSLog(@"*** failed to play: %@", error);
-            return;
-        }
-    }];
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SpotifyLoginStoryBoard" bundle:nil];
+    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"spotify"];
+    
+    PlayerViewController *playerView = (PlayerViewController*)navigationController.topViewController;
+    playerView.player = self.player;
+    self.window.rootViewController = navigationController;
+
+    
 }
 
 

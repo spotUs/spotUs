@@ -8,7 +8,7 @@
 
 #import "PlayerViewController.h"
 
-@interface PlayerViewController ()
+@interface PlayerViewController () <SPTAudioStreamingDelegate>
 
 @end
 
@@ -16,6 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.player playSpotifyURI:@"spotify:track:58s6EuEYJdlb0kO7awm3Vp" startingWithIndex:0 startingWithPosition:0 callback:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"*** failed to play: %@", error);
+            return;
+        }
+    }];
     // Do any additional setup after loading the view.
 }
 
