@@ -9,16 +9,58 @@
 #import "PlayerView.h"
 
 
-@interface PlayerView ()
-@property (nonatomic, strong) NSArray *songs;
+@interface PlayerView () <SPTAudioStreamingPlaybackDelegate>
+@property (nonatomic, strong) NSArray<SPTSavedTrack*> *songs;
+@property (weak, nonatomic) IBOutlet UIImageView *songImage;
+@property (weak, nonatomic) IBOutlet UILabel *songTitle;
+@property BOOL isPlaying;
 
 
 @end
 
 @implementation PlayerView
+- (IBAction)goFoward:(id)sender {
+    
+    [self.player skipNext:^(NSError *error) {
+        
+    }];
+}
+- (IBAction)goBack:(id)sender {
+    
+    [self.player skipPrevious:^(NSError *error) {
+        
+    }];
+}
+- (IBAction)pauseOrUnpause:(id)sender {
+    
+    if(self.isPlaying){
+        
+        [self.player setIsPlaying:NO callback:nil];
+        self.isPlaying = NO;
+    }
+    
+    else{
+        [self.player setIsPlaying:YES callback:nil];
+        self.isPlaying = YES;
+        
+    }
+    
+    
+}
+
+- (void)audioStreamingDidSkipToNextTrack:(SPTAudioStreamingController *)audioStreaming{
+    
+    SPTPlaybackMetadata *metedata = audioStreaming.metadata;
+    
+    
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.isPlaying = NO;
+    self.player.playbackDelegate = self;
     
     
 
@@ -34,10 +76,30 @@
         
         self.songs = musicPages.items;
         
-    }];
-    
+        
+        for(SPTSavedTrack *song in self.songs){
+       
+
+            
+            NSString *playRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song.identifier];
+            [self.player queueSpotifyURI:playRequest callback:nil];
+
+
+            
+            
+        }
+        SPTPlaybackMetadata *metedata = self.player.metadata;
+
+
    
 
+        
+        
+        
+    
+    }];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
