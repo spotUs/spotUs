@@ -276,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FHW-XV-20x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="834" y="1343"/>
+            <point key="canvasLocation" x="5298" y="1370"/>
         </scene>
         <!--MapViewController-->
         <scene sceneID="IoK-ap-Grt">
@@ -376,6 +376,9 @@
                     <navigationItem key="navigationItem" id="03T-GP-Inl">
                         <barButtonItem key="leftBarButtonItem" title="Profile" id="O9J-pA-uvu"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="3Bs-Rn-4eK" kind="show" id="ClC-0H-Aur"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vfg-pu-yUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -388,6 +391,27 @@
                     <view key="view" contentMode="scaleToFill" id="Vpr-Jh-Oxr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QEC-eq-v6b">
+                                <rect key="frame" x="73" y="159" width="228" height="193"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhU-lg-HCH">
+                                <rect key="frame" x="73" y="421" width="58" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Screen Shot 2018-07-16 at 3.38.25 PM"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5M-BV-GIm">
+                                <rect key="frame" x="241" y="429" width="60" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Screen Shot 2018-07-16 at 3.38.38 PM"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLj-di-Z6i">
+                                <rect key="frame" x="167" y="427" width="41" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Screen Shot 2018-07-16 at 3.38.33 PM"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="t9X-qF-mhO"/>
                     </view>
@@ -506,7 +530,6 @@
         <!--ProfileViewController-->
         <scene sceneID="3qa-mF-fmj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wv6-Vu-bQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController title="ProfileViewController" automaticallyAdjustsScrollViewInsets="NO" id="yDi-KI-AW6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="g1f-Hi-cWu">
@@ -518,6 +541,7 @@
                         <segue destination="AcT-a9-Jv0" kind="relationship" relationship="rootViewController" id="WfC-md-9Zx"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wv6-Vu-bQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-108" y="-322"/>
         </scene>
@@ -544,6 +568,9 @@
         <image name="Screen Shot 2018-07-16 at 2.43.26 PM" width="98" height="102"/>
         <image name="Screen Shot 2018-07-16 at 2.43.49 PM" width="98" height="98"/>
         <image name="Screen Shot 2018-07-16 at 3.02.06 PM" width="212" height="232"/>
+        <image name="Screen Shot 2018-07-16 at 3.38.25 PM" width="80" height="64"/>
+        <image name="Screen Shot 2018-07-16 at 3.38.33 PM" width="90" height="88"/>
+        <image name="Screen Shot 2018-07-16 at 3.38.38 PM" width="80" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jcW-Y1-Yda"/>
