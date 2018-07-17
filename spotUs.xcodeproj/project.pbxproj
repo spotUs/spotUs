@@ -39,6 +39,7 @@
 		6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535620FD39AD00D7093E /* ErrorAlert.m */; };
 		6CC2535A20FD446E00D7093E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535920FD446E00D7093E /* SignUpViewController.m */; };
 		6CC2535D20FD48CD00D7093E /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535C20FD48CD00D7093E /* CitiesViewController.m */; };
+		6CC253A520FEB5D200D7093E /* SearchCitiesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC253A420FEB5D200D7093E /* SearchCitiesStoryboard.storyboard */; };
 		7D5D621B1CE2895F2D45F143 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8A6689F27BF93C7B44C4034D /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5A7B8164B3D985B4482606 /* libPods-spotUs.a */; };
 /* End PBXBuildFile section */
@@ -113,6 +114,7 @@
 		6CC2535920FD446E00D7093E /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		6CC2535B20FD48CD00D7093E /* CitiesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitiesViewController.h; sourceTree = "<group>"; };
 		6CC2535C20FD48CD00D7093E /* CitiesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
+		6CC253A420FEB5D200D7093E /* SearchCitiesStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchCitiesStoryboard.storyboard; sourceTree = "<group>"; };
 		92D5B60A1BB3A5A6DD90A307 /* Pods-spotUsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsTests/Pods-spotUsTests.release.xcconfig"; sourceTree = "<group>"; };
 		A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA7B2F43A9D0AA143EDE2F37 /* Pods-spotUsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsUITests/Pods-spotUsUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				6CC2535920FD446E00D7093E /* SignUpViewController.m */,
 				6CC2535B20FD48CD00D7093E /* CitiesViewController.h */,
 				6CC2535C20FD48CD00D7093E /* CitiesViewController.m */,
+				6CC253A420FEB5D200D7093E /* SearchCitiesStoryboard.storyboard */,
 			);
 			path = spotUs;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				3E35631420FEB08600DDAA9E /* MapStoryboard.storyboard in Resources */,
 				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
 				3E3953B820EFE6F800D0FF7D /* LaunchScreen.storyboard in Resources */,
+				6CC253A520FEB5D200D7093E /* SearchCitiesStoryboard.storyboard in Resources */,
 				3E3953B520EFE6F800D0FF7D /* Assets.xcassets in Resources */,
 				3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */,
 				3E3953B320EFE6F800D0FF7D /* Main.storyboard in Resources */,
