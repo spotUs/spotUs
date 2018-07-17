@@ -14,13 +14,10 @@
 		06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F6BD5020FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard */; };
 		06F6BD6220FD102500E85B28 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F6BD6120FD102500E85B28 /* PlayerView.m */; };
 		06F6BD6620FD363A00E85B28 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD6520FD363A00E85B28 /* SpotifyMetadata.framework */; };
+		06F6BD7420FE6C0C00E85B28 /* SpotifyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F6BD7320FE6C0C00E85B28 /* SpotifyLoginViewController.m */; };
 		1F7879FDCD98413FDA8910D5 /* libPods-spotUsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3AA8DA663A100D73310B19 /* libPods-spotUsUITests.a */; };
 		33E4FAB924A352B967529EFE /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */; };
 		3E35628A20FE53AE00DDAA9E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E35628920FE53AE00DDAA9E /* MapKit.framework */; };
-		3E35629920FE584400DDAA9E /* MapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E35629820FE584400DDAA9E /* MapStoryboard.storyboard */; };
-		3E3562A020FE5BDE00DDAA9E /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35629F20FE5BDE00DDAA9E /* PhotoMapViewController.m */; };
-		3E3562A220FE5BF200DDAA9E /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3562A120FE5BF200DDAA9E /* LocationsViewController.m */; };
-		3E3562A520FE5C2100DDAA9E /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3562A420FE5C2100DDAA9E /* LocationCell.m */; };
 		3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953AC20EFE6F800D0FF7D /* AppDelegate.m */; };
 		3E3953B020EFE6F800D0FF7D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953AF20EFE6F800D0FF7D /* ViewController.m */; };
 		3E3953B320EFE6F800D0FF7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E3953B120EFE6F800D0FF7D /* Main.storyboard */; };
@@ -38,7 +35,6 @@
 		6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535620FD39AD00D7093E /* ErrorAlert.m */; };
 		6CC2535A20FD446E00D7093E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535920FD446E00D7093E /* SignUpViewController.m */; };
 		6CC2535D20FD48CD00D7093E /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535C20FD48CD00D7093E /* CitiesViewController.m */; };
-		6CC2536320FE5CE800D7093E /* SearchCitiesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC2536220FE5CE800D7093E /* SearchCitiesStoryboard.storyboard */; };
 		7D5D621B1CE2895F2D45F143 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8A6689F27BF93C7B44C4034D /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5A7B8164B3D985B4482606 /* libPods-spotUs.a */; };
 /* End PBXBuildFile section */
@@ -71,17 +67,12 @@
 		06F6BD6120FD102500E85B28 /* PlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
 		06F6BD6320FD11DF00E85B28 /* libParse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libParse.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		06F6BD6520FD363A00E85B28 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
+		06F6BD7220FE6C0C00E85B28 /* SpotifyLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpotifyLoginViewController.h; sourceTree = "<group>"; };
+		06F6BD7320FE6C0C00E85B28 /* SpotifyLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpotifyLoginViewController.m; sourceTree = "<group>"; };
 		0BEF20B752E7D336A9D98788 /* Pods-spotUsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsTests/Pods-spotUsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		119C420030297941D494C2F7 /* Pods-spotUs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUs.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUs/Pods-spotUs.release.xcconfig"; sourceTree = "<group>"; };
 		2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E35628920FE53AE00DDAA9E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		3E35629820FE584400DDAA9E /* MapStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapStoryboard.storyboard; sourceTree = "<group>"; };
-		3E35629D20FE5BB900DDAA9E /* LocationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LocationsViewController.h; path = "../../../../Downloads/fbu_ios_photomap_objc-starter-project 2/PhotoMap/View Controllers/LocationsViewController.h"; sourceTree = "<group>"; };
-		3E35629E20FE5BD100DDAA9E /* PhotoMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PhotoMapViewController.h; path = "../../../../Downloads/fbu_ios_photomap_objc-starter-project 2/PhotoMap/View Controllers/PhotoMapViewController.h"; sourceTree = "<group>"; };
-		3E35629F20FE5BDE00DDAA9E /* PhotoMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoMapViewController.m; path = "../../../../Downloads/fbu_ios_photomap_objc-starter-project 2/PhotoMap/View Controllers/PhotoMapViewController.m"; sourceTree = "<group>"; };
-		3E3562A120FE5BF200DDAA9E /* LocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationsViewController.m; path = "../../../../Downloads/fbu_ios_photomap_objc-starter-project 2/PhotoMap/View Controllers/LocationsViewController.m"; sourceTree = "<group>"; };
-		3E3562A320FE5C1700DDAA9E /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LocationCell.h; path = "../../../../Downloads/fbu_ios_photomap_objc-starter-project 2/PhotoMap/Views/LocationCell.h"; sourceTree = "<group>"; };
-		3E3562A420FE5C2100DDAA9E /* LocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationCell.m; path = "../../../../Downloads/fbu_ios_photomap_objc-starter-project 2/PhotoMap/Views/LocationCell.m"; sourceTree = "<group>"; };
 		3E3953A820EFE6F800D0FF7D /* spotUs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spotUs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E3953AB20EFE6F800D0FF7D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3E3953AC20EFE6F800D0FF7D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -111,7 +102,6 @@
 		6CC2535920FD446E00D7093E /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		6CC2535B20FD48CD00D7093E /* CitiesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitiesViewController.h; sourceTree = "<group>"; };
 		6CC2535C20FD48CD00D7093E /* CitiesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
-		6CC2536220FE5CE800D7093E /* SearchCitiesStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SearchCitiesStoryboard.storyboard; path = "../../../Desktop/untitled folder/SearchCitiesStoryboard.storyboard"; sourceTree = "<group>"; };
 		92D5B60A1BB3A5A6DD90A307 /* Pods-spotUsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsTests/Pods-spotUsTests.release.xcconfig"; sourceTree = "<group>"; };
 		A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA7B2F43A9D0AA143EDE2F37 /* Pods-spotUsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsUITests/Pods-spotUsUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +176,8 @@
 			children = (
 				06F6BD6020FD102500E85B28 /* PlayerView.h */,
 				06F6BD6120FD102500E85B28 /* PlayerView.m */,
+				06F6BD7220FE6C0C00E85B28 /* SpotifyLoginViewController.h */,
+				06F6BD7320FE6C0C00E85B28 /* SpotifyLoginViewController.m */,
 			);
 			path = "Spotify View Controllers";
 			sourceTree = "<group>";
@@ -197,40 +189,9 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		3E35628C20FE546400DDAA9E /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				3E35629820FE584400DDAA9E /* MapStoryboard.storyboard */,
-				3E35629420FE56A200DDAA9E /* Map Cells */,
-				3E35629320FE569500DDAA9E /* Map View Controllers */,
-			);
-			path = Map;
-			sourceTree = "<group>";
-		};
-		3E35629320FE569500DDAA9E /* Map View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				3E3562A120FE5BF200DDAA9E /* LocationsViewController.m */,
-				3E35629D20FE5BB900DDAA9E /* LocationsViewController.h */,
-				3E35629E20FE5BD100DDAA9E /* PhotoMapViewController.h */,
-				3E35629F20FE5BDE00DDAA9E /* PhotoMapViewController.m */,
-			);
-			path = "Map View Controllers";
-			sourceTree = "<group>";
-		};
-		3E35629420FE56A200DDAA9E /* Map Cells */ = {
-			isa = PBXGroup;
-			children = (
-				3E3562A320FE5C1700DDAA9E /* LocationCell.h */,
-				3E3562A420FE5C2100DDAA9E /* LocationCell.m */,
-			);
-			path = "Map Cells";
-			sourceTree = "<group>";
-		};
 		3E39539F20EFE6F800D0FF7D = {
 			isa = PBXGroup;
 			children = (
-				3E35628C20FE546400DDAA9E /* Map */,
 				06F6BD3F20FCFC9700E85B28 /* Frameworks */,
 				3E3953AA20EFE6F800D0FF7D /* spotUs */,
 				3E3953C320EFE6F800D0FF7D /* spotUsTests */,
@@ -277,7 +238,6 @@
 				6CC2535920FD446E00D7093E /* SignUpViewController.m */,
 				6CC2535B20FD48CD00D7093E /* CitiesViewController.h */,
 				6CC2535C20FD48CD00D7093E /* CitiesViewController.m */,
-				6CC2536220FE5CE800D7093E /* SearchCitiesStoryboard.storyboard */,
 			);
 			path = spotUs;
 			sourceTree = "<group>";
@@ -441,10 +401,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E35629920FE584400DDAA9E /* MapStoryboard.storyboard in Resources */,
 				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
 				3E3953B820EFE6F800D0FF7D /* LaunchScreen.storyboard in Resources */,
-				6CC2536320FE5CE800D7093E /* SearchCitiesStoryboard.storyboard in Resources */,
 				3E3953B520EFE6F800D0FF7D /* Assets.xcassets in Resources */,
 				3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */,
 				3E3953B320EFE6F800D0FF7D /* Main.storyboard in Resources */,
@@ -549,16 +507,14 @@
 			files = (
 				3E3953B020EFE6F800D0FF7D /* ViewController.m in Sources */,
 				6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */,
-				3E3562A520FE5C2100DDAA9E /* LocationCell.m in Sources */,
 				3E3953BB20EFE6F800D0FF7D /* main.m in Sources */,
 				6CC2534A20FD08D500D7093E /* City.m in Sources */,
 				6CC2534E20FD353500D7093E /* Track.m in Sources */,
-				3E3562A020FE5BDE00DDAA9E /* PhotoMapViewController.m in Sources */,
+				06F6BD7420FE6C0C00E85B28 /* SpotifyLoginViewController.m in Sources */,
 				6CC2535D20FD48CD00D7093E /* CitiesViewController.m in Sources */,
 				6CC2535120FD36E900D7093E /* LoginViewController.m in Sources */,
 				3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */,
 				06F6BD6220FD102500E85B28 /* PlayerView.m in Sources */,
-				3E3562A220FE5BF200DDAA9E /* LocationsViewController.m in Sources */,
 				6CC2535A20FD446E00D7093E /* SignUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

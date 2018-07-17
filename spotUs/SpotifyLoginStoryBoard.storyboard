@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oYG-NQ-pAP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -66,6 +66,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeN-2U-H7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="784.79999999999995" y="-93.103448275862078"/>
+        </scene>
+        <!--Spotify Login View Controller-->
+        <scene sceneID="ZK5-Aj-wSd">
+            <objects>
+                <viewController id="oYG-NQ-pAP" customClass="SpotifyLoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RYE-lP-Xct">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ANT-tI-hLJ"/>
+                    </view>
+                    <connections>
+                        <segue destination="XPD-Ur-ocQ" kind="show" identifier="spotify" id="Cj9-O6-jbv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7FW-Ms-hbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1007" y="-746"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sPQ-0I-Sd8">
