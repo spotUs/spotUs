@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *songImage;
 @property (weak, nonatomic) IBOutlet UILabel *songTitle;
 @property (weak, nonatomic) IBOutlet UILabel *albumTitleLabel;
+@property (weak, nonatomic) IBOutlet UISlider *musicSlider;
 @property BOOL isPlaying;
 
 @property int currentSongIndex;
@@ -52,19 +53,9 @@
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri{
     
-    
-    SPTPlaybackTrack *albumArtTrack = self.player.metadata.currentTrack;
-    self.songTitle.text = albumArtTrack.name;
-    self.albumTitleLabel.text = albumArtTrack.albumName;
-    
-    NSURL *albumURL = [NSURL URLWithString:albumArtTrack.albumCoverArtURL];
-    [self.songImage setImageWithURL:albumURL];
-    
-
+    [self refreshSongData];
     
     if(self.player.metadata.nextTrack == nil){
-        
-        
         
         SPTSavedTrack *song = self.songs[self.currentSongIndex];
         
@@ -82,14 +73,25 @@
     
 }
 - (void)audioStreamingDidSkipToNextTrack:(SPTAudioStreamingController *)audioStreaming{
+    
+    [self refreshSongData];
+    
+    
+}
+
+
+-(void)refreshSongData{
+    
     SPTPlaybackTrack *albumArtTrack = self.player.metadata.currentTrack;
     self.songTitle.text = albumArtTrack.name;
     self.albumTitleLabel.text = albumArtTrack.albumName;
-
+    
     
     NSURL *albumURL = [NSURL URLWithString:albumArtTrack.albumCoverArtURL];
     [self.songImage setImageWithURL:albumURL];
     
+    self.musicSlider.maximumValue = self.player.metadata.currentTrack.duration;
+
     
     
 }
@@ -101,6 +103,8 @@
     
     self.isPlaying = YES;
     self.player.playbackDelegate = self;
+    
+    self.musicSlider.minimumValue = 0.0;
     
     
     self.currentSongIndex = 1;

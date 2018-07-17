@@ -62,7 +62,7 @@
     }
 }
 
-// Handle auth callback
+// Handle from app delegate
 - (BOOL)finishAuthWithURL:(NSURL *)url
 
 {
@@ -109,8 +109,6 @@
     // Pass the selected object to the new view controller.
     
     UINavigationController *navigationController = [segue destinationViewController];
-
-    
     PlayerView *playerView = (PlayerView*)navigationController.topViewController;
     playerView.player = self.player;
     playerView.auth = self.auth;

@@ -25,7 +25,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hG-LN-kxo">
                                 <rect key="frame" x="42" y="552" width="108" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Pause/UnPause"/>
+                                <state key="normal" title="Pause/UnPause">
+                                    <color key="titleColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="pauseOrUnpause:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="UrC-KE-QRa"/>
                                 </connections>
@@ -33,7 +35,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fM-ey-pfd">
                                 <rect key="frame" x="255" y="560" width="56" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Forward"/>
+                                <state key="normal" title="Forward">
+                                    <color key="titleColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="goFoward:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="USo-qv-Tb0"/>
                                 </connections>
@@ -42,23 +46,28 @@
                                 <rect key="frame" x="53" y="503" width="268" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="54k-zG-om8">
+                                <rect key="frame" x="40" y="430" width="273" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGN-hr-Bq3">
                                 <rect key="frame" x="53" y="458" width="268" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <viewLayoutGuide key="safeArea" id="YK2-8l-QQs"/>
                     </view>
                     <navigationItem key="navigationItem" id="90T-dn-YMS"/>
                     <connections>
                         <outlet property="albumTitleLabel" destination="FB9-wG-eKh" id="Dby-wU-5nh"/>
+                        <outlet property="musicSlider" destination="54k-zG-om8" id="SZ1-oM-2De"/>
                         <outlet property="songImage" destination="wTs-Pr-lpJ" id="COv-QJ-Y5F"/>
                         <outlet property="songTitle" destination="SGN-hr-Bq3" id="VEc-bf-xW1"/>
                     </connections>
