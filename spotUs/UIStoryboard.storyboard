@@ -416,6 +416,9 @@
                         <viewLayoutGuide key="safeArea" id="t9X-qF-mhO"/>
                     </view>
                     <navigationItem key="navigationItem" id="AUX-GZ-bFJ"/>
+                    <connections>
+                        <segue destination="RLr-73-mlD" kind="show" id="Q1L-c5-fI8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6D-Ks-Kov" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
