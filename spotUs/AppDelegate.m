@@ -28,7 +28,7 @@
     // Setting the `sessionUserDefaultsKey` enables SPTAuth to automatically store the session object for future use.
     self.auth.sessionUserDefaultsKey = @"current session";
     // Set the scopes you need the user to authorize. `SPTAuthStreamingScope` is required for playing audio.
-    self.auth.requestedScopes = @[SPTAuthUserLibraryModifyScope, SPTAuthStreamingScope,SPTAuthUserReadPrivateScope,SPTAuthPlaylistReadPrivateScope,SPTAuthUserLibraryReadScope,SPTAuthUserReadTopScope];
+    self.auth.requestedScopes = @[SPTAuthUserLibraryModifyScope, SPTAuthUserReadTopScope, SPTAuthStreamingScope,SPTAuthUserReadPrivateScope,SPTAuthPlaylistReadPrivateScope,SPTAuthUserLibraryReadScope,SPTAuthUserReadTopScope];
     
     // Become the streaming controller delegate
     self.player.delegate = self;
