@@ -8,6 +8,7 @@
 
 #import "LocationsViewController.h"
 #import "LocationCell.h"
+#import "Parse.h"
 
 static NSString * const clientID = @"QA1L0Z0ZNA2QVEEDHFPQWK0I5F1DE3GPLSNW4BZEBGJXUCFL";
 static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH21ZCPUMCU";
@@ -57,32 +58,37 @@ static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH
 
 - (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     NSString *newText = [searchBar.text stringByReplacingCharactersInRange:range withString:text];
-    [self fetchLocations:newText nearCity:@"San Francisco"];
+    [self fetchLocations];
     return true;
 }
 
 - (void) tapSearchBarSearchButton:(UISearchBar *)searchBar {
-    [self fetchLocations:searchBar.text nearCity:@"San Francisco"];
+    [self fetchLocations];
 }
 
-- (void)fetchLocations:(NSString *)query nearCity: (NSString *)city {
-    NSString *baseURLString = @"https://api.foursquare.com/v2/venues/search?";
-    NSString *queryString = [NSString stringWithFormat:@"client_id=%@&client_secret=%@&v=20141020&near=%@,CA&query=%@", clientID, clientSecret, city, query];
-    queryString = [queryString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+- (void)fetchLocations {
     
-    NSURL *url = [NSURL URLWithString:[baseURLString stringByAppendingString:queryString]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    PFQuery *query = [PFQuery queryWithClassName:@"City"];
+    query.limit = 20;
+    [query includeKey:@"lng"];
+    [query includeKey:@"lat"];
+    [query includeKey:@"name"];
+    [query includeKey:@"tracks"];
+    [query orderByAscending:@"name"];
     
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (data) {
-            NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            NSLog(@"response: %@", responseDictionary);
-            self.results = [responseDictionary valueForKeyPath:@"response.venues"];
-            [self.tableView reloadData];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *cities, NSError *error) {
+        if (!error) {
+            //do something on success
         }
-    }];
-    [task resume];
+    
+     else {
+        NSLog(@"%@", error.localizedDescription);
+    }
+     }];
+    
+            //[self.tableView reloadData];
+    
+    //[task resume];
 }
 
 @end

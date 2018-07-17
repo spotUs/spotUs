@@ -18,6 +18,10 @@
 		1F7879FDCD98413FDA8910D5 /* libPods-spotUsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3AA8DA663A100D73310B19 /* libPods-spotUsUITests.a */; };
 		33E4FAB924A352B967529EFE /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */; };
 		3E35628A20FE53AE00DDAA9E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E35628920FE53AE00DDAA9E /* MapKit.framework */; };
+		3E35630420FEA86300DDAA9E /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630320FEA86300DDAA9E /* LocationCell.m */; };
+		3E35630A20FEA8D100DDAA9E /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630920FEA8D100DDAA9E /* PhotoMapViewController.m */; };
+		3E35631020FEAB1500DDAA9E /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630F20FEAB1500DDAA9E /* LocationsViewController.m */; };
+		3E35631420FEB08600DDAA9E /* MapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E35631320FEB08600DDAA9E /* MapStoryboard.storyboard */; };
 		3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953AC20EFE6F800D0FF7D /* AppDelegate.m */; };
 		3E3953B020EFE6F800D0FF7D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953AF20EFE6F800D0FF7D /* ViewController.m */; };
 		3E3953B320EFE6F800D0FF7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E3953B120EFE6F800D0FF7D /* Main.storyboard */; };
@@ -73,6 +77,13 @@
 		119C420030297941D494C2F7 /* Pods-spotUs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUs.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUs/Pods-spotUs.release.xcconfig"; sourceTree = "<group>"; };
 		2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E35628920FE53AE00DDAA9E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3E35630220FEA86300DDAA9E /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
+		3E35630320FEA86300DDAA9E /* LocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
+		3E35630820FEA8D100DDAA9E /* PhotoMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoMapViewController.h; sourceTree = "<group>"; };
+		3E35630920FEA8D100DDAA9E /* PhotoMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoMapViewController.m; sourceTree = "<group>"; };
+		3E35630E20FEAB1500DDAA9E /* LocationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationsViewController.h; sourceTree = "<group>"; };
+		3E35630F20FEAB1500DDAA9E /* LocationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationsViewController.m; sourceTree = "<group>"; };
+		3E35631320FEB08600DDAA9E /* MapStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapStoryboard.storyboard; sourceTree = "<group>"; };
 		3E3953A820EFE6F800D0FF7D /* spotUs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spotUs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E3953AB20EFE6F800D0FF7D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3E3953AC20EFE6F800D0FF7D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -189,6 +200,36 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		3E3562FF20FEA81300DDAA9E /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				3E35630120FEA83400DDAA9E /* Map Cells */,
+				3E35630020FEA82000DDAA9E /* Map View Controllers */,
+				3E35631320FEB08600DDAA9E /* MapStoryboard.storyboard */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
+		3E35630020FEA82000DDAA9E /* Map View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3E35630820FEA8D100DDAA9E /* PhotoMapViewController.h */,
+				3E35630920FEA8D100DDAA9E /* PhotoMapViewController.m */,
+				3E35630E20FEAB1500DDAA9E /* LocationsViewController.h */,
+				3E35630F20FEAB1500DDAA9E /* LocationsViewController.m */,
+			);
+			path = "Map View Controllers";
+			sourceTree = "<group>";
+		};
+		3E35630120FEA83400DDAA9E /* Map Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3E35630220FEA86300DDAA9E /* LocationCell.h */,
+				3E35630320FEA86300DDAA9E /* LocationCell.m */,
+			);
+			path = "Map Cells";
+			sourceTree = "<group>";
+		};
 		3E39539F20EFE6F800D0FF7D = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +257,7 @@
 		3E3953AA20EFE6F800D0FF7D /* spotUs */ = {
 			isa = PBXGroup;
 			children = (
+				3E3562FF20FEA81300DDAA9E /* Maps */,
 				06F6BD6820FD3CE800E85B28 /* API */,
 				06F6BD5C20FD0F4400E85B28 /* Spotify View Controllers */,
 				6CC2534B20FD08E300D7093E /* Models */,
@@ -401,6 +443,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E35631420FEB08600DDAA9E /* MapStoryboard.storyboard in Resources */,
 				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
 				3E3953B820EFE6F800D0FF7D /* LaunchScreen.storyboard in Resources */,
 				3E3953B520EFE6F800D0FF7D /* Assets.xcassets in Resources */,
@@ -507,10 +550,13 @@
 			files = (
 				3E3953B020EFE6F800D0FF7D /* ViewController.m in Sources */,
 				6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */,
+				3E35631020FEAB1500DDAA9E /* LocationsViewController.m in Sources */,
 				3E3953BB20EFE6F800D0FF7D /* main.m in Sources */,
 				6CC2534A20FD08D500D7093E /* City.m in Sources */,
+				3E35630A20FEA8D100DDAA9E /* PhotoMapViewController.m in Sources */,
 				6CC2534E20FD353500D7093E /* Track.m in Sources */,
 				06F6BD7420FE6C0C00E85B28 /* SpotifyLoginViewController.m in Sources */,
+				3E35630420FEA86300DDAA9E /* LocationCell.m in Sources */,
 				6CC2535D20FD48CD00D7093E /* CitiesViewController.m in Sources */,
 				6CC2535120FD36E900D7093E /* LoginViewController.m in Sources */,
 				3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */,
