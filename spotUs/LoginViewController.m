@@ -10,7 +10,6 @@
 #import "ErrorAlert.h"
 
 @interface LoginViewController ()
-//TODO CONNECT THESE
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @end
