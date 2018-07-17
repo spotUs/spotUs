@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "Track.h"
 
 @interface City : PFObject <PFSubclassing>
 @property (nonatomic, strong) NSString *name;
@@ -16,5 +17,6 @@
 @property (nonatomic, strong) NSArray *tracks;
 
 + (void) addNewCity: ( NSString *)name atLat:(double)lat andLng:(double)lng withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) addTrack: (Track *)track toCity:(City *)city withCompletion: (PFBooleanResultBlock _Nullable)completion;
 
 @end

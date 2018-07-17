@@ -26,4 +26,9 @@
     [newCity saveInBackgroundWithBlock: completion];
 }
 
++ (void) addTrack: (Track *)track toCity:(City *)city withCompletion:(PFBooleanResultBlock _Nullable)completion{
+    [city.tracks arrayByAddingObject:track];
+    [city saveInBackgroundWithBlock:completion];
+}
+
 @end

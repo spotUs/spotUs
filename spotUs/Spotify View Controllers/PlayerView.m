@@ -109,40 +109,42 @@
     
     self.currentSongIndex = 1;
     
-    
+    //get user songs
     [SPTYourMusic  savedTracksForUserWithAccessToken:self.auth.session.accessToken callback:^(NSError *error, id object) {
-        
         if(error){
-            NSLog(@"Error unretweeting tweet: %@", error.localizedDescription);
-            
-            
+            NSLog(@"Error getting songs: %@", error.localizedDescription);
         }
-        
         SPTListPage *musicPages = object;
-        
         self.songs = musicPages.items;
-        
         SPTSavedTrack *song = self.songs[0];
-    
         NSString *playRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song.identifier];
-        
         [self.player playSpotifyURI:playRequest startingWithIndex:0 startingWithPosition:0 callback:^(NSError *error) {
-            
+            NSLog(@"Error queueing songs: %@", error.localizedDescription);
         }];
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }];
     
+
     
     
+    
+}
+
+- (void) getUserTopTracks {
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"https://api.spotify.com/v1/me/top/tracks"]];
+    NSDictionary *headers = @{@"Authorization":[@"Bearer " stringByAppendingString:self.auth.session.accessToken]};
+    [request setAllHTTPHeaderFields:(headers)];
+    [request setHTTPMethod:@"GET"];
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+        NSLog(@"Request reply: %@", requestReply);
+        NSDictionary *datadict = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
+        NSArray *tracksArray = datadict[@"items"]; //iterate through the array to get the id of each song
+        NSDictionary *firstone = tracksArray[0];
+        NSLog(@"%@",firstone[@"id"]);
+    }] resume];
 }
 
 - (void)didReceiveMemoryWarning {
