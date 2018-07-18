@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "Parse.h"
 
-@interface PhotoMapViewController ()
+@interface PhotoMapViewController () <MKAnnotation>
 
 @end
 
@@ -33,10 +33,11 @@
                 double longi = [c[@"lng"] doubleValue];
                 double lat = [c[@"lat"] doubleValue];
                 CLLocationCoordinate2D location;
-                MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
                 location.latitude = lat;
                 location.longitude = longi;
+                MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
                 annotation.coordinate = location;
+                annotation.title = c[@"name"];
                 [self.mapView addAnnotation:annotation];
             }
         }
@@ -60,5 +61,7 @@
 
 
 
+
+@synthesize coordinate;
 
 @end

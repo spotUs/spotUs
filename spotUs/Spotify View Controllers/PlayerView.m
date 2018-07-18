@@ -14,6 +14,8 @@
 @interface PlayerView () <SPTAudioStreamingPlaybackDelegate>
 @property (nonatomic, strong) NSArray<SPTSavedTrack*> *songs;
 @property (nonatomic, strong) NSArray<NSString*>   *topSongIDs;
+@property (nonatomic, strong) NSArray<NSString*>   *citySongIDs;
+
 @property (weak, nonatomic) IBOutlet UIImageView *songImage;
 @property (weak, nonatomic) IBOutlet UILabel *songTitle;
 @property (weak, nonatomic) IBOutlet UILabel *albumTitleLabel;
@@ -81,14 +83,17 @@
     
     if(self.player.metadata.nextTrack == nil){
         
-        NSString *song = self.topSongIDs[self.currentSongIndex];
+        if(self.currentSongIndex == self.citySongIDs.count){
+            self.currentSongIndex = 0;
+        }
+        
+        
+        NSString *song = self.citySongIDs[self.currentSongIndex];
         
         NSString *queueRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song];
         [self.player queueSpotifyURI:queueRequest callback:nil];
         self.currentSongIndex++;
-        
-        
-        
+            
         
     }
     
@@ -136,16 +141,35 @@
     self.musicSlider.minimumValue = 0.0;
     
     self.currentSongIndex = 1;
+    [self getCityTracks];
     
-    
-    [self getUserTopTracks];
     
 
 }
 
+
+-(void)getCityTracks{
+    
+    
+    
+    [self.city fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        
+        
+        City *city = (City*)object;
+        
+        NSArray *citySongs = city.tracks;
+        self.citySongIDs = citySongs;
+        [self startMusic];
+        
+        
+    }];
+    
+    
+}
+
 -(void)startMusic{
     
-        NSString *song = self.topSongIDs[0];
+        NSString *song = self.citySongIDs[0];
         NSString *playRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song];
         [self.player playSpotifyURI:playRequest startingWithIndex:0 startingWithPosition:0 callback:^(NSError *error) {
             NSLog(@"Error queueing songs: %@", error.localizedDescription);
@@ -163,11 +187,8 @@
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-        NSLog(@"Request reply: %@", requestReply);
         NSDictionary *datadict = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
         NSArray *tracksArray = datadict[@"items"]; //iterate through the array to get the id of each song
-        
         NSMutableArray<NSString*> *songIDs = [NSMutableArray new];
         for(NSDictionary *dictionary in tracksArray){
             
@@ -178,7 +199,6 @@
         self.topSongIDs =songIDs;
         [self startMusic];
     
-        
     
     }] resume];
 }
