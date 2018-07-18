@@ -89,6 +89,8 @@
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri{
     
     [self refreshSongData];
+    self.isPlaying = YES;
+    [self.pauseButton setSelected:NO];
     
     if(self.player.metadata.nextTrack == nil){
         
