@@ -11,7 +11,7 @@
 
 @interface PhotoMapViewController : UIViewController
 
-@property (strong, nonatomic) NSArray *cities;
+@property (strong, nonatomic) NSMutableArray *cities;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
