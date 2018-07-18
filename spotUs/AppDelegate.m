@@ -10,6 +10,7 @@
 #import "PlayerView.h"
 #import "LoginViewController.h"
 #import "SpotifyLoginViewController.h"
+#import "StartViewController.h"
 @interface AppDelegate ()
 @property (nonatomic, strong) SPTAuth *auth;
 @property (nonatomic, strong) SPTAudioStreamingController *player;
@@ -58,7 +59,13 @@
 
 {
     
-    SpotifyLoginViewController *spotifyController = (SpotifyLoginViewController *) self.window.rootViewController;
+    StartViewController *startController = (StartViewController *) self.window.rootViewController;
+    
+    SpotifyLoginViewController *spotifyController = (SpotifyLoginViewController *)startController.delegate;
+
+    
+    
+    
     [spotifyController finishAuthWithURL:url];
     return TRUE;
 }

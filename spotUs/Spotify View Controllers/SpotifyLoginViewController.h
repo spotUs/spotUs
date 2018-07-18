@@ -11,8 +11,11 @@
 #import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
 #import <SafariServices/SafariServices.h>
 #import <Parse/Parse.h>
+@protocol SpotifyLoginViewControllerDelegate
+@end
 
 @interface SpotifyLoginViewController : UIViewController
+@property (nonatomic, weak) id<SpotifyLoginViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) UIWindow *window;
 - (BOOL)finishAuthWithURL:(NSURL *)url;

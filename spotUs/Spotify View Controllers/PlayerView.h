@@ -16,7 +16,7 @@
 
 
 @interface PlayerView : UIViewController
-@property (nonatomic, strong) SPTAudioStreamingController *player;
+@property (nonatomic, weak) SPTAudioStreamingController *player;
 @property (nonatomic, strong) SPTAuth *auth;
 
 

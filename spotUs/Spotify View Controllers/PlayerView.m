@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *albumTitleLabel;
 @property (weak, nonatomic) IBOutlet UISlider *musicSlider;
 @property BOOL isPlaying;
+@property BOOL isSeeking;
 
 @property int currentSongIndex;
 
@@ -26,6 +27,28 @@
 @end
 
 @implementation PlayerView
+- (IBAction)didChangeSlide:(id)sender {
+    
+    __weak PlayerView *weakSelf = self;
+
+    
+    [self.player setIsPlaying:NO callback:^(NSError *error) {
+        [weakSelf.player seekTo:self.musicSlider.value callback:^(NSError *error) {
+            [weakSelf.player setIsPlaying:YES callback:nil];
+
+        }];
+
+    }];
+
+    
+
+    
+    
+    
+    
+    
+    
+}
 - (IBAction)goFoward:(id)sender {
     
     [self.player skipNext:nil];
@@ -69,7 +92,7 @@
     }
     
     
-    
+
     
 }
 - (void)audioStreamingDidSkipToNextTrack:(SPTAudioStreamingController *)audioStreaming{
@@ -78,6 +101,19 @@
     
     
 }
+
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePosition:(NSTimeInterval)position{
+    
+    self.musicSlider.value = position;
+    
+    
+        
+    
+    
+    
+}
+
+
 
 
 -(void)refreshSongData{
