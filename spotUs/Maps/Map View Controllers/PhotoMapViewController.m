@@ -9,20 +9,16 @@
 #import "PhotoMapViewController.h"
 #import <MapKit/MapKit.h>
 #import "LocationsViewController.h"
+#import "Parse.h"
 
 @interface PhotoMapViewController () <LocationsViewControllerDelegate>
-
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
 @implementation PhotoMapViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    MKCoordinateRegion sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667), MKCoordinateSpanMake(0.1, 0.1));
+  MKCoordinateRegion sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667), MKCoordinateSpanMake(0.1, 0.1));
     [self.mapView setRegion:sfRegion animated:false];
     
 }

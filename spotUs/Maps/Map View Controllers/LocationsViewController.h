@@ -20,5 +20,9 @@
 
 
 @property (weak, nonatomic) id<LocationsViewControllerDelegate> delegate;
+@property (nonatomic, strong)NSArray *ninjas;
+
+- (void)fetchLocations;
+
 
 @end

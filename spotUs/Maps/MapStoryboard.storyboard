@@ -41,7 +41,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="crL-vO-V37"/>
                     <connections>
-                        <outlet property="mapView" destination="DF0-L6-KEx" id="YpT-sh-Lbw"/>
+                        <outlet property="mapView" destination="DF0-L6-KEx" id="CdA-iC-Gb1"/>
                         <segue destination="NrC-zI-yOC" kind="show" identifier="fullImageSegue" id="Vov-3W-Hik"/>
                         <segue destination="ezu-ZG-2GR" kind="show" identifier="tagSegue" id="8EI-tA-TkJ"/>
                     </connections>
@@ -125,6 +125,7 @@
                         <viewLayoutGuide key="safeArea" id="GMv-EB-D8m"/>
                     </view>
                     <connections>
+                        <outlet property="LocationTableView" destination="UWI-k4-kwh" id="pFf-9P-M8i"/>
                         <outlet property="searchBar" destination="cV0-bc-8TB" id="G9Y-3m-3Fl"/>
                         <outlet property="tableView" destination="UWI-k4-kwh" id="046-iB-yMx"/>
                     </connections>

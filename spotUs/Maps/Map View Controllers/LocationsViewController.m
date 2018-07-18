@@ -9,6 +9,8 @@
 #import "LocationsViewController.h"
 #import "LocationCell.h"
 #import "Parse.h"
+#import <MapKit/MapKit.h>
+#import "PhotoMapViewController.h"
 
 static NSString * const clientID = @"QA1L0Z0ZNA2QVEEDHFPQWK0I5F1DE3GPLSNW4BZEBGJXUCFL";
 static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH21ZCPUMCU";
@@ -17,7 +19,8 @@ static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (strong, nonatomic) NSArray *results;
+@property (nonatomic, strong)NSMutableArray *cities;
+@property (weak, nonatomic) IBOutlet UITableView *LocationTableView;
 
 @end
 
@@ -38,20 +41,20 @@ static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.results.count;
+    return self.cities.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LocationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LocationCell" forIndexPath:indexPath];
-    [cell updateWithLocation:self.results[indexPath.row]];
+    [cell updateWithLocation:self.cities[indexPath.row]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // This is the selected venue
-    NSDictionary *venue = self.results[indexPath.row];
-    NSNumber *lat = [venue valueForKeyPath:@"location.lat"];
-    NSNumber *lng = [venue valueForKeyPath:@"location.lng"];
+    NSDictionary *city = self.cities[indexPath.row];
+    NSNumber *lat = [city valueForKeyPath:@"location.lat"];
+    NSNumber *lng = [city valueForKeyPath:@"location.lng"];
     NSLog(@"%@, %@", lat, lng);
     
 }
@@ -67,7 +70,6 @@ static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH
 }
 
 - (void)fetchLocations {
-    
     PFQuery *query = [PFQuery queryWithClassName:@"City"];
     query.limit = 20;
     [query includeKey:@"lng"];
@@ -77,19 +79,24 @@ static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH
     [query orderByAscending:@"name"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *cities, NSError *error) {
-        if (!error) {
-            //do something on success
+        
+        if (cities) {
+            for(PFObject *c in cities) {
+              
+                [self.cities addObject:c];
+            }
+           
+            [self.LocationTableView reloadData];
         }
+        else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        
+    }];
     
-     else {
-        NSLog(@"%@", error.localizedDescription);
-    }
-     }];
-    
-            //[self.tableView reloadData];
-    
-    //[task resume];
 }
+
+
 
 @end
 
