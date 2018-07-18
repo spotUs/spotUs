@@ -10,13 +10,15 @@
 #import <MapKit/MapKit.h>
 #import "Parse.h"
 
-@interface PhotoMapViewController () <MKAnnotation>
+@interface PhotoMapViewController () <MKMapViewDelegate>
 
 @end
 
 @implementation PhotoMapViewController
 
 - (void)viewDidLoad {
+    self.mapView.delegate = self;
+    
     PFQuery *query = [PFQuery queryWithClassName:@"City"];
     query.limit = 20;
     [query includeKey:@"lng"];
@@ -48,6 +50,25 @@
     
 }
 
+//mapview delegate method
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    MKPinAnnotationView *annotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"Pin"];
+    if (annotationView == nil) {
+        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin"];
+        annotationView.canShowCallout = true;
+    }
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    UIImage *btnImage = [UIImage imageNamed:@"next-btn"];
+    [btn setImage:btnImage forState:UIControlStateNormal];
+    annotationView.rightCalloutAccessoryView = btn;
+    
+    return annotationView;
+}
+- (void) mapView: (MKMapView *)mapView annotationView:(nonnull MKAnnotationView *)view calloutAccessoryControlTapped:(nonnull UIControl *)control {
+    NSLog(@"%@",view.annotation.title);
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -59,9 +80,5 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 
 
-
-
-
-@synthesize coordinate;
 
 @end
