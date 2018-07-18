@@ -9,9 +9,11 @@
 #import "PhotoMapViewController.h"
 #import <MapKit/MapKit.h>
 #import "Parse.h"
+#import "PlayerView.h"
+#import "City.h"
 
 @interface PhotoMapViewController () <MKMapViewDelegate>
-
+@property (strong, nonatomic) City *city;
 @end
 
 @implementation PhotoMapViewController
@@ -66,6 +68,19 @@
 }
 - (void) mapView: (MKMapView *)mapView annotationView:(nonnull MKAnnotationView *)view calloutAccessoryControlTapped:(nonnull UIControl *)control {
     NSLog(@"%@",view.annotation.title);
+    //TODO pls make this better
+    PFQuery *query = [PFQuery queryWithClassName:@"City"];
+    [query whereKey:@"name" equalTo:view.annotation.title];
+    query.limit = 1;
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *cities, NSError *error) {
+        if (error){
+            NSLog(@"errorrrr: %@",error.localizedDescription);
+        } else {
+            self.city = cities[0];
+            [self performSegueWithIdentifier:@"gotoplayer" sender:nil];
+        }
+    }];
 }
 
 
@@ -78,7 +93,15 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UINavigationController *navigationController = [segue destinationViewController];
+    if([ navigationController.topViewController isKindOfClass:[PlayerView class]]){
+        PlayerView *playerVC = (PlayerView *)navigationController.topViewController;
+        playerVC.city = self.city;
+        playerVC.auth = self.auth;
+        playerVC.player = self.player;
+    }
+}
 
 
 @end

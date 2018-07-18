@@ -223,6 +223,14 @@
                                     <segue destination="Zl3-NE-Ne4" kind="show" id="ADT-yd-YJ9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUI-GJ-RmO">
+                                <rect key="frame" x="168" y="478" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Map"/>
+                                <connections>
+                                    <segue destination="EVq-7g-oqj" kind="show" id="olZ-wl-75u"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2sJ-ND-GRw"/>
@@ -237,6 +245,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyn-sf-e0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="800.79999999999995" y="-117.39130434782609"/>
+        </scene>
+        <!--map-->
+        <scene sceneID="eMX-tp-38f">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MapStoryboard" referencedIdentifier="map" id="EVq-7g-oqj" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Epj-mN-jd6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1274" y="19"/>
         </scene>
         <!--SignUpViewController-->
         <scene sceneID="OzT-d9-2xk">
@@ -302,7 +318,6 @@
         <!--Cities View Controller-->
         <scene sceneID="cFS-Pc-y6Z">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aDN-A6-j8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="searching" id="m6d-fk-gPX" customClass="CitiesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KoG-GB-f5c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -352,6 +367,7 @@
                         <outlet property="tableView" destination="ZKE-Sb-hve" id="Lr8-ZG-3FO"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aDN-A6-j8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2716" y="907.1964017991005"/>
         </scene>

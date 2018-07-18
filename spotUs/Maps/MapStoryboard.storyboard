@@ -13,7 +13,7 @@
         <!--Photo Map View Controller-->
         <scene sceneID="lAx-ge-Wnt">
             <objects>
-                <viewController id="hWe-yI-Uua" customClass="PhotoMapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="map" id="hWe-yI-Uua" customClass="PhotoMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Y9-5T-HkI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,6 +35,7 @@
                     <connections>
                         <outlet property="mapView" destination="DF0-L6-KEx" id="CdA-iC-Gb1"/>
                         <segue destination="CzZ-oH-x1U" kind="showDetail" identifier="cityplaylistsegue" id="eu0-Yd-jmg"/>
+                        <segue destination="t4e-gP-Lhd" kind="showDetail" identifier="gotoplayer" id="SIN-wy-Izc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vml-vy-0qr" sceneMemberID="firstResponder"/>
@@ -64,6 +65,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pEM-LK-Gua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1975" y="-545"/>
+        </scene>
+        <!--spotify-->
+        <scene sceneID="FYu-LN-4Tg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SpotifyLoginStoryBoard" referencedIdentifier="spotify" id="t4e-gP-Lhd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vj1-ca-uaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1006" y="-1068"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VEx-ia-gg0">

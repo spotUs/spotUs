@@ -11,6 +11,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "City.h"
 #import "CitiesViewController.h"
+#import "PhotoMapViewController.h"
 
 
 @interface ProfileViewController ()
@@ -66,28 +67,31 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
-    UINavigationController *navigationController = [segue destinationViewController];
-    
-    
-    if([ navigationController.topViewController isKindOfClass:[PlayerView class]]){
-        
-        PlayerView *profileView = (PlayerView*)navigationController.topViewController;
-        profileView.player = self.player;
-        profileView.auth = self.auth;
+    if ([[segue destinationViewController] isKindOfClass:[UINavigationController class]]){
+        UINavigationController *navigationController = [segue destinationViewController];
         
         
+        if([ navigationController.topViewController isKindOfClass:[PlayerView class]]){
+            
+            PlayerView *profileView = (PlayerView*)navigationController.topViewController;
+            profileView.player = self.player;
+            profileView.auth = self.auth;
+            
+            
+            
+        }
         
-    }
-    
-    else if([ navigationController.topViewController isKindOfClass:[CitiesViewController class]]){
+        else if([ navigationController.topViewController isKindOfClass:[CitiesViewController class]]){
+            
+            CitiesViewController *cityView = (CitiesViewController*)navigationController.topViewController;
+            cityView.player = self.player;
+            cityView.auth = self.auth;
+        }
         
-        CitiesViewController *cityView = (CitiesViewController*)navigationController.topViewController;
-        cityView.player = self.player;
-        cityView.auth = self.auth;
-        
-        
-        
+    } else if ([[segue destinationViewController] isKindOfClass:[PhotoMapViewController class]]){
+        PhotoMapViewController *mapVC = (PhotoMapViewController *)[segue destinationViewController];
+        mapVC.auth = self.auth;
+        mapVC.player = self.player;
     }
 }
 

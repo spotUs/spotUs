@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SpotifyAuthentication/SpotifyAuthentication.h>
+#import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
+#import <SafariServices/SafariServices.h>
+#import <SpotifyMetadata/SpotifyMetadata.h>
 #import <MapKit/MapKit.h>
 
 @interface PhotoMapViewController : UIViewController
 
 @property (strong, nonatomic) NSMutableArray *cities;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) SPTAudioStreamingController *player;
+@property (nonatomic, strong) SPTAuth *auth;
 
 @end
