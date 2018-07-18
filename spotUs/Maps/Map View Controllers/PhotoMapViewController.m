@@ -17,9 +17,6 @@
 @implementation PhotoMapViewController
 
 - (void)viewDidLoad {
-    MKCoordinateRegion sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(90,90), MKCoordinateSpanMake(0.1, 0.1));
-    [self.mapView setRegion:sfRegion animated:false];
-    
     PFQuery *query = [PFQuery queryWithClassName:@"City"];
     query.limit = 20;
     [query includeKey:@"lng"];
@@ -36,11 +33,11 @@
                 double longi = [c[@"lng"] doubleValue];
                 double lat = [c[@"lat"] doubleValue];
                 CLLocationCoordinate2D location;
-                MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+                MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
                 location.latitude = lat;
                 location.longitude = longi;
                 annotation.coordinate = location;
-                [self.mapView addAnnotation: annotation];
+                [self.mapView addAnnotation:annotation];
             }
         }
         else {
