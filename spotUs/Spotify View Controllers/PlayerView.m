@@ -13,6 +13,7 @@
 
 @interface PlayerView () <SPTAudioStreamingPlaybackDelegate>
 @property (nonatomic, strong) NSArray<SPTSavedTrack*> *songs;
+@property (nonatomic, strong) NSArray<NSString*>   *topSongIDs;
 @property (weak, nonatomic) IBOutlet UIImageView *songImage;
 @property (weak, nonatomic) IBOutlet UILabel *songTitle;
 @property (weak, nonatomic) IBOutlet UILabel *albumTitleLabel;
@@ -80,9 +81,9 @@
     
     if(self.player.metadata.nextTrack == nil){
         
-        SPTSavedTrack *song = self.songs[self.currentSongIndex];
+        NSString *song = self.topSongIDs[self.currentSongIndex];
         
-        NSString *queueRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song.identifier];
+        NSString *queueRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song];
         [self.player queueSpotifyURI:queueRequest callback:nil];
         self.currentSongIndex++;
         
@@ -107,13 +108,7 @@
     self.musicSlider.value = position;
     
     
-        
-    
-    
-    
 }
-
-
 
 
 -(void)refreshSongData{
@@ -132,8 +127,6 @@
     
 }
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -142,26 +135,20 @@
     
     self.musicSlider.minimumValue = 0.0;
     
-    
     self.currentSongIndex = 1;
     
-    //get user songs
-    [SPTYourMusic  savedTracksForUserWithAccessToken:self.auth.session.accessToken callback:^(NSError *error, id object) {
-        if(error){
-            NSLog(@"Error getting songs: %@", error.localizedDescription);
-        }
-        SPTListPage *musicPages = object;
-        self.songs = musicPages.items;
-        SPTSavedTrack *song = self.songs[0];
-        NSString *playRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song.identifier];
+    [self getUserTopTracks];
+    
+
+}
+
+-(void)startMusic{
+    
+        NSString *song = self.topSongIDs[0];
+        NSString *playRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song];
         [self.player playSpotifyURI:playRequest startingWithIndex:0 startingWithPosition:0 callback:^(NSError *error) {
             NSLog(@"Error queueing songs: %@", error.localizedDescription);
         }];
-    }];
-    
-
-    
-    
     
 }
 
@@ -172,14 +159,26 @@
     [request setAllHTTPHeaderFields:(headers)];
     [request setHTTPMethod:@"GET"];
     
+    
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
         NSLog(@"Request reply: %@", requestReply);
         NSDictionary *datadict = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
         NSArray *tracksArray = datadict[@"items"]; //iterate through the array to get the id of each song
-        NSDictionary *firstone = tracksArray[0];
-        NSLog(@"%@",firstone[@"id"]);
+        
+        NSMutableArray<NSString*> *songIDs = [NSMutableArray new];
+        for(NSDictionary *dictionary in tracksArray){
+            
+            NSString *spotifyID = dictionary[@"id"];
+            [songIDs addObject:spotifyID];
+        }
+        
+        self.topSongIDs =songIDs;
+        [self startMusic];
+    
+        
+    
     }] resume];
 }
 
