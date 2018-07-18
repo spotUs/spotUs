@@ -126,8 +126,9 @@
         
         for(int i = 0; i < 5; i++){
             
-            
-            [citySongs addObject:self.mostPlayedIDs[i]];
+            if(![citySongs containsObject:self.mostPlayedIDs[i]]){
+                [citySongs addObject:self.mostPlayedIDs[i]];
+            }
             
             if( i == self.mostPlayedIDs.count-1){
                 
