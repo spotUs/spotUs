@@ -30,6 +30,12 @@
 @end
 
 @implementation PlayerView
+- (IBAction)didClickBack:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+
+    
+    
+}
 - (IBAction)didChangeSlide:(id)sender {
     
     __weak PlayerView *weakSelf = self;

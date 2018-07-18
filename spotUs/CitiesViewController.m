@@ -20,6 +20,11 @@
 @end
 
 @implementation CitiesViewController
+- (IBAction)didClickBack:(id)sender {
+    
+    [self dismissViewControllerAnimated:true completion:nil];
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
