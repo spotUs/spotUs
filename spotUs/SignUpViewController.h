@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SpotifyAuthentication/SpotifyAuthentication.h>
+#import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
+#import <SafariServices/SafariServices.h>
+#import <SpotifyMetadata/SpotifyMetadata.h>
 #import <Parse/Parse.h>
 
 @interface SignUpViewController : UIViewController
-
+@property (nonatomic, strong) SPTAudioStreamingController *player;
+@property (nonatomic, strong) SPTAuth *auth;
+@property (nonatomic, strong) SPTUser *currentUser;
 @end

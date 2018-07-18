@@ -34,7 +34,7 @@
 		3E3953D020EFE6F800D0FF7D /* spotUsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953CF20EFE6F800D0FF7D /* spotUsUITests.m */; };
 		3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */; };
 		446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */; };
-		6C83415A1856828FB8E13F87 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C83415A1856828FB8E13F87 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		6CC2534A20FD08D500D7093E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2534920FD08D500D7093E /* City.m */; };
 		6CC2534E20FD353500D7093E /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2534D20FD353500D7093E /* Track.m */; };
 		6CC2535120FD36E900D7093E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535020FD36E900D7093E /* LoginViewController.m */; };
@@ -42,8 +42,10 @@
 		6CC2535A20FD446E00D7093E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535920FD446E00D7093E /* SignUpViewController.m */; };
 		6CC2535D20FD48CD00D7093E /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535C20FD48CD00D7093E /* CitiesViewController.m */; };
 		6CC253A520FEB5D200D7093E /* SearchCitiesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC253A420FEB5D200D7093E /* SearchCitiesStoryboard.storyboard */; };
-		7D5D621B1CE2895F2D45F143 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		7D5D621B1CE2895F2D45F143 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		8A6689F27BF93C7B44C4034D /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5A7B8164B3D985B4482606 /* libPods-spotUs.a */; };
+		BE353A6D012E810A75A0C500 /* libPods-spotUsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 928F5C7D80404A8E79713BCD /* libPods-spotUsUITests.a */; };
+		F32D8E99568134814EC63036 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229C412B71A1F7B9C6622D3A /* libPods-spotUsTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,7 @@
 		06F6BD7920FED6AA00E85B28 /* StartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		0BEF20B752E7D336A9D98788 /* Pods-spotUsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsTests/Pods-spotUsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		119C420030297941D494C2F7 /* Pods-spotUs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUs.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUs/Pods-spotUs.release.xcconfig"; sourceTree = "<group>"; };
+		229C412B71A1F7B9C6622D3A /* libPods-spotUsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E35628920FE53AE00DDAA9E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3E35630220FEA86300DDAA9E /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 		6CC2535B20FD48CD00D7093E /* CitiesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitiesViewController.h; sourceTree = "<group>"; };
 		6CC2535C20FD48CD00D7093E /* CitiesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
 		6CC253A420FEB5D200D7093E /* SearchCitiesStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchCitiesStoryboard.storyboard; sourceTree = "<group>"; };
+		928F5C7D80404A8E79713BCD /* libPods-spotUsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D5B60A1BB3A5A6DD90A307 /* Pods-spotUsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsTests/Pods-spotUsTests.release.xcconfig"; sourceTree = "<group>"; };
 		A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA7B2F43A9D0AA143EDE2F37 /* Pods-spotUsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsUITests/Pods-spotUsUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,7 +155,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */,
-				6C83415A1856828FB8E13F87 /* (null) in Frameworks */,
+				6C83415A1856828FB8E13F87 /* BuildFile in Frameworks */,
+				F32D8E99568134814EC63036 /* libPods-spotUsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,7 +165,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F7879FDCD98413FDA8910D5 /* libPods-spotUsUITests.a in Frameworks */,
-				7D5D621B1CE2895F2D45F143 /* (null) in Frameworks */,
+				7D5D621B1CE2895F2D45F143 /* BuildFile in Frameworks */,
+				BE353A6D012E810A75A0C500 /* libPods-spotUsUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +184,8 @@
 				06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */,
 				06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */,
 				A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */,
+				229C412B71A1F7B9C6622D3A /* libPods-spotUsTests.a */,
+				928F5C7D80404A8E79713BCD /* libPods-spotUsUITests.a */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -360,7 +368,7 @@
 				3E3953A420EFE6F800D0FF7D /* Sources */,
 				3E3953A520EFE6F800D0FF7D /* Frameworks */,
 				3E3953A620EFE6F800D0FF7D /* Resources */,
-				310950EA26FB75F89824F3C5 /* [CP] Copy Pods Resources */,
+				A542D11E705CC8B9276CAE09 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -483,24 +491,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		310950EA26FB75F89824F3C5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-spotUs/Pods-spotUs-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Parse.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-spotUs/Pods-spotUs-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		55D507C3C53AB312C52F7191 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -535,6 +525,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A542D11E705CC8B9276CAE09 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-spotUs/Pods-spotUs-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Parse.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-spotUs/Pods-spotUs-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A7E6E6EB8EAF46EF9AC3D0E4 /* [CP] Check Pods Manifest.lock */ = {
