@@ -9,17 +9,41 @@
 #import "SignUpViewController.h"
 #import "ErrorAlert.h"
 #import "ProfileViewController.h"
+#import "CitiesViewController.h"
+#import "City.h"
 
-@interface SignUpViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *cityText;
+@interface SignUpViewController () <UIPickerViewDelegate,UIPickerViewDataSource>
+@property (weak, nonatomic) IBOutlet UIPickerView *cityPicker;
+@property (strong, nonatomic) NSArray<City*> *cities;
+
+
 
 @end
 
 @implementation SignUpViewController
+- (IBAction)onTapConfirm:(id)sender {
+    
+    [self registerUser];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.cityPicker.dataSource = self;
+    self.cityPicker.delegate = self;
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"City"];
+    [query includeKey:@"name"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        self.cities = objects;
+        [self.cityPicker reloadAllComponents];
+    }];
+    
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,32 +55,41 @@
     // initialize a user object
     PFUser *currUser = [PFUser currentUser];
     //query the city object
-    PFQuery *query = [PFQuery queryWithClassName:@"City"];
-    [query whereKey:@"name" equalTo:self.cityText.text];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *cities, NSError *error) {
-        if (!error) {
-            currUser[@"city"] = cities[0];
-            NSLog(@"%@",cities[0]);
-            // save user's city
-            [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-                if (error != nil) {
-                    NSLog(@"Error saving city: %@", error.localizedDescription);
-                    [ErrorAlert showAlert:error.localizedDescription inVC:self];
-                } else {
-                    [self performSegueWithIdentifier:@"create" sender:self];
-                    NSLog(@"User saved city successfully");
-                }
-            }];
+    NSInteger row = [self.cityPicker selectedRowInComponent:0];
+    City *selectedCity = self.cities[row];
+    currUser[@"city"] = selectedCity;
+    [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+        if (error != nil) {
+            NSLog(@"Error saving city: %@", error.localizedDescription);
+            [ErrorAlert showAlert:error.localizedDescription inVC:self];
         } else {
-            NSLog(@"%@", error.localizedDescription);
+            [self performSegueWithIdentifier:@"create" sender:self];
+            NSLog(@"User saved city successfully");
         }
     }];
+
     
     
 }
-- (IBAction)onTapSignUp:(id)sender {
-    [self registerUser];
+
+
+// The number of columns of data
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    
+    return 1;
+}
+
+// The number of rows of data
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return self.cities.count;
+    
+}
+// The data to return for the row and component (column) that's being passed in
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    
+    return self.cities[row].name;
+    
+    
 }
 
 - (void) getUserTopTracks {

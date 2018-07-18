@@ -171,7 +171,10 @@
             playerView.player = self.player;
             playerView.auth = self.auth;
         }
-    } else if ([[segue destinationViewController] isKindOfClass:[SignUpViewController class]]){
+    }
+    else if ([[segue destinationViewController] isKindOfClass:[SignUpViewController class]]){
+        
+        
         SignUpViewController *signupVC = [segue destinationViewController];
         signupVC.player = self.player;
         signupVC.auth = self.auth;
