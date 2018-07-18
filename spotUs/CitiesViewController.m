@@ -8,13 +8,14 @@
 
 #import "CitiesViewController.h"
 #import "City.h"
+#import "PlayerView.h"
 
 @interface CitiesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 //TODO CONNECT THESE
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
-@property (strong, nonatomic) NSArray *cities;
+@property (strong, nonatomic) NSArray<City*> *cities;
 @property (strong, nonatomic) NSArray *filteredCities;
 @end
 
@@ -90,15 +91,36 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-/*
+
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
+     
+     UINavigationController *navigationController = [segue destinationViewController];
+     
+     if([navigationController.topViewController isKindOfClass:[PlayerView class]]){
+         
+         
+         PlayerView *playerController = (PlayerView*)navigationController.topViewController;
+         NSLog(@"Player Segue");
+         UITableViewCell *tappedCell = sender;
+         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+         City *city = self.cities[indexPath.row];
+         playerController.city = city;
+         playerController.auth = self.auth;
+         playerController.player = self.player;
+      
+         
+         
+     }
+
+     
+     
  }
- */
+
 
 
 @end

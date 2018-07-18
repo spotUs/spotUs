@@ -137,6 +137,7 @@
     
     self.currentSongIndex = 1;
     
+    
     [self getUserTopTracks];
     
 

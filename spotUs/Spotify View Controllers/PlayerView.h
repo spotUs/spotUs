@@ -11,6 +11,7 @@
 #import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
 #import <SafariServices/SafariServices.h>
 #import <SpotifyMetadata/SpotifyMetadata.h>
+#import "City.h"
 
 #import <Parse/Parse.h>
 
@@ -18,6 +19,8 @@
 @interface PlayerView : UIViewController
 @property (nonatomic, weak) SPTAudioStreamingController *player;
 @property (nonatomic, strong) SPTAuth *auth;
+@property (nonatomic, strong) City *city;
+
 
 
 
