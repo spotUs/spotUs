@@ -8,6 +8,8 @@
 
 #import "SpotifyLoginViewController.h"
 #import "PlayerView.h"
+#import "Parse.h"
+#import "ProfileViewController.h"
 
 @interface SpotifyLoginViewController () <UIApplicationDelegate,SPTAudioStreamingDelegate>
 @property (nonatomic, strong) SPTAuth *auth;
@@ -20,6 +22,8 @@
 @implementation SpotifyLoginViewController
 
 - (void)viewDidLoad {
+    
+    
     [super viewDidLoad];
     self.auth = [SPTAuth defaultInstance];
     self.player = [SPTAudioStreamingController sharedInstance];
@@ -44,26 +48,44 @@
     // Start authenticating when the app is finished launching
     dispatch_async(dispatch_get_main_queue(), ^{
         [self startAuthenticationFlow];
+        
+        
     });}
 
 
 - (void)startAuthenticationFlow
 {
+    
+    
+    
     // Check if we could use the access token we already have
     if ([self.auth.session isValid]) {
         // Use it to log in
         [self.player loginWithAccessToken:self.auth.session.accessToken];
+        
     } else {
+        
+        
+        
         // Get the URL to the Spotify authorization portal
         NSURL *authURL = [self.auth spotifyWebAuthenticationURL];
         // Present in a SafariViewController
+        
         self.authViewController = [[SFSafariViewController alloc] initWithURL:authURL];
+        
+        
         [self  presentViewController:self.authViewController animated:YES completion:nil];
+        
+        
+        
+        
     }
 }
 
 // Handle from app delegate
 - (BOOL)finishAuthWithURL:(NSURL *)url
+
+
 
 {
     // If the incoming url is what we expect we handle it
@@ -89,7 +111,65 @@
 
 - (void)audioStreamingDidLogin:(SPTAudioStreamingController *)audioStreaming {
     
-    [self performSegueWithIdentifier:@"spotify" sender:nil];
+    
+    [SPTUser requestCurrentUserWithAccessToken:self.auth.session.accessToken callback:^(NSError *error, id object) {
+    
+        SPTUser *currentUser = (SPTUser *)object;
+        
+        
+        
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"username" equalTo:currentUser.displayName];
+        query.limit = 1;
+        [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
+            if (!error) {
+                
+                
+                if(users.count != 0){
+                    
+                    
+                    [PFUser logInWithUsernameInBackground:currentUser.displayName password:@"spotify" block:^(PFUser * user, NSError *  error) {
+                        if (error != nil) {
+                   
+                            
+                            NSLog(@"User log in failed: %@", error.localizedDescription);
+                        } else {
+                            NSLog(@"User logged in successfully");
+                           [self performSegueWithIdentifier:@"goodlogin" sender:nil];
+                            
+                            
+                        }
+                    }];
+                }
+                
+                
+                else{
+                    PFUser *newUser = [PFUser user];
+                    newUser.username = currentUser.displayName;
+                    newUser.password = @"spotify";
+                    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+                        if (error != nil) {
+                            NSLog(@"Error: %@", error.localizedDescription);
+                        } else {
+                            NSLog(@"User registered successfully");
+                           [self performSegueWithIdentifier:@"goodsignup" sender:nil];
+                            
+                            // manually segue to logged in view
+                        }
+                    }];
+                    
+                    
+                }
+                
+                
+                
+            }
+            
+        }];
+        
+        
+    }];
+    
     
     
 }
@@ -108,11 +188,28 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
+    
     UINavigationController *navigationController = [segue destinationViewController];
+    
+    
+    if([ navigationController.topViewController isKindOfClass:[ProfileViewController class]]){
+        
+        ProfileViewController *profileView = (ProfileViewController*)navigationController.topViewController;
+        profileView.player = self.player;
+        profileView.auth = self.auth;
+        
+        
+        
+    }
+    
+    else{
+
+    
     PlayerView *playerView = (PlayerView*)navigationController.topViewController;
     playerView.player = self.player;
     playerView.auth = self.auth;
     
+}
 }
 
 
