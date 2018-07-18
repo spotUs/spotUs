@@ -22,7 +22,6 @@
 		3E35628A20FE53AE00DDAA9E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E35628920FE53AE00DDAA9E /* MapKit.framework */; };
 		3E35630420FEA86300DDAA9E /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630320FEA86300DDAA9E /* LocationCell.m */; };
 		3E35630A20FEA8D100DDAA9E /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630920FEA8D100DDAA9E /* PhotoMapViewController.m */; };
-		3E35631020FEAB1500DDAA9E /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630F20FEAB1500DDAA9E /* LocationsViewController.m */; };
 		3E35631420FEB08600DDAA9E /* MapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E35631320FEB08600DDAA9E /* MapStoryboard.storyboard */; };
 		3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953AC20EFE6F800D0FF7D /* AppDelegate.m */; };
 		3E3953B020EFE6F800D0FF7D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953AF20EFE6F800D0FF7D /* ViewController.m */; };
@@ -88,8 +87,6 @@
 		3E35630320FEA86300DDAA9E /* LocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
 		3E35630820FEA8D100DDAA9E /* PhotoMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoMapViewController.h; sourceTree = "<group>"; };
 		3E35630920FEA8D100DDAA9E /* PhotoMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoMapViewController.m; sourceTree = "<group>"; };
-		3E35630E20FEAB1500DDAA9E /* LocationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationsViewController.h; sourceTree = "<group>"; };
-		3E35630F20FEAB1500DDAA9E /* LocationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationsViewController.m; sourceTree = "<group>"; };
 		3E35631320FEB08600DDAA9E /* MapStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapStoryboard.storyboard; sourceTree = "<group>"; };
 		3E3953A820EFE6F800D0FF7D /* spotUs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spotUs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E3953AB20EFE6F800D0FF7D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -225,8 +222,6 @@
 			children = (
 				3E35630820FEA8D100DDAA9E /* PhotoMapViewController.h */,
 				3E35630920FEA8D100DDAA9E /* PhotoMapViewController.m */,
-				3E35630E20FEAB1500DDAA9E /* LocationsViewController.h */,
-				3E35630F20FEAB1500DDAA9E /* LocationsViewController.m */,
 			);
 			path = "Map View Controllers";
 			sourceTree = "<group>";
@@ -564,7 +559,6 @@
 			files = (
 				3E3953B020EFE6F800D0FF7D /* ViewController.m in Sources */,
 				6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */,
-				3E35631020FEAB1500DDAA9E /* LocationsViewController.m in Sources */,
 				3E3953BB20EFE6F800D0FF7D /* main.m in Sources */,
 				6CC2534A20FD08D500D7093E /* City.m in Sources */,
 				3E35630A20FEA8D100DDAA9E /* PhotoMapViewController.m in Sources */,
@@ -748,7 +742,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MSP3335V32;
+				DEVELOPMENT_TEAM = BN7TCB94L4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -770,7 +764,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MSP3335V32;
+				DEVELOPMENT_TEAM = BN7TCB94L4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
