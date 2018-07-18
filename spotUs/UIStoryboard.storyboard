@@ -406,7 +406,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLj-di-Z6i">
                                 <rect key="frame" x="167" y="427" width="41" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="Screen Shot 2018-07-16 at 3.38.33 PM"/>
+                                <state key="normal" title="Button" image="play-btn"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -569,8 +569,8 @@
         <image name="Screen Shot 2018-07-16 at 2.43.49 PM" width="98" height="98"/>
         <image name="Screen Shot 2018-07-16 at 3.02.06 PM" width="212" height="232"/>
         <image name="Screen Shot 2018-07-16 at 3.38.25 PM" width="80" height="64"/>
-        <image name="Screen Shot 2018-07-16 at 3.38.33 PM" width="90" height="88"/>
         <image name="Screen Shot 2018-07-16 at 3.38.38 PM" width="80" height="50"/>
+        <image name="play-btn" width="90" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jcW-Y1-Yda"/>

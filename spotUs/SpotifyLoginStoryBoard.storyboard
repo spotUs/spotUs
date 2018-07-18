@@ -22,24 +22,14 @@
                                 <rect key="frame" x="40" y="145" width="298" height="271"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hG-LN-kxo">
-                                <rect key="frame" x="42" y="552" width="108" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hG-LN-kxo">
+                                <rect key="frame" x="52" y="523" width="90" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Pause/UnPause">
+                                <state key="normal" image="play-btn">
                                     <color key="titleColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="pauseOrUnpause:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="UrC-KE-QRa"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fM-ey-pfd">
-                                <rect key="frame" x="255" y="560" width="56" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Forward">
-                                    <color key="titleColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="goFoward:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="USo-qv-Tb0"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Album" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FB9-wG-eKh">
@@ -50,8 +40,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="54k-zG-om8">
-                                <rect key="frame" x="40" y="430" width="273" height="30"/>
+                                <rect key="frame" x="53" y="430" width="273" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="didChangeSlide:" destination="x5g-Cf-YmB" eventType="valueChanged" id="qvn-aW-HoZ"/>
                                 </connections>
@@ -63,8 +54,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fM-ey-pfd">
+                                <rect key="frame" x="221" y="523" width="103" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Screen Shot 2018-07-16 at 3.38.38 PM">
+                                    <color key="titleColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="goFoward:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="USo-qv-Tb0"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="YK2-8l-QQs"/>
                     </view>
                     <navigationItem key="navigationItem" id="90T-dn-YMS"/>
@@ -77,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeN-2U-H7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2556" y="-143.47826086956522"/>
+            <point key="canvasLocation" x="2888.8000000000002" y="-139.880059970015"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="vNP-SI-EW7">
@@ -118,7 +119,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yha-r8-Nwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1877.5999999999999" y="-761.46926536731644"/>
+            <point key="canvasLocation" x="-1887" y="-862"/>
         </scene>
         <!--Spotify Login View Controller-->
         <scene sceneID="ZK5-Aj-wSd">
@@ -137,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7FW-Ms-hbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1007" y="-746"/>
+            <point key="canvasLocation" x="-1002" y="-862"/>
         </scene>
         <!--ProfileViewController-->
         <scene sceneID="r9J-IQ-nYd">
@@ -204,7 +205,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Map"/>
                                 <connections>
-                                    <segue destination="EVq-7g-oqj" kind="show" id="olZ-wl-75u"/>
+                                    <segue destination="NH1-rC-6tQ" kind="show" id="nnb-7B-uIR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -221,14 +222,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyn-sf-e0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="800.79999999999995" y="-117.39130434782609"/>
-        </scene>
-        <!--map-->
-        <scene sceneID="eMX-tp-38f">
-            <objects>
-                <viewControllerPlaceholder storyboardName="MapStoryboard" referencedIdentifier="map" id="EVq-7g-oqj" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Epj-mN-jd6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1274" y="19"/>
         </scene>
         <!--SignUpViewController-->
         <scene sceneID="OzT-d9-2xk">
@@ -339,10 +332,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDN-A6-j8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2716" y="907.1964017991005"/>
+            <point key="canvasLocation" x="1841" y="611"/>
+        </scene>
+        <!--Photo Map View Controller-->
+        <scene sceneID="0g0-PM-RNF">
+            <objects>
+                <viewController storyboardIdentifier="map" id="NH1-rC-6tQ" customClass="PhotoMapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DKl-8v-rCf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="j8u-RV-yRn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="j8u-RV-yRn" firstAttribute="trailing" secondItem="Ege-q5-UYR" secondAttribute="trailing" id="Ch8-TK-lHh"/>
+                            <constraint firstItem="j8u-RV-yRn" firstAttribute="bottom" secondItem="Ege-q5-UYR" secondAttribute="bottom" id="JlS-Uo-Dp6"/>
+                            <constraint firstItem="j8u-RV-yRn" firstAttribute="leading" secondItem="Ege-q5-UYR" secondAttribute="leading" id="PRd-zM-7zE"/>
+                            <constraint firstItem="j8u-RV-yRn" firstAttribute="top" secondItem="Ege-q5-UYR" secondAttribute="top" id="h5u-zL-a3y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ege-q5-UYR"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="p5N-st-vJh"/>
+                    <connections>
+                        <outlet property="mapView" destination="j8u-RV-yRn" id="Uze-zZ-Th9"/>
+                        <segue destination="x5g-Cf-YmB" kind="show" identifier="gotoplayer" id="bty-V5-NaH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gA7-Cc-Ezd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1841" y="-862"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Screen Shot 2018-07-16 at 3.38.38 PM" width="80" height="50"/>
+        <image name="play-btn" width="90" height="88"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bEB-BQ-Xnk"/>
+        <segue reference="dU3-DC-N3D"/>
+        <segue reference="bty-V5-NaH"/>
     </inferredMetricsTieBreakers>
 </document>
