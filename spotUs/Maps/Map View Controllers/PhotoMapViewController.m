@@ -8,18 +8,45 @@
 
 #import "PhotoMapViewController.h"
 #import <MapKit/MapKit.h>
-#import "LocationsViewController.h"
 #import "Parse.h"
 
-@interface PhotoMapViewController () <LocationsViewControllerDelegate>
+@interface PhotoMapViewController ()
 
 @end
 
 @implementation PhotoMapViewController
 
 - (void)viewDidLoad {
-  MKCoordinateRegion sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667), MKCoordinateSpanMake(0.1, 0.1));
+    MKCoordinateRegion sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(90,90), MKCoordinateSpanMake(0.1, 0.1));
     [self.mapView setRegion:sfRegion animated:false];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"City"];
+    query.limit = 20;
+    [query includeKey:@"lng"];
+    [query includeKey:@"lat"];
+    [query includeKey:@"name"];
+    [query includeKey:@"tracks"];
+    [query orderByAscending:@"name"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *cities, NSError *error) {
+        
+        if (cities) {
+            for(PFObject *c in cities) {
+                [self.cities addObject:c];
+                double longi = [c[@"lng"] doubleValue];
+                double lat = [c[@"lat"] doubleValue];
+                CLLocationCoordinate2D location;
+                MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+                location.latitude = lat;
+                location.longitude = longi;
+                annotation.coordinate = location;
+                [self.mapView addAnnotation: annotation];
+            }
+        }
+        else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
     
 }
 
@@ -32,18 +59,6 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    LocationsViewController *location = [segue destinationViewController];
-    location.delegate = self;
-    // Get the new view controller using .
-    // Pass the selected object to the new view controller.
-}
-
-
-- (void)locationsViewController:(LocationsViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {
-    
-    
-}
 
 
 

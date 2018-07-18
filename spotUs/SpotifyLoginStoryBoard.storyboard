@@ -235,7 +235,7 @@
         <!--SignUpViewController-->
         <scene sceneID="OzT-d9-2xk">
             <objects>
-                <viewController title="SignUpViewController" id="jNm-aI-Duq" sceneMemberID="viewController">
+                <viewController title="SignUpViewController" id="jNm-aI-Duq" customClass="SignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gzY-qE-40N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -255,14 +255,21 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMe-SN-55C">
-                                <rect key="frame" x="161" y="530" width="52" height="30"/>
+                                <rect key="frame" x="161" y="297" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign up"/>
+                                <connections>
+                                    <action selector="onTapSignUp:" destination="jNm-aI-Duq" eventType="touchUpInside" id="idn-vA-wjx"/>
+                                    <segue destination="AdY-KY-RAQ" kind="show" id="y2J-1h-mkw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4A9-mb-3nN"/>
                     </view>
+                    <connections>
+                        <outlet property="cityText" destination="HyB-Xz-MSG" id="qRA-zt-nOM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67e-m3-sS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -287,4 +294,7 @@
             <point key="canvasLocation" x="-138.40000000000001" y="-117.39130434782609"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="y2J-1h-mkw"/>
+    </inferredMetricsTieBreakers>
 </document>
