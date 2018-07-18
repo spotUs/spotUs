@@ -13,6 +13,8 @@
 
 @interface SpotifyLoginViewController () <UIApplicationDelegate,SPTAudioStreamingDelegate>
 @property (nonatomic, strong) SPTAuth *auth;
+@property (nonatomic, strong) SPTUser *currentUser;
+
 @property (nonatomic, strong) SPTAudioStreamingController *player;
 @property (nonatomic, strong) UIViewController *authViewController;
 
@@ -44,13 +46,20 @@
     if (![self.player startWithClientId:self.auth.clientID error:&audioStreamingInitError]) {
         NSLog(@"There was a problem starting the Spotify SDK: %@", audioStreamingInitError.description);
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated{
     
     // Start authenticating when the app is finished launching
     dispatch_async(dispatch_get_main_queue(), ^{
         [self startAuthenticationFlow];
         
         
-    });}
+    });
+
+    
+    
+}
 
 
 - (void)startAuthenticationFlow
@@ -115,6 +124,8 @@
     [SPTUser requestCurrentUserWithAccessToken:self.auth.session.accessToken callback:^(NSError *error, id object) {
     
         SPTUser *currentUser = (SPTUser *)object;
+        
+        self.currentUser = currentUser;
         
         
         
@@ -197,6 +208,7 @@
         ProfileViewController *profileView = (ProfileViewController*)navigationController.topViewController;
         profileView.player = self.player;
         profileView.auth = self.auth;
+        profileView.currentUser = self.currentUser;
         
         
         
@@ -208,6 +220,7 @@
     PlayerView *playerView = (PlayerView*)navigationController.topViewController;
     playerView.player = self.player;
     playerView.auth = self.auth;
+        
     
 }
 }

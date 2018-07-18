@@ -8,8 +8,13 @@
 
 #import "ProfileViewController.h"
 #import "PlayerView.h"
+#import "UIImageView+AFNetworking.h"
+
 
 @interface ProfileViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *profileUsernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hometownLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 
 @end
 
@@ -17,6 +22,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+    self.profileUsernameLabel.text = self.currentUser.displayName;
+    
+    
+    NSURL *profileURL = self.currentUser.largestImage.imageURL;
+    [self.profileImageView setImageWithURL:profileURL];
+    
+    
     // Do any additional setup after loading the view.
 }
 

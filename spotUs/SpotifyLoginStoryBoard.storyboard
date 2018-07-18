@@ -166,8 +166,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0R-Wy-KT1">
-                                <rect key="frame" x="149" y="132" width="76" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0R-Wy-KT1">
+                                <rect key="frame" x="119" y="132" width="137" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -205,6 +205,11 @@
                         <viewLayoutGuide key="safeArea" id="2sJ-ND-GRw"/>
                     </view>
                     <navigationItem key="navigationItem" id="PwE-4o-kaL"/>
+                    <connections>
+                        <outlet property="hometownLabel" destination="Xzc-ku-SIA" id="016-tF-YQ9"/>
+                        <outlet property="profileImageView" destination="ZMK-Ba-oIh" id="kIZ-5e-MHx"/>
+                        <outlet property="profileUsernameLabel" destination="L0R-Wy-KT1" id="JoW-IM-KN4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyn-sf-e0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -17,6 +17,8 @@
 @interface ProfileViewController : UIViewController
 @property (nonatomic, strong) SPTAudioStreamingController *player;
 @property (nonatomic, strong) SPTAuth *auth;
+@property (nonatomic, strong) SPTUser *currentUser;
+
 
 
 @end
