@@ -10,6 +10,7 @@
 #import "PlayerView.h"
 #import "UIImageView+AFNetworking.h"
 #import "City.h"
+#import "CitiesViewController.h"
 
 
 @interface ProfileViewController ()
@@ -74,6 +75,16 @@
         PlayerView *profileView = (PlayerView*)navigationController.topViewController;
         profileView.player = self.player;
         profileView.auth = self.auth;
+        
+        
+        
+    }
+    
+    else if([ navigationController.topViewController isKindOfClass:[CitiesViewController class]]){
+        
+        CitiesViewController *cityView = (CitiesViewController*)navigationController.topViewController;
+        cityView.player = self.player;
+        cityView.auth = self.auth;
         
         
         
