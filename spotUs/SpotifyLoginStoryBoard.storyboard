@@ -266,7 +266,6 @@
                                 <state key="normal" title="Sign up"/>
                                 <connections>
                                     <action selector="onTapSignUp:" destination="jNm-aI-Duq" eventType="touchUpInside" id="idn-vA-wjx"/>
-                                    <segue destination="AdY-KY-RAQ" kind="show" id="y2J-1h-mkw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -275,6 +274,7 @@
                     </view>
                     <connections>
                         <outlet property="cityText" destination="HyB-Xz-MSG" id="qRA-zt-nOM"/>
+                        <segue destination="AdY-KY-RAQ" kind="show" identifier="create" id="bEB-BQ-Xnk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67e-m3-sS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -375,6 +375,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="y2J-1h-mkw"/>
+        <segue reference="bEB-BQ-Xnk"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -33,6 +33,7 @@
     //query the city object
     PFQuery *query = [PFQuery queryWithClassName:@"City"];
     [query whereKey:@"name" equalTo:self.cityText.text];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *cities, NSError *error) {
         if (!error) {
             currUser[@"city"] = cities[0];
@@ -43,6 +44,7 @@
                     NSLog(@"Error saving city: %@", error.localizedDescription);
                     [ErrorAlert showAlert:error.localizedDescription inVC:self];
                 } else {
+                    [self performSegueWithIdentifier:@"create" sender:self];
                     NSLog(@"User saved city successfully");
                 }
             }];
@@ -55,6 +57,30 @@
 }
 - (IBAction)onTapSignUp:(id)sender {
     [self registerUser];
+}
+
+- (void) getUserTopTracks {
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"https://api.spotify.com/v1/me/top/tracks"]];
+    NSDictionary *headers = @{@"Authorization":[@"Bearer " stringByAppendingString:self.auth.session.accessToken]};
+    [request setAllHTTPHeaderFields:(headers)];
+    [request setHTTPMethod:@"GET"];
+    
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSDictionary *datadict = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
+        NSArray *tracksArray = datadict[@"items"]; //iterate through the array to get the id of each song
+        NSMutableArray<NSString*> *songIDs = [NSMutableArray new];
+        for(NSDictionary *dictionary in tracksArray){
+            
+            NSString *spotifyID = dictionary[@"id"];
+            [songIDs addObject:spotifyID];
+        }
+        
+        
+        
+    }] resume];
 }
 
 
