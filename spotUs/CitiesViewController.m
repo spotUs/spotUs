@@ -104,26 +104,18 @@
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
      
-     UINavigationController *navigationController = [segue destinationViewController];
-     
-     if([navigationController.topViewController isKindOfClass:[PlayerView class]]){
-         
-         
-         PlayerView *playerController = (PlayerView*)navigationController.topViewController;
-         NSLog(@"Player Segue");
+ 
+      if ([[segue destinationViewController] isKindOfClass:[PlayerView class]]){
+         PlayerView *playerController = (PlayerView*)[segue destinationViewController];
          UITableViewCell *tappedCell = sender;
+         
          NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
          City *city = self.cities[indexPath.row];
          playerController.city = city;
          playerController.auth = self.auth;
          playerController.player = self.player;
-      
-         
-         
      }
 
-     
-     
  }
 
 

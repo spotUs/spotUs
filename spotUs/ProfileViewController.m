@@ -71,28 +71,27 @@
         UINavigationController *navigationController = [segue destinationViewController];
         
         
-        if([ navigationController.topViewController isKindOfClass:[PlayerView class]]){
-            
-            PlayerView *profileView = (PlayerView*)navigationController.topViewController;
-            profileView.player = self.player;
-            profileView.auth = self.auth;
-            
-            
-            
-        }
-        
-        else if([ navigationController.topViewController isKindOfClass:[CitiesViewController class]]){
-            
-            CitiesViewController *cityView = (CitiesViewController*)navigationController.topViewController;
-            cityView.player = self.player;
-            cityView.auth = self.auth;
-        }
-        
-    } else if ([[segue destinationViewController] isKindOfClass:[PhotoMapViewController class]]){
+    }
+    else if ([[segue destinationViewController] isKindOfClass:[PhotoMapViewController class]]){
         PhotoMapViewController *mapVC = (PhotoMapViewController *)[segue destinationViewController];
         mapVC.auth = self.auth;
         mapVC.player = self.player;
     }
+    
+    else if([[segue destinationViewController]  isKindOfClass:[PlayerView class]]){
+        PlayerView *profileView = (PlayerView *)[segue destinationViewController];
+        profileView.player = self.player;
+        profileView.auth = self.auth;
+        
+    }
+    
+    else if([[segue destinationViewController]  isKindOfClass:[CitiesViewController class]]){
+        CitiesViewController *cityView = (CitiesViewController *)[segue destinationViewController];
+        cityView.player = self.player;
+        cityView.auth = self.auth;
+    }
+    
+    
 }
 
 

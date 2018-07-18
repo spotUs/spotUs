@@ -13,7 +13,7 @@
         <!--Player View-->
         <scene sceneID="DBN-Ao-cJl">
             <objects>
-                <viewController storyboardIdentifier="player" id="x5g-Cf-YmB" customClass="PlayerView" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="spotify" id="x5g-Cf-YmB" customClass="PlayerView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WaM-mx-SRj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,13 +67,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <viewLayoutGuide key="safeArea" id="YK2-8l-QQs"/>
                     </view>
-                    <navigationItem key="navigationItem" id="90T-dn-YMS">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="qON-r0-23y">
-                            <connections>
-                                <action selector="didClickBack:" destination="x5g-Cf-YmB" id="gHP-3Z-8r8"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="90T-dn-YMS"/>
                     <connections>
                         <outlet property="albumTitleLabel" destination="FB9-wG-eKh" id="Dby-wU-5nh"/>
                         <outlet property="musicSlider" destination="54k-zG-om8" id="SZ1-oM-2De"/>
@@ -145,24 +139,6 @@
             </objects>
             <point key="canvasLocation" x="-1007" y="-746"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="sPQ-0I-Sd8">
-            <objects>
-                <navigationController storyboardIdentifier="spotify" automaticallyAdjustsScrollViewInsets="NO" id="XPD-Ur-ocQ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ami-yP-evn">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="x5g-Cf-YmB" kind="relationship" relationship="rootViewController" id="C7D-l1-Xjo"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ue-2h-fR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1776.8" y="-117.39130434782609"/>
-        </scene>
         <!--ProfileViewController-->
         <scene sceneID="r9J-IQ-nYd">
             <objects>
@@ -220,7 +196,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Search For Cities"/>
                                 <connections>
-                                    <segue destination="Zl3-NE-Ne4" kind="show" id="ADT-yd-YJ9"/>
+                                    <segue destination="m6d-fk-gPX" kind="show" id="Epf-Jj-Xul"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUI-GJ-RmO">
@@ -340,7 +316,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="XPD-Ur-ocQ" kind="show" id="iDq-MA-Nak"/>
+                                            <segue destination="x5g-Cf-YmB" kind="show" id="eoe-DR-xKG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -355,13 +331,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K9m-ms-Er2"/>
                     </view>
-                    <navigationItem key="navigationItem" id="kSb-VG-sqZ">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="lsp-Rd-imv">
-                            <connections>
-                                <action selector="didClickBack:" destination="m6d-fk-gPX" id="Fkk-0y-19L"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="kSb-VG-sqZ"/>
                     <connections>
                         <outlet property="searchBar" destination="E1o-lh-xr7" id="vf9-ap-Ep9"/>
                         <outlet property="tableView" destination="ZKE-Sb-hve" id="Lr8-ZG-3FO"/>
@@ -370,24 +340,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDN-A6-j8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2716" y="907.1964017991005"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wUd-dU-oa7">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zl3-NE-Ne4" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GUy-Me-BQx">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="m6d-fk-gPX" kind="relationship" relationship="rootViewController" id="SFb-ap-8w1"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cah-gB-CmV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1776.8" y="907.1964017991005"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

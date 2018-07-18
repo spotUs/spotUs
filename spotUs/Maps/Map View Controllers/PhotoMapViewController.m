@@ -94,13 +94,15 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UINavigationController *navigationController = [segue destinationViewController];
-    if([ navigationController.topViewController isKindOfClass:[PlayerView class]]){
-        PlayerView *playerVC = (PlayerView *)navigationController.topViewController;
-        playerVC.city = self.city;
-        playerVC.auth = self.auth;
-        playerVC.player = self.player;
+    
+    if ([[segue destinationViewController] isKindOfClass:[PlayerView class]]){
+        PlayerView *playerController = (PlayerView*)[segue destinationViewController];
+      
+        playerController.city = self.city;
+        playerController.auth = self.auth;
+        playerController.player = self.player;
     }
+
 }
 
 
