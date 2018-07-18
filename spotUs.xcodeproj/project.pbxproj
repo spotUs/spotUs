@@ -22,7 +22,6 @@
 		3E35628A20FE53AE00DDAA9E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E35628920FE53AE00DDAA9E /* MapKit.framework */; };
 		3E35630420FEA86300DDAA9E /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630320FEA86300DDAA9E /* LocationCell.m */; };
 		3E35630A20FEA8D100DDAA9E /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630920FEA8D100DDAA9E /* PhotoMapViewController.m */; };
-		3E35631420FEB08600DDAA9E /* MapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E35631320FEB08600DDAA9E /* MapStoryboard.storyboard */; };
 		3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953AC20EFE6F800D0FF7D /* AppDelegate.m */; };
 		3E3953B320EFE6F800D0FF7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E3953B120EFE6F800D0FF7D /* Main.storyboard */; };
 		3E3953B520EFE6F800D0FF7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E3953B420EFE6F800D0FF7D /* Assets.xcassets */; };
@@ -89,7 +88,6 @@
 		3E35630320FEA86300DDAA9E /* LocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
 		3E35630820FEA8D100DDAA9E /* PhotoMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoMapViewController.h; sourceTree = "<group>"; };
 		3E35630920FEA8D100DDAA9E /* PhotoMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoMapViewController.m; sourceTree = "<group>"; };
-		3E35631320FEB08600DDAA9E /* MapStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapStoryboard.storyboard; sourceTree = "<group>"; };
 		3E3953A820EFE6F800D0FF7D /* spotUs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spotUs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E3953AB20EFE6F800D0FF7D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3E3953AC20EFE6F800D0FF7D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -217,7 +215,6 @@
 			children = (
 				3E35630120FEA83400DDAA9E /* Map Cells */,
 				3E35630020FEA82000DDAA9E /* Map View Controllers */,
-				3E35631320FEB08600DDAA9E /* MapStoryboard.storyboard */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -454,7 +451,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E35631420FEB08600DDAA9E /* MapStoryboard.storyboard in Resources */,
 				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
 				3E3953B820EFE6F800D0FF7D /* LaunchScreen.storyboard in Resources */,
 				6CC253A520FEB5D200D7093E /* SearchCitiesStoryboard.storyboard in Resources */,

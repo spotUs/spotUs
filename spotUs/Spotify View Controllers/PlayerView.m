@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSArray<SPTSavedTrack*> *songs;
 @property (nonatomic, strong) NSArray<NSString*>   *topSongIDs;
 @property (nonatomic, strong) NSArray<NSString*>   *citySongIDs;
+@property (weak, nonatomic) IBOutlet UILabel *timeElapsedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLeftLabel;
 
 @property (weak, nonatomic) IBOutlet UIImageView *songImage;
 @property (weak, nonatomic) IBOutlet UILabel *songTitle;
@@ -22,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *musicSlider;
 @property BOOL isPlaying;
 @property BOOL isSeeking;
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 
 @property int currentSongIndex;
 
@@ -30,12 +33,7 @@
 @end
 
 @implementation PlayerView
-- (IBAction)didClickBack:(id)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
 
-    
-    
-}
 - (IBAction)didChangeSlide:(id)sender {
     
     __weak PlayerView *weakSelf = self;
@@ -70,11 +68,16 @@
         
         [self.player setIsPlaying:NO callback:nil];
         self.isPlaying = NO;
+        [self.pauseButton setSelected:YES];
+        
+        
     }
     
     else{
         [self.player setIsPlaying:YES callback:nil];
         self.isPlaying = YES;
+        [self.pauseButton setSelected:NO];
+
         
     }
     
@@ -117,6 +120,10 @@
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePosition:(NSTimeInterval)position{
     
     self.musicSlider.value = position;
+    self.timeElapsedLabel.text = [self stringFromTimeInterval:position];
+    self.timeLeftLabel.text = [self stringFromTimeInterval:self.player.metadata.currentTrack.duration-position];
+    
+    
     
     
 }
@@ -133,9 +140,18 @@
     [self.songImage setImageWithURL:albumURL];
     
     self.musicSlider.maximumValue = self.player.metadata.currentTrack.duration;
+    
 
     
     
+}
+
+- (NSString *)stringFromTimeInterval:(NSTimeInterval)interval {
+    NSInteger ti = (NSInteger)interval;
+    NSInteger seconds = ti % 60;
+    NSInteger minutes = (ti / 60) % 60;
+  
+    return [NSString stringWithFormat:@"%01ld:%02ld",  (long)minutes, (long)seconds];
 }
 
 - (void)viewDidLoad {
