@@ -33,7 +33,7 @@
 		3E3953D020EFE6F800D0FF7D /* spotUsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953CF20EFE6F800D0FF7D /* spotUsUITests.m */; };
 		3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */; };
 		446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */; };
-		6C83415A1856828FB8E13F87 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		6C83415A1856828FB8E13F87 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		6CC2534A20FD08D500D7093E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2534920FD08D500D7093E /* City.m */; };
 		6CC2534E20FD353500D7093E /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2534D20FD353500D7093E /* Track.m */; };
 		6CC2535120FD36E900D7093E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535020FD36E900D7093E /* LoginViewController.m */; };
@@ -41,7 +41,7 @@
 		6CC2535A20FD446E00D7093E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535920FD446E00D7093E /* SignUpViewController.m */; };
 		6CC2535D20FD48CD00D7093E /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535C20FD48CD00D7093E /* CitiesViewController.m */; };
 		6CC253A520FEB5D200D7093E /* SearchCitiesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC253A420FEB5D200D7093E /* SearchCitiesStoryboard.storyboard */; };
-		7D5D621B1CE2895F2D45F143 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		7D5D621B1CE2895F2D45F143 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8A6689F27BF93C7B44C4034D /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5A7B8164B3D985B4482606 /* libPods-spotUs.a */; };
 		BE353A6D012E810A75A0C500 /* libPods-spotUsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 928F5C7D80404A8E79713BCD /* libPods-spotUsUITests.a */; };
 		F32D8E99568134814EC63036 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229C412B71A1F7B9C6622D3A /* libPods-spotUsTests.a */; };
@@ -152,7 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */,
-				6C83415A1856828FB8E13F87 /* BuildFile in Frameworks */,
+				6C83415A1856828FB8E13F87 /* (null) in Frameworks */,
 				F32D8E99568134814EC63036 /* libPods-spotUsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,7 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F7879FDCD98413FDA8910D5 /* libPods-spotUsUITests.a in Frameworks */,
-				7D5D621B1CE2895F2D45F143 /* BuildFile in Frameworks */,
+				7D5D621B1CE2895F2D45F143 /* (null) in Frameworks */,
 				BE353A6D012E810A75A0C500 /* libPods-spotUsUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

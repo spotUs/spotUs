@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "PlayerView.h"
 #import "UIImageView+AFNetworking.h"
+#import "City.h"
 
 
 @interface ProfileViewController ()
@@ -30,6 +31,23 @@
     
     NSURL *profileURL = self.currentUser.largestImage.imageURL;
     [self.profileImageView setImageWithURL:profileURL];
+    
+    [[PFUser currentUser] fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        
+        PFUser *currentUser = (PFUser *)object;
+        
+        City *hometown = currentUser[@"city"];
+        
+        [hometown fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            City *fullHometown  = (City*)object;
+            self.hometownLabel.text = fullHometown.name;
+
+
+        }];
+        
+
+        
+    }];
     
     
     // Do any additional setup after loading the view.
