@@ -251,6 +251,14 @@
                                     <segue destination="m6d-fk-gPX" kind="show" id="Epf-Jj-Xul"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3t-Tz-yTg">
+                                <rect key="frame" x="229" y="503" width="84" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Now Playing"/>
+                                <connections>
+                                    <segue destination="x5g-Cf-YmB" kind="show" id="b78-a1-WWO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2sJ-ND-GRw"/>
@@ -264,6 +272,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="hometownLabel" destination="Xzc-ku-SIA" id="016-tF-YQ9"/>
+                        <outlet property="nowPlayingButton" destination="D3t-Tz-yTg" id="Ns6-7a-jZd"/>
                         <outlet property="profileImageView" destination="ZMK-Ba-oIh" id="kIZ-5e-MHx"/>
                         <outlet property="profileUsernameLabel" destination="L0R-Wy-KT1" id="JoW-IM-KN4"/>
                     </connections>
@@ -594,6 +603,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dU3-DC-N3D"/>
-        <segue reference="bty-V5-NaH"/>
+        <segue reference="b78-a1-WWO"/>
     </inferredMetricsTieBreakers>
 </document>
