@@ -514,11 +514,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="iag-Wo-gMA">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zSC-Er-mCe">
-                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R9e-hD-3aX">
                                     <size key="itemSize" width="165" height="167"/>
@@ -570,6 +570,7 @@
                                             <outlet property="artistLabel" destination="xNV-pO-cUp" id="qJm-DZ-dGq"/>
                                             <outlet property="songImageView" destination="5Wn-Vh-WzK" id="h5a-6O-uIN"/>
                                             <outlet property="titleLabel" destination="J9h-9H-Ths" id="20f-Jv-QOG"/>
+                                            <segue destination="x5g-Cf-YmB" kind="show" id="Ss4-DB-TId"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -608,6 +609,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dU3-DC-N3D"/>
-        <segue reference="bty-V5-NaH"/>
+        <segue reference="Ss4-DB-TId"/>
     </inferredMetricsTieBreakers>
 </document>
