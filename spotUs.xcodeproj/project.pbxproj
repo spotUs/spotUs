@@ -21,8 +21,9 @@
 		06F6BD7A20FED6AA00E85B28 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F6BD7920FED6AA00E85B28 /* StartViewController.m */; };
 		1F7879FDCD98413FDA8910D5 /* libPods-spotUsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3AA8DA663A100D73310B19 /* libPods-spotUsUITests.a */; };
 		33E4FAB924A352B967529EFE /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */; };
-		3E097D3021010790003FC5F6 /* spotUs.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E097D2F21010790003FC5F6 /* spotUs.gif */; };
+		3E097D3021010790003FC5F6 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		3E097D3621010C18003FC5F6 /* GifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E097D3521010C18003FC5F6 /* GifViewController.m */; };
+		3E097D4121011A94003FC5F6 /* WebViewContent.html in Resources */ = {isa = PBXBuildFile; fileRef = 3E097D4021011A94003FC5F6 /* WebViewContent.html */; };
 		3E35628A20FE53AE00DDAA9E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E35628920FE53AE00DDAA9E /* MapKit.framework */; };
 		3E35630420FEA86300DDAA9E /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630320FEA86300DDAA9E /* LocationCell.m */; };
 		3E35630A20FEA8D100DDAA9E /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630920FEA8D100DDAA9E /* PhotoMapViewController.m */; };
@@ -93,7 +94,7 @@
 		2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E097D3421010C18003FC5F6 /* GifViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifViewController.h; sourceTree = "<group>"; };
 		3E097D3521010C18003FC5F6 /* GifViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifViewController.m; sourceTree = "<group>"; };
-		3E097D3D210116B9003FC5F6 /* WebViewContent.html alias */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WebViewContent.html alias"; sourceTree = "<group>"; };
+		3E097D4021011A94003FC5F6 /* WebViewContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WebViewContent.html; sourceTree = "<group>"; };
 		3E35628920FE53AE00DDAA9E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3E35630220FEA86300DDAA9E /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
 		3E35630320FEA86300DDAA9E /* LocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
@@ -201,7 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				06F6BD5420FD0A5F00E85B28 /* PlayerViewController.m */,
-				3E097D2F21010790003FC5F6 /* spotUs.gif */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -230,7 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				067FB7A1210118D600B997FD /* spotUs.gif */,
-				3E097D3D210116B9003FC5F6 /* WebViewContent.html alias */,
+				3E097D4021011A94003FC5F6 /* WebViewContent.html */,
 				3E097D3421010C18003FC5F6 /* GifViewController.h */,
 				3E097D3521010C18003FC5F6 /* GifViewController.m */,
 			);
@@ -485,8 +485,9 @@
 				6C7CA2EF2101137C00AB8917 /* PlaylistStoryboard.storyboard in Resources */,
 				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
 				067FB7A0210106AC00B997FD /* locationStoryBoard.storyboard in Resources */,
+				3E097D4121011A94003FC5F6 /* WebViewContent.html in Resources */,
 				3E3953B820EFE6F800D0FF7D /* LaunchScreen.storyboard in Resources */,
-				3E097D3021010790003FC5F6 /* spotUs.gif in Resources */,
+				3E097D3021010790003FC5F6 /* (null) in Resources */,
 				3E3953B520EFE6F800D0FF7D /* Assets.xcassets in Resources */,
 				3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */,
 				3E3953B320EFE6F800D0FF7D /* Main.storyboard in Resources */,
