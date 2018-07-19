@@ -39,21 +39,8 @@
     __weak PlayerView *weakSelf = self;
 
     
-    [self.player setIsPlaying:NO callback:^(NSError *error) {
-        [weakSelf.player seekTo:self.musicSlider.value callback:^(NSError *error) {
-            [weakSelf.player setIsPlaying:YES callback:nil];
+    [weakSelf.player seekTo:self.musicSlider.value callback:nil];
 
-        }];
-
-    }];
-
-    
-
-    
-    
-    
-    
-    
     
 }
 - (IBAction)goFoward:(id)sender {
@@ -102,7 +89,12 @@
         NSString *song = self.citySongIDs[self.currentSongIndex];
         
         NSString *queueRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song];
-        [self.player queueSpotifyURI:queueRequest callback:nil];
+        [self.player queueSpotifyURI:queueRequest callback:^(NSError *error) {
+            
+            if(error){
+                NSLog(@"Error queueing song: %@", error.localizedDescription);
+            }
+        }];
         self.currentSongIndex++;
             
         
@@ -196,35 +188,12 @@
         NSString *song = self.citySongIDs[0];
         NSString *playRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song];
         [self.player playSpotifyURI:playRequest startingWithIndex:0 startingWithPosition:0 callback:^(NSError *error) {
-            NSLog(@"Error queueing songs: %@", error.localizedDescription);
+            
+            if(error){
+            NSLog(@"Error starting music: %@", error.localizedDescription);
+            }
         }];
     
-}
-
-- (void) getUserTopTracks {
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:@"https://api.spotify.com/v1/me/top/tracks"]];
-    NSDictionary *headers = @{@"Authorization":[@"Bearer " stringByAppendingString:self.auth.session.accessToken]};
-    [request setAllHTTPHeaderFields:(headers)];
-    [request setHTTPMethod:@"GET"];
-    
-    
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSDictionary *datadict = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
-        NSArray *tracksArray = datadict[@"items"]; //iterate through the array to get the id of each song
-        NSMutableArray<NSString*> *songIDs = [NSMutableArray new];
-        for(NSDictionary *dictionary in tracksArray){
-            
-            NSString *spotifyID = dictionary[@"id"];
-            [songIDs addObject:spotifyID];
-        }
-        
-        self.topSongIDs =songIDs;
-        [self startMusic];
-    
-    
-    }] resume];
 }
 
 - (void)didReceiveMemoryWarning {
