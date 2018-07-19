@@ -9,17 +9,47 @@
 #import "SignUpViewController.h"
 #import "ErrorAlert.h"
 #import "ProfileViewController.h"
+#import "CitiesViewController.h"
+#import "City.h"
 
-@interface SignUpViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *cityText;
+@interface SignUpViewController () <UIPickerViewDelegate,UIPickerViewDataSource>
+@property (weak, nonatomic) IBOutlet UIPickerView *cityPicker;
+@property (strong, nonatomic) NSArray<City*> *cities;
+@property (strong, nonatomic) NSArray<NSString*> *mostPlayedIDs;
+@property (strong, nonatomic) City *selectedCity;
+
+
+
+
+
 
 @end
 
 @implementation SignUpViewController
+- (IBAction)onTapConfirm:(id)sender {
+    
+    [self registerUser];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.cityPicker.dataSource = self;
+    self.cityPicker.delegate = self;
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"City"];
+    [query includeKey:@"name"];
+    [query includeKey:@"tracks"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        self.cities = objects;
+        [self.cityPicker reloadAllComponents];
+    }];
+    
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,32 +61,43 @@
     // initialize a user object
     PFUser *currUser = [PFUser currentUser];
     //query the city object
-    PFQuery *query = [PFQuery queryWithClassName:@"City"];
-    [query whereKey:@"name" equalTo:self.cityText.text];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *cities, NSError *error) {
-        if (!error) {
-            currUser[@"city"] = cities[0];
-            NSLog(@"%@",cities[0]);
-            // save user's city
-            [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-                if (error != nil) {
-                    NSLog(@"Error saving city: %@", error.localizedDescription);
-                    [ErrorAlert showAlert:error.localizedDescription inVC:self];
-                } else {
-                    [self performSegueWithIdentifier:@"create" sender:self];
-                    NSLog(@"User saved city successfully");
-                }
-            }];
+    NSInteger row = [self.cityPicker selectedRowInComponent:0];
+    self.selectedCity = self.cities[row];
+    currUser[@"city"] = self.selectedCity;
+    [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+        if (error != nil) {
+            NSLog(@"Error saving city: %@", error.localizedDescription);
+            [ErrorAlert showAlert:error.localizedDescription inVC:self];
         } else {
-            NSLog(@"%@", error.localizedDescription);
+            NSLog(@"User saved city successfully");
+            
+            [self getUserTopTracks];
+            
         }
     }];
+
     
     
 }
-- (IBAction)onTapSignUp:(id)sender {
-    [self registerUser];
+
+
+// The number of columns of data
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    
+    return 1;
+}
+
+// The number of rows of data
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return self.cities.count;
+    
+}
+// The data to return for the row and component (column) that's being passed in
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    
+    return self.cities[row].name;
+    
+    
 }
 
 - (void) getUserTopTracks {
@@ -78,6 +119,46 @@
             [songIDs addObject:spotifyID];
         }
         
+        self.mostPlayedIDs = songIDs;
+        
+        
+        NSMutableArray<NSString*> *citySongs = [NSMutableArray arrayWithArray:self.selectedCity.tracks];
+        
+        for(int i = 0; i < 5; i++){
+            
+            if(![citySongs containsObject:self.mostPlayedIDs[i]]){
+                [citySongs addObject:self.mostPlayedIDs[i]];
+            }
+            
+            if( i == self.mostPlayedIDs.count-1){
+                
+                break;
+            }
+            
+        }
+        
+        self.selectedCity.tracks = citySongs;
+        
+        [self.selectedCity saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            
+            
+            if(succeeded){
+                
+                NSLog(@"User tracks sucessfully added");
+                [self performSegueWithIdentifier:@"create" sender:self];
+
+            }
+            
+            else{
+                
+                NSLog(@"Error queueing songs: %@", error.localizedDescription);
+
+            }
+        }];
+        
+        
+        
+
         
         
     }] resume];

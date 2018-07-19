@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "PlayerView.h"
-#import "LoginViewController.h"
 #import "SpotifyLoginViewController.h"
 #import "StartViewController.h"
 @interface AppDelegate ()
