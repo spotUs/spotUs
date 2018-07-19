@@ -59,6 +59,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)onTapLogoutBtn:(id)sender {
+}
 
 
 #pragma mark - Navigation
