@@ -24,13 +24,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.songIDs = self.city.tracks;
-    //testing delete this and actually get the songIDs from city passed
+    self.songIDs = [NSMutableArray arrayWithArray:self.city.tracks];
+    //[self.songIDs addObjectsFromArray: self.city.tracks];
+    NSLog(@"ARRAY%@",self.songIDs);
+    /*testing delete this and actually get the songIDs from city passed
     self.songIDs = [NSMutableArray array];
     [self.songIDs addObject:@"01Mi9xc3nOoxuJWSptf7LY"];
     [self.songIDs addObject:@"6FT9FZccFD6nE8dMNslz2n"];
     [self.songIDs addObject:@"6e13443Ve7RGcAUScTgYtl"];
-    ////
+    */
     
     self.dataArray = [NSMutableArray array];
 
@@ -62,7 +64,7 @@
 - (void) fetchTrackData: (NSString *)songID{
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:[@"https://api.spotify.com/v1/tracks/" stringByAppendingString:songID]]];
-    NSDictionary *headers = @{@"Authorization":[@"Bearer " stringByAppendingString:@"BQAM0Q1i87r4pKBfmTNddoEwyNu8mTZ98c2jVE-89w0ph91Dmslb14We2-SS2tSyoWJGUZ4HmmzcS9b2JxYJknmXBal0ZmgiDNUXE7T8cOS3i1Cx_PR6je1Ol0PV_NkJduwKr4nDE_MeGQ4"]};//self.auth.session.accessToken]};
+    NSDictionary *headers = @{@"Authorization":[@"Bearer " stringByAppendingString:self.auth.session.accessToken]};
     [request setAllHTTPHeaderFields:(headers)];
     [request setHTTPMethod:@"GET"];
     

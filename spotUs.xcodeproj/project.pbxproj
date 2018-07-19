@@ -36,7 +36,6 @@
 		3E3953D020EFE6F800D0FF7D /* spotUsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953CF20EFE6F800D0FF7D /* spotUsUITests.m */; };
 		3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */; };
 		446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */; };
-		6C7CA2EF2101137C00AB8917 /* PlaylistStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC253A420FEB5D200D7093E /* PlaylistStoryboard.storyboard */; };
 		6C83415A1856828FB8E13F87 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		6CB5858C21000184009BD66B /* PlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5858B21000184009BD66B /* PlaylistViewController.m */; };
 		6CB5858F21000392009BD66B /* PlaylistCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5858E21000392009BD66B /* PlaylistCollectionViewCell.m */; };
@@ -129,7 +128,6 @@
 		6CC2535920FD446E00D7093E /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		6CC2535B20FD48CD00D7093E /* CitiesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitiesViewController.h; sourceTree = "<group>"; };
 		6CC2535C20FD48CD00D7093E /* CitiesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
-		6CC253A420FEB5D200D7093E /* PlaylistStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlaylistStoryboard.storyboard; sourceTree = "<group>"; };
 		928F5C7D80404A8E79713BCD /* libPods-spotUsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D5B60A1BB3A5A6DD90A307 /* Pods-spotUsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsTests/Pods-spotUsTests.release.xcconfig"; sourceTree = "<group>"; };
 		A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,7 +290,6 @@
 		3E3953AA20EFE6F800D0FF7D /* spotUs */ = {
 			isa = PBXGroup;
 			children = (
-				6CC253A420FEB5D200D7093E /* PlaylistStoryboard.storyboard */,
 				6CB5858A21000184009BD66B /* PlaylistViewController.h */,
 				6CB5858B21000184009BD66B /* PlaylistViewController.m */,
 				6CB5858D21000392009BD66B /* PlaylistCollectionViewCell.h */,
@@ -482,7 +479,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C7CA2EF2101137C00AB8917 /* PlaylistStoryboard.storyboard in Resources */,
 				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
 				067FB7A0210106AC00B997FD /* locationStoryBoard.storyboard in Resources */,
 				3E097D4121011A94003FC5F6 /* WebViewContent.html in Resources */,
