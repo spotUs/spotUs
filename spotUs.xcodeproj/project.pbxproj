@@ -21,10 +21,8 @@
 		06F6BD7A20FED6AA00E85B28 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F6BD7920FED6AA00E85B28 /* StartViewController.m */; };
 		1F7879FDCD98413FDA8910D5 /* libPods-spotUsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3AA8DA663A100D73310B19 /* libPods-spotUsUITests.a */; };
 		33E4FAB924A352B967529EFE /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */; };
-		3E097D3021010790003FC5F6 /* spotUs.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E097D2F21010790003FC5F6 /* spotUs.gif */; };
 		3E097D3221010BC8003FC5F6 /* GifStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E097D3121010BC8003FC5F6 /* GifStoryboard.storyboard */; };
 		3E097D3621010C18003FC5F6 /* GifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E097D3521010C18003FC5F6 /* GifViewController.m */; };
-		3E097D3821010D91003FC5F6 /* WebViewContent.html in Resources */ = {isa = PBXBuildFile; fileRef = 3E097D3721010D91003FC5F6 /* WebViewContent.html */; };
 		3E35628A20FE53AE00DDAA9E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E35628920FE53AE00DDAA9E /* MapKit.framework */; };
 		3E35630420FEA86300DDAA9E /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630320FEA86300DDAA9E /* LocationCell.m */; };
 		3E35630A20FEA8D100DDAA9E /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630920FEA8D100DDAA9E /* PhotoMapViewController.m */; };
@@ -37,6 +35,7 @@
 		3E3953D020EFE6F800D0FF7D /* spotUsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953CF20EFE6F800D0FF7D /* spotUsUITests.m */; };
 		3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */; };
 		446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */; };
+		6C7CA2EF2101137C00AB8917 /* PlaylistStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC253A420FEB5D200D7093E /* PlaylistStoryboard.storyboard */; };
 		6C83415A1856828FB8E13F87 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		6CB5858C21000184009BD66B /* PlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5858B21000184009BD66B /* PlaylistViewController.m */; };
 		6CB5858F21000392009BD66B /* PlaylistCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5858E21000392009BD66B /* PlaylistCollectionViewCell.m */; };
@@ -45,7 +44,6 @@
 		6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535620FD39AD00D7093E /* ErrorAlert.m */; };
 		6CC2535A20FD446E00D7093E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535920FD446E00D7093E /* SignUpViewController.m */; };
 		6CC2535D20FD48CD00D7093E /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535C20FD48CD00D7093E /* CitiesViewController.m */; };
-		6CC253A520FEB5D200D7093E /* PlaylistStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC253A420FEB5D200D7093E /* PlaylistStoryboard.storyboard */; };
 		7D5D621B1CE2895F2D45F143 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8A6689F27BF93C7B44C4034D /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5A7B8164B3D985B4482606 /* libPods-spotUs.a */; };
 		BE353A6D012E810A75A0C500 /* libPods-spotUsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 928F5C7D80404A8E79713BCD /* libPods-spotUsUITests.a */; };
@@ -92,11 +90,9 @@
 		119C420030297941D494C2F7 /* Pods-spotUs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUs.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUs/Pods-spotUs.release.xcconfig"; sourceTree = "<group>"; };
 		229C412B71A1F7B9C6622D3A /* libPods-spotUsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E097D2F21010790003FC5F6 /* spotUs.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = spotUs.gif; path = ../../../../Downloads/spotUs.gif; sourceTree = "<group>"; };
 		3E097D3121010BC8003FC5F6 /* GifStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GifStoryboard.storyboard; sourceTree = "<group>"; };
 		3E097D3421010C18003FC5F6 /* GifViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifViewController.h; sourceTree = "<group>"; };
 		3E097D3521010C18003FC5F6 /* GifViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifViewController.m; sourceTree = "<group>"; };
-		3E097D3721010D91003FC5F6 /* WebViewContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = WebViewContent.html; path = "../../../../Downloads/Video-Background-GIF-master/VideoBackground.obj/VideoBackground.obj/WebViewContent.html"; sourceTree = "<group>"; };
 		3E35628920FE53AE00DDAA9E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3E35630220FEA86300DDAA9E /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
 		3E35630320FEA86300DDAA9E /* LocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
@@ -231,7 +227,6 @@
 		3E097D3321010BD5003FC5F6 /* Gif */ = {
 			isa = PBXGroup;
 			children = (
-				3E097D3721010D91003FC5F6 /* WebViewContent.html */,
 				3E097D3121010BC8003FC5F6 /* GifStoryboard.storyboard */,
 				3E097D3421010C18003FC5F6 /* GifViewController.h */,
 				3E097D3521010C18003FC5F6 /* GifViewController.m */,
@@ -346,7 +341,6 @@
 		6CC2534B20FD08E300D7093E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3E097D2F21010790003FC5F6 /* spotUs.gif */,
 				6CC2534820FD08D500D7093E /* City.h */,
 				6CC2534920FD08D500D7093E /* City.m */,
 				6CC2534C20FD353500D7093E /* Track.h */,
@@ -485,10 +479,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C7CA2EF2101137C00AB8917 /* PlaylistStoryboard.storyboard in Resources */,
 				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
 				067FB7A0210106AC00B997FD /* locationStoryBoard.storyboard in Resources */,
 				3E3953B820EFE6F800D0FF7D /* LaunchScreen.storyboard in Resources */,
-				6CC253A520FEB5D200D7093E /* PlaylistStoryboard.storyboard in Resources */,
 				6CC253A520FEB5D200D7093E /* PlaylistStoryboard.storyboard in Resources */,
 				3E097D3821010D91003FC5F6 /* WebViewContent.html in Resources */,
 				3E097D3021010790003FC5F6 /* spotUs.gif in Resources */,
