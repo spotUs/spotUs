@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="go8-nU-wWN">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Gif View Controller-->
+        <scene sceneID="7lM-Es-GGm">
+            <objects>
+                <viewController id="go8-nU-wWN" customClass="GifViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OH2-7I-ppa"/>
+                        <viewControllerLayoutGuide type="bottom" id="bO0-qj-o8k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="htD-ea-Cfj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIx-XD-I7s">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                            <view alpha="0.05000000074505806" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DR3-KX-fpS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Awp-Ga-J2O">
+                                <rect key="frame" x="88" y="463" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="C68-R0-ybD"/>
+                                    <constraint firstAttribute="height" constant="40" id="ucm-VN-ZXY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVI-Wf-a2T">
+                                <rect key="frame" x="88" y="527" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="aQW-Kf-muN"/>
+                                    <constraint firstAttribute="height" constant="40" id="iCI-6k-Kju"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOw-PF-00v">
+                                <rect key="frame" x="76" y="140" width="223" height="55"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dIx-XD-I7s" firstAttribute="top" secondItem="htD-ea-Cfj" secondAttribute="top" id="6Qz-xf-QO4"/>
+                            <constraint firstItem="dIx-XD-I7s" firstAttribute="leading" secondItem="htD-ea-Cfj" secondAttribute="leading" id="GEb-oU-MkT"/>
+                            <constraint firstItem="DR3-KX-fpS" firstAttribute="width" secondItem="dIx-XD-I7s" secondAttribute="width" id="GJC-eT-PEa"/>
+                            <constraint firstItem="dIx-XD-I7s" firstAttribute="centerY" secondItem="htD-ea-Cfj" secondAttribute="centerY" id="HfQ-qS-WGH"/>
+                            <constraint firstItem="Awp-Ga-J2O" firstAttribute="centerX" secondItem="htD-ea-Cfj" secondAttribute="centerX" id="HoB-yD-pTb"/>
+                            <constraint firstItem="BVI-Wf-a2T" firstAttribute="top" secondItem="Awp-Ga-J2O" secondAttribute="bottom" constant="24" id="KQb-ge-etI"/>
+                            <constraint firstItem="dIx-XD-I7s" firstAttribute="centerX" secondItem="htD-ea-Cfj" secondAttribute="centerX" id="QnH-s2-Us9"/>
+                            <constraint firstAttribute="trailing" secondItem="dIx-XD-I7s" secondAttribute="trailing" id="Viq-2g-8Da"/>
+                            <constraint firstItem="DR3-KX-fpS" firstAttribute="height" secondItem="dIx-XD-I7s" secondAttribute="height" id="W8d-6e-6p8"/>
+                            <constraint firstItem="DR3-KX-fpS" firstAttribute="centerX" secondItem="htD-ea-Cfj" secondAttribute="centerX" id="hRn-jV-oMK"/>
+                            <constraint firstItem="bO0-qj-o8k" firstAttribute="top" secondItem="BVI-Wf-a2T" secondAttribute="bottom" constant="100" id="kod-v9-Rxs"/>
+                            <constraint firstItem="VOw-PF-00v" firstAttribute="top" secondItem="OH2-7I-ppa" secondAttribute="bottom" constant="120" id="rnt-7p-EYR"/>
+                            <constraint firstItem="VOw-PF-00v" firstAttribute="centerX" secondItem="htD-ea-Cfj" secondAttribute="centerX" id="xVI-v7-2MI"/>
+                            <constraint firstItem="BVI-Wf-a2T" firstAttribute="centerX" secondItem="htD-ea-Cfj" secondAttribute="centerX" id="zHq-wk-j48"/>
+                            <constraint firstItem="DR3-KX-fpS" firstAttribute="centerY" secondItem="htD-ea-Cfj" secondAttribute="centerY" id="zul-cD-7s2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Tq4-BJ-qVv"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="Awp-Ga-J2O" id="oBZ-B9-fGX"/>
+                        <outlet property="signUpButton" destination="BVI-Wf-a2T" id="GU0-PB-x9a"/>
+                        <outlet property="webViewBG" destination="dIx-XD-I7s" id="oYh-R8-cHm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MH4-kF-Bbs" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-294" y="327"/>
+        </scene>
+    </scenes>
+</document>
