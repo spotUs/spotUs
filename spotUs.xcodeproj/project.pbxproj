@@ -20,9 +20,8 @@
 		1F7879FDCD98413FDA8910D5 /* libPods-spotUsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3AA8DA663A100D73310B19 /* libPods-spotUsUITests.a */; };
 		33E4FAB924A352B967529EFE /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */; };
 		3E097D3021010790003FC5F6 /* spotUs.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E097D2F21010790003FC5F6 /* spotUs.gif */; };
-		3E097D3221010BC8003FC5F6 /* GifStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E097D3121010BC8003FC5F6 /* GifStoryboard.storyboard */; };
 		3E097D3621010C18003FC5F6 /* GifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E097D3521010C18003FC5F6 /* GifViewController.m */; };
-		3E097D3821010D91003FC5F6 /* WebViewContent.html in Resources */ = {isa = PBXBuildFile; fileRef = 3E097D3721010D91003FC5F6 /* WebViewContent.html */; };
+		3E097D3B210113EB003FC5F6 /* spotUs.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E097D3A210113EB003FC5F6 /* spotUs.gif */; };
 		3E35628A20FE53AE00DDAA9E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E35628920FE53AE00DDAA9E /* MapKit.framework */; };
 		3E35630420FEA86300DDAA9E /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630320FEA86300DDAA9E /* LocationCell.m */; };
 		3E35630A20FEA8D100DDAA9E /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630920FEA8D100DDAA9E /* PhotoMapViewController.m */; };
@@ -87,10 +86,10 @@
 		229C412B71A1F7B9C6622D3A /* libPods-spotUsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E097D2F21010790003FC5F6 /* spotUs.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = spotUs.gif; path = ../../../../Downloads/spotUs.gif; sourceTree = "<group>"; };
-		3E097D3121010BC8003FC5F6 /* GifStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GifStoryboard.storyboard; sourceTree = "<group>"; };
 		3E097D3421010C18003FC5F6 /* GifViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifViewController.h; sourceTree = "<group>"; };
 		3E097D3521010C18003FC5F6 /* GifViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifViewController.m; sourceTree = "<group>"; };
-		3E097D3721010D91003FC5F6 /* WebViewContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = WebViewContent.html; path = "../../../../Downloads/Video-Background-GIF-master/VideoBackground.obj/VideoBackground.obj/WebViewContent.html"; sourceTree = "<group>"; };
+		3E097D3A210113EB003FC5F6 /* spotUs.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spotUs.gif; sourceTree = "<group>"; };
+		3E097D3C210113F0003FC5F6 /* WebViewContent.html alias */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WebViewContent.html alias"; sourceTree = "<group>"; };
 		3E35628920FE53AE00DDAA9E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3E35630220FEA86300DDAA9E /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
 		3E35630320FEA86300DDAA9E /* LocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
@@ -219,8 +218,8 @@
 		3E097D3321010BD5003FC5F6 /* Gif */ = {
 			isa = PBXGroup;
 			children = (
-				3E097D3721010D91003FC5F6 /* WebViewContent.html */,
-				3E097D3121010BC8003FC5F6 /* GifStoryboard.storyboard */,
+				3E097D3C210113F0003FC5F6 /* WebViewContent.html alias */,
+				3E097D3A210113EB003FC5F6 /* spotUs.gif */,
 				3E097D3421010C18003FC5F6 /* GifViewController.h */,
 				3E097D3521010C18003FC5F6 /* GifViewController.m */,
 			);
@@ -471,11 +470,10 @@
 				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
 				3E3953B820EFE6F800D0FF7D /* LaunchScreen.storyboard in Resources */,
 				6CC253A520FEB5D200D7093E /* SearchCitiesStoryboard.storyboard in Resources */,
-				3E097D3821010D91003FC5F6 /* WebViewContent.html in Resources */,
 				3E097D3021010790003FC5F6 /* spotUs.gif in Resources */,
+				3E097D3B210113EB003FC5F6 /* spotUs.gif in Resources */,
 				3E3953B520EFE6F800D0FF7D /* Assets.xcassets in Resources */,
 				3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */,
-				3E097D3221010BC8003FC5F6 /* GifStoryboard.storyboard in Resources */,
 				3E3953B320EFE6F800D0FF7D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
