@@ -12,6 +12,7 @@
 #import "City.h"
 #import "CitiesViewController.h"
 #import "PhotoMapViewController.h"
+#import "GifViewController.h"
 
 
 @interface ProfileViewController ()
@@ -60,6 +61,12 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)onTapLogoutBtn:(id)sender {
+    //[[SPTAudioStreamingController sharedInstance] logout];
+    [self.player logout];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SpotifyLoginStoryBoard"
+                                                         bundle:nil];
+    GifViewController *gifVC = (GifViewController *) [storyboard instantiateViewControllerWithIdentifier:@"gifviewcontroller"]; //TODO add gifviewcontroller identifier
+    [self presentViewController:gifVC animated:YES completion:nil];
 }
 
 

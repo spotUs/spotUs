@@ -148,6 +148,10 @@
     }];
 }
 
+- (void) audioStreamingDidLogout:(SPTAudioStreamingController *)audioStreaming{
+    NSLog(@"logged out");
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

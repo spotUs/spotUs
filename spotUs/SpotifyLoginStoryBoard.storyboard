@@ -416,7 +416,7 @@
         <!--Gif View Controller-->
         <scene sceneID="IPk-sA-Bnz">
             <objects>
-                <viewController id="wdm-IU-mxX" customClass="GifViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gifviewcontroller" id="wdm-IU-mxX" customClass="GifViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xWR-FY-S99"/>
                         <viewControllerLayoutGuide type="bottom" id="HLp-1K-Goq"/>
