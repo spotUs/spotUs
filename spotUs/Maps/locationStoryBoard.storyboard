@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KgL-aI-pMd">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photo Map View Controller-->
+        <scene sceneID="SyF-fr-4d1">
+            <objects>
+                <viewController storyboardIdentifier="map" id="KgL-aI-pMd" customClass="PhotoMapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g3J-b8-BQV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ONR-wa-Raf">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Va9-Md-DkD">
+                                <rect key="frame" x="157" y="574" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Check In"/>
+                                <connections>
+                                    <action selector="didClickCheckIn:" destination="KgL-aI-pMd" eventType="touchUpInside" id="mjn-JI-wHV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1e-DA-Hhj">
+                                <rect key="frame" x="211" y="447" width="122" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8Z-uw-vVr">
+                                <rect key="frame" x="211" y="504" width="148" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ONR-wa-Raf" firstAttribute="trailing" secondItem="TFx-M0-dNU" secondAttribute="trailing" id="3P2-Sr-Xnx"/>
+                            <constraint firstItem="ONR-wa-Raf" firstAttribute="top" secondItem="TFx-M0-dNU" secondAttribute="top" id="4LO-Ej-5BK"/>
+                            <constraint firstItem="ONR-wa-Raf" firstAttribute="leading" secondItem="TFx-M0-dNU" secondAttribute="leading" id="9Pm-gb-vhq"/>
+                            <constraint firstItem="ONR-wa-Raf" firstAttribute="bottom" secondItem="TFx-M0-dNU" secondAttribute="bottom" id="c8F-F4-Ksz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TFx-M0-dNU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KsX-CG-rDy"/>
+                    <connections>
+                        <outlet property="latittudeLabel" destination="W8Z-uw-vVr" id="fAa-TE-5R4"/>
+                        <outlet property="longitudeLabel" destination="r1e-DA-Hhj" id="pLE-vV-C5l"/>
+                        <outlet property="mapView" destination="ONR-wa-Raf" id="UPC-62-SsL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GCF-sw-cXD" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1840.8" y="-862.21889055472275"/>
+        </scene>
+    </scenes>
+</document>

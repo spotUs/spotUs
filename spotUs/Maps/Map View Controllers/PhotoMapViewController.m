@@ -11,15 +11,95 @@
 #import "Parse.h"
 #import "PlayerView.h"
 #import "City.h"
-
-@interface PhotoMapViewController () <MKMapViewDelegate>
+#import "ErrorAlert.h"
+#import <CoreLocation/CoreLocation.h>
+@interface PhotoMapViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 @property (strong, nonatomic) City *city;
+@property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *latittudeLabel;
+@property BOOL waitingForLocation;
+
 @end
 
 @implementation PhotoMapViewController
+CLLocationManager *locationManager;
+
+- (IBAction)didClickCheckIn:(id)sender {
+    self.waitingForLocation = YES;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager requestWhenInUseAuthorization];
+
+
+    [locationManager startUpdatingLocation];
+    
+    
+    
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+  
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    
+    if(self.waitingForLocation){
+        
+        CLLocation *newLocation = [locations lastObject];
+        NSLog(@"didUpdateToLocation: %@", newLocation);
+        CLLocation *currentLocation = newLocation;
+        
+        if (currentLocation != nil) {
+          
+            BOOL foundCity = NO;
+            for(City *city in self.cities){
+                
+                CLLocation *cityLocation = [[CLLocation alloc] initWithLatitude:city.lat longitude:city.lng];
+                
+                double distance =  [currentLocation distanceFromLocation:cityLocation];
+                
+                if(distance < 1000000){
+                    
+                    self.city = city;
+                    foundCity = YES;
+                    [self performSegueWithIdentifier:@"gotoplayer" sender:nil];
+                    break;
+
+                    
+                }
+                
+                
+                
+                
+            }
+            
+            
+            if(!foundCity){
+                
+                [ErrorAlert showAlert:@"It seems you are not near a city SpotUS is available in.." inVC:self];
+            }
+
+            
+     
+            self.waitingForLocation = NO;
+        }
+        
+    }
+}
 
 - (void)viewDidLoad {
+    locationManager = [[CLLocationManager alloc] init];
+
+    locationManager.delegate = self;
+    
+    self.waitingForLocation = NO;
+    
+    
+
     self.mapView.delegate = self;
+
     
     PFQuery *query = [PFQuery queryWithClassName:@"City"];
     query.limit = 20;
@@ -32,8 +112,9 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *cities, NSError *error) {
         
         if (cities) {
+            self.cities = cities;
             for(PFObject *c in cities) {
-                [self.cities addObject:c];
+                
                 double longi = [c[@"lng"] doubleValue];
                 double lat = [c[@"lat"] doubleValue];
                 CLLocationCoordinate2D location;
@@ -49,6 +130,8 @@
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+    
+    
     
 }
 

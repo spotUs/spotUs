@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		067FB79E210105E100B997FD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067FB79D210105E100B997FD /* CoreLocation.framework */; };
+		067FB7A0210106AC00B997FD /* locationStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 067FB79F210106AC00B997FD /* locationStoryBoard.storyboard */; };
 		06F6BD4920FD04FB00E85B28 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */; };
 		06F6BD4B20FD050300E85B28 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */; };
 		06F6BD4D20FD055200E85B28 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4C20FD055200E85B28 /* AVFoundation.framework */; };
@@ -62,6 +64,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		067FB79D210105E100B997FD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		067FB79F210106AC00B997FD /* locationStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = locationStoryBoard.storyboard; sourceTree = "<group>"; };
 		06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
 		06F6BD4C20FD055200E85B28 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -128,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067FB79E210105E100B997FD /* CoreLocation.framework in Frameworks */,
 				3E35628A20FE53AE00DDAA9E /* MapKit.framework in Frameworks */,
 				06F6BD4F20FD055C00E85B28 /* SystemConfiguration.framework in Frameworks */,
 				06F6BD4D20FD055200E85B28 /* AVFoundation.framework in Frameworks */,
@@ -165,6 +170,7 @@
 		06F6BD3F20FCFC9700E85B28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				067FB79D210105E100B997FD /* CoreLocation.framework */,
 				3E35628920FE53AE00DDAA9E /* MapKit.framework */,
 				06F6BD6520FD363A00E85B28 /* SpotifyMetadata.framework */,
 				06F6BD6320FD11DF00E85B28 /* libParse.a */,
@@ -212,6 +218,7 @@
 			children = (
 				3E35630120FEA83400DDAA9E /* Map Cells */,
 				3E35630020FEA82000DDAA9E /* Map View Controllers */,
+				067FB79F210106AC00B997FD /* locationStoryBoard.storyboard */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -447,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
+				067FB7A0210106AC00B997FD /* locationStoryBoard.storyboard in Resources */,
 				3E3953B820EFE6F800D0FF7D /* LaunchScreen.storyboard in Resources */,
 				6CC253A520FEB5D200D7093E /* SearchCitiesStoryboard.storyboard in Resources */,
 				3E3953B520EFE6F800D0FF7D /* Assets.xcassets in Resources */,

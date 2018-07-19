@@ -15,7 +15,7 @@
 
 @interface PhotoMapViewController : UIViewController
 
-@property (strong, nonatomic) NSMutableArray *cities;
+@property (strong, nonatomic) NSArray *cities;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) SPTAudioStreamingController *player;
 @property (nonatomic, strong) SPTAuth *auth;
