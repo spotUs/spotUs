@@ -11,8 +11,8 @@
 
 @interface GifViewController () <SpotifyLoginViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webViewBG;
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
-@property (weak, nonatomic) IBOutlet UIButton *signUpButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *loginWithSpotify;
 
 @end
 
@@ -30,11 +30,11 @@
     
     [self.webViewBG loadData:htmlData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:[htmlURL URLByDeletingLastPathComponent]];
     
-    self.loginButton.layer.borderColor = [[UIColor whiteColor] CGColor];
-    self.loginButton.layer.borderWidth = 2.0;
+   
+self.loginWithSpotify.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.loginWithSpotify.layer.borderWidth = 2.0;
     
-    self.signUpButton.layer.borderColor = [[UIColor whiteColor] CGColor];
-    self.signUpButton.layer.borderWidth = 2.0f;
+  
 }
 
 - (void)didReceiveMemoryWarning {
