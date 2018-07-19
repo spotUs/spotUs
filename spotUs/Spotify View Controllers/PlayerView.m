@@ -23,8 +23,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *albumTitleLabel;
 @property (weak, nonatomic) IBOutlet UISlider *musicSlider;
 @property BOOL isPlaying;
+@property BOOL isRepeating;
 @property BOOL isSeeking;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
+@property (weak, nonatomic) IBOutlet UIButton *repeatButton;
 
 @property int currentSongIndex;
 
@@ -91,12 +93,37 @@
     
     
 }
+- (IBAction)repeatOrUnrepeat:(id)sender {
+    
+    if(self.isRepeating){
+        
+        [self.player setRepeat:SPTRepeatOff callback:nil];
+        self.isRepeating = NO;
+        [self.repeatButton setSelected:NO];
+        
+        
+    }
+    
+    else{
+        [self.player setRepeat:SPTRepeatOne callback:nil];
+        self.isRepeating = YES;
+        [self.repeatButton setSelected:YES];
+        
+        
+    }
+    
+    
+    
+    
+    
+}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.isPlaying = YES;
+    self.isRepeating = NO;
     self.player.playbackDelegate = self;
     
     self.musicSlider.minimumValue = 0.0;
@@ -150,6 +177,10 @@
     self.isPlaying = YES;
     [self.pauseButton setSelected:NO];
     
+    [self.player setRepeat:SPTRepeatOff callback:nil];
+    self.isRepeating = NO;
+    [self.repeatButton setSelected:NO];
+    
     if(self.player.metadata.nextTrack == nil){
         
         if(self.currentSongIndex == self.citySongIDs.count){
@@ -178,6 +209,9 @@
 - (void)audioStreamingDidSkipToNextTrack:(SPTAudioStreamingController *)audioStreaming{
     
     [self refreshSongData];
+    [self.player setRepeat:SPTRepeatOff callback:nil];
+    self.isRepeating = NO;
+    [self.repeatButton setSelected:NO];
     
     
 }
