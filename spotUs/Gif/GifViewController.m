@@ -20,7 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+//    NSString *pathForFile = [[NSBundle mainBundle] pathForResource: @"violin" ofType: @"gif"];
+//    NSData *dataOfGif = [NSData dataWithContentsOfFile: pathForFile];
+//    [self.webViewBG loadData:dataOfGif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
+  
     NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"WebViewContent" ofType:@"html"];
     NSURL *htmlURL = [[NSURL alloc] initFileURLWithPath:htmlPath];
     NSData *htmlData = [[NSData alloc] initWithContentsOfURL:htmlURL];
@@ -32,7 +35,6 @@
     
     self.signUpButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.signUpButton.layer.borderWidth = 2.0f;
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
