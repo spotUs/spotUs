@@ -8,13 +8,13 @@
 
 #import "PlaylistViewController.h"
 #import "PlaylistCollectionViewCell.h"
+#import "PlayerView.h"
 
 
 @interface PlaylistViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
-@property (strong, nonatomic) NSMutableArray<NSString *> *songIDs;
 @property (strong, nonatomic) NSMutableArray<NSDictionary *> *dataArray;
 @property (strong, nonatomic) NSArray<NSDictionary *> *filteredDataArray;
 
@@ -24,18 +24,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.songIDs = [NSMutableArray arrayWithArray:self.city.tracks];
     //[self.songIDs addObjectsFromArray: self.city.tracks];
-    NSLog(@"ARRAY%@",self.songIDs);
     /*testing delete this and actually get the songIDs from city passed
     self.songIDs = [NSMutableArray array];
     [self.songIDs addObject:@"01Mi9xc3nOoxuJWSptf7LY"];
     [self.songIDs addObject:@"6FT9FZccFD6nE8dMNslz2n"];
     [self.songIDs addObject:@"6e13443Ve7RGcAUScTgYtl"];
     */
-    
+    NSDictionary *emptyDic = [NSDictionary dictionary];
     self.dataArray = [NSMutableArray array];
-
+    for (int i = 0; i < self.city.tracks.count; i++) {
+        [self.dataArray addObject:emptyDic];
+    }
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.searchBar.delegate = self;
@@ -50,8 +50,9 @@
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
     //populate the dataArray
-    for (NSUInteger i = 0; i < self.songIDs.count; i++){
-        [self fetchTrackData:self.songIDs[i]];
+    for (NSUInteger i = 0; i < self.city.tracks.count; i++){
+        
+        [self fetchTrackData:i];
     }
 
 }
@@ -61,9 +62,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) fetchTrackData: (NSString *)songID{
+- (void) fetchTrackData: (NSUInteger)songIndex{
+
+
+    
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:[@"https://api.spotify.com/v1/tracks/" stringByAppendingString:songID]]];
+    [request setURL:[NSURL URLWithString:[@"https://api.spotify.com/v1/tracks/" stringByAppendingString:self.city.tracks[songIndex]]]];
     NSDictionary *headers = @{@"Authorization":[@"Bearer " stringByAppendingString:self.auth.session.accessToken]};
     [request setAllHTTPHeaderFields:(headers)];
     [request setHTTPMethod:@"GET"];
@@ -75,7 +79,7 @@
         }
         else {
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];            
-            [self.dataArray addObject:dataDictionary];
+            self.dataArray[songIndex] = dataDictionary;
             self.filteredDataArray = self.dataArray;
             [self.collectionView reloadData];
         }
@@ -88,11 +92,18 @@
     PlaylistCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"playlistCollectionCell" forIndexPath:indexPath];
     //[cell updateTrackCellwithData:self.dataArray[indexPath.row]];
     [cell updateTrackCellwithData:self.filteredDataArray[indexPath.row]];
-    return cell;
+        return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.filteredDataArray.count;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self.delegate didChooseSongWithIndex:indexPath.row];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 - (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
@@ -114,14 +125,15 @@
     [searchBar resignFirstResponder];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    // Pass the selected object to the new view controller.'
+    
+
 }
-*/
 
 @end

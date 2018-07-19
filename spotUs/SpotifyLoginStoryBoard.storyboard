@@ -103,7 +103,7 @@
                     <navigationItem key="navigationItem" id="90T-dn-YMS">
                         <barButtonItem key="rightBarButtonItem" title="Playlist" id="y4a-XH-XAX">
                             <connections>
-                                <segue destination="XYl-M6-THt" kind="show" id="XiH-88-Pl8"/>
+                                <segue destination="XYl-M6-THt" kind="presentation" id="4xN-ab-Dsc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -554,7 +554,6 @@
                                             <outlet property="artistLabel" destination="xNV-pO-cUp" id="qJm-DZ-dGq"/>
                                             <outlet property="songImageView" destination="5Wn-Vh-WzK" id="h5a-6O-uIN"/>
                                             <outlet property="titleLabel" destination="J9h-9H-Ths" id="20f-Jv-QOG"/>
-                                            <segue destination="x5g-Cf-YmB" kind="show" id="Ss4-DB-TId"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -595,6 +594,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dU3-DC-N3D"/>
-        <segue reference="Ss4-DB-TId"/>
+        <segue reference="bty-V5-NaH"/>
     </inferredMetricsTieBreakers>
 </document>

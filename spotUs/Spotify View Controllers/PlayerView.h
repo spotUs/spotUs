@@ -20,6 +20,8 @@
 @property (nonatomic, weak) SPTAudioStreamingController *player;
 @property (nonatomic, strong) SPTAuth *auth;
 @property (nonatomic, strong) City *city;
+@property NSInteger songIndex;
+
 
 
 

@@ -11,7 +11,7 @@
 #import "PlaylistViewController.h"
 
 
-@interface PlayerView () <SPTAudioStreamingPlaybackDelegate>
+@interface PlayerView () <SPTAudioStreamingPlaybackDelegate,PlayListViewControllerDelegate>
 @property (nonatomic, strong) NSArray<SPTSavedTrack*> *songs;
 @property (nonatomic, strong) NSArray<NSString*>   *topSongIDs;
 @property (nonatomic, strong) NSArray<NSString*>   *citySongIDs;
@@ -128,8 +128,16 @@
     
     self.musicSlider.minimumValue = 0.0;
     self.musicSlider.value = 0;
+    if(self.songIndex != nil){
+        self.currentSongIndex = self.songIndex;
+    }
+    else{
+        self.currentSongIndex = 0;
+
+        
+    }
     
-    self.currentSongIndex = 1;
+    
     [self getCityTracks];
     
     
@@ -147,6 +155,7 @@
         
         NSArray *citySongs = city.tracks;
         self.citySongIDs = citySongs;
+        
         [self startMusic];
         
         
@@ -157,7 +166,8 @@
 
 -(void)startMusic{
     
-    NSString *song = self.citySongIDs[0];
+    NSString *song = self.citySongIDs[self.currentSongIndex];
+    self.currentSongIndex++;
     NSString *playRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song];
     [self.player playSpotifyURI:playRequest startingWithIndex:0 startingWithPosition:0 callback:^(NSError *error) {
         
@@ -274,7 +284,18 @@
      playlistVC.auth = self.auth;
      playlistVC.player = self.player;
      playlistVC.city = self.city;
+     playlistVC.delegate = self;
  }
+
+-(void)didChooseSongWithIndex:(NSUInteger)index{
+    
+    self.currentSongIndex = index;
+    [self startMusic];
+    
+    
+
+
+}
 
 
 @end
