@@ -93,6 +93,56 @@
 }
 
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.isPlaying = YES;
+    self.player.playbackDelegate = self;
+    
+    self.musicSlider.minimumValue = 0.0;
+    self.musicSlider.value = 0;
+    
+    self.currentSongIndex = 1;
+    [self getCityTracks];
+    
+    
+    
+}
+
+-(void)getCityTracks{
+    
+    
+    
+    [self.city fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        
+        
+        City *city = (City*)object;
+        
+        NSArray *citySongs = city.tracks;
+        self.citySongIDs = citySongs;
+        [self startMusic];
+        
+        
+    }];
+    
+    
+}
+
+-(void)startMusic{
+    
+    NSString *song = self.citySongIDs[0];
+    NSString *playRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song];
+    [self.player playSpotifyURI:playRequest startingWithIndex:0 startingWithPosition:0 callback:^(NSError *error) {
+        
+        if(error){
+            NSLog(@"Error starting music: %@", error.localizedDescription);
+        }
+    }];
+    
+}
+
+
+
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri{
     
@@ -171,53 +221,10 @@
     return [NSString stringWithFormat:@"%01ld:%02ld",  (long)minutes, (long)seconds];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    self.isPlaying = YES;
-    self.player.playbackDelegate = self;
-    
-    self.musicSlider.minimumValue = 0.0;
-    
-    self.currentSongIndex = 1;
-    [self getCityTracks];
-    
-    
-
-}
 
 
--(void)getCityTracks{
-    
-    
-    
-    [self.city fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        
-        
-        City *city = (City*)object;
-        
-        NSArray *citySongs = city.tracks;
-        self.citySongIDs = citySongs;
-        [self startMusic];
-        
-        
-    }];
-    
-    
-}
 
--(void)startMusic{
-    
-        NSString *song = self.citySongIDs[0];
-        NSString *playRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song];
-        [self.player playSpotifyURI:playRequest startingWithIndex:0 startingWithPosition:0 callback:^(NSError *error) {
-            
-            if(error){
-            NSLog(@"Error starting music: %@", error.localizedDescription);
-            }
-        }];
-    
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
