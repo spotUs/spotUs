@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		067FB79E210105E100B997FD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067FB79D210105E100B997FD /* CoreLocation.framework */; };
+		067FB7A0210106AC00B997FD /* locationStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 067FB79F210106AC00B997FD /* locationStoryBoard.storyboard */; };
 		06F6BD4920FD04FB00E85B28 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */; };
 		06F6BD4B20FD050300E85B28 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */; };
 		06F6BD4D20FD055200E85B28 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4C20FD055200E85B28 /* AVFoundation.framework */; };
@@ -19,7 +21,7 @@
 		06F6BD7A20FED6AA00E85B28 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F6BD7920FED6AA00E85B28 /* StartViewController.m */; };
 		1F7879FDCD98413FDA8910D5 /* libPods-spotUsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3AA8DA663A100D73310B19 /* libPods-spotUsUITests.a */; };
 		33E4FAB924A352B967529EFE /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */; };
-		3E097D3221010BC8003FC5F6 /* GifStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E097D3121010BC8003FC5F6 /* GifStoryboard.storyboard */; };
+		3E097D3021010790003FC5F6 /* spotUs.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E097D2F21010790003FC5F6 /* spotUs.gif */; };
 		3E097D3621010C18003FC5F6 /* GifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E097D3521010C18003FC5F6 /* GifViewController.m */; };
 		3E35628A20FE53AE00DDAA9E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E35628920FE53AE00DDAA9E /* MapKit.framework */; };
 		3E35630420FEA86300DDAA9E /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630320FEA86300DDAA9E /* LocationCell.m */; };
@@ -66,6 +68,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		067FB79D210105E100B997FD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		067FB79F210106AC00B997FD /* locationStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = locationStoryBoard.storyboard; sourceTree = "<group>"; };
+		067FB7A1210118D600B997FD /* spotUs.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spotUs.gif; sourceTree = "<group>"; };
 		06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
 		06F6BD4C20FD055200E85B28 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -86,9 +91,9 @@
 		119C420030297941D494C2F7 /* Pods-spotUs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUs.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUs/Pods-spotUs.release.xcconfig"; sourceTree = "<group>"; };
 		229C412B71A1F7B9C6622D3A /* libPods-spotUsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E097D3121010BC8003FC5F6 /* GifStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GifStoryboard.storyboard; sourceTree = "<group>"; };
 		3E097D3421010C18003FC5F6 /* GifViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifViewController.h; sourceTree = "<group>"; };
 		3E097D3521010C18003FC5F6 /* GifViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifViewController.m; sourceTree = "<group>"; };
+		3E097D3D210116B9003FC5F6 /* WebViewContent.html alias */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WebViewContent.html alias"; sourceTree = "<group>"; };
 		3E35628920FE53AE00DDAA9E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3E35630220FEA86300DDAA9E /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
 		3E35630320FEA86300DDAA9E /* LocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
@@ -139,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067FB79E210105E100B997FD /* CoreLocation.framework in Frameworks */,
 				3E35628A20FE53AE00DDAA9E /* MapKit.framework in Frameworks */,
 				06F6BD4F20FD055C00E85B28 /* SystemConfiguration.framework in Frameworks */,
 				06F6BD4D20FD055200E85B28 /* AVFoundation.framework in Frameworks */,
@@ -176,6 +182,7 @@
 		06F6BD3F20FCFC9700E85B28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				067FB79D210105E100B997FD /* CoreLocation.framework */,
 				3E35628920FE53AE00DDAA9E /* MapKit.framework */,
 				06F6BD6520FD363A00E85B28 /* SpotifyMetadata.framework */,
 				06F6BD6320FD11DF00E85B28 /* libParse.a */,
@@ -194,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				06F6BD5420FD0A5F00E85B28 /* PlayerViewController.m */,
+				3E097D2F21010790003FC5F6 /* spotUs.gif */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -221,7 +229,8 @@
 		3E097D3321010BD5003FC5F6 /* Gif */ = {
 			isa = PBXGroup;
 			children = (
-				3E097D3121010BC8003FC5F6 /* GifStoryboard.storyboard */,
+				067FB7A1210118D600B997FD /* spotUs.gif */,
+				3E097D3D210116B9003FC5F6 /* WebViewContent.html alias */,
 				3E097D3421010C18003FC5F6 /* GifViewController.h */,
 				3E097D3521010C18003FC5F6 /* GifViewController.m */,
 			);
@@ -233,6 +242,7 @@
 			children = (
 				3E35630120FEA83400DDAA9E /* Map Cells */,
 				3E35630020FEA82000DDAA9E /* Map View Controllers */,
+				067FB79F210106AC00B997FD /* locationStoryBoard.storyboard */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -287,7 +297,6 @@
 				6CB5858B21000184009BD66B /* PlaylistViewController.m */,
 				6CB5858D21000392009BD66B /* PlaylistCollectionViewCell.h */,
 				6CB5858E21000392009BD66B /* PlaylistCollectionViewCell.m */,
-				6CB58590210003D4009BD66B /* Playlist */,
 				3E097D3321010BD5003FC5F6 /* Gif */,
 				3E3562FF20FEA81300DDAA9E /* Maps */,
 				06F6BD6820FD3CE800E85B28 /* API */,
@@ -330,13 +339,6 @@
 				3E3953D120EFE6F800D0FF7D /* Info.plist */,
 			);
 			path = spotUsUITests;
-			sourceTree = "<group>";
-		};
-		6CB58590210003D4009BD66B /* Playlist */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Playlist;
 			sourceTree = "<group>";
 		};
 		6CC2534B20FD08E300D7093E /* Models */ = {
@@ -482,10 +484,11 @@
 			files = (
 				6C7CA2EF2101137C00AB8917 /* PlaylistStoryboard.storyboard in Resources */,
 				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
+				067FB7A0210106AC00B997FD /* locationStoryBoard.storyboard in Resources */,
 				3E3953B820EFE6F800D0FF7D /* LaunchScreen.storyboard in Resources */,
+				3E097D3021010790003FC5F6 /* spotUs.gif in Resources */,
 				3E3953B520EFE6F800D0FF7D /* Assets.xcassets in Resources */,
 				3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */,
-				3E097D3221010BC8003FC5F6 /* GifStoryboard.storyboard in Resources */,
 				3E3953B320EFE6F800D0FF7D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -772,7 +775,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BN7TCB94L4;
+				DEVELOPMENT_TEAM = MSP3335V32;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -794,7 +797,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BN7TCB94L4;
+				DEVELOPMENT_TEAM = MSP3335V32;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
