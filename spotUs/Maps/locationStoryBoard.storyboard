@@ -56,8 +56,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="KsX-CG-rDy"/>
                     <connections>
-                        <outlet property="latittudeLabel" destination="W8Z-uw-vVr" id="fAa-TE-5R4"/>
-                        <outlet property="longitudeLabel" destination="r1e-DA-Hhj" id="pLE-vV-C5l"/>
                         <outlet property="mapView" destination="ONR-wa-Raf" id="UPC-62-SsL"/>
                     </connections>
                 </viewController>

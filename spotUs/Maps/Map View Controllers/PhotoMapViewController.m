@@ -15,9 +15,9 @@
 #import <CoreLocation/CoreLocation.h>
 @interface PhotoMapViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 @property (strong, nonatomic) City *city;
-@property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *latittudeLabel;
+
 @property BOOL waitingForLocation;
+@property (weak, nonatomic) IBOutlet UIButton *checkInButton;
 
 @end
 
@@ -25,13 +25,8 @@
 CLLocationManager *locationManager;
 
 - (IBAction)didClickCheckIn:(id)sender {
-    self.waitingForLocation = YES;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [locationManager requestWhenInUseAuthorization];
+    [self performSegueWithIdentifier:@"gotoplayer" sender:nil];
 
-
-    [locationManager startUpdatingLocation];
-    
     
     
 }
@@ -45,8 +40,7 @@ CLLocationManager *locationManager;
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
     
-    if(self.waitingForLocation){
-        
+    
         CLLocation *newLocation = [locations lastObject];
         NSLog(@"didUpdateToLocation: %@", newLocation);
         CLLocation *currentLocation = newLocation;
@@ -64,37 +58,46 @@ CLLocationManager *locationManager;
                     
                     self.city = city;
                     foundCity = YES;
-                    [self performSegueWithIdentifier:@"gotoplayer" sender:nil];
+                    self.checkInButton.enabled = YES;
+                    [self.checkInButton setTintColor:[UIColor greenColor]];
+
+                    [self.checkInButton setTitle:[NSString stringWithFormat:@"Discover %@",self.city.name] forState:UIControlStateNormal];
                     break;
 
                     
                 }
-                
-                
-                
                 
             }
             
             
             if(!foundCity){
                 
-                [ErrorAlert showAlert:@"It seems you are not near a city SpotUS is available in.." inVC:self];
+                [self.checkInButton setTitle:@"No SpotUs City Nearby" forState:UIControlStateNormal];
+                self.checkInButton.enabled = NO;
+                [self.checkInButton setTintColor:[UIColor grayColor]];
             }
-
+            
             
      
-            self.waitingForLocation = NO;
         }
         
-    }
+    
 }
 
 - (void)viewDidLoad {
     locationManager = [[CLLocationManager alloc] init];
 
     locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager requestWhenInUseAuthorization];
+    [locationManager startUpdatingLocation];
     
-    self.waitingForLocation = NO;
+    [self.checkInButton.layer setBorderWidth:3.0];
+    [self.checkInButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
+    [self.checkInButton setTitle:@"No SpotUs City Nearby" forState:UIControlStateNormal];
+    self.checkInButton.enabled = NO;
+    [self.checkInButton setTintColor:[UIColor grayColor]];
+    
     
     
 
