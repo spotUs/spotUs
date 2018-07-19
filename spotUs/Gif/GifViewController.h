@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol GifViewControllerDelegate
+@end
 @interface GifViewController : UIViewController
+
+@property (nonatomic, weak) id<GifViewControllerDelegate> delegate;
 
 
 @end

@@ -10,6 +10,7 @@
 #import "PlayerView.h"
 #import "SpotifyLoginViewController.h"
 #import "StartViewController.h"
+#import "GifViewController.h"
 @interface AppDelegate ()
 @property (nonatomic, strong) SPTAuth *auth;
 @property (nonatomic, strong) SPTAudioStreamingController *player;
@@ -58,9 +59,9 @@
 
 {
     
-    StartViewController *startController = (StartViewController *) self.window.rootViewController;
+    GifViewController *gifController = (GifViewController *) self.window.rootViewController;
     
-    SpotifyLoginViewController *spotifyController = (SpotifyLoginViewController *)startController.delegate;
+    SpotifyLoginViewController *spotifyController = (SpotifyLoginViewController *)gifController.delegate;
 
     
     

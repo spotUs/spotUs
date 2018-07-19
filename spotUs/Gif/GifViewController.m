@@ -7,8 +7,9 @@
 //
 
 #import "GifViewController.h"
+#import "SpotifyLoginViewController.h"
 
-@interface GifViewController ()
+@interface GifViewController () <SpotifyLoginViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webViewBG;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
@@ -45,11 +46,10 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-// ler using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    SpotifyLoginViewController *loginView = (SpotifyLoginViewController*)[segue destinationViewController];
+    self.delegate = loginView;
+}
 
 
 @end
