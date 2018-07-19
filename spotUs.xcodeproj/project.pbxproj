@@ -23,7 +23,6 @@
 		33E4FAB924A352B967529EFE /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */; };
 		3E097D3021010790003FC5F6 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		3E097D3621010C18003FC5F6 /* GifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E097D3521010C18003FC5F6 /* GifViewController.m */; };
-		3E097D4121011A94003FC5F6 /* WebViewContent.html in Resources */ = {isa = PBXBuildFile; fileRef = 3E097D4021011A94003FC5F6 /* WebViewContent.html */; };
 		3E35628A20FE53AE00DDAA9E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E35628920FE53AE00DDAA9E /* MapKit.framework */; };
 		3E35630420FEA86300DDAA9E /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630320FEA86300DDAA9E /* LocationCell.m */; };
 		3E35630A20FEA8D100DDAA9E /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630920FEA8D100DDAA9E /* PhotoMapViewController.m */; };
@@ -34,6 +33,8 @@
 		3E3953BB20EFE6F800D0FF7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953BA20EFE6F800D0FF7D /* main.m */; };
 		3E3953C520EFE6F800D0FF7D /* spotUsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953C420EFE6F800D0FF7D /* spotUsTests.m */; };
 		3E3953D020EFE6F800D0FF7D /* spotUsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953CF20EFE6F800D0FF7D /* spotUsUITests.m */; };
+		3E75A21421013A2C00E707EA /* violin.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E75A21321013A2C00E707EA /* violin.gif */; };
+		3E75A21621013C7500E707EA /* WebViewContent.html in Resources */ = {isa = PBXBuildFile; fileRef = 3E75A21521013C7500E707EA /* WebViewContent.html */; };
 		3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */; };
 		446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */; };
 		6C83415A1856828FB8E13F87 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
@@ -70,7 +71,6 @@
 /* Begin PBXFileReference section */
 		067FB79D210105E100B997FD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		067FB79F210106AC00B997FD /* locationStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = locationStoryBoard.storyboard; sourceTree = "<group>"; };
-		067FB7A1210118D600B997FD /* spotUs.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spotUs.gif; sourceTree = "<group>"; };
 		06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
 		06F6BD4C20FD055200E85B28 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -93,7 +93,6 @@
 		2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E097D3421010C18003FC5F6 /* GifViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifViewController.h; sourceTree = "<group>"; };
 		3E097D3521010C18003FC5F6 /* GifViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifViewController.m; sourceTree = "<group>"; };
-		3E097D4021011A94003FC5F6 /* WebViewContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WebViewContent.html; sourceTree = "<group>"; };
 		3E35628920FE53AE00DDAA9E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3E35630220FEA86300DDAA9E /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
 		3E35630320FEA86300DDAA9E /* LocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
@@ -113,6 +112,8 @@
 		3E3953CB20EFE6F800D0FF7D /* spotUsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spotUsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E3953CF20EFE6F800D0FF7D /* spotUsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = spotUsUITests.m; sourceTree = "<group>"; };
 		3E3953D120EFE6F800D0FF7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E75A21321013A2C00E707EA /* violin.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = violin.gif; sourceTree = "<group>"; };
+		3E75A21521013C7500E707EA /* WebViewContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WebViewContent.html; sourceTree = "<group>"; };
 		3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIStoryboard.storyboard; sourceTree = "<group>"; };
 		6CB5858A21000184009BD66B /* PlaylistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistViewController.h; sourceTree = "<group>"; };
 		6CB5858B21000184009BD66B /* PlaylistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaylistViewController.m; sourceTree = "<group>"; };
@@ -227,8 +228,8 @@
 		3E097D3321010BD5003FC5F6 /* Gif */ = {
 			isa = PBXGroup;
 			children = (
-				067FB7A1210118D600B997FD /* spotUs.gif */,
-				3E097D4021011A94003FC5F6 /* WebViewContent.html */,
+				3E75A21521013C7500E707EA /* WebViewContent.html */,
+				3E75A21321013A2C00E707EA /* violin.gif */,
 				3E097D3421010C18003FC5F6 /* GifViewController.h */,
 				3E097D3521010C18003FC5F6 /* GifViewController.m */,
 			);
@@ -481,8 +482,9 @@
 			files = (
 				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
 				067FB7A0210106AC00B997FD /* locationStoryBoard.storyboard in Resources */,
-				3E097D4121011A94003FC5F6 /* WebViewContent.html in Resources */,
 				3E3953B820EFE6F800D0FF7D /* LaunchScreen.storyboard in Resources */,
+				3E75A21621013C7500E707EA /* WebViewContent.html in Resources */,
+				3E75A21421013A2C00E707EA /* violin.gif in Resources */,
 				3E097D3021010790003FC5F6 /* (null) in Resources */,
 				3E3953B520EFE6F800D0FF7D /* Assets.xcassets in Resources */,
 				3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */,
@@ -772,7 +774,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MSP3335V32;
+				DEVELOPMENT_TEAM = BN7TCB94L4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -794,7 +796,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MSP3335V32;
+				DEVELOPMENT_TEAM = BN7TCB94L4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",

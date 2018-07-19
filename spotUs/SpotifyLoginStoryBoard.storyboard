@@ -492,7 +492,7 @@
                     <connections>
                         <outlet property="loginButton" destination="t9J-Te-CFF" id="Eed-pB-WDk"/>
                         <outlet property="signUpButton" destination="BHk-mW-AKA" id="wlI-0F-fpA"/>
-                        <outlet property="webViewBG" destination="AIr-qO-7Pn" id="oTn-rg-0eq"/>
+                        <outlet property="webViewBG" destination="AIr-qO-7Pn" id="cAr-Px-zvl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QeU-Ir-73a" sceneMemberID="firstResponder"/>
