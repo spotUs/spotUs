@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) NSMutableArray<NSString *> *songIDs;
 @property (strong, nonatomic) NSMutableArray<NSDictionary *> *dataArray;
+@property (strong, nonatomic) NSArray<NSDictionary *> *filteredDataArray;
 
 @end
 
@@ -36,6 +37,7 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.searchBar.delegate = self;
+    
     //set the size of the cells
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*) self.collectionView.collectionViewLayout;
     layout.minimumInteritemSpacing = 5;
@@ -72,6 +74,7 @@
         else {
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];            
             [self.dataArray addObject:dataDictionary];
+            self.filteredDataArray = self.dataArray;
             [self.collectionView reloadData];
         }
     }];
@@ -82,12 +85,31 @@
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PlaylistCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"playlistCollectionCell" forIndexPath:indexPath];
     //[cell updateTrackCellwithData:self.dataArray[indexPath.row]];
-    [cell updateTrackCellwithData:self.dataArray[indexPath.row]];
+    [cell updateTrackCellwithData:self.filteredDataArray[indexPath.row]];
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.dataArray.count;
+    return self.filteredDataArray.count;
+}
+
+- (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (searchText.length != 0) {
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSDictionary *evaluatedObject, NSDictionary *bindings){
+            return [[evaluatedObject[@"name"] lowercaseString] containsString:[searchText lowercaseString]];
+        }];
+        self.filteredDataArray = [self.dataArray filteredArrayUsingPredicate:predicate];
+        
+        NSLog(@"%@",self.dataArray);
+    }
+    else {
+        self.filteredDataArray = self.dataArray;
+    }
+    [self.collectionView reloadData];
+}
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
 }
 
 /*

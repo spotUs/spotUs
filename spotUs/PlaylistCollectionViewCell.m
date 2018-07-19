@@ -13,9 +13,7 @@
 
 - (void) updateTrackCellwithData: (NSDictionary *)trackdict{
     //get image
-    NSLog(@"%@",trackdict);
     NSArray *images = trackdict[@"album"][@"images"];
-    NSLog(@"IMAGES: %@",images);
     if (images.count > 0){
         NSDictionary *imgData = images[0];
         NSLog(@"IMGURL %@",imgData[@"url"]);
