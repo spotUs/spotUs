@@ -36,13 +36,34 @@
 
 - (IBAction)didChangeSlide:(id)sender {
     
-    __weak PlayerView *weakSelf = self;
-
-    
-    [weakSelf.player seekTo:self.musicSlider.value callback:nil];
-
+    self.timeElapsedLabel.text = [self stringFromTimeInterval:self.musicSlider.value];
+    self.timeLeftLabel.text = [self stringFromTimeInterval:self.player.metadata.currentTrack.duration-self.musicSlider.value];
+    // update times while user is dragging
     
 }
+- (IBAction)didStartSeek:(id)sender {
+    [self.player setIsPlaying:NO callback:nil];
+    self.isPlaying = NO;
+    [self.pauseButton setSelected:YES];
+
+    // pause music when user begins to seek
+
+    
+    
+}
+
+- (IBAction)didLetGo:(id)sender {
+
+    [self.player seekTo:self.musicSlider.value callback:nil];
+    [self.player setIsPlaying:YES callback:nil];
+    self.isPlaying = YES;
+    [self.pauseButton setSelected:NO];
+
+
+    // start music again and seek when user lets go
+
+}
+
 - (IBAction)goFoward:(id)sender {
     
     [self.player skipNext:nil];
@@ -113,7 +134,9 @@
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePosition:(NSTimeInterval)position{
     
+    
     self.musicSlider.value = position;
+    
     self.timeElapsedLabel.text = [self stringFromTimeInterval:position];
     self.timeLeftLabel.text = [self stringFromTimeInterval:self.player.metadata.currentTrack.duration-position];
     
