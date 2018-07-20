@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060896A521025F970041644D /* NowPlayingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060896A421025F970041644D /* NowPlayingStoryboard.storyboard */; };
 		067FB79E210105E100B997FD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067FB79D210105E100B997FD /* CoreLocation.framework */; };
 		067FB7A0210106AC00B997FD /* locationStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 067FB79F210106AC00B997FD /* locationStoryBoard.storyboard */; };
 		06F6BD4920FD04FB00E85B28 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */; };
@@ -70,6 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		060896A421025F970041644D /* NowPlayingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NowPlayingStoryboard.storyboard; sourceTree = "<group>"; };
 		067FB79D210105E100B997FD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		067FB79F210106AC00B997FD /* locationStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = locationStoryBoard.storyboard; sourceTree = "<group>"; };
 		06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				06F6BD7320FE6C0C00E85B28 /* SpotifyLoginViewController.m */,
 				06F6BD7820FED6AA00E85B28 /* StartViewController.h */,
 				06F6BD7920FED6AA00E85B28 /* StartViewController.m */,
+				060896A421025F970041644D /* NowPlayingStoryboard.storyboard */,
 			);
 			path = "Spotify View Controllers";
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
 				067FB7A0210106AC00B997FD /* locationStoryBoard.storyboard in Resources */,
 				3E3953B820EFE6F800D0FF7D /* LaunchScreen.storyboard in Resources */,
+				060896A521025F970041644D /* NowPlayingStoryboard.storyboard in Resources */,
 				3E75A21621013C7500E707EA /* WebViewContent.html in Resources */,
 				3E75A21421013A2C00E707EA /* violin.gif in Resources */,
 				3E097D3021010790003FC5F6 /* (null) in Resources */,

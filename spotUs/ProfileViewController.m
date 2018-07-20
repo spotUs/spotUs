@@ -21,9 +21,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UIButton *nowPlayingButton;
 @property (strong, nonatomic) City *playingCity;
-@property (weak, nonatomic) IBOutlet UIView *favoriteView;
 @property (weak, nonatomic) IBOutlet UIView *nowPlayingView;
-
+@property (weak, nonatomic) IBOutlet UIImageView *blurredImage;
+@property (weak, nonatomic) IBOutlet UIView *favoriteView;
+@property (weak, nonatomic) IBOutlet UIView *exploreView;
 
 
 
@@ -34,21 +35,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.favoriteView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.favoriteView.layer.borderWidth = 2.0f;
+
     self.nowPlayingView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.nowPlayingView.layer.borderWidth = 2.0f;
     self.favoriteView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
     self.favoriteView.clipsToBounds = YES;
     self.nowPlayingView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
     self.nowPlayingView.clipsToBounds = YES;
+    self.favoriteView.layer.borderColor = [UIColor redColor].CGColor;
+    self.favoriteView.layer.borderWidth = 1.0;
+    self.favoriteView.layer.cornerRadius = 15;
+    
+    self.exploreView.layer.borderColor = [UIColor redColor].CGColor;
+    self.exploreView.layer.borderWidth = 1.0;
+    self.exploreView.layer.cornerRadius = 15;
     
     self.profileUsernameLabel.text = self.currentUser.displayName;
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
     self.profileImageView.clipsToBounds = YES;
+    self.blurredImage.image = [self blurredImageWithImage:self.blurredImage.image];
+
+    
     
     NSURL *profileURL = self.currentUser.largestImage.imageURL;
     [self.profileImageView setImageWithURL:profileURL];
+    
     
     [[PFUser currentUser] fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         
@@ -59,14 +70,13 @@
         [hometown fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
             City *fullHometown  = (City*)object;
             self.hometownLabel.text = fullHometown.name;
-            self.hometownLabel.layer.borderColor = [UIColor whiteColor].CGColor;
-            self.hometownLabel.layer.borderWidth = 1.0;
-            self.hometownLabel.layer.cornerRadius = 15;
+            //self.hometownLabel.layer.borderColor = [UIColor whiteColor].CGColor;
+            //self.hometownLabel.layer.borderWidth = 1.0;
+           // self.hometownLabel.layer.cornerRadius = 15;
+
 
 
         }];
-        
-
         
     }];
     
@@ -130,6 +140,30 @@
     
 }
 
+- (UIImage *)blurredImageWithImage:(UIImage*)sourceImage{
+    
+    //  Create our blurred image
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CIImage *inputImage = [CIImage imageWithCGImage:sourceImage.CGImage];
+    
+    //  Setting up Gaussian Blur
+    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+    [filter setValue:inputImage forKey:kCIInputImageKey];
+    [filter setValue:[NSNumber numberWithFloat:6.0f] forKey:@"inputRadius"];
+    CIImage *result = [filter valueForKey:kCIOutputImageKey];
+    
+    /*  CIGaussianBlur has a tendency to shrink the image a little, this ensures it matches
+     *  up exactly to the bounds of our original image */
+    CGImageRef cgImage = [context createCGImage:result fromRect:[inputImage extent]];
+    
+    UIImage *retVal = [UIImage imageWithCGImage:cgImage];
+    
+    if (cgImage) {
+        CGImageRelease(cgImage);
+    }
+    
+    return retVal;
+}
 
 
 
