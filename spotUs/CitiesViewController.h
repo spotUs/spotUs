@@ -12,9 +12,16 @@
 #import <SafariServices/SafariServices.h>
 #import <SpotifyMetadata/SpotifyMetadata.h>
 #import <Parse/Parse.h>
+#import "City.h"
 
+@protocol NowPlayingIntermediateDelegate
+
+-(void)didStartPlayingonCityIntermediate:(City*)city;
+@end
 @interface CitiesViewController : UIViewController
 
 @property (nonatomic, weak) SPTAudioStreamingController *player;
 @property (nonatomic, strong) SPTAuth *auth;
+@property (nonatomic, weak) id<NowPlayingIntermediateDelegate> nowPlayingIntermediateDelegate;
+
 @end

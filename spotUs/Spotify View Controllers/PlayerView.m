@@ -137,8 +137,13 @@
         
     }
     
-    
+    if(self.nowPlaying){
+        
+        [self refreshSongData];
+    }
+    else{
     [self getCityTracks];
+    }
     
     
     
@@ -166,6 +171,8 @@
 
 -(void)startMusic{
     
+    
+    
     NSString *song = self.citySongIDs[self.currentSongIndex];
     self.currentSongIndex++;
     NSString *playRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song];
@@ -174,6 +181,8 @@
         if(error){
             NSLog(@"Error starting music: %@", error.localizedDescription);
         }
+        
+        [self.nowPlayingDelegate didStartPlayingonCity:self.city];
     }];
     
 }

@@ -10,7 +10,7 @@
 #import "City.h"
 #import "PlayerView.h"
 
-@interface CitiesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+@interface CitiesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, NowPlayingDelegate>
 //TODO CONNECT THESE
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -100,23 +100,31 @@
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
-     
- 
-      if ([[segue destinationViewController] isKindOfClass:[PlayerView class]]){
-         PlayerView *playerController = (PlayerView*)[segue destinationViewController];
-         UITableViewCell *tappedCell = sender;
-         
-         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-         City *city = self.cities[indexPath.row];
-         playerController.city = city;
-         playerController.auth = self.auth;
-         playerController.player = self.player;
-     }
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    
+    if ([[segue destinationViewController] isKindOfClass:[PlayerView class]]){
+        PlayerView *playerController = (PlayerView*)[segue destinationViewController];
+        UITableViewCell *tappedCell = sender;
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        City *city = self.cities[indexPath.row];
+        playerController.city = city;
+        playerController.auth = self.auth;
+        playerController.player = self.player;
+        playerController.nowPlayingDelegate = self;
+    }
+    
+}
 
- }
+- (void)didStartPlayingonCity:(City *)city{
+    
+    [self.nowPlayingIntermediateDelegate didStartPlayingonCityIntermediate:city];
+    
+    
+}
 
 
 
