@@ -20,12 +20,6 @@
 -(void)didStartPlayingonCity:(City*)city;
 
 @end
-@protocol PlayerRepeatDelegate
-
--(void)didChangeRepeatStatusTo:(BOOL)isRepeating;
-
-@end
-
 
 @interface PlayerView : UIViewController
 @property (nonatomic, weak) SPTAudioStreamingController *player;
@@ -33,10 +27,11 @@
 @property (nonatomic, strong) City *city;
 @property BOOL nowPlaying;
 @property BOOL isRepeating;
+@property BOOL isPlaying;
 
 
 @property (nonatomic, weak) id<NowPlayingDelegate> nowPlayingDelegate;
-@property (nonatomic, weak) id<PlayerRepeatDelegate> repeatDelegate;
+
 
 @property NSInteger songIndex;
 

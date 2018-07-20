@@ -10,7 +10,7 @@
 #import "City.h"
 #import "PlayerView.h"
 
-@interface CitiesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, NowPlayingDelegate, PlayerRepeatDelegate>
+@interface CitiesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, NowPlayingDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
@@ -114,7 +114,6 @@
         playerController.auth = self.auth;
         playerController.player = self.player;
         playerController.nowPlayingDelegate = self;
-        playerController.repeatDelegate = self;
     }
     
 }
@@ -126,13 +125,7 @@
     
 }
 
-- (void)didChangeRepeatStatusTo:(BOOL)isRepeating{
-    
-    [self.intermediateRepeatDelegate didChangeIntermediateRepeatStatusTo:isRepeating];
-    
-    
-    
-}
+
 
 
 

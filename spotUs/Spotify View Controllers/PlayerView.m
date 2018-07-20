@@ -22,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *songTitle;
 @property (weak, nonatomic) IBOutlet UILabel *albumTitleLabel;
 @property (weak, nonatomic) IBOutlet UISlider *musicSlider;
-@property BOOL isPlaying;
 @property BOOL isSeeking;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (weak, nonatomic) IBOutlet UIButton *repeatButton;
@@ -87,6 +86,7 @@
         self.isPlaying = YES;
         [self.pauseButton setSelected:NO];
 
+
         
     }
     
@@ -99,7 +99,6 @@
         [self.player setRepeat:SPTRepeatOff callback:nil];
         self.isRepeating = NO;
         [self.repeatButton setSelected:NO];
-        [self.repeatDelegate didChangeRepeatStatusTo:NO];
         
         
     }
@@ -108,7 +107,6 @@
         [self.player setRepeat:SPTRepeatOne callback:nil];
         self.isRepeating = YES;
         [self.repeatButton setSelected:YES];
-        [self.repeatDelegate didChangeRepeatStatusTo:YES];
 
         
         
@@ -124,31 +122,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.isPlaying = YES;
     self.player.playbackDelegate = self;
     self.musicSlider.minimumValue = 0.0;
     self.musicSlider.value = 0;
+    self.isRepeating = self.player.playbackState.isRepeating;
+    self.isPlaying = self.player.playbackState.isPlaying;
     if(self.songIndex != nil){
         self.currentSongIndex = self.songIndex;
     }
     else{
         self.currentSongIndex = 0;
-
-        
     }
     
     if(self.nowPlaying){
-
-
-        [self.player setIsPlaying:YES callback:nil];
-        [self refreshSongData];
         
+    [self refreshSongData];
         
     }
     else{
-    self.isRepeating = NO;
+        
 
-    [self getCityTracks];
+        [self getCityTracks];
     }
     
     
@@ -264,10 +258,17 @@
     
     NSURL *albumURL = [NSURL URLWithString:albumArtTrack.albumCoverArtURL];
     [self.songImage setImageWithURL:albumURL];
-    
     self.musicSlider.maximumValue = self.player.metadata.currentTrack.duration;
+
+    self.musicSlider.value =  self.player.playbackState.position;
+    
+    self.timeElapsedLabel.text = [self stringFromTimeInterval:self.musicSlider.value];
+    self.timeLeftLabel.text = [self stringFromTimeInterval:self.player.metadata.currentTrack.duration-self.musicSlider.value];
+    
     
     [self.repeatButton setSelected:self.isRepeating];
+    [self.pauseButton setSelected:!self.isPlaying];
+
     
 
     
@@ -310,8 +311,6 @@
     [self startMusic];
     
     
-
-
 }
 
 
