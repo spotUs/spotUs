@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UIButton *nowPlayingButton;
 @property (strong, nonatomic) City *playingCity;
+@property (weak, nonatomic) IBOutlet UIView *favoriteView;
+@property (weak, nonatomic) IBOutlet UIView *nowPlayingView;
 @property  BOOL nowPlayingRepeatStatus;
 
 
@@ -32,8 +34,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
+    self.favoriteView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.favoriteView.layer.borderWidth = 2.0f;
+    self.nowPlayingView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.nowPlayingView.layer.borderWidth = 2.0f;
     
     
     
