@@ -45,6 +45,9 @@
         [hometown fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
             City *fullHometown  = (City*)object;
             self.hometownLabel.text = fullHometown.name;
+            self.hometownLabel.layer.borderColor = [UIColor whiteColor].CGColor;
+            self.hometownLabel.layer.borderWidth = 1.0;
+            self.hometownLabel.layer.cornerRadius = 15;
 
 
         }];
