@@ -15,11 +15,13 @@
 #import "GifViewController.h"
 
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <NowPlayingIntermediateDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *profileUsernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hometownLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UIButton *nowPlayingButton;
+@property (strong, nonatomic) City *playingCity;
+
 
 @end
 
@@ -27,6 +29,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
     
     
     
@@ -92,17 +97,26 @@
     }
     
     else if([[segue destinationViewController]  isKindOfClass:[PlayerView class]]){
-        PlayerView *profileView = (PlayerView *)[segue destinationViewController];
-        profileView.player = self.player;
-        profileView.auth = self.auth;
-        
+        PlayerView *playerView = (PlayerView *)[segue destinationViewController];
+        playerView.player = self.player;
+        playerView.auth = self.auth;
+        playerView.city = self.playingCity;
+        playerView.nowPlaying = YES;
     }
     
     else if([[segue destinationViewController]  isKindOfClass:[CitiesViewController class]]){
         CitiesViewController *cityView = (CitiesViewController *)[segue destinationViewController];
         cityView.player = self.player;
         cityView.auth = self.auth;
+        cityView.nowPlayingIntermediateDelegate = self;
     }
+    
+    
+}
+
+- (void)didStartPlayingonCityIntermediate:(City *)city{
+    
+    self.playingCity = city;
     
     
 }
