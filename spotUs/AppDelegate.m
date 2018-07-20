@@ -11,6 +11,8 @@
 #import "SpotifyLoginViewController.h"
 #import "StartViewController.h"
 #import "GifViewController.h"
+#import "QueryManager.h"
+
 @interface AppDelegate ()
 @property (nonatomic, strong) SPTAuth *auth;
 @property (nonatomic, strong) SPTAudioStreamingController *player;
@@ -30,7 +32,14 @@
         configuration.server = @"https://spotusapp.herokuapp.com/parse";
     }];
     [Parse initializeWithConfiguration:config];
-    
+    [QueryManager fetchCities:^(NSArray *cities, NSError *error) {
+        QueryManager.citiesarray = cities;
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        for (int i = 0; i < cities.count; i++){
+            [dict setObject:cities[i] forKey:cities[i][@"name"]];
+        }
+        QueryManager.citiesdict = dict;
+    }];
     return YES;
      
      
