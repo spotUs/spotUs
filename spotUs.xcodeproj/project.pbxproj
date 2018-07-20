@@ -41,6 +41,7 @@
 		3E75A21621013C7500E707EA /* WebViewContent.html in Resources */ = {isa = PBXBuildFile; fileRef = 3E75A21521013C7500E707EA /* WebViewContent.html */; };
 		3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */; };
 		446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */; };
+		6C0A49CC21028A4D0042C063 /* QueryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A49CB21028A4D0042C063 /* QueryManager.m */; };
 		6C83415A1856828FB8E13F87 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		6CB5858C21000184009BD66B /* PlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5858B21000184009BD66B /* PlaylistViewController.m */; };
 		6CB5858F21000392009BD66B /* PlaylistCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5858E21000392009BD66B /* PlaylistCollectionViewCell.m */; };
@@ -125,6 +126,8 @@
 		3E75A21321013A2C00E707EA /* violin.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = violin.gif; sourceTree = "<group>"; };
 		3E75A21521013C7500E707EA /* WebViewContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WebViewContent.html; sourceTree = "<group>"; };
 		3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIStoryboard.storyboard; sourceTree = "<group>"; };
+		6C0A49CA21028A4D0042C063 /* QueryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QueryManager.h; sourceTree = "<group>"; };
+		6C0A49CB21028A4D0042C063 /* QueryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueryManager.m; sourceTree = "<group>"; };
 		6CB5858A21000184009BD66B /* PlaylistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistViewController.h; sourceTree = "<group>"; };
 		6CB5858B21000184009BD66B /* PlaylistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaylistViewController.m; sourceTree = "<group>"; };
 		6CB5858D21000392009BD66B /* PlaylistCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistCollectionViewCell.h; sourceTree = "<group>"; };
@@ -333,6 +336,8 @@
 				6CC2535C20FD48CD00D7093E /* CitiesViewController.m */,
 				06F6BD7520FEB55200E85B28 /* ProfileViewController.h */,
 				06F6BD7620FEB55200E85B28 /* ProfileViewController.m */,
+				6C0A49CA21028A4D0042C063 /* QueryManager.h */,
+				6C0A49CB21028A4D0042C063 /* QueryManager.m */,
 			);
 			path = spotUs;
 			sourceTree = "<group>";
@@ -607,6 +612,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CB5858F21000392009BD66B /* PlaylistCollectionViewCell.m in Sources */,
+				6C0A49CC21028A4D0042C063 /* QueryManager.m in Sources */,
 				6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */,
 				3E3953BB20EFE6F800D0FF7D /* main.m in Sources */,
 				3E743120210298E200CE94FB /* FavoritesTableViewCell.m in Sources */,
