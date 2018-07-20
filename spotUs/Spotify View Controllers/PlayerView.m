@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *albumTitleLabel;
 @property (weak, nonatomic) IBOutlet UISlider *musicSlider;
 @property BOOL isPlaying;
-@property BOOL isRepeating;
 @property BOOL isSeeking;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (weak, nonatomic) IBOutlet UIButton *repeatButton;
@@ -100,6 +99,7 @@
         [self.player setRepeat:SPTRepeatOff callback:nil];
         self.isRepeating = NO;
         [self.repeatButton setSelected:NO];
+        [self.repeatDelegate didChangeRepeatStatusTo:NO];
         
         
     }
@@ -108,6 +108,8 @@
         [self.player setRepeat:SPTRepeatOne callback:nil];
         self.isRepeating = YES;
         [self.repeatButton setSelected:YES];
+        [self.repeatDelegate didChangeRepeatStatusTo:YES];
+
         
         
     }
@@ -123,9 +125,7 @@
     [super viewDidLoad];
     
     self.isPlaying = YES;
-    self.isRepeating = NO;
     self.player.playbackDelegate = self;
-    
     self.musicSlider.minimumValue = 0.0;
     self.musicSlider.value = 0;
     if(self.songIndex != nil){
@@ -138,10 +138,16 @@
     }
     
     if(self.nowPlaying){
-        
+
+
+        [self.player setIsPlaying:YES callback:nil];
         [self refreshSongData];
+        
+        
     }
     else{
+    self.isRepeating = NO;
+
     [self getCityTracks];
     }
     
@@ -260,6 +266,8 @@
     [self.songImage setImageWithURL:albumURL];
     
     self.musicSlider.maximumValue = self.player.metadata.currentTrack.duration;
+    
+    [self.repeatButton setSelected:self.isRepeating];
     
 
     
