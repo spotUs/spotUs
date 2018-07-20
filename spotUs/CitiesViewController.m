@@ -11,7 +11,6 @@
 #import "PlayerView.h"
 
 @interface CitiesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, NowPlayingDelegate, PlayerRepeatDelegate>
-//TODO CONNECT THESE
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 

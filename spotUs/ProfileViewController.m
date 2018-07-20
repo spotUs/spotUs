@@ -15,7 +15,7 @@
 #import "GifViewController.h"
 
 
-@interface ProfileViewController () <NowPlayingIntermediateDelegate,PlayerRepeatIntermediateDelegate>
+@interface ProfileViewController () <NowPlayingIntermediateDelegate,PlayerRepeatIntermediateDelegate,PlayerRepeatDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *profileUsernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hometownLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -103,6 +103,7 @@
         playerView.player = self.player;
         playerView.auth = self.auth;
         playerView.city = self.playingCity;
+        playerView.repeatDelegate = self;
         playerView.nowPlaying = YES;
         playerView.isRepeating = self.nowPlayingRepeatStatus;
     }
@@ -127,11 +128,14 @@
 
 - (void)didChangeIntermediateRepeatStatusTo:(BOOL)isRepeating{
     
+    self.nowPlayingRepeatStatus = isRepeating;
+
+}
+
+- (void)didChangeRepeatStatusTo:(BOOL)isRepeating{
     
     self.nowPlayingRepeatStatus = isRepeating;
-    
-    
-    
+
 }
 
 
