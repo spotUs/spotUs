@@ -54,7 +54,7 @@ CLLocationManager *locationManager;
                 
                 double distance =  [currentLocation distanceFromLocation:cityLocation];
                 
-                if(distance < 1000000){
+                if(distance < 300000){
                     
                     self.city = city;
                     foundCity = YES;
