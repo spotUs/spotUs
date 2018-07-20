@@ -15,7 +15,7 @@
 #import "GifViewController.h"
 
 
-@interface ProfileViewController () <NowPlayingIntermediateDelegate>
+@interface ProfileViewController () <NowPlayingIntermediateDelegate,PlayerRepeatIntermediateDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *profileUsernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hometownLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -23,6 +23,8 @@
 @property (strong, nonatomic) City *playingCity;
 @property (weak, nonatomic) IBOutlet UIView *favoriteView;
 @property (weak, nonatomic) IBOutlet UIView *nowPlayingView;
+@property  BOOL nowPlayingRepeatStatus;
+
 
 
 @end
@@ -106,6 +108,7 @@
         playerView.auth = self.auth;
         playerView.city = self.playingCity;
         playerView.nowPlaying = YES;
+        playerView.isRepeating = self.nowPlayingRepeatStatus;
     }
     
     else if([[segue destinationViewController]  isKindOfClass:[CitiesViewController class]]){
@@ -113,6 +116,7 @@
         cityView.player = self.player;
         cityView.auth = self.auth;
         cityView.nowPlayingIntermediateDelegate = self;
+        cityView.intermediateRepeatDelegate = self;
     }
     
     
@@ -121,6 +125,15 @@
 - (void)didStartPlayingonCityIntermediate:(City *)city{
     
     self.playingCity = city;
+    
+    
+}
+
+- (void)didChangeIntermediateRepeatStatusTo:(BOOL)isRepeating{
+    
+    
+    self.nowPlayingRepeatStatus = isRepeating;
+    
     
     
 }

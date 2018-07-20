@@ -17,11 +17,20 @@
 @protocol NowPlayingIntermediateDelegate
 
 -(void)didStartPlayingonCityIntermediate:(City*)city;
+
 @end
+@protocol PlayerRepeatIntermediateDelegate
+
+-(void)didChangeIntermediateRepeatStatusTo:(BOOL)isRepeating;
+
+@end
+
 @interface CitiesViewController : UIViewController
 
 @property (nonatomic, weak) SPTAudioStreamingController *player;
 @property (nonatomic, strong) SPTAuth *auth;
 @property (nonatomic, weak) id<NowPlayingIntermediateDelegate> nowPlayingIntermediateDelegate;
+@property (nonatomic, weak) id<PlayerRepeatIntermediateDelegate> intermediateRepeatDelegate;
+
 
 @end
