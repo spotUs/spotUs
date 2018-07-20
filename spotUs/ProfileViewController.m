@@ -35,19 +35,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.favoriteView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.favoriteView.layer.borderWidth = 2.0f;
+
     self.nowPlayingView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.nowPlayingView.layer.borderWidth = 2.0f;
     self.favoriteView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
     self.favoriteView.clipsToBounds = YES;
     self.nowPlayingView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
     self.nowPlayingView.clipsToBounds = YES;
+    self.favoriteView.layer.borderColor = [UIColor redColor].CGColor;
+    self.favoriteView.layer.borderWidth = 1.0;
+    self.favoriteView.layer.cornerRadius = 15;
+    
+    self.exploreView.layer.borderColor = [UIColor redColor].CGColor;
+    self.exploreView.layer.borderWidth = 1.0;
+    self.exploreView.layer.cornerRadius = 15;
     
     self.profileUsernameLabel.text = self.currentUser.displayName;
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
     self.profileImageView.clipsToBounds = YES;
-    
+    self.blurredImage.image = [self blurredImageWithImage:self.blurredImage.image];
+
     
     
     NSURL *profileURL = self.currentUser.largestImage.imageURL;
@@ -67,17 +74,10 @@
             //self.hometownLabel.layer.borderWidth = 1.0;
            // self.hometownLabel.layer.cornerRadius = 15;
 
-            self.favoriteView.layer.borderColor = [UIColor redColor].CGColor;
-            self.favoriteView.layer.borderWidth = 1.0;
-             self.favoriteView.layer.cornerRadius = 15;
-            
-            self.exploreView.layer.borderColor = [UIColor redColor].CGColor;
-            self.exploreView.layer.borderWidth = 1.0;
-            self.exploreView.layer.cornerRadius = 15;
+
 
         }];
         
-        self.blurredImage.image = [self blurredImageWithImage:self.blurredImage.image];
     }];
     
     
