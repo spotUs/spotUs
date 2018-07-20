@@ -34,15 +34,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.favoriteView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.favoriteView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.favoriteView.layer.borderWidth = 2.0f;
-    self.nowPlayingView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.nowPlayingView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.nowPlayingView.layer.borderWidth = 2.0f;
-    
-    
+    self.favoriteView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
+    self.favoriteView.clipsToBounds = YES;
+    self.nowPlayingView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
+    self.nowPlayingView.clipsToBounds = YES;
     
     self.profileUsernameLabel.text = self.currentUser.displayName;
-    
+    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
+    self.profileImageView.clipsToBounds = YES;
     
     NSURL *profileURL = self.currentUser.largestImage.imageURL;
     [self.profileImageView setImageWithURL:profileURL];
