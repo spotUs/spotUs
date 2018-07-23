@@ -11,6 +11,7 @@
 #import "ProfileViewController.h"
 #import "CitiesViewController.h"
 #import "City.h"
+#import "ParentViewController.h"
 
 @interface SignUpViewController () <UIPickerViewDelegate,UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UIPickerView *cityPicker;
@@ -170,11 +171,15 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UINavigationController *navController = (UINavigationController*)[segue destinationViewController];
+    /*UINavigationController *navController = (UINavigationController*)[segue destinationViewController];
     ProfileViewController *profileVC = (ProfileViewController *)navController.topViewController;
     profileVC.player = self.player;
     profileVC.auth = self.auth;
-    profileVC.currentUser = self.currentUser;
+    profileVC.currentUser = self.currentUser;*/
+    ParentViewController *parentVC = (ParentViewController *)[segue destinationViewController];
+    parentVC.auth = self.auth;
+    parentVC.player = self.player;
+    
 }
 
 

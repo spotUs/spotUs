@@ -44,6 +44,8 @@
 		3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */; };
 		446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */; };
 		6C0A49CC21028A4D0042C063 /* QueryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A49CB21028A4D0042C063 /* QueryManager.m */; };
+		6C0A4A1A21067E770042C063 /* ParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A4A1921067E770042C063 /* ParentViewController.m */; };
+		6C0A4A1D21067F320042C063 /* TinyPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A4A1C21067F320042C063 /* TinyPlayerViewController.m */; };
 		6C83415A1856828FB8E13F87 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		6CB5858C21000184009BD66B /* PlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5858B21000184009BD66B /* PlaylistViewController.m */; };
 		6CB5858F21000392009BD66B /* PlaylistCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5858E21000392009BD66B /* PlaylistCollectionViewCell.m */; };
@@ -134,6 +136,10 @@
 		3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIStoryboard.storyboard; sourceTree = "<group>"; };
 		6C0A49CA21028A4D0042C063 /* QueryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QueryManager.h; sourceTree = "<group>"; };
 		6C0A49CB21028A4D0042C063 /* QueryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueryManager.m; sourceTree = "<group>"; };
+		6C0A4A1821067E770042C063 /* ParentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParentViewController.h; sourceTree = "<group>"; };
+		6C0A4A1921067E770042C063 /* ParentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParentViewController.m; sourceTree = "<group>"; };
+		6C0A4A1B21067F320042C063 /* TinyPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyPlayerViewController.h; sourceTree = "<group>"; };
+		6C0A4A1C21067F320042C063 /* TinyPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TinyPlayerViewController.m; sourceTree = "<group>"; };
 		6CB5858A21000184009BD66B /* PlaylistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistViewController.h; sourceTree = "<group>"; };
 		6CB5858B21000184009BD66B /* PlaylistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaylistViewController.m; sourceTree = "<group>"; };
 		6CB5858D21000392009BD66B /* PlaylistCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistCollectionViewCell.h; sourceTree = "<group>"; };
@@ -348,6 +354,10 @@
 				06F6BD7620FEB55200E85B28 /* ProfileViewController.m */,
 				6C0A49CA21028A4D0042C063 /* QueryManager.h */,
 				6C0A49CB21028A4D0042C063 /* QueryManager.m */,
+				6C0A4A1821067E770042C063 /* ParentViewController.h */,
+				6C0A4A1921067E770042C063 /* ParentViewController.m */,
+				6C0A4A1B21067F320042C063 /* TinyPlayerViewController.h */,
+				6C0A4A1C21067F320042C063 /* TinyPlayerViewController.m */,
 			);
 			path = spotUs;
 			sourceTree = "<group>";
@@ -625,10 +635,12 @@
 				6C0A49CC21028A4D0042C063 /* QueryManager.m in Sources */,
 				6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */,
 				3E3953BB20EFE6F800D0FF7D /* main.m in Sources */,
+				6C0A4A1A21067E770042C063 /* ParentViewController.m in Sources */,
 				3E743120210298E200CE94FB /* FavoritesTableViewCell.m in Sources */,
 				6CC2534A20FD08D500D7093E /* City.m in Sources */,
 				3E35630A20FEA8D100DDAA9E /* PhotoMapViewController.m in Sources */,
 				6CC2534E20FD353500D7093E /* Track.m in Sources */,
+				6C0A4A1D21067F320042C063 /* TinyPlayerViewController.m in Sources */,
 				06F6BD7420FE6C0C00E85B28 /* SpotifyLoginViewController.m in Sources */,
 				3E35630420FEA86300DDAA9E /* LocationCell.m in Sources */,
 				6CC2535D20FD48CD00D7093E /* CitiesViewController.m in Sources */,
@@ -812,7 +824,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MSP3335V32;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -834,7 +846,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MSP3335V32;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
