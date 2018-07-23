@@ -118,12 +118,6 @@
     
 }
 
-- (void)didStartPlayingonCity:(City *)city{
-    
-    [self.nowPlayingIntermediateDelegate didStartPlayingonCityIntermediate:city];
-    
-    
-}
 
 
 

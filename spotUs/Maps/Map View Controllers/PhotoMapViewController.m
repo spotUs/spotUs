@@ -15,7 +15,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "LocationSearchTable.h"
 #import "QueryManager.h"
-@interface PhotoMapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, HandleMapSearch>
+@interface PhotoMapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, HandleMapSearch, NowPlayingDelegate>
 @property (strong, nonatomic) City *city;
 @property (strong, nonatomic) UISearchController *resultSearchController;
 
@@ -228,6 +228,13 @@ CLLocationManager *locationManager;
         playerController.player = self.player;
     }
 
+}
+
+- (void)didStartPlayingonCity:(City *)city{
+    
+    [self.nowPlayingIntermediateDelegate didStartPlayingonCityIntermediate:city];
+    
+    
 }
 
 
