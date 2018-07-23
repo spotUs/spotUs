@@ -108,12 +108,7 @@ CLLocationManager *locationManager;
 }
 
 - (void)viewDidLoad {
-    locationManager = [[CLLocationManager alloc] init];
 
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [locationManager requestWhenInUseAuthorization];
-    [locationManager startUpdatingLocation];
     
     [self.checkInButton.layer setBorderWidth:3.0];
     [self.checkInButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
@@ -128,7 +123,6 @@ CLLocationManager *locationManager;
     self.resultSearchController = [[UISearchController alloc ] initWithSearchResultsController:locationSearchTable];
     self.resultSearchController.searchResultsUpdater = locationSearchTable;
     locationSearchTable.handleMapsearchDelegate = self;
-    
     
     
     
@@ -157,6 +151,12 @@ CLLocationManager *locationManager;
         
         if (cities) {
             self.cities = cities;
+            locationManager = [[CLLocationManager alloc] init];
+            
+            locationManager.delegate = self;
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+            [locationManager requestWhenInUseAuthorization];
+            [locationManager startUpdatingLocation];
             for(PFObject *c in cities) {
                 
                 double longi = [c[@"lng"] doubleValue];
@@ -183,8 +183,7 @@ CLLocationManager *locationManager;
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     
     if(annotation == self.mapView.userLocation){
-        
-        
+        // prevent showing pin for current location
         return nil;
     }
     
