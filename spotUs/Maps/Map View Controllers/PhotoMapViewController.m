@@ -17,7 +17,9 @@
 #import "QueryManager.h"
 #import "PlaylistViewController.h"
 @interface PhotoMapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, HandleMapSearch, NowPlayingDelegate>
-@property (strong, nonatomic) City *city;
+@property (strong, nonatomic) City *searchCity;
+@property (strong, nonatomic) City *locationCity;
+
 @property (strong, nonatomic) UISearchController *resultSearchController;
 @property BOOL waitingForLocation;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
@@ -27,11 +29,7 @@
 @implementation PhotoMapViewController
 CLLocationManager *locationManager;
 
-- (IBAction)didClickCheckIn:(id)sender {
 
-    
-    [self performSegueWithIdentifier:@"gotoplayer" sender:nil];
-}
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"didFailWithError: %@", error);
@@ -48,11 +46,11 @@ CLLocationManager *locationManager;
             CLLocation *cityLocation = [[CLLocation alloc] initWithLatitude:city.lat longitude:city.lng];
             double distance =  [currentLocation distanceFromLocation:cityLocation];
             if(distance < 300000){
-                self.city = city;
+                self.locationCity = city;
                 foundCity = YES;
                 self.checkInButton.enabled = YES;
                 [self.checkInButton setTintColor:[UIColor greenColor]];
-                [self.checkInButton setTitle:[NSString stringWithFormat:@"Discover %@",self.city.name] forState:UIControlStateNormal];
+                [self.checkInButton setTitle:[NSString stringWithFormat:@"Discover %@",self.locationCity.name] forState:UIControlStateNormal];
                 break;
             }
         }
@@ -158,8 +156,8 @@ CLLocationManager *locationManager;
 - (void) mapView: (MKMapView *)mapView annotationView:(nonnull MKAnnotationView *)view calloutAccessoryControlTapped:(nonnull UIControl *)control {
     NSLog(@"%@",view.annotation.title);
 
-    self.city = [QueryManager getCityFromName:view.annotation.title];
-    [self performSegueWithIdentifier:@"gotoplayer" sender:nil];
+    self.searchCity = [QueryManager getCityFromName:view.annotation.title];
+    [self performSegueWithIdentifier:@"playlist" sender:self];
 }
 
 
@@ -176,16 +174,26 @@ CLLocationManager *locationManager;
     
     if ([[segue destinationViewController] isKindOfClass:[PlayerView class]]){
         PlayerView *playerController = (PlayerView*)[segue destinationViewController];
-      
-        playerController.city = self.city;
+        
+
         playerController.auth = self.auth;
         playerController.player = self.player;
     }
     
     else if ([[segue destinationViewController] isKindOfClass:[PlaylistViewController class]]){
-        PlaylistViewController *playlistController = (PlaylistViewController*)[segue destinationViewController];
         
-        playlistController.city = self.city;
+        PlaylistViewController *playlistController = (PlaylistViewController*)[segue destinationViewController];
+        if([sender isKindOfClass:UIButton.class]){
+         
+            playlistController.city = self.locationCity;
+            
+        }
+        
+        else{
+            playlistController.city = self.searchCity;
+            
+        }
+        
         playlistController.auth = self.auth;
         playlistController.player = self.player;
     }

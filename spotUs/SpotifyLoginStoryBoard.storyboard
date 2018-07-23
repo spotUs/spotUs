@@ -469,7 +469,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="didClickCheckIn:" destination="NH1-rC-6tQ" eventType="touchUpInside" id="Vmi-Ph-mfC"/>
+                                    <segue destination="XYl-M6-THt" kind="show" id="nbH-iS-X6V"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -706,6 +706,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="8a5-vN-qGZ"/>
         <segue reference="dU3-DC-N3D"/>
-        <segue reference="YAI-tQ-w9a"/>
+        <segue reference="bty-V5-NaH"/>
     </inferredMetricsTieBreakers>
 </document>
