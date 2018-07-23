@@ -13,11 +13,15 @@
 #import "City.h"
 #import "ErrorAlert.h"
 #import <CoreLocation/CoreLocation.h>
-@interface PhotoMapViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
+#import "LocationSearchTable.h"
+@interface PhotoMapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, HandleMapSearch>
 @property (strong, nonatomic) City *city;
+@property (strong, nonatomic) UISearchController *resultSearchController;
+
 
 @property BOOL waitingForLocation;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
+
 
 @end
 
@@ -84,6 +88,25 @@ CLLocationManager *locationManager;
     
 }
 
+
+- (void)ZoomInOnLocation:(CLLocation *)location{
+    
+    MKCoordinateSpan span;
+    
+    span.latitudeDelta = .2;
+    span.longitudeDelta = .2;
+    
+    MKCoordinateRegion region;
+    
+    region.center = location.coordinate;
+    region.span = span;
+    
+    self.mapView.region = region;
+    
+    
+    
+}
+
 - (void)viewDidLoad {
     locationManager = [[CLLocationManager alloc] init];
 
@@ -99,7 +122,25 @@ CLLocationManager *locationManager;
     [self.checkInButton setTintColor:[UIColor grayColor]];
     
     
+    LocationSearchTable *locationSearchTable = [self.storyboard instantiateViewControllerWithIdentifier:@"LocationSearchTable"];
     
+    
+    self.resultSearchController = [[UISearchController alloc ] initWithSearchResultsController:locationSearchTable];
+    self.resultSearchController.searchResultsUpdater = locationSearchTable;
+    locationSearchTable.handleMapsearchDelegate = self;
+    
+    
+    
+    
+    UISearchBar *searchBar = self.resultSearchController.searchBar;
+    [searchBar sizeToFit];
+    self.navigationItem.titleView = self.resultSearchController.searchBar;
+    searchBar.placeholder = @"Search for cities";
+
+    
+    self.resultSearchController.hidesNavigationBarDuringPresentation = NO;
+    self.resultSearchController.dimsBackgroundDuringPresentation = YES;
+    self.definesPresentationContext = YES;
 
     self.mapView.delegate = self;
 
@@ -140,6 +181,13 @@ CLLocationManager *locationManager;
 
 //mapview delegate method
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    
+    if(annotation == self.mapView.userLocation){
+        
+        
+        return nil;
+    }
+    
     MKPinAnnotationView *annotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"Pin"];
     if (annotationView == nil) {
         annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin"];
