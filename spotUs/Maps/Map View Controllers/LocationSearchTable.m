@@ -7,6 +7,7 @@
 //
 
 #import "LocationSearchTable.h"
+#import "QueryManager.h"
 
 @interface LocationSearchTable () <UISearchResultsUpdating>
 @property (strong, nonatomic) NSArray<City*> *cities;
@@ -17,38 +18,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fetchCities];
-
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)fetchCities{
-    PFQuery *query = [PFQuery queryWithClassName:@"City"];
-    query.limit = 20;
-    [query includeKey:@"lng"];
-    [query includeKey:@"lat"];
-    [query includeKey:@"name"];
-    [query includeKey:@"tracks"];
-    [query orderByAscending:@"name"];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *cities, NSError *error) {
+    [QueryManager fetchCities:^(NSArray *cities, NSError *error) {
+        
         if (!error) {
             self.cities = cities;
             if (self.filteredCities == nil){
                 self.filteredCities = cities;
             }
-            NSLog(@"%@",self.filteredCities);
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
+        
     }];
+    
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityCell"];
@@ -60,27 +50,6 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.filteredCities.count;
 }
-
-- (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    if (searchText.length != 0) {
-        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSDictionary *evaluatedObject, NSDictionary *bindings){
-            return [[evaluatedObject[@"name"] lowercaseString] containsString:[searchText lowercaseString]];
-        }];
-        self.filteredCities
-        = [self.cities filteredArrayUsingPredicate:predicate];
-        NSLog(@"%@",self.filteredCities);
-    } else {
-        self.filteredCities = self.cities;
-    }
-    [self.tableView reloadData];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
 
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
@@ -113,6 +82,5 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
-
 
 @end

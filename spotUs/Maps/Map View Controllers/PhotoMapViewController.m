@@ -14,6 +14,7 @@
 #import "ErrorAlert.h"
 #import <CoreLocation/CoreLocation.h>
 #import "LocationSearchTable.h"
+#import "QueryManager.h"
 @interface PhotoMapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, HandleMapSearch>
 @property (strong, nonatomic) City *city;
 @property (strong, nonatomic) UISearchController *resultSearchController;
@@ -139,16 +140,7 @@ CLLocationManager *locationManager;
     self.mapView.delegate = self;
 
     
-    PFQuery *query = [PFQuery queryWithClassName:@"City"];
-    query.limit = 20;
-    [query includeKey:@"lng"];
-    [query includeKey:@"lat"];
-    [query includeKey:@"name"];
-    [query includeKey:@"tracks"];
-    [query orderByAscending:@"name"];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *cities, NSError *error) {
-        
+    [QueryManager fetchCities:^(NSArray *cities, NSError *error) {
         if (cities) {
             self.cities = cities;
             locationManager = [[CLLocationManager alloc] init];
@@ -173,8 +165,8 @@ CLLocationManager *locationManager;
         else {
             NSLog(@"%@", error.localizedDescription);
         }
+        
     }];
-    
     
     
 }
