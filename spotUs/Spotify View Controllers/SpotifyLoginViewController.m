@@ -11,6 +11,7 @@
 #import "Parse.h"
 #import "SignUpViewController.h"
 #import "ProfileViewController.h"
+#import "ParentViewController.h"
 
 @interface SpotifyLoginViewController () <UIApplicationDelegate,SPTAudioStreamingDelegate>
 @property (nonatomic, strong) SPTAuth *auth;
@@ -163,8 +164,8 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue destinationViewController] isKindOfClass:[UINavigationController class]]){
-        UINavigationController *navigationController = [segue destinationViewController];
+    if ([[segue destinationViewController] isKindOfClass:[ParentViewController class]]){
+        /*UINavigationController *navigationController = [segue destinationViewController];
         if([ navigationController.topViewController isKindOfClass:[ProfileViewController class]]){
             ProfileViewController *profileView = (ProfileViewController*)navigationController.topViewController;
             profileView.player = self.player;
@@ -174,7 +175,11 @@
             PlayerView *playerView = (PlayerView*)navigationController.topViewController;
             playerView.player = self.player;
             playerView.auth = self.auth;
-        }
+        }*/
+        ParentViewController *parentVC = (ParentViewController *)[segue destinationViewController];
+        parentVC.auth = self.auth;
+        parentVC.player = self.player;
+        parentVC.currentUser = self.currentUser;
     }
     else if ([[segue destinationViewController] isKindOfClass:[SignUpViewController class]]){
         

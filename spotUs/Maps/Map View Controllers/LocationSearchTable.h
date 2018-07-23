@@ -1,8 +1,8 @@
 //
-//  CitiesViewController.h
+//  LocationSearchTable.h
 //  spotUs
 //
-//  Created by Megan Ung on 7/16/18.
+//  Created by Martin Winton on 7/23/18.
 //  Copyright © 2018 Lizbeth Alejandra Gonzalez. All rights reserved.
 //
 
@@ -13,13 +13,10 @@
 #import <SpotifyMetadata/SpotifyMetadata.h>
 #import <Parse/Parse.h>
 #import "City.h"
+#import "PhotoMapViewController.h"
 
+@interface LocationSearchTable : UITableViewController
 
-
-@interface CitiesViewController : UIViewController
-
-@property (nonatomic, weak) SPTAudioStreamingController *player;
-@property (nonatomic, strong) SPTAuth *auth;
-
+@property (strong ,nonatomic) id<HandleMapSearch> handleMapsearchDelegate;
 
 @end

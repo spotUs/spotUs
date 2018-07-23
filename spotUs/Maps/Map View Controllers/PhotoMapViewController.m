@@ -13,9 +13,14 @@
 #import "City.h"
 #import "ErrorAlert.h"
 #import <CoreLocation/CoreLocation.h>
-@interface PhotoMapViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
-@property (strong, nonatomic) City *city;
+#import "LocationSearchTable.h"
+#import "QueryManager.h"
+#import "PlaylistViewController.h"
+@interface PhotoMapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, HandleMapSearch, NowPlayingDelegate>
+@property (strong, nonatomic) City *searchCity;
+@property (strong, nonatomic) City *locationCity;
 
+@property (strong, nonatomic) UISearchController *resultSearchController;
 @property BOOL waitingForLocation;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
 
@@ -24,98 +29,89 @@
 @implementation PhotoMapViewController
 CLLocationManager *locationManager;
 
-- (IBAction)didClickCheckIn:(id)sender {
-    [self performSegueWithIdentifier:@"gotoplayer" sender:nil];
 
-    
-    
-}
 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"didFailWithError: %@", error);
   
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
-{
-    
-    
-        CLLocation *newLocation = [locations lastObject];
-        NSLog(@"didUpdateToLocation: %@", newLocation);
-        CLLocation *currentLocation = newLocation;
-        
-        if (currentLocation != nil) {
-          
-            BOOL foundCity = NO;
-            for(City *city in self.cities){
-                
-                CLLocation *cityLocation = [[CLLocation alloc] initWithLatitude:city.lat longitude:city.lng];
-                
-                double distance =  [currentLocation distanceFromLocation:cityLocation];
-                
-                if(distance < 300000){
-                    
-                    self.city = city;
-                    foundCity = YES;
-                    self.checkInButton.enabled = YES;
-                    [self.checkInButton setTintColor:[UIColor greenColor]];
-
-                    [self.checkInButton setTitle:[NSString stringWithFormat:@"Discover %@",self.city.name] forState:UIControlStateNormal];
-                    break;
-
-                    
-                }
-                
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    CLLocation *newLocation = [locations lastObject];
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    if (currentLocation != nil) {
+        BOOL foundCity = NO;
+        for(City *city in self.cities){
+            CLLocation *cityLocation = [[CLLocation alloc] initWithLatitude:city.lat longitude:city.lng];
+            double distance =  [currentLocation distanceFromLocation:cityLocation];
+            if(distance < 300000){
+                self.locationCity = city;
+                foundCity = YES;
+                self.checkInButton.enabled = YES;
+                [self.checkInButton setTintColor:[UIColor greenColor]];
+                [self.checkInButton setTitle:[NSString stringWithFormat:@"Discover %@",self.locationCity.name] forState:UIControlStateNormal];
+                break;
             }
-            
-            
-            if(!foundCity){
-                
-                [self.checkInButton setTitle:@"No SpotUs City Nearby" forState:UIControlStateNormal];
-                self.checkInButton.enabled = NO;
-                [self.checkInButton setTintColor:[UIColor grayColor]];
-            }
-            
-            
-     
         }
-        
+        if(!foundCity){
+            
+            [self.checkInButton setTitle:@"No SpotUs City Nearby" forState:UIControlStateNormal];
+            self.checkInButton.enabled = NO;
+            [self.checkInButton setTintColor:[UIColor grayColor]];
+        }
+    }
+}
+
+
+- (void)ZoomInOnLocation:(CLLocation *)location{
+    MKCoordinateSpan span;
+    span.latitudeDelta = .2;
+    span.longitudeDelta = .2;
     
+    MKCoordinateRegion region;
+    
+    region.center = location.coordinate;
+    region.span = span;
+    
+    self.mapView.region = region;
 }
 
 - (void)viewDidLoad {
-    locationManager = [[CLLocationManager alloc] init];
-
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [locationManager requestWhenInUseAuthorization];
-    [locationManager startUpdatingLocation];
-    
     [self.checkInButton.layer setBorderWidth:3.0];
     [self.checkInButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
     [self.checkInButton setTitle:@"No SpotUs City Nearby" forState:UIControlStateNormal];
     self.checkInButton.enabled = NO;
     [self.checkInButton setTintColor:[UIColor grayColor]];
+
+    LocationSearchTable *locationSearchTable = [self.storyboard instantiateViewControllerWithIdentifier:@"LocationSearchTable"];
     
     
+    self.resultSearchController = [[UISearchController alloc ] initWithSearchResultsController:locationSearchTable];
+    self.resultSearchController.searchResultsUpdater = locationSearchTable;
+    locationSearchTable.handleMapsearchDelegate = self;
     
+    UISearchBar *searchBar = self.resultSearchController.searchBar;
+    [searchBar sizeToFit];
+    self.navigationItem.titleView = self.resultSearchController.searchBar;
+    searchBar.placeholder = @"Search for cities";
+    
+    self.resultSearchController.hidesNavigationBarDuringPresentation = NO;
+    self.resultSearchController.dimsBackgroundDuringPresentation = YES;
+    self.definesPresentationContext = YES;
 
     self.mapView.delegate = self;
 
     
-    PFQuery *query = [PFQuery queryWithClassName:@"City"];
-    query.limit = 20;
-    [query includeKey:@"lng"];
-    [query includeKey:@"lat"];
-    [query includeKey:@"name"];
-    [query includeKey:@"tracks"];
-    [query orderByAscending:@"name"];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *cities, NSError *error) {
-        
+    [QueryManager fetchCities:^(NSArray *cities, NSError *error) {
         if (cities) {
             self.cities = cities;
+            locationManager = [[CLLocationManager alloc] init];
+            
+            locationManager.delegate = self;
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+            [locationManager requestWhenInUseAuthorization];
+            [locationManager startUpdatingLocation];
             for(PFObject *c in cities) {
                 
                 double longi = [c[@"lng"] doubleValue];
@@ -132,14 +128,18 @@ CLLocationManager *locationManager;
         else {
             NSLog(@"%@", error.localizedDescription);
         }
+        
     }];
-    
-    
-    
 }
 
 //mapview delegate method
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    
+    if(annotation == self.mapView.userLocation){
+        // prevent showing pin for current location
+        return nil;
+    }
+    
     MKPinAnnotationView *annotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"Pin"];
     if (annotationView == nil) {
         annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin"];
@@ -152,21 +152,12 @@ CLLocationManager *locationManager;
     
     return annotationView;
 }
+
 - (void) mapView: (MKMapView *)mapView annotationView:(nonnull MKAnnotationView *)view calloutAccessoryControlTapped:(nonnull UIControl *)control {
     NSLog(@"%@",view.annotation.title);
-    //TODO pls make this better
-    PFQuery *query = [PFQuery queryWithClassName:@"City"];
-    [query whereKey:@"name" equalTo:view.annotation.title];
-    query.limit = 1;
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *cities, NSError *error) {
-        if (error){
-            NSLog(@"errorrrr: %@",error.localizedDescription);
-        } else {
-            self.city = cities[0];
-            [self performSegueWithIdentifier:@"gotoplayer" sender:nil];
-        }
-    }];
+
+    self.searchCity = [QueryManager getCityFromName:view.annotation.title];
+    [self performSegueWithIdentifier:@"playlist" sender:self];
 }
 
 
@@ -183,12 +174,35 @@ CLLocationManager *locationManager;
     
     if ([[segue destinationViewController] isKindOfClass:[PlayerView class]]){
         PlayerView *playerController = (PlayerView*)[segue destinationViewController];
-      
-        playerController.city = self.city;
+        
+
         playerController.auth = self.auth;
         playerController.player = self.player;
     }
+    
+    else if ([[segue destinationViewController] isKindOfClass:[PlaylistViewController class]]){
+        
+        PlaylistViewController *playlistController = (PlaylistViewController*)[segue destinationViewController];
+        if([sender isKindOfClass:UIButton.class]){
+         
+            playlistController.city = self.locationCity;
+            
+        }
+        
+        else{
+            playlistController.city = self.searchCity;
+            
+        }
+        
+        playlistController.auth = self.auth;
+        playlistController.player = self.player;
+    }
 
+
+}
+
+- (void)didStartPlayingonCity:(City *)city{
+    [self.nowPlayingIntermediateDelegate didStartPlayingonCityIntermediate:city];
 }
 
 

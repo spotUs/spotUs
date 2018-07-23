@@ -28,6 +28,8 @@
 @property BOOL nowPlaying;
 @property BOOL isRepeating;
 @property BOOL isPlaying;
+@property BOOL didSelect;
+
 
 
 @property (nonatomic, weak) id<NowPlayingDelegate> nowPlayingDelegate;

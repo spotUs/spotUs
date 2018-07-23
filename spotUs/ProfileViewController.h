@@ -12,12 +12,18 @@
 #import <SafariServices/SafariServices.h>
 #import <SpotifyMetadata/SpotifyMetadata.h>
 #import <Parse/Parse.h>
+#import "City.h"
 
+@protocol NowPlayingParentDelegate
 
+-(void)didStartPlayingonCityParent:(City*)city;
+
+@end
 @interface ProfileViewController : UIViewController
 @property (nonatomic, strong) SPTAudioStreamingController *player;
 @property (nonatomic, strong) SPTAuth *auth;
 @property (nonatomic, strong) SPTUser *currentUser;
+@property (nonatomic, weak) id<NowPlayingParentDelegate> nowPlayingParentDelegate;
 
 
 

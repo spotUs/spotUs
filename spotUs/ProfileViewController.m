@@ -16,12 +16,10 @@
 
 
 @interface ProfileViewController () <NowPlayingIntermediateDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *profileUsernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hometownLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UIButton *nowPlayingButton;
 @property (strong, nonatomic) City *playingCity;
-@property (weak, nonatomic) IBOutlet UIView *nowPlayingView;
 @property (weak, nonatomic) IBOutlet UIImageView *blurredImage;
 @property (weak, nonatomic) IBOutlet UIView *favoriteView;
 @property (weak, nonatomic) IBOutlet UIView *exploreView;
@@ -36,21 +34,23 @@
     [super viewDidLoad];
     
 
-    self.nowPlayingView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.nowPlayingView.layer.borderWidth = 2.0f;
-    self.favoriteView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
-    self.favoriteView.clipsToBounds = YES;
-    self.nowPlayingView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
-    self.nowPlayingView.clipsToBounds = YES;
-    self.favoriteView.layer.borderColor = [UIColor redColor].CGColor;
-    self.favoriteView.layer.borderWidth = 1.0;
-    self.favoriteView.layer.cornerRadius = 15;
+ 
+    self.favoriteView.layer.borderColor = [UIColor colorWithRed:1.00 green:0.38 blue:0.58 alpha:1.0].CGColor;
+    self.favoriteView.layer.borderWidth = 3.0;
+    [self.favoriteView.layer setShadowOffset:CGSizeMake(2, 2)];
+    [self.favoriteView.layer setShadowColor:[[UIColor blackColor] CGColor]];
+    [self.favoriteView.layer setShadowOpacity:0.3];
     
-    self.exploreView.layer.borderColor = [UIColor redColor].CGColor;
-    self.exploreView.layer.borderWidth = 1.0;
-    self.exploreView.layer.cornerRadius = 15;
+
     
-    self.profileUsernameLabel.text = self.currentUser.displayName;
+    self.exploreView.layer.borderColor = [UIColor colorWithRed:0.20 green:0.64 blue:0.00 alpha:1.0].CGColor;
+    self.exploreView.layer.borderWidth = 3.0;
+    [self.exploreView.layer setShadowOffset:CGSizeMake(2, 2)];
+    [self.exploreView.layer setShadowColor:[[UIColor blackColor] CGColor]];
+    [self.exploreView.layer setShadowOpacity:.3];
+    
+    
+    self.navigationItem.title = self.currentUser.displayName;
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
     self.profileImageView.clipsToBounds = YES;
     self.blurredImage.image = [self blurredImageWithImage:self.blurredImage.image];
@@ -69,7 +69,14 @@
         
         [hometown fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
             City *fullHometown  = (City*)object;
-            self.hometownLabel.text = fullHometown.name;
+            self.hometownLabel.attributedText=[[NSAttributedString alloc]
+                                               initWithString:fullHometown.name
+                                               attributes:@{
+                                                            NSStrokeWidthAttributeName: @-3.0,
+                                                            NSStrokeColorAttributeName:[UIColor blackColor],
+                                                            NSForegroundColorAttributeName:[UIColor whiteColor]
+                                                            }
+                                               ];
             //self.hometownLabel.layer.borderColor = [UIColor whiteColor].CGColor;
             //self.hometownLabel.layer.borderWidth = 1.0;
            // self.hometownLabel.layer.cornerRadius = 15;
@@ -113,6 +120,8 @@
         PhotoMapViewController *mapVC = (PhotoMapViewController *)[segue destinationViewController];
         mapVC.auth = self.auth;
         mapVC.player = self.player;
+        mapVC.nowPlayingIntermediateDelegate = self;
+
     }
     
     else if([[segue destinationViewController]  isKindOfClass:[PlayerView class]]){
@@ -127,7 +136,6 @@
         CitiesViewController *cityView = (CitiesViewController *)[segue destinationViewController];
         cityView.player = self.player;
         cityView.auth = self.auth;
-        cityView.nowPlayingIntermediateDelegate = self;
     }
     
     
