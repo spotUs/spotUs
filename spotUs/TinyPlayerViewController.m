@@ -35,41 +35,8 @@
 
 @implementation TinyPlayerViewController
 
-- (IBAction)didChangeSlide:(id)sender {
-    
-    self.timeElapsedLabel.text = [self stringFromTimeInterval:self.musicSlider.value];
-    self.timeLeftLabel.text = [self stringFromTimeInterval:self.player.metadata.currentTrack.duration-self.musicSlider.value];
-    // update times while user is dragging
-    
-}
-- (IBAction)didStartSeek:(id)sender {
-    [self.player setIsPlaying:NO callback:nil];
-    self.isPlaying = NO;
-    [self.pauseButton setSelected:YES];
-    
-    // pause music when user begins to seek
-    
-    
-    
-}
 
-- (IBAction)didLetGo:(id)sender {
-    
-    [self.player seekTo:self.musicSlider.value callback:nil];
-    [self.player setIsPlaying:YES callback:nil];
-    self.isPlaying = YES;
-    [self.pauseButton setSelected:NO];
-    
-    
-    // start music again and seek when user lets go
-    
-}
 
-- (IBAction)goFoward:(id)sender {
-    
-    [self.player skipNext:nil];
-    
-}
 
 - (IBAction)pauseOrUnpause:(id)sender {
     
@@ -93,35 +60,12 @@
     
     
 }
-- (IBAction)repeatOrUnrepeat:(id)sender {
-    
-    if(self.isRepeating){
-        
-        [self.player setRepeat:SPTRepeatOff callback:nil];
-        self.isRepeating = NO;
-        [self.repeatButton setSelected:NO];
-        
-        
-    }
-    
-    else{
-        [self.player setRepeat:SPTRepeatOne callback:nil];
-        self.isRepeating = YES;
-        [self.repeatButton setSelected:YES];
-        
-        
-        
-    }
-    
-    
-    
-    
-    
-}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     
     
  
@@ -160,6 +104,11 @@
     
     if ([[notification name] isEqualToString:@"Chose Playlist"]){
         NSLog (@"Successfully received the chose Playlist!");
+        self.player.playbackDelegate = self;
+        NSDictionary *userInfo = notification.userInfo;
+
+        self.city = userInfo[@"city"];
+        self.currentSongIndex = [userInfo[@"index"] intValue];
 
         [self refreshSongData];
         
@@ -285,8 +234,6 @@
     
     [self.repeatButton setSelected:self.isRepeating];
     [self.pauseButton setSelected:!self.isPlaying];
-    
-    
     
     
     
