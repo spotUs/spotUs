@@ -64,11 +64,30 @@ static NSArray *_citiesarray = nil;
 
 + (void) addFavSongId: (NSString *)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     PFUser *currUser = [PFUser currentUser];
-    [currUser[@"favs"] addObject:songId];
-    [currUser saveInBackgroundWithBlock:completion];
+    [self fetchFavs:^(NSArray *favs, NSError *error) {
+        NSMutableArray *favarray = [NSMutableArray arrayWithArray:favs];
+        [favarray addObject:songId];
+        [currUser setObject:favarray forKey:@"favs"];
+        [currUser saveInBackgroundWithBlock:completion];
+    }];
 }
 
-
++ (void) fetchFavs: (void(^)(NSArray *favs, NSError *error))completion {
+    PFUser *currUser = [PFUser currentUser];
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:currUser.username];
+    [query includeKey:@"favs"];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        if (!error) {
+            PFUser *user = (PFUser *)object;
+            NSArray *favs = user[@"favs"];
+            if (completion) {completion(favs, nil);}
+        } else {
+            NSLog(@"%@",error.localizedDescription);
+            if(completion) {completion(nil,error);}
+        }
+    }];
+}
 
 
 @end
