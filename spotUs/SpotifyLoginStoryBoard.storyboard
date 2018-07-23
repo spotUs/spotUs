@@ -292,7 +292,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MmQ-cn-pM6">
-                                <rect key="frame" x="0.0" y="319" width="191" height="348"/>
+                                <rect key="frame" x="0.0" y="319" width="191" height="270"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FwB-Tb-g13">
@@ -309,7 +309,7 @@
                                 </subviews>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ivq-bz-geL">
-                                <rect key="frame" x="192" y="319" width="183" height="348"/>
+                                <rect key="frame" x="192" y="319" width="183" height="270"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="internet" translatesAutoresizingMaskIntoConstraints="NO" id="hPM-rf-9gb">
@@ -317,7 +317,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkT-cv-rlC">
-                                        <rect key="frame" x="-6" y="0.0" width="196" height="278"/>
+                                        <rect key="frame" x="-6" y="0.0" width="189" height="270"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
                                             <color key="titleColor" red="0.20000000000000001" green="0.64313725490196072" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -328,10 +328,6 @@
                                     </button>
                                 </subviews>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2m-ff-JL2">
-                                <rect key="frame" x="121" y="267" width="132" height="132"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVE-oX-FT6">
                                 <rect key="frame" x="307" y="334" width="52" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -341,6 +337,10 @@
                                     <segue destination="x5g-Cf-YmB" kind="show" id="YAI-tQ-w9a"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2m-ff-JL2">
+                                <rect key="frame" x="121" y="267" width="132" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.99097795050000004" green="0.99097795050000004" blue="0.99097795050000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="2sJ-ND-GRw"/>
@@ -608,8 +608,23 @@
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="spotifyWhite" translatesAutoresizingMaskIntoConstraints="NO" id="plr-MZ-VPt">
+                                <rect key="frame" x="278" y="476" width="41" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="screen_shot_2018_07_18_at_4_11_56_pm_1" translatesAutoresizingMaskIntoConstraints="NO" id="bWw-Za-Ylh">
+                                <rect key="frame" x="256" y="204" width="84" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WELCOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHW-Al-X7O">
+                                <rect key="frame" x="25" y="204" width="223" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kfL-Aj-zEY">
-                                <rect key="frame" x="64" y="468" width="267" height="57"/>
+                                <rect key="frame" x="54" y="468" width="267" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -626,21 +641,6 @@
                                     <segue destination="oYG-NQ-pAP" kind="show" id="vf5-cg-VL1"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="spotifyWhite" translatesAutoresizingMaskIntoConstraints="NO" id="plr-MZ-VPt">
-                                <rect key="frame" x="278" y="476" width="41" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="screen_shot_2018_07_18_at_4_11_56_pm_1" translatesAutoresizingMaskIntoConstraints="NO" id="bWw-Za-Ylh">
-                                <rect key="frame" x="256" y="204" width="84" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WELCOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHW-Al-X7O">
-                                <rect key="frame" x="25" y="204" width="223" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="AIr-qO-7Pn" secondAttribute="trailing" id="5mj-V0-yRE"/>
@@ -795,8 +795,8 @@
                                     <constraint firstAttribute="height" constant="50" id="XY0-bT-tEG"/>
                                     <constraint firstAttribute="width" constant="50" id="uCZ-xN-BDT"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="play-btn"/>
-                                <state key="selected" image="pause-btn"/>
+                                <state key="normal" image="pause-btn"/>
+                                <state key="selected" image="play-btn"/>
                                 <connections>
                                     <action selector="pauseOrUnpause:" destination="fY4-ON-nYx" eventType="touchUpInside" id="13m-Ig-dWI"/>
                                 </connections>
@@ -869,7 +869,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fJn-3m-Jz9"/>
-        <segue reference="KW6-86-RT6"/>
+        <segue reference="oBg-nf-TrH"/>
         <segue reference="YAI-tQ-w9a"/>
     </inferredMetricsTieBreakers>
 </document>
