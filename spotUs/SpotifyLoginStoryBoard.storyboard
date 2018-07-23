@@ -756,10 +756,10 @@
             </objects>
             <point key="canvasLocation" x="4120.8000000000002" y="-172.26386806596702"/>
         </scene>
-        <!--View Controller-->
+        <!--Tiny Player View Controller-->
         <scene sceneID="inC-NF-7dX">
             <objects>
-                <viewController id="fY4-ON-nYx" sceneMemberID="viewController">
+                <viewController id="fY4-ON-nYx" customClass="TinyPlayerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j2M-H1-9hF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -772,6 +772,9 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="play-btn"/>
                                 <state key="selected" image="pause-btn"/>
+                                <connections>
+                                    <action selector="pauseOrUnpause:" destination="fY4-ON-nYx" eventType="touchUpInside" id="13m-Ig-dWI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDC-u6-aQ0">
                                 <rect key="frame" x="20" y="13" width="41" height="30"/>
@@ -812,6 +815,11 @@
                             <outletCollection property="gestureRecognizers" destination="zOX-f4-tgs" appends="YES" id="qWe-Vu-d4O"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="albumTitleLabel" destination="jJ4-sI-JpK" id="B6F-eG-Rkx"/>
+                        <outlet property="pauseButton" destination="F9f-cr-DAQ" id="a5o-cs-qXu"/>
+                        <outlet property="songTitle" destination="ioW-zJ-jQj" id="frG-91-oGk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L0m-2o-pUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="zOX-f4-tgs"/>
