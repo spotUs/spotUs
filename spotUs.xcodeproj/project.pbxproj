@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		060896A521025F970041644D /* NowPlayingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060896A421025F970041644D /* NowPlayingStoryboard.storyboard */; };
 		060896AB210639B00041644D /* LocationSearchTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 060896AA210639B00041644D /* LocationSearchTable.m */; };
+		060896AE21065C990041644D /* PlayListCollectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 060896AD21065C990041644D /* PlayListCollectionHeader.m */; };
 		067FB79E210105E100B997FD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067FB79D210105E100B997FD /* CoreLocation.framework */; };
 		067FB7A0210106AC00B997FD /* locationStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 067FB79F210106AC00B997FD /* locationStoryBoard.storyboard */; };
 		06F6BD4920FD04FB00E85B28 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */; };
@@ -78,6 +79,8 @@
 		060896A421025F970041644D /* NowPlayingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NowPlayingStoryboard.storyboard; sourceTree = "<group>"; };
 		060896A9210639B00041644D /* LocationSearchTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationSearchTable.h; sourceTree = "<group>"; };
 		060896AA210639B00041644D /* LocationSearchTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationSearchTable.m; sourceTree = "<group>"; };
+		060896AC21065C990041644D /* PlayListCollectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayListCollectionHeader.h; sourceTree = "<group>"; };
+		060896AD21065C990041644D /* PlayListCollectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayListCollectionHeader.m; sourceTree = "<group>"; };
 		067FB79D210105E100B997FD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		067FB79F210106AC00B997FD /* locationStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = locationStoryBoard.storyboard; sourceTree = "<group>"; };
 		06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
@@ -317,6 +320,8 @@
 				3E74311E210298E200CE94FB /* FavoritesTableViewCell.h */,
 				3E74311F210298E200CE94FB /* FavoritesTableViewCell.m */,
 				3E74312321029AA600CE94FB /* FavoritesCollectionViewCell.h */,
+				060896AC21065C990041644D /* PlayListCollectionHeader.h */,
+				060896AD21065C990041644D /* PlayListCollectionHeader.m */,
 				3E74312421029AA600CE94FB /* FavoritesCollectionViewCell.m */,
 				3E74312621029B1100CE94FB /* FavoritesStoryboard.storyboard */,
 				3E097D3321010BD5003FC5F6 /* Gif */,
@@ -632,6 +637,7 @@
 				3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */,
 				060896AB210639B00041644D /* LocationSearchTable.m in Sources */,
 				3E097D3621010C18003FC5F6 /* GifViewController.m in Sources */,
+				060896AE21065C990041644D /* PlayListCollectionHeader.m in Sources */,
 				06F6BD6220FD102500E85B28 /* PlayerView.m in Sources */,
 				06F6BD7A20FED6AA00E85B28 /* StartViewController.m in Sources */,
 				06F6BD7720FEB55200E85B28 /* ProfileViewController.m in Sources */,

@@ -269,6 +269,7 @@
                         <viewLayoutGuide key="safeArea" id="2sJ-ND-GRw"/>
                     </view>
                     <navigationItem key="navigationItem" id="PwE-4o-kaL">
+                        <barButtonItem key="backBarButtonItem" title="Profile" id="ada-7z-LcN"/>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="qlB-To-mR1">
                             <connections>
                                 <action selector="onTapLogoutBtn:" destination="rzA-pg-DWH" id="cpg-aG-O6X"/>
@@ -482,12 +483,13 @@
                         <viewLayoutGuide key="safeArea" id="Ege-q5-UYR"/>
                     </view>
                     <navigationItem key="navigationItem" id="p5N-st-vJh">
-                        <barButtonItem key="backBarButtonItem" title="Profile" id="UAL-OE-LuC"/>
+                        <barButtonItem key="backBarButtonItem" title="Map" id="UAL-OE-LuC"/>
                     </navigationItem>
                     <connections>
                         <outlet property="checkInButton" destination="2DL-E6-Inc" id="f6s-UF-YLs"/>
                         <outlet property="mapView" destination="j8u-RV-yRn" id="Uze-zZ-Th9"/>
                         <segue destination="x5g-Cf-YmB" kind="show" identifier="gotoplayer" id="bty-V5-NaH"/>
+                        <segue destination="XYl-M6-THt" kind="show" identifier="playlist" id="8a5-vN-qGZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gA7-Cc-Ezd" sceneMemberID="firstResponder"/>
@@ -580,13 +582,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R9e-hD-3aX">
                                     <size key="itemSize" width="165" height="167"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="209"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="playlistCollectionCell" id="xgZ-oc-q89" customClass="PlaylistCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="165" height="167"/>
+                                        <rect key="frame" x="0.0" y="209" width="165" height="167"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="165" height="167"/>
@@ -628,9 +630,39 @@
                                             <outlet property="artistLabel" destination="xNV-pO-cUp" id="qJm-DZ-dGq"/>
                                             <outlet property="songImageView" destination="5Wn-Vh-WzK" id="h5a-6O-uIN"/>
                                             <outlet property="titleLabel" destination="J9h-9H-Ths" id="20f-Jv-QOG"/>
+                                            <segue destination="x5g-Cf-YmB" kind="show" id="EzG-l2-O6y"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="header" id="pzH-Jz-a6n" customClass="PlayListCollectionHeader">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="miami" highlightedImage="miami" translatesAutoresizingMaskIntoConstraints="NO" id="DDS-Mt-6Bc">
+                                            <rect key="frame" x="40" y="0.0" width="295" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqv-tS-IUV">
+                                            <rect key="frame" x="40" y="139" width="295" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMN-58-cS9">
+                                            <rect key="frame" x="172" y="168" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Play"/>
+                                            <connections>
+                                                <segue destination="x5g-Cf-YmB" kind="show" id="l1K-R4-sl1"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <connections>
+                                        <outlet property="cityLabel" destination="dqv-tS-IUV" id="ySt-E0-v08"/>
+                                        <outlet property="image" destination="DDS-Mt-6Bc" id="00t-Oy-Khf"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -652,7 +684,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bff-oq-CK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4121" y="-172"/>
+            <point key="canvasLocation" x="4120.8000000000002" y="-172.26386806596702"/>
         </scene>
     </scenes>
     <resources>
@@ -672,6 +704,7 @@
         <image name="spotifyWhite" width="2400" height="2400"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="8a5-vN-qGZ"/>
         <segue reference="dU3-DC-N3D"/>
         <segue reference="YAI-tQ-w9a"/>
     </inferredMetricsTieBreakers>

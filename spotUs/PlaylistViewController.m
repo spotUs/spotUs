@@ -9,6 +9,7 @@
 #import "PlaylistViewController.h"
 #import "PlaylistCollectionViewCell.h"
 #import "PlayerView.h"
+#import "PlayListCollectionHeader.h"
 
 
 @interface PlaylistViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate>
@@ -95,6 +96,19 @@
         return cell;
 }
 
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    
+    PlayListCollectionHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header" forIndexPath:indexPath];
+    
+    header.cityLabel.text = self.city.name;
+    
+    return header;
+    
+    
+    
+}
+
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.filteredDataArray.count;
 }
@@ -102,7 +116,6 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     [self.delegate didChooseSongWithIndex:indexPath.row];
-    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
@@ -132,6 +145,25 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.'
+    
+    
+    if ([[segue destinationViewController] isKindOfClass:[PlayerView class]]){
+        PlayerView *playerController = (PlayerView*)[segue destinationViewController];
+        
+        playerController.city = self.city;
+        playerController.auth = self.auth;
+        playerController.player = self.player;
+        playerController.didSelect = YES;
+        
+        if([sender isKindOfClass:UICollectionViewCell.class]){
+        
+        UICollectionViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+        playerController.songIndex =indexPath.row;
+            
+        }
+
+    }
     
 
 }

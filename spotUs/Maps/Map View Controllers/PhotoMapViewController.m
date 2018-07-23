@@ -15,6 +15,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "LocationSearchTable.h"
 #import "QueryManager.h"
+#import "PlaylistViewController.h"
 @interface PhotoMapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, HandleMapSearch, NowPlayingDelegate>
 @property (strong, nonatomic) City *city;
 @property (strong, nonatomic) UISearchController *resultSearchController;
@@ -30,7 +31,7 @@
 CLLocationManager *locationManager;
 
 - (IBAction)didClickCheckIn:(id)sender {
-    [self performSegueWithIdentifier:@"gotoplayer" sender:nil];
+    [self performSegueWithIdentifier:@"playlist" sender:nil];
 
     
     
@@ -203,7 +204,7 @@ CLLocationManager *locationManager;
             NSLog(@"errorrrr: %@",error.localizedDescription);
         } else {
             self.city = cities[0];
-            [self performSegueWithIdentifier:@"gotoplayer" sender:nil];
+            [self performSegueWithIdentifier:@"playlist" sender:nil];
         }
     }];
 }
@@ -227,6 +228,15 @@ CLLocationManager *locationManager;
         playerController.auth = self.auth;
         playerController.player = self.player;
     }
+    
+    else if ([[segue destinationViewController] isKindOfClass:[PlaylistViewController class]]){
+        PlaylistViewController *playlistController = (PlaylistViewController*)[segue destinationViewController];
+        
+        playlistController.city = self.city;
+        playlistController.auth = self.auth;
+        playlistController.player = self.player;
+    }
+
 
 }
 
