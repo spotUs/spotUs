@@ -62,4 +62,13 @@ static NSArray *_citiesarray = nil;
     return [_citiesdict objectForKey:name];
 }
 
++ (void) addFavSongId: (NSString *)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion {
+    PFUser *currUser = [PFUser currentUser];
+    [currUser[@"favs"] addObject:songId];
+    [currUser saveInBackgroundWithBlock:completion];
+}
+
+
+
+
 @end

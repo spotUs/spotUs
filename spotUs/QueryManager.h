@@ -18,4 +18,8 @@
 
 + (City *) getCityFromName: (NSString *)name;
 
++ (void) addFavSongId: (NSString *)songId forUser: (PFUser *)user withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+
+//+ (void) fetchFavsForUser: (PFUser *)user;
+
 @end
