@@ -34,11 +34,11 @@
 		3E3953BB20EFE6F800D0FF7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953BA20EFE6F800D0FF7D /* main.m */; };
 		3E3953C520EFE6F800D0FF7D /* spotUsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953C420EFE6F800D0FF7D /* spotUsTests.m */; };
 		3E3953D020EFE6F800D0FF7D /* spotUsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3953CF20EFE6F800D0FF7D /* spotUsUITests.m */; };
-		3E743120210298E200CE94FB /* FavoritesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E74311F210298E200CE94FB /* FavoritesTableViewCell.m */; };
-		3E74312521029AA600CE94FB /* FavoritesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E74312421029AA600CE94FB /* FavoritesCollectionViewCell.m */; };
-		3E74312721029B1100CE94FB /* FavoritesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E74312621029B1100CE94FB /* FavoritesStoryboard.storyboard */; };
 		3E75A21421013A2C00E707EA /* violin.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E75A21321013A2C00E707EA /* violin.gif */; };
 		3E75A21621013C7500E707EA /* WebViewContent.html in Resources */ = {isa = PBXBuildFile; fileRef = 3E75A21521013C7500E707EA /* WebViewContent.html */; };
+		3E7A9A50210635DC007CB62B /* FavoriteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E7A9A4F210635DC007CB62B /* FavoriteStoryboard.storyboard */; };
+		3E7A9A6221067EED007CB62B /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A9A6121067EED007CB62B /* FavoriteViewController.m */; };
+		3E7A9A6821067F9E007CB62B /* FavoriteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A9A6721067F9E007CB62B /* FavoriteCollectionViewCell.m */; };
 		3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */; };
 		446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */; };
 		6C0A49CC21028A4D0042C063 /* QueryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A49CB21028A4D0042C063 /* QueryManager.m */; };
@@ -118,13 +118,13 @@
 		3E3953CB20EFE6F800D0FF7D /* spotUsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spotUsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E3953CF20EFE6F800D0FF7D /* spotUsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = spotUsUITests.m; sourceTree = "<group>"; };
 		3E3953D120EFE6F800D0FF7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3E74311E210298E200CE94FB /* FavoritesTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewCell.h; sourceTree = "<group>"; };
-		3E74311F210298E200CE94FB /* FavoritesTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewCell.m; sourceTree = "<group>"; };
-		3E74312321029AA600CE94FB /* FavoritesCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoritesCollectionViewCell.h; sourceTree = "<group>"; };
-		3E74312421029AA600CE94FB /* FavoritesCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritesCollectionViewCell.m; sourceTree = "<group>"; };
-		3E74312621029B1100CE94FB /* FavoritesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesStoryboard.storyboard; sourceTree = "<group>"; };
 		3E75A21321013A2C00E707EA /* violin.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = violin.gif; sourceTree = "<group>"; };
 		3E75A21521013C7500E707EA /* WebViewContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WebViewContent.html; sourceTree = "<group>"; };
+		3E7A9A4F210635DC007CB62B /* FavoriteStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoriteStoryboard.storyboard; sourceTree = "<group>"; };
+		3E7A9A6021067EED007CB62B /* FavoriteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoriteViewController.h; sourceTree = "<group>"; };
+		3E7A9A6121067EED007CB62B /* FavoriteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoriteViewController.m; sourceTree = "<group>"; };
+		3E7A9A6621067F9E007CB62B /* FavoriteCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoriteCollectionViewCell.h; sourceTree = "<group>"; };
+		3E7A9A6721067F9E007CB62B /* FavoriteCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoriteCollectionViewCell.m; sourceTree = "<group>"; };
 		3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIStoryboard.storyboard; sourceTree = "<group>"; };
 		6C0A49CA21028A4D0042C063 /* QueryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QueryManager.h; sourceTree = "<group>"; };
 		6C0A49CB21028A4D0042C063 /* QueryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueryManager.m; sourceTree = "<group>"; };
@@ -281,6 +281,7 @@
 		3E39539F20EFE6F800D0FF7D = {
 			isa = PBXGroup;
 			children = (
+				3E7A9A4E210635B1007CB62B /* Favorites */,
 				06F6BD3F20FCFC9700E85B28 /* Frameworks */,
 				3E3953AA20EFE6F800D0FF7D /* spotUs */,
 				3E3953C320EFE6F800D0FF7D /* spotUsTests */,
@@ -309,11 +310,6 @@
 				6CB5858B21000184009BD66B /* PlaylistViewController.m */,
 				6CB5858D21000392009BD66B /* PlaylistCollectionViewCell.h */,
 				6CB5858E21000392009BD66B /* PlaylistCollectionViewCell.m */,
-				3E74311E210298E200CE94FB /* FavoritesTableViewCell.h */,
-				3E74311F210298E200CE94FB /* FavoritesTableViewCell.m */,
-				3E74312321029AA600CE94FB /* FavoritesCollectionViewCell.h */,
-				3E74312421029AA600CE94FB /* FavoritesCollectionViewCell.m */,
-				3E74312621029B1100CE94FB /* FavoritesStoryboard.storyboard */,
 				3E097D3321010BD5003FC5F6 /* Gif */,
 				3E3562FF20FEA81300DDAA9E /* Maps */,
 				06F6BD6820FD3CE800E85B28 /* API */,
@@ -358,6 +354,18 @@
 				3E3953D120EFE6F800D0FF7D /* Info.plist */,
 			);
 			path = spotUsUITests;
+			sourceTree = "<group>";
+		};
+		3E7A9A4E210635B1007CB62B /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				3E7A9A4F210635DC007CB62B /* FavoriteStoryboard.storyboard */,
+				3E7A9A6021067EED007CB62B /* FavoriteViewController.h */,
+				3E7A9A6121067EED007CB62B /* FavoriteViewController.m */,
+				3E7A9A6621067F9E007CB62B /* FavoriteCollectionViewCell.h */,
+				3E7A9A6721067F9E007CB62B /* FavoriteCollectionViewCell.m */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		6CC2534B20FD08E300D7093E /* Models */ = {
@@ -502,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
+				3E7A9A50210635DC007CB62B /* FavoriteStoryboard.storyboard in Resources */,
 				067FB7A0210106AC00B997FD /* locationStoryBoard.storyboard in Resources */,
 				3E3953B820EFE6F800D0FF7D /* LaunchScreen.storyboard in Resources */,
 				060896A521025F970041644D /* NowPlayingStoryboard.storyboard in Resources */,
@@ -511,7 +520,6 @@
 				3E3953B520EFE6F800D0FF7D /* Assets.xcassets in Resources */,
 				3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */,
 				3E3953B320EFE6F800D0FF7D /* Main.storyboard in Resources */,
-				3E74312721029B1100CE94FB /* FavoritesStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,16 +623,16 @@
 				6C0A49CC21028A4D0042C063 /* QueryManager.m in Sources */,
 				6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */,
 				3E3953BB20EFE6F800D0FF7D /* main.m in Sources */,
-				3E743120210298E200CE94FB /* FavoritesTableViewCell.m in Sources */,
 				6CC2534A20FD08D500D7093E /* City.m in Sources */,
 				3E35630A20FEA8D100DDAA9E /* PhotoMapViewController.m in Sources */,
 				6CC2534E20FD353500D7093E /* Track.m in Sources */,
 				06F6BD7420FE6C0C00E85B28 /* SpotifyLoginViewController.m in Sources */,
 				3E35630420FEA86300DDAA9E /* LocationCell.m in Sources */,
 				6CC2535D20FD48CD00D7093E /* CitiesViewController.m in Sources */,
-				3E74312521029AA600CE94FB /* FavoritesCollectionViewCell.m in Sources */,
 				6CB5858C21000184009BD66B /* PlaylistViewController.m in Sources */,
+				3E7A9A6221067EED007CB62B /* FavoriteViewController.m in Sources */,
 				3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */,
+				3E7A9A6821067F9E007CB62B /* FavoriteCollectionViewCell.m in Sources */,
 				3E097D3621010C18003FC5F6 /* GifViewController.m in Sources */,
 				06F6BD6220FD102500E85B28 /* PlayerView.m in Sources */,
 				06F6BD7A20FED6AA00E85B28 /* StartViewController.m in Sources */,
@@ -800,7 +808,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MSP3335V32;
+				DEVELOPMENT_TEAM = BN7TCB94L4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -822,7 +830,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MSP3335V32;
+				DEVELOPMENT_TEAM = BN7TCB94L4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",

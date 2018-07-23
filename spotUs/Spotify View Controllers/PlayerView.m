@@ -9,6 +9,7 @@
 #import "PlayerView.h"
 #import "UIImageView+AFNetworking.h"
 #import "PlaylistViewController.h"
+#import "QueryManager.h"
 
 
 @interface PlayerView () <SPTAudioStreamingPlaybackDelegate,PlayListViewControllerDelegate>
@@ -236,7 +237,6 @@
 }
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePosition:(NSTimeInterval)position{
-    
     
     self.musicSlider.value = position;
     
