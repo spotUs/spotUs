@@ -171,7 +171,7 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     UINavigationController *navController = (UINavigationController*)[segue destinationViewController];
-    ProfileViewController *profileVC = navController.topViewController;
+    ProfileViewController *profileVC = (ProfileViewController *)navController.topViewController;
     profileVC.player = self.player;
     profileVC.auth = self.auth;
     profileVC.currentUser = self.currentUser;
