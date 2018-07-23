@@ -11,8 +11,16 @@
 #import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
 #import <SpotifyMetadata/SpotifyMetadata.h>
 #import <Parse/Parse.h>
+#import "City.h"
 
 @interface TinyPlayerViewController : UIViewController
 @property (nonatomic, strong) SPTAudioStreamingController *player;
 @property (nonatomic, strong) SPTAuth *auth;
+@property (nonatomic, strong) City *city;
+@property BOOL nowPlaying;
+@property BOOL isRepeating;
+@property BOOL isPlaying;
+@property BOOL didSelect;
+
+
 @end

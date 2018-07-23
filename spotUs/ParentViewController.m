@@ -10,7 +10,8 @@
 #import "ProfileViewController.h"
 #import "TinyPlayerViewController.h"
 
-
+@interface ParentViewController () <NowPlayingParentDelegate>
+@end
 @implementation ParentViewController
 
 
@@ -28,6 +29,7 @@
         profileVC.auth = self.auth;
         profileVC.player = self.player;
         profileVC.currentUser = self.currentUser;
+        profileVC.nowPlayingParentDelegate = self;
         
     } else if ([[segue destinationViewController] isKindOfClass:[TinyPlayerViewController class]]){
         TinyPlayerViewController *tinyplayerVC = (TinyPlayerViewController*)[segue destinationViewController];
@@ -35,6 +37,11 @@
         tinyplayerVC.player = self.player;
         
     }
+    
+    
+}
+
+- (void)didStartPlayingonCityParent:(City *)city{
     
     
 }

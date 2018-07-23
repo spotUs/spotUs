@@ -183,6 +183,8 @@
         }
         
         [self.nowPlayingDelegate didStartPlayingonCity:self.city];
+   
+        
     }];
     
 }
@@ -191,7 +193,9 @@
 
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri{
-    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"Chose Playlist"
+     object:self];
     [self refreshSongData];
     self.isPlaying = YES;
     [self.pauseButton setSelected:NO];
