@@ -60,7 +60,7 @@
     NSURL *profileURL = self.currentUser.largestImage.imageURL;
     [self.profileImageView setImageWithURL:profileURL];
     
-    
+    NSLog(@"usercity: %@",[PFUser currentUser][@"city"]);
     [[PFUser currentUser] fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         
         PFUser *currentUser = (PFUser *)object;
