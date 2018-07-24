@@ -258,14 +258,10 @@
                         <color key="tintColor" red="0.53726060070000003" green="1" blue="0.2420256173" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="ANT-tI-hLJ"/>
                     </view>
-                    <connections>
-                        <segue destination="jNm-aI-Duq" kind="show" identifier="goodsignup" id="4l6-dP-FdQ"/>
-                        <segue destination="XJG-ac-cSG" kind="show" identifier="goodlogin" id="oBg-nf-TrH"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7FW-Ms-hbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1002" y="-862"/>
+            <point key="canvasLocation" x="-780" y="-1484"/>
         </scene>
         <!--ProfileViewController-->
         <scene sceneID="r9J-IQ-nYd">
@@ -604,7 +600,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="oYG-NQ-pAP" kind="show" id="vf5-cg-VL1"/>
+                                    <action selector="onTapLoginBtn:" destination="wdm-IU-mxX" eventType="touchUpInside" id="tOu-iT-rSG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -620,6 +616,8 @@
                     <connections>
                         <outlet property="loginWithSpotify" destination="kfL-Aj-zEY" id="qJ7-FV-Ysd"/>
                         <outlet property="webViewBG" destination="AIr-qO-7Pn" id="cAr-Px-zvl"/>
+                        <segue destination="jNm-aI-Duq" kind="show" identifier="signupsegue" id="hrC-93-B8F"/>
+                        <segue destination="XJG-ac-cSG" kind="show" identifier="loginsegue" id="Is9-90-9Ke"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QeU-Ir-73a" sceneMemberID="firstResponder"/>
@@ -845,6 +843,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nbH-iS-X6V"/>
-        <segue reference="oBg-nf-TrH"/>
+        <segue reference="Is9-90-9Ke"/>
     </inferredMetricsTieBreakers>
 </document>
