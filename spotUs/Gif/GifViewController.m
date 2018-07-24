@@ -23,6 +23,8 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *webViewBG;
 @property (weak, nonatomic) IBOutlet UIButton *loginWithSpotify;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIImageView *spotifylogoimage;
 
 @end
 
@@ -87,6 +89,8 @@
         // Use it to log in
         [self.player loginWithAccessToken:self.auth.session.accessToken];
         NSLog(@"loggedin");
+        self.loginButton.hidden = YES;
+        self.spotifylogoimage.hidden = YES;
         [SPTUser requestCurrentUserWithAccessToken:self.auth.session.accessToken callback:^(NSError *error, id object) {
             SPTUser *currentUser = (SPTUser *)object;
             self.currentUser = currentUser;
