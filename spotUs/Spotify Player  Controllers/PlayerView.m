@@ -133,12 +133,7 @@
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri{
     
-
-    NSDictionary *cityDic =  @{ @"city" : self.city,
-                                @"index" : [NSNumber numberWithInt:self.currentSongIndex],
-                                };
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
-     object:self userInfo:cityDic];
+    
     [self refreshSongData];
     self.isPlaying = YES;
     [self.pauseButton setSelected:NO];
@@ -192,7 +187,7 @@
     NSInteger ti = (NSInteger)interval;
     NSInteger seconds = ti % 60;
     NSInteger minutes = (ti / 60) % 60;
-  
+    
     return [NSString stringWithFormat:@"%01ld:%02ld",  (long)minutes, (long)seconds];
 }
 
@@ -207,16 +202,16 @@
 }
 
 
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     PlaylistViewController *playlistVC = (PlaylistViewController *)[segue destinationViewController];
-     playlistVC.auth = self.auth;
-     playlistVC.player = self.player;
-     playlistVC.city = self.city;
-     playlistVC.delegate = self;
- }
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    PlaylistViewController *playlistVC = (PlaylistViewController *)[segue destinationViewController];
+    playlistVC.auth = self.auth;
+    playlistVC.player = self.player;
+    playlistVC.city = self.city;
+    playlistVC.delegate = self;
+}
 
 
 

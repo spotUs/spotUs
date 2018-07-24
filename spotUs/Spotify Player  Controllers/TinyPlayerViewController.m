@@ -8,6 +8,7 @@
 
 #import "TinyPlayerViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "PlayerView.h"
 
 
 
@@ -239,6 +240,29 @@
     NSInteger minutes = (ti / 60) % 60;
     
     return [NSString stringWithFormat:@"%01ld:%02ld",  (long)minutes, (long)seconds];
+}
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([[segue destinationViewController] isKindOfClass:[UINavigationController class]]){
+        UINavigationController *navigationController = [segue destinationViewController];
+        
+        
+    }
+    
+    else if([[segue destinationViewController]  isKindOfClass:[PlayerView class]]){
+        PlayerView *playerView = (PlayerView *)[segue destinationViewController];
+        playerView.player = self.player;
+        playerView.auth = self.auth;
+        playerView.city = self.city;
+        playerView.nowPlaying = YES;
+    }
+    
+    
+    
+    
 }
 
 

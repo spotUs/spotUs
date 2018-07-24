@@ -274,8 +274,8 @@
 			children = (
 				06F6BD6020FD102500E85B28 /* PlayerView.h */,
 				06F6BD6120FD102500E85B28 /* PlayerView.m */,
-				6C0A4A1C21067F320042C063 /* TinyPlayerViewController.m */,
 				6C0A4A1B21067F320042C063 /* TinyPlayerViewController.h */,
+				6C0A4A1C21067F320042C063 /* TinyPlayerViewController.m */,
 			);
 			path = "Spotify Player  Controllers";
 			sourceTree = "<group>";
