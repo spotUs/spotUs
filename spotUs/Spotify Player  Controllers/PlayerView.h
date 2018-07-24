@@ -18,6 +18,10 @@
 @protocol NowPlayingDelegate
 -(void)didStartPlayingonCity:(City*)city;
 @end
+@protocol DismissDelegate
+-(void)didDismissWithIndex:(NSNumber*)index;
+@end
+
 
 @interface PlayerView : UIViewController
 
@@ -31,5 +35,7 @@
 @property NSInteger songIndex;
 
 @property (nonatomic, weak) id<NowPlayingDelegate> nowPlayingDelegate;
+@property (nonatomic, weak) id<DismissDelegate> dismissDelegate;
+
 
 @end

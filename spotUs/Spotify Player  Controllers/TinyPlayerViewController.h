@@ -18,8 +18,6 @@
 @property (nonatomic, strong) SPTAuth *auth;
 @property (nonatomic, strong) City *city;
 @property BOOL nowPlaying;
-@property BOOL isRepeating;
-@property BOOL isPlaying;
 @property BOOL didSelect;
 
 

@@ -25,18 +25,27 @@
     
     if ([[segue destinationViewController] isKindOfClass:[UINavigationController class]]){
         UINavigationController *navController = (UINavigationController *)[segue destinationViewController];
-        ProfileViewController *profileVC = (ProfileViewController*)navController.topViewController;
-        profileVC.auth = self.auth;
-        profileVC.player = self.player;
-        profileVC.currentUser = self.currentUser;
-        profileVC.nowPlayingParentDelegate = self;
         
-    } else if ([[segue destinationViewController] isKindOfClass:[TinyPlayerViewController class]]){
+        if([navController.topViewController isKindOfClass:ProfileViewController.class]){
+            
+            ProfileViewController *profileVC = (ProfileViewController*)navController.topViewController;
+            profileVC.auth = self.auth;
+            profileVC.player = self.player;
+            profileVC.currentUser = self.currentUser;
+            
+            
+            profileVC.nowPlayingParentDelegate = self;
+        }
+    }
+    
+    
+    else if ([[segue destinationViewController] isKindOfClass:[TinyPlayerViewController class]]){
         TinyPlayerViewController *tinyplayerVC = (TinyPlayerViewController*)[segue destinationViewController];
         tinyplayerVC.auth = self.auth;
         tinyplayerVC.player = self.player;
         
     }
+    
     
     
 }

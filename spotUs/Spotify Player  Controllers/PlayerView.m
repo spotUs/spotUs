@@ -13,8 +13,6 @@
 
 
 @interface PlayerView () <SPTAudioStreamingPlaybackDelegate,PlayListViewControllerDelegate>
-@property (nonatomic, strong) NSArray<SPTSavedTrack*> *songs;
-@property (nonatomic, strong) NSArray<NSString*>   *topSongIDs;
 @property (nonatomic, strong) NSArray<NSString*>   *citySongIDs;
 @property (weak, nonatomic) IBOutlet UILabel *timeElapsedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLeftLabel;
@@ -34,6 +32,10 @@
 @end
 
 @implementation PlayerView
+- (IBAction)didClickBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.dismissDelegate didDismissWithIndex:[NSNumber numberWithUnsignedInteger:self.currentSongIndex]];
+}
 
 - (IBAction)didChangeSlide:(id)sender {
     
@@ -101,6 +103,11 @@
     }
     if (self.nowPlaying) {
         [self refreshSongData];
+        [self.city fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            City *city = (City*)object;
+            NSArray *citySongs = city.tracks;
+            self.citySongIDs = citySongs;
+        }];
     }
     else{
         [self getCityTracks];

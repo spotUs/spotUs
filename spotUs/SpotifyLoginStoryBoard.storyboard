@@ -17,11 +17,11 @@
             <objects>
                 <viewController storyboardIdentifier="player" id="x5g-Cf-YmB" customClass="PlayerView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WaM-mx-SRj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u8l-xR-kAm">
-                                <rect key="frame" x="20" y="84" width="335" height="510"/>
+                                <rect key="frame" x="20" y="40" width="335" height="510"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3y-aL-GLX">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="275"/>
@@ -176,6 +176,19 @@
                                     <constraint firstAttribute="trailing" secondItem="H3y-aL-GLX" secondAttribute="trailing" id="dZx-Qi-W89"/>
                                 </constraints>
                             </stackView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kqH-yh-xgP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="jxd-x9-amL">
+                                        <barButtonItem key="leftBarButtonItem" title="Dismiss Player" id="MDQ-mx-u5R">
+                                            <connections>
+                                                <action selector="didClickBack:" destination="x5g-Cf-YmB" id="WAP-JF-H3M"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -188,6 +201,7 @@
                     <navigationItem key="navigationItem" id="90T-dn-YMS">
                         <barButtonItem key="rightBarButtonItem" title="Playlist" id="y4a-XH-XAX"/>
                     </navigationItem>
+                    <size key="freeformSize" width="375" height="641"/>
                     <connections>
                         <outlet property="albumTitleLabel" destination="FB9-wG-eKh" id="Dby-wU-5nh"/>
                         <outlet property="musicSlider" destination="54k-zG-om8" id="SZ1-oM-2De"/>
@@ -201,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeN-2U-H7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2813.5999999999999" y="269.41529235382313"/>
+            <point key="canvasLocation" x="2551" y="98"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="vNP-SI-EW7">
@@ -340,15 +354,6 @@
                                     </button>
                                 </subviews>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVE-oX-FT6">
-                                <rect key="frame" x="307" y="334" width="52" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="6"/>
-                                <state key="normal" image="playGray"/>
-                                <connections>
-                                    <segue destination="x5g-Cf-YmB" kind="show" id="YAI-tQ-w9a"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2m-ff-JL2">
                                 <rect key="frame" x="121" y="267" width="132" height="132"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -375,7 +380,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyn-sf-e0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1588" y="-172.26386806596702"/>
+            <point key="canvasLocation" x="1702" y="-792"/>
         </scene>
         <!--SignUpViewController-->
         <scene sceneID="OzT-d9-2xk">
@@ -502,7 +507,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcG-on-gfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="759" y="-172"/>
+            <point key="canvasLocation" x="863" y="-743"/>
         </scene>
         <!--Photo Map View Controller-->
         <scene sceneID="0g0-PM-RNF">
@@ -769,20 +774,20 @@
                                 </constraints>
                                 <state key="normal" title="Home"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioW-zJ-jQj">
-                                <rect key="frame" x="172.5" y="15" width="29" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpotUs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioW-zJ-jQj">
+                                <rect key="frame" x="159.5" y="15" width="57" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJ4-sI-JpK">
-                                <rect key="frame" x="173" y="37" width="29.5" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJ4-sI-JpK">
+                                <rect key="frame" x="188" y="37" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="jJ4-sI-JpK" firstAttribute="top" secondItem="ioW-zJ-jQj" secondAttribute="bottom" constant="1" id="6hs-ZX-V8K"/>
@@ -809,11 +814,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L0m-2o-pUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="zOX-f4-tgs">
                     <connections>
-                        <segue destination="x5g-Cf-YmB" kind="presentation" id="76U-Wd-HkZ"/>
+                        <segue destination="x5g-Cf-YmB" kind="presentation" id="5Y5-b1-aUJ"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="732" y="324.7376311844078"/>
+            <point key="canvasLocation" x="910" y="-6"/>
         </scene>
         <!--FavoriteStoryboard-->
         <scene sceneID="JGJ-yf-2tl">
@@ -821,7 +826,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="favs" storyboardName="FavoriteStoryboard" id="3Bs-1m-aVd" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jtk-z4-3GE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1305" y="506"/>
+            <point key="canvasLocation" x="1702" y="-306"/>
         </scene>
     </scenes>
     <resources>
@@ -833,7 +838,6 @@
         <image name="miami" width="1200" height="540"/>
         <image name="pause-btn" width="310" height="360"/>
         <image name="play-btn" width="90" height="88"/>
-        <image name="playGray" width="1155" height="780"/>
         <image name="repeat" width="32" height="32"/>
         <image name="repeat (2)" width="32" height="32"/>
         <image name="screen_shot_2018_07_18_at_4_11_56_pm_1" width="256" height="256"/>
@@ -842,6 +846,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="nbH-iS-X6V"/>
         <segue reference="oBg-nf-TrH"/>
-        <segue reference="YAI-tQ-w9a"/>
     </inferredMetricsTieBreakers>
 </document>
