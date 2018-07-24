@@ -11,9 +11,18 @@
 #import "TinyPlayerViewController.h"
 
 @interface ParentViewController ()
+@property (weak, nonatomic) IBOutlet UIView *container;
 @end
 @implementation ParentViewController
 
+- (void)viewDidLoad {
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"homeNotification" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        NSString * storyboardName = @"SpotifyLoginStoryBoard";
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+        [self presentViewController:vc animated:YES completion:nil];
+    }];
+}
 
 #pragma mark - Navigation
 

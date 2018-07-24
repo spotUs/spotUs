@@ -28,7 +28,8 @@
 @implementation TinyPlayerViewController
 
 - (IBAction)onTapHomeBtn:(id)sender {
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"homeNotification"
+     object:self];
 }
 
 - (IBAction)pauseOrUnpause:(id)sender {

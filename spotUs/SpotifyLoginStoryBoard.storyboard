@@ -267,7 +267,7 @@
         <!--ProfileViewController-->
         <scene sceneID="r9J-IQ-nYd">
             <objects>
-                <viewController title="ProfileViewController" id="rzA-pg-DWH" customClass="ProfileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" title="ProfileViewController" id="rzA-pg-DWH" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TG4-52-sKk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -483,6 +483,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B4q-6n-HcI"/>
                     </view>
+                    <connections>
+                        <outlet property="container" destination="XHA-Y8-rzg" id="Lrf-Yp-iLU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o85-3e-bj9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
