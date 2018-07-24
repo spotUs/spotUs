@@ -73,6 +73,14 @@
     return UIStatusBarStyleLightContent;
 }
 
+- (IBAction)onTapLoginBtn:(id)sender {
+    // Get the URL to the Spotify authorization portal
+    NSURL *authURL = [self.auth spotifyWebAuthenticationURL];
+    // Present in a SafariViewController
+    self.authViewController = [[SFSafariViewController alloc] initWithURL:authURL];
+    [self  presentViewController:self.authViewController animated:YES completion:nil];
+}
+
 - (void)startAuthenticationFlow {
     // Check if we could use the access token we already have
     if ([self.auth.session isValid]) {
@@ -86,14 +94,7 @@
                 NSLog(@"Error when requesting uesr access token in startAuthenticationFlow: %@", error.localizedDescription);
             }
         }];
-    } else {
-        //TODO LINK BUTTON AND PUT THIS CODE IN ON TAP FUNCTION
-        // Get the URL to the Spotify authorization portal
-        NSURL *authURL = [self.auth spotifyWebAuthenticationURL];
-        // Present in a SafariViewController
-        self.authViewController = [[SFSafariViewController alloc] initWithURL:authURL];
-        [self  presentViewController:self.authViewController animated:YES completion:nil];
-    }
+    } 
 }
 
 // Handle from app delegate
@@ -132,8 +133,7 @@
                             NSLog(@"User log in failed: %@", error.localizedDescription);
                         } else {
                             NSLog(@"User logged in successfully");
-                            //TODO perform segue to parent vc
-                            //[self performSegueWithIdentifier:@"goodlogin" sender:nil];
+                            [self performSegueWithIdentifier:@"loginsegue" sender:nil];
                         }
                     }];
                 }
@@ -147,8 +147,7 @@
                             NSLog(@"Error: %@", error.localizedDescription);
                         } else {
                             NSLog(@"User registered successfully");
-                            //TODO perform segue to signup page
-                            //[self performSegueWithIdentifier:@"goodsignup" sender:nil];
+                            [self performSegueWithIdentifier:@"signupsegue" sender:nil];
                             // manually segue to logged in view
                         }
                     }];

@@ -50,9 +50,8 @@
 {
     
     GifViewController *gifController = (GifViewController *) self.window.rootViewController;
-    
     //SpotifyLoginViewController *spotifyController = (SpotifyLoginViewController *)gifController.delegate;
-
+    NSLog(@"inappdelegate");
     [gifController finishAuthWithURL:url];
     return TRUE;
 }
