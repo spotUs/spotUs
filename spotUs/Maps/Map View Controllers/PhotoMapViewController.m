@@ -29,8 +29,6 @@
 @implementation PhotoMapViewController
 CLLocationManager *locationManager;
 
-
-
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"didFailWithError: %@", error);
   

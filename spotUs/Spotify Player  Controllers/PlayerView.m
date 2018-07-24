@@ -27,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (weak, nonatomic) IBOutlet UIButton *repeatButton;
 
-@property int currentSongIndex;
+@property NSUInteger currentSongIndex;
 
 
 
@@ -46,81 +46,47 @@
     [self.player setIsPlaying:NO callback:nil];
     self.isPlaying = NO;
     [self.pauseButton setSelected:YES];
-
     // pause music when user begins to seek
-
-    
-    
 }
 
 - (IBAction)didLetGo:(id)sender {
-
     [self.player seekTo:self.musicSlider.value callback:nil];
     [self.player setIsPlaying:YES callback:nil];
     self.isPlaying = YES;
     [self.pauseButton setSelected:NO];
-
-
     // start music again and seek when user lets go
-
 }
 
 - (IBAction)goFoward:(id)sender {
-    
     [self.player skipNext:nil];
-    
 }
 
 - (IBAction)pauseOrUnpause:(id)sender {
-    
     if(self.isPlaying){
-        
         [self.player setIsPlaying:NO callback:nil];
         self.isPlaying = NO;
         [self.pauseButton setSelected:YES];
-        
-        
-    }
-    
-    else{
+    } else {
         [self.player setIsPlaying:YES callback:nil];
         self.isPlaying = YES;
         [self.pauseButton setSelected:NO];
-
-
-        
     }
-    
-    
 }
+
 - (IBAction)repeatOrUnrepeat:(id)sender {
-    
-    if(self.isRepeating){
-        
+    if (self.isRepeating) {
         [self.player setRepeat:SPTRepeatOff callback:nil];
         self.isRepeating = NO;
         [self.repeatButton setSelected:NO];
-        
-        
-    }
-    
-    else{
+    } else {
         [self.player setRepeat:SPTRepeatOne callback:nil];
         self.isRepeating = YES;
         [self.repeatButton setSelected:YES];
-
-        
-        
     }
-    
-    
-    
-    
-    
 }
 
 
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     [super viewDidLoad];
     
     self.player.playbackDelegate = self;
@@ -130,72 +96,43 @@
     self.isPlaying = self.player.playbackState.isPlaying;
     if(self.songIndex != nil){
         self.currentSongIndex = self.songIndex;
-    }
-    else{
+    } else {
         self.currentSongIndex = 0;
     }
-    
-    if(self.nowPlaying){
-        
-    [self refreshSongData];
-        
+    if (self.nowPlaying) {
+        [self refreshSongData];
     }
     else{
-        
-
         [self getCityTracks];
     }
-    
-    
-    
 }
 
--(void)getCityTracks{
-    
-    
-    
+- (void) getCityTracks {
     [self.city fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        
-        
         City *city = (City*)object;
-        
         NSArray *citySongs = city.tracks;
         self.citySongIDs = citySongs;
-        
         [self startMusic];
-        
-        
     }];
-    
-    
 }
 
--(void)startMusic{
-    
-    
-    
+- (void) startMusic {
     NSString *song = self.citySongIDs[self.currentSongIndex];
     self.currentSongIndex++;
     NSString *playRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song];
     [self.player playSpotifyURI:playRequest startingWithIndex:0 startingWithPosition:0 callback:^(NSError *error) {
-        
         if(error){
             NSLog(@"Error starting music: %@", error.localizedDescription);
         }
-        
         [self.nowPlayingDelegate didStartPlayingonCity:self.city];
-   
-        
     }];
-    
 }
 
 
 
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri{
-    
-    NSDictionary *cityDic =  @{ @"city"     : self.city,
+    NSDictionary *cityDic =  @{ @"city" : self.city,
                                 @"index" : [NSNumber numberWithInt:self.currentSongIndex],
                                 };
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
@@ -203,83 +140,50 @@
     [self refreshSongData];
     self.isPlaying = YES;
     [self.pauseButton setSelected:NO];
-    
     [self.player setRepeat:SPTRepeatOff callback:nil];
     self.isRepeating = NO;
     [self.repeatButton setSelected:NO];
-    
-    if(self.player.metadata.nextTrack == nil){
-        
-        if(self.currentSongIndex == self.citySongIDs.count){
+    if (self.player.metadata.nextTrack == nil) {
+        if (self.currentSongIndex == self.citySongIDs.count){
             self.currentSongIndex = 0;
         }
-        
-        
         NSString *song = self.citySongIDs[self.currentSongIndex];
-        
         NSString *queueRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song];
         [self.player queueSpotifyURI:queueRequest callback:^(NSError *error) {
-            
-            if(error){
+            if (error) {
                 NSLog(@"Error queueing song: %@", error.localizedDescription);
             }
         }];
         self.currentSongIndex++;
-            
-        
     }
-    
-    
-
-    
 }
+
 - (void)audioStreamingDidSkipToNextTrack:(SPTAudioStreamingController *)audioStreaming{
-    
     [self refreshSongData];
     [self.player setRepeat:SPTRepeatOff callback:nil];
     self.isRepeating = NO;
     [self.repeatButton setSelected:NO];
-    
-    
 }
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePosition:(NSTimeInterval)position{
-    
     self.musicSlider.value = position;
-    
     self.timeElapsedLabel.text = [self stringFromTimeInterval:position];
     self.timeLeftLabel.text = [self stringFromTimeInterval:self.player.metadata.currentTrack.duration-position];
-    
-    
-    
-    
 }
 
 
--(void)refreshSongData{
-    
+- (void) refreshSongData{
     SPTPlaybackTrack *albumArtTrack = self.player.metadata.currentTrack;
     self.songTitle.text = albumArtTrack.name;
     self.albumTitleLabel.text = albumArtTrack.albumName;
-    
-    
     NSURL *albumURL = [NSURL URLWithString:albumArtTrack.albumCoverArtURL];
     [self.songImage setImageWithURL:albumURL];
     self.musicSlider.maximumValue = self.player.metadata.currentTrack.duration;
-
     self.musicSlider.value =  self.player.playbackState.position;
-    
     self.timeElapsedLabel.text = [self stringFromTimeInterval:self.musicSlider.value];
     self.timeLeftLabel.text = [self stringFromTimeInterval:self.player.metadata.currentTrack.duration-self.musicSlider.value];
-    
-    
     [self.repeatButton setSelected:self.isRepeating];
     [self.pauseButton setSelected:!self.isPlaying];
-
-    
-
-    
-    
 }
 
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval {
@@ -290,10 +194,10 @@
     return [NSString stringWithFormat:@"%01ld:%02ld",  (long)minutes, (long)seconds];
 }
 
-
-
-
-
+- (void)didChooseSongWithIndex:(NSUInteger)index {
+    self.currentSongIndex = index;
+    [self startMusic];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -312,13 +216,7 @@
      playlistVC.delegate = self;
  }
 
--(void)didChooseSongWithIndex:(NSUInteger)index{
-    
-    self.currentSongIndex = index;
-    [self startMusic];
-    
-    
-}
+
 
 
 @end
