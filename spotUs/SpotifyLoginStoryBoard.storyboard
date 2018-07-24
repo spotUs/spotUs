@@ -182,6 +182,7 @@
                                 <items>
                                     <navigationItem id="jxd-x9-amL">
                                         <barButtonItem key="leftBarButtonItem" title="Dismiss Player" id="MDQ-mx-u5R">
+                                            <inset key="largeContentSizeImageInsets" minX="1" minY="1" maxX="0.0" maxY="1"/>
                                             <connections>
                                                 <action selector="didClickBack:" destination="x5g-Cf-YmB" id="WAP-JF-H3M"/>
                                             </connections>
