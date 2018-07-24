@@ -27,25 +27,19 @@
 
 @implementation TinyPlayerViewController
 
+- (IBAction)onTapHomeBtn:(id)sender {
+    
+}
 
 - (IBAction)pauseOrUnpause:(id)sender {
     
     if(self.player.playbackState.isPlaying){
-        
         [self.player setIsPlaying:NO callback:nil];
         [self.pauseButton setSelected:YES];
-        
-        
-    }
-    
-    else{
+    } else {
         [self.player setIsPlaying:YES callback:nil];
         [self.pauseButton setSelected:NO];
-        
-        
     }
-    
-    
 }
 
 
@@ -64,8 +58,6 @@
 
 
 - (void) receiveTestNotification:(NSNotification *) notification{
-
-    
     if ([[notification name] isEqualToString:@"Chose Playlist"]){
         NSLog (@"Successfully received the chose Playlist!");
         self.player.playbackDelegate = self;
@@ -76,8 +68,7 @@
         
         NSArray *citySongs = self.city.tracks;
         self.citySongIDs = citySongs;
-        
-        
+
         [self startMusic];
         
     }
@@ -85,8 +76,6 @@
 }
 
 -(void)startMusic{
-    
-    
     NSString *song = self.citySongIDs[self.currentSongIndex];
     self.currentSongIndex++;
     NSString *playRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song];
