@@ -26,9 +26,8 @@
 @implementation SpotifyLoginViewController
 
 - (void)viewDidLoad {
-    
-    
     [super viewDidLoad];
+    
     self.auth = [SPTAuth defaultInstance];
     self.player = [SPTAudioStreamingController sharedInstance];
     // The client ID you got from the developer site
