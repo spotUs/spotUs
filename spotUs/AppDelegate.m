@@ -84,7 +84,7 @@
 - (void)audioStreamingDidLogin:(SPTAudioStreamingController *)audioStreaming {
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SpotifyLoginStoryBoard" bundle:nil];
-    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"spotify"];
+    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"player"];
     
     PlayerView *playerView = (PlayerView*)navigationController.topViewController;
     playerView.player = self.player;
