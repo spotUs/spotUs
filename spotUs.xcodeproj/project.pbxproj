@@ -37,6 +37,7 @@
 		3E7A9A50210635DC007CB62B /* FavoriteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E7A9A4F210635DC007CB62B /* FavoriteStoryboard.storyboard */; };
 		3E7A9A6221067EED007CB62B /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A9A6121067EED007CB62B /* FavoriteViewController.m */; };
 		3E7A9A6821067F9E007CB62B /* FavoriteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A9A6721067F9E007CB62B /* FavoriteCollectionViewCell.m */; };
+		3E7C233E2107EA7900E1C749 /* FavoriteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C233D2107EA7900E1C749 /* FavoriteTableViewCell.m */; };
 		3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */; };
 		446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */; };
 		6C0A49CC21028A4D0042C063 /* QueryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A49CB21028A4D0042C063 /* QueryManager.m */; };
@@ -122,6 +123,8 @@
 		3E7A9A6121067EED007CB62B /* FavoriteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoriteViewController.m; sourceTree = "<group>"; };
 		3E7A9A6621067F9E007CB62B /* FavoriteCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoriteCollectionViewCell.h; sourceTree = "<group>"; };
 		3E7A9A6721067F9E007CB62B /* FavoriteCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoriteCollectionViewCell.m; sourceTree = "<group>"; };
+		3E7C233C2107EA7900E1C749 /* FavoriteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoriteTableViewCell.h; sourceTree = "<group>"; };
+		3E7C233D2107EA7900E1C749 /* FavoriteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoriteTableViewCell.m; sourceTree = "<group>"; };
 		3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIStoryboard.storyboard; sourceTree = "<group>"; };
 		6C0A49CA21028A4D0042C063 /* QueryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QueryManager.h; sourceTree = "<group>"; };
 		6C0A49CB21028A4D0042C063 /* QueryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueryManager.m; sourceTree = "<group>"; };
@@ -395,6 +398,8 @@
 				3E7A9A6121067EED007CB62B /* FavoriteViewController.m */,
 				3E7A9A6621067F9E007CB62B /* FavoriteCollectionViewCell.h */,
 				3E7A9A6721067F9E007CB62B /* FavoriteCollectionViewCell.m */,
+				3E7C233C2107EA7900E1C749 /* FavoriteTableViewCell.h */,
+				3E7C233D2107EA7900E1C749 /* FavoriteTableViewCell.m */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -665,6 +670,7 @@
 				060896AB210639B00041644D /* LocationSearchTable.m in Sources */,
 				3E097D3621010C18003FC5F6 /* GifViewController.m in Sources */,
 				060896AE21065C990041644D /* PlayListCollectionHeader.m in Sources */,
+				3E7C233E2107EA7900E1C749 /* FavoriteTableViewCell.m in Sources */,
 				06F6BD6220FD102500E85B28 /* PlayerView.m in Sources */,
 				06F6BD7720FEB55200E85B28 /* ProfileViewController.m in Sources */,
 				6CC2535A20FD446E00D7093E /* SignUpViewController.m in Sources */,
