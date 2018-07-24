@@ -10,7 +10,6 @@
 #import "PlayerView.h"
 #import "UIImageView+AFNetworking.h"
 #import "City.h"
-#import "CitiesViewController.h"
 #import "PhotoMapViewController.h"
 #import "GifViewController.h"
 
@@ -132,11 +131,7 @@
         playerView.nowPlaying = YES;
     }
     
-    else if([[segue destinationViewController]  isKindOfClass:[CitiesViewController class]]){
-        CitiesViewController *cityView = (CitiesViewController *)[segue destinationViewController];
-        cityView.player = self.player;
-        cityView.auth = self.auth;
-    }
+
     
     
 }

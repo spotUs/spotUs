@@ -111,6 +111,17 @@
         self.currentSongIndex = [userInfo[@"index"] intValue];
 
         [self refreshSongData];
+        [self.city fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            
+            
+            City *city = (City*)object;
+            
+            NSArray *citySongs = city.tracks;
+            self.citySongIDs = citySongs;
+            
+
+            
+        }];
         
     }
     

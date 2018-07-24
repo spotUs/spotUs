@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		060896A521025F970041644D /* NowPlayingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060896A421025F970041644D /* NowPlayingStoryboard.storyboard */; };
 		060896AB210639B00041644D /* LocationSearchTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 060896AA210639B00041644D /* LocationSearchTable.m */; };
 		060896AE21065C990041644D /* PlayListCollectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 060896AD21065C990041644D /* PlayListCollectionHeader.m */; };
 		067FB79E210105E100B997FD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067FB79D210105E100B997FD /* CoreLocation.framework */; };
-		067FB7A0210106AC00B997FD /* locationStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 067FB79F210106AC00B997FD /* locationStoryBoard.storyboard */; };
 		06F6BD4920FD04FB00E85B28 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */; };
 		06F6BD4B20FD050300E85B28 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */; };
 		06F6BD4D20FD055200E85B28 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4C20FD055200E85B28 /* AVFoundation.framework */; };
@@ -53,7 +51,6 @@
 		6CC2534E20FD353500D7093E /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2534D20FD353500D7093E /* Track.m */; };
 		6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535620FD39AD00D7093E /* ErrorAlert.m */; };
 		6CC2535A20FD446E00D7093E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535920FD446E00D7093E /* SignUpViewController.m */; };
-		6CC2535D20FD48CD00D7093E /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535C20FD48CD00D7093E /* CitiesViewController.m */; };
 		7D5D621B1CE2895F2D45F143 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8A6689F27BF93C7B44C4034D /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5A7B8164B3D985B4482606 /* libPods-spotUs.a */; };
 		BE353A6D012E810A75A0C500 /* libPods-spotUsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 928F5C7D80404A8E79713BCD /* libPods-spotUsUITests.a */; };
@@ -78,13 +75,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		060896A421025F970041644D /* NowPlayingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NowPlayingStoryboard.storyboard; sourceTree = "<group>"; };
 		060896A9210639B00041644D /* LocationSearchTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationSearchTable.h; sourceTree = "<group>"; };
 		060896AA210639B00041644D /* LocationSearchTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationSearchTable.m; sourceTree = "<group>"; };
 		060896AC21065C990041644D /* PlayListCollectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayListCollectionHeader.h; sourceTree = "<group>"; };
 		060896AD21065C990041644D /* PlayListCollectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayListCollectionHeader.m; sourceTree = "<group>"; };
 		067FB79D210105E100B997FD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		067FB79F210106AC00B997FD /* locationStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = locationStoryBoard.storyboard; sourceTree = "<group>"; };
 		06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
 		06F6BD4C20FD055200E85B28 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -152,8 +147,6 @@
 		6CC2535620FD39AD00D7093E /* ErrorAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorAlert.m; sourceTree = "<group>"; };
 		6CC2535820FD446E00D7093E /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		6CC2535920FD446E00D7093E /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
-		6CC2535B20FD48CD00D7093E /* CitiesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitiesViewController.h; sourceTree = "<group>"; };
-		6CC2535C20FD48CD00D7093E /* CitiesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
 		928F5C7D80404A8E79713BCD /* libPods-spotUsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D5B60A1BB3A5A6DD90A307 /* Pods-spotUsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotUsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-spotUsTests/Pods-spotUsTests.release.xcconfig"; sourceTree = "<group>"; };
 		A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spotUs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +197,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		060896AF2106ABBE0041644D /* Spotify Login and Profile */ = {
+			isa = PBXGroup;
+			children = (
+				06F6BD7820FED6AA00E85B28 /* StartViewController.h */,
+				06F6BD7920FED6AA00E85B28 /* StartViewController.m */,
+				06F6BD7220FE6C0C00E85B28 /* SpotifyLoginViewController.h */,
+				06F6BD7320FE6C0C00E85B28 /* SpotifyLoginViewController.m */,
+				6CC2535820FD446E00D7093E /* SignUpViewController.h */,
+				6CC2535920FD446E00D7093E /* SignUpViewController.m */,
+				6C0A4A1821067E770042C063 /* ParentViewController.h */,
+				6C0A4A1921067E770042C063 /* ParentViewController.m */,
+				06F6BD7520FEB55200E85B28 /* ProfileViewController.h */,
+				06F6BD7620FEB55200E85B28 /* ProfileViewController.m */,
+			);
+			path = "Spotify Login and Profile";
+			sourceTree = "<group>";
+		};
+		060896B02106AD610041644D /* PlayLists */ = {
+			isa = PBXGroup;
+			children = (
+				060896B22106AD950041644D /* Playlist View Controllers */,
+				060896B12106AD790041644D /* Playlist Cells */,
+			);
+			path = PlayLists;
+			sourceTree = "<group>";
+		};
+		060896B12106AD790041644D /* Playlist Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6CB5858D21000392009BD66B /* PlaylistCollectionViewCell.h */,
+				6CB5858E21000392009BD66B /* PlaylistCollectionViewCell.m */,
+				060896AC21065C990041644D /* PlayListCollectionHeader.h */,
+				060896AD21065C990041644D /* PlayListCollectionHeader.m */,
+			);
+			path = "Playlist Cells";
+			sourceTree = "<group>";
+		};
+		060896B22106AD950041644D /* Playlist View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6CB5858A21000184009BD66B /* PlaylistViewController.h */,
+				6CB5858B21000184009BD66B /* PlaylistViewController.m */,
+			);
+			path = "Playlist View Controllers";
+			sourceTree = "<group>";
+		};
 		06F6BD3F20FCFC9700E85B28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,25 +269,26 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		06F6BD5C20FD0F4400E85B28 /* Spotify View Controllers */ = {
+		06F6BD5C20FD0F4400E85B28 /* Spotify Player  Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				06F6BD6020FD102500E85B28 /* PlayerView.h */,
 				06F6BD6120FD102500E85B28 /* PlayerView.m */,
-				06F6BD7220FE6C0C00E85B28 /* SpotifyLoginViewController.h */,
-				06F6BD7320FE6C0C00E85B28 /* SpotifyLoginViewController.m */,
-				06F6BD7820FED6AA00E85B28 /* StartViewController.h */,
-				06F6BD7920FED6AA00E85B28 /* StartViewController.m */,
-				060896A421025F970041644D /* NowPlayingStoryboard.storyboard */,
+				6C0A4A1C21067F320042C063 /* TinyPlayerViewController.m */,
+				6C0A4A1B21067F320042C063 /* TinyPlayerViewController.h */,
 			);
-			path = "Spotify View Controllers";
+			path = "Spotify Player  Controllers";
 			sourceTree = "<group>";
 		};
-		06F6BD6820FD3CE800E85B28 /* API */ = {
+		06F6BD6820FD3CE800E85B28 /* Custom Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				6C0A49CA21028A4D0042C063 /* QueryManager.h */,
+				6C0A49CB21028A4D0042C063 /* QueryManager.m */,
+				6CC2535620FD39AD00D7093E /* ErrorAlert.m */,
+				6CC2535520FD39AD00D7093E /* ErrorAlert.h */,
 			);
-			path = API;
+			path = "Custom Helpers";
 			sourceTree = "<group>";
 		};
 		3E097D3321010BD5003FC5F6 /* Gif */ = {
@@ -267,7 +307,6 @@
 			children = (
 				3E35630120FEA83400DDAA9E /* Map Cells */,
 				3E35630020FEA82000DDAA9E /* Map View Controllers */,
-				067FB79F210106AC00B997FD /* locationStoryBoard.storyboard */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -320,19 +359,12 @@
 		3E3953AA20EFE6F800D0FF7D /* spotUs */ = {
 			isa = PBXGroup;
 			children = (
-				6CB5858A21000184009BD66B /* PlaylistViewController.h */,
-				6CB5858B21000184009BD66B /* PlaylistViewController.m */,
-				6CB5858D21000392009BD66B /* PlaylistCollectionViewCell.h */,
-				6CB5858E21000392009BD66B /* PlaylistCollectionViewCell.m */,
-				3E74312321029AA600CE94FB /* FavoritesCollectionViewCell.h */,
-				060896AC21065C990041644D /* PlayListCollectionHeader.h */,
-				060896AD21065C990041644D /* PlayListCollectionHeader.m */,
-				3E74312421029AA600CE94FB /* FavoritesCollectionViewCell.m */,
-				3E74312621029B1100CE94FB /* FavoritesStoryboard.storyboard */,
+				060896B02106AD610041644D /* PlayLists */,
 				3E097D3321010BD5003FC5F6 /* Gif */,
 				3E3562FF20FEA81300DDAA9E /* Maps */,
-				06F6BD6820FD3CE800E85B28 /* API */,
-				06F6BD5C20FD0F4400E85B28 /* Spotify View Controllers */,
+				06F6BD6820FD3CE800E85B28 /* Custom Helpers */,
+				060896AF2106ABBE0041644D /* Spotify Login and Profile */,
+				06F6BD5C20FD0F4400E85B28 /* Spotify Player  Controllers */,
 				6CC2534B20FD08E300D7093E /* Models */,
 				3E3953AB20EFE6F800D0FF7D /* AppDelegate.h */,
 				3E3953AC20EFE6F800D0FF7D /* AppDelegate.m */,
@@ -343,20 +375,6 @@
 				3E3953B920EFE6F800D0FF7D /* Info.plist */,
 				3E3953BA20EFE6F800D0FF7D /* main.m */,
 				06F6BD5020FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard */,
-				6CC2535520FD39AD00D7093E /* ErrorAlert.h */,
-				6CC2535620FD39AD00D7093E /* ErrorAlert.m */,
-				6CC2535820FD446E00D7093E /* SignUpViewController.h */,
-				6CC2535920FD446E00D7093E /* SignUpViewController.m */,
-				6CC2535B20FD48CD00D7093E /* CitiesViewController.h */,
-				6CC2535C20FD48CD00D7093E /* CitiesViewController.m */,
-				06F6BD7520FEB55200E85B28 /* ProfileViewController.h */,
-				06F6BD7620FEB55200E85B28 /* ProfileViewController.m */,
-				6C0A49CA21028A4D0042C063 /* QueryManager.h */,
-				6C0A49CB21028A4D0042C063 /* QueryManager.m */,
-				6C0A4A1821067E770042C063 /* ParentViewController.h */,
-				6C0A4A1921067E770042C063 /* ParentViewController.m */,
-				6C0A4A1B21067F320042C063 /* TinyPlayerViewController.h */,
-				6C0A4A1C21067F320042C063 /* TinyPlayerViewController.m */,
 			);
 			path = spotUs;
 			sourceTree = "<group>";
@@ -534,9 +552,7 @@
 			files = (
 				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
 				3E7A9A50210635DC007CB62B /* FavoriteStoryboard.storyboard in Resources */,
-				067FB7A0210106AC00B997FD /* locationStoryBoard.storyboard in Resources */,
 				3E3953B820EFE6F800D0FF7D /* LaunchScreen.storyboard in Resources */,
-				060896A521025F970041644D /* NowPlayingStoryboard.storyboard in Resources */,
 				3E75A21621013C7500E707EA /* WebViewContent.html in Resources */,
 				3E75A21421013A2C00E707EA /* violin.gif in Resources */,
 				3E097D3021010790003FC5F6 /* (null) in Resources */,
@@ -647,14 +663,12 @@
 				6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */,
 				3E3953BB20EFE6F800D0FF7D /* main.m in Sources */,
 				6C0A4A1A21067E770042C063 /* ParentViewController.m in Sources */,
-				3E743120210298E200CE94FB /* FavoritesTableViewCell.m in Sources */,
 				6CC2534A20FD08D500D7093E /* City.m in Sources */,
 				3E35630A20FEA8D100DDAA9E /* PhotoMapViewController.m in Sources */,
 				6CC2534E20FD353500D7093E /* Track.m in Sources */,
 				6C0A4A1D21067F320042C063 /* TinyPlayerViewController.m in Sources */,
 				06F6BD7420FE6C0C00E85B28 /* SpotifyLoginViewController.m in Sources */,
 				3E35630420FEA86300DDAA9E /* LocationCell.m in Sources */,
-				6CC2535D20FD48CD00D7093E /* CitiesViewController.m in Sources */,
 				6CB5858C21000184009BD66B /* PlaylistViewController.m in Sources */,
 				3E7A9A6221067EED007CB62B /* FavoriteViewController.m in Sources */,
 				3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */,
