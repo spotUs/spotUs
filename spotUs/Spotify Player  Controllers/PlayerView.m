@@ -132,6 +132,8 @@
 
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri{
+    
+
     NSDictionary *cityDic =  @{ @"city" : self.city,
                                 @"index" : [NSNumber numberWithInt:self.currentSongIndex],
                                 };
@@ -216,6 +218,10 @@
      playlistVC.delegate = self;
  }
 
+- (IBAction)isFavorite:(id)sender {
+    [QueryManager addFavSongId:self.citySongIDs[self.currentSongIndex] withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    }];
+}
 
 
 
