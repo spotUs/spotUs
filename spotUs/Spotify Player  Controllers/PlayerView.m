@@ -156,7 +156,7 @@
 
 
 - (IBAction)isFavorite:(id)sender {
-    [QueryManager addFavSongId:self.citySongIDs[self.currentSongIndex] withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [QueryManager addFavSongId:self.player.metadata.currentTrack.uri withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
     }];
 }
 
