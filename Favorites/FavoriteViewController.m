@@ -37,7 +37,6 @@
     CGFloat itemHeight = itemWidth;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
-    
     [QueryManager fetchFavs:^(NSArray *favs, NSError *error) {
         NSLog(@"FAVS %@", favs);
         self.favorites = favs;
@@ -61,6 +60,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 - (void) fetchTrackData: (NSUInteger)songIndex{
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];

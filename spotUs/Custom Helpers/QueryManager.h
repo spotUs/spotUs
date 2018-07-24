@@ -11,15 +11,15 @@
 #import "City.h"
 
 @interface QueryManager : NSObject
-@property (class, nonatomic, strong) NSDictionary *citiesdict;
-@property (class, nonatomic, strong) NSArray *citiesarray;
+@property (class, nonatomic, strong) NSDictionary * _Nullable citiesdict;
+@property (class, nonatomic, strong) NSArray * _Nullable citiesarray;
 
-+ (void) fetchCities:(void(^)(NSArray *cities, NSError *error))completion ;
++ (void) fetchCities:(void(^_Nullable)(NSArray * _Nonnull cities, NSError * _Nullable error))completion ;
 
-+ (City *) getCityFromName: (NSString *)name;
++ (City *_Nonnull) getCityFromName: (NSString *_Nonnull)name;
 
-+ (void) addFavSongId: (NSString *)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) addFavSongId: (NSString *_Nonnull)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
-+ (void) fetchFavs: (void(^)(NSArray *favs, NSError *error))completion ;
++ (void) fetchFavs: (void(^_Nullable)(NSArray * _Nonnull favs, NSError * _Nullable error))completion ;
 
 @end

@@ -89,7 +89,6 @@
     
 }
 
-
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri{
     
     [self refreshSongData];
@@ -117,7 +116,7 @@
         
     }
     
-    
+
 }
 - (void)audioStreamingDidSkipToNextTrack:(SPTAudioStreamingController *)audioStreaming{
     
@@ -153,13 +152,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([[segue destinationViewController] isKindOfClass:[UINavigationController class]]){
-        UINavigationController *navigationController = [segue destinationViewController];
-        
-        
-    }
-    
-    else if([[segue destinationViewController]  isKindOfClass:[PlayerView class]]){
+
+    if([[segue destinationViewController]  isKindOfClass:[PlayerView class]]){
         PlayerView *playerView = (PlayerView *)[segue destinationViewController];
         playerView.player = self.player;
         playerView.auth = self.auth;

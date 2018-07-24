@@ -100,34 +100,26 @@ CLLocationManager *locationManager;
 
     self.mapView.delegate = self;
 
+    self.cities = QueryManager.citiesarray;
     
-    [QueryManager fetchCities:^(NSArray *cities, NSError *error) {
-        if (cities) {
-            self.cities = cities;
-            locationManager = [[CLLocationManager alloc] init];
-            
-            locationManager.delegate = self;
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-            [locationManager requestWhenInUseAuthorization];
-            [locationManager startUpdatingLocation];
-            for(PFObject *c in cities) {
-                
-                double longi = [c[@"lng"] doubleValue];
-                double lat = [c[@"lat"] doubleValue];
-                CLLocationCoordinate2D location;
-                location.latitude = lat;
-                location.longitude = longi;
-                MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
-                annotation.coordinate = location;
-                annotation.title = c[@"name"];
-                [self.mapView addAnnotation:annotation];
-            }
-        }
-        else {
-            NSLog(@"%@", error.localizedDescription);
-        }
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager requestWhenInUseAuthorization];
+    [locationManager startUpdatingLocation];
+    for(PFObject *c in self.cities) {
         
-    }];
+        double longi = [c[@"lng"] doubleValue];
+        double lat = [c[@"lat"] doubleValue];
+        CLLocationCoordinate2D location;
+        location.latitude = lat;
+        location.longitude = longi;
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
+        annotation.coordinate = location;
+        annotation.title = c[@"name"];
+        [self.mapView addAnnotation:annotation];
+    }
+
 }
 
 //mapview delegate method
