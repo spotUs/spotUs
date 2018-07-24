@@ -156,7 +156,10 @@
 
 
 - (IBAction)isFavorite:(id)sender {
-    [QueryManager addFavSongId:self.player.metadata.currentTrack.uri withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    
+    NSString *stringID = [self.player.metadata.currentTrack.uri substringFromIndex:14];
+    
+    [QueryManager addFavSongId:stringID withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
     }];
 }
 

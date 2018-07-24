@@ -25,12 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSDictionary *emptyDic = [NSDictionary dictionary];
-    self.dataArray = [NSMutableArray array];
-    for (int i = 0; i < self.favorites.count; i++) {
-        [self.dataArray addObject:emptyDic];
-    }
-    
     self.favoriteCollectionView.delegate = self;
     self.favoriteCollectionView.dataSource = self;
     // Do any additional setup after loading the view.
@@ -43,22 +37,22 @@
     CGFloat itemHeight = itemWidth;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
-    //for (NSUInteger i = 0; i < self.city.tracks.count; i++){
-        
-       // [self fetchTrackData:i];
-    //}
     
     [QueryManager fetchFavs:^(NSArray *favs, NSError *error) {
         NSLog(@"FAVS %@", favs);
-            self.favorites = favs;
-            [self.favoriteCollectionView reloadData];
+        self.favorites = favs;
+        NSDictionary *emptyDic = [NSDictionary dictionary];
+        NSMutableArray *mutableStorage = [NSMutableArray array];
+        for (int i = 0; i < self.favorites.count; i++) {
+            [mutableStorage addObject:emptyDic];
+        }
+        self.dataArray = [NSMutableArray arrayWithArray:mutableStorage];
         for (NSUInteger i = 0; i < self.favorites.count; i++){
             
             [self fetchTrackData:i];
         }
-        
+
     }];
-        [self.favoriteCollectionView reloadData];
 
     
 }
