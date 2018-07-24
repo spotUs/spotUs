@@ -14,7 +14,7 @@
 #import "GifViewController.h"
 
 
-@interface ProfileViewController () <NowPlayingIntermediateDelegate>
+@interface ProfileViewController () 
 @property (weak, nonatomic) IBOutlet UILabel *hometownLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UIButton *nowPlayingButton;
@@ -136,12 +136,7 @@
     
 }
 
-- (void)didStartPlayingonCityIntermediate:(City *)city{
-    
-    self.playingCity = city;
-    
-    
-}
+
 
 - (UIImage *)blurredImageWithImage:(UIImage*)sourceImage{
     

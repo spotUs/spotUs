@@ -16,7 +16,7 @@
 #import "LocationSearchTable.h"
 #import "QueryManager.h"
 #import "PlaylistViewController.h"
-@interface PhotoMapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, HandleMapSearch, NowPlayingDelegate>
+@interface PhotoMapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, HandleMapSearch>
 @property (strong, nonatomic) City *searchCity;
 @property (strong, nonatomic) City *locationCity;
 

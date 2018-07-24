@@ -10,7 +10,7 @@
 #import "ProfileViewController.h"
 #import "TinyPlayerViewController.h"
 
-@interface ParentViewController () <NowPlayingParentDelegate>
+@interface ParentViewController ()
 @end
 @implementation ParentViewController
 
@@ -34,7 +34,6 @@
             profileVC.currentUser = self.currentUser;
             
             
-            profileVC.nowPlayingParentDelegate = self;
         }
     }
     

@@ -15,9 +15,7 @@
 
 #import <Parse/Parse.h>
 
-@protocol NowPlayingDelegate
--(void)didStartPlayingonCity:(City*)city;
-@end
+
 @protocol DismissDelegate
 -(void)didDismissWithIndex:(NSNumber*)index;
 @end
@@ -29,12 +27,10 @@
 @property (nonatomic, strong) SPTAuth *auth;
 @property (nonatomic, strong) City *city;
 @property BOOL nowPlaying;
-@property BOOL isRepeating;
-@property BOOL isPlaying;
 @property BOOL didSelect;
-@property NSInteger songIndex;
+@property NSUInteger currentSongIndex;
 
-@property (nonatomic, weak) id<NowPlayingDelegate> nowPlayingDelegate;
+
 @property (nonatomic, weak) id<DismissDelegate> dismissDelegate;
 
 

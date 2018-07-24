@@ -43,7 +43,6 @@
         [self.pauseButton setSelected:NO];
         
         
-        
     }
     
     
@@ -52,8 +51,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveTestNotification:)
                                                  name:@"Chose Playlist"
@@ -62,13 +59,7 @@
     
     self.player.playbackDelegate = self;
     self.currentSongIndex = 0;
-    if(self.nowPlaying){
-        
-        [self refreshSongData];
-    }
  
-    
-    
 }
 
 
@@ -138,8 +129,6 @@
     }
     
     
-    
-    
 }
 - (void)audioStreamingDidSkipToNextTrack:(SPTAudioStreamingController *)audioStreaming{
     
@@ -159,17 +148,8 @@
   
     [self.pauseButton setSelected:!self.player.playbackState.isPlaying];
     
-    
-    
 }
 
-- (NSString *)stringFromTimeInterval:(NSTimeInterval)interval {
-    NSInteger ti = (NSInteger)interval;
-    NSInteger seconds = ti % 60;
-    NSInteger minutes = (ti / 60) % 60;
-    
-    return [NSString stringWithFormat:@"%01ld:%02ld",  (long)minutes, (long)seconds];
-}
 
 - (void)didDismissWithIndex:(NSNumber *)index{
     
@@ -195,6 +175,7 @@
         playerView.player = self.player;
         playerView.auth = self.auth;
         playerView.city = self.city;
+        playerView.currentSongIndex = self.currentSongIndex;
         playerView.nowPlaying = YES;
         playerView.dismissDelegate = self;
     }

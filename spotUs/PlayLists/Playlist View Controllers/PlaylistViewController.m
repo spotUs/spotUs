@@ -157,25 +157,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.'
-    
-    
-    if ([[segue destinationViewController] isKindOfClass:[PlayerView class]]){
-        PlayerView *playerController = (PlayerView*)[segue destinationViewController];
-        
-        playerController.city = self.city;
-        playerController.auth = self.auth;
-        playerController.player = self.player;
-        playerController.didSelect = YES;
-        
-        if([sender isKindOfClass:UICollectionViewCell.class]){
-        
-        UICollectionViewCell *tappedCell = sender;
-        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
-        playerController.songIndex =indexPath.row;
-            
-        }
 
-    }
     
 
 }
