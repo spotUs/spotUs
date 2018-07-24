@@ -17,11 +17,11 @@
             <objects>
                 <viewController storyboardIdentifier="spotify" id="x5g-Cf-YmB" customClass="PlayerView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WaM-mx-SRj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u8l-xR-kAm">
-                                <rect key="frame" x="20" y="84" width="335" height="510"/>
+                                <rect key="frame" x="20" y="20" width="335" height="510"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3y-aL-GLX">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="275"/>
@@ -178,11 +178,7 @@
                         <viewLayoutGuide key="safeArea" id="YK2-8l-QQs"/>
                     </view>
                     <navigationItem key="navigationItem" id="90T-dn-YMS">
-                        <barButtonItem key="rightBarButtonItem" title="Playlist" id="y4a-XH-XAX">
-                            <connections>
-                                <segue destination="XYl-M6-THt" kind="show" id="fJn-3m-Jz9"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Playlist" id="y4a-XH-XAX"/>
                     </navigationItem>
                     <connections>
                         <outlet property="albumTitleLabel" destination="FB9-wG-eKh" id="Dby-wU-5nh"/>
@@ -533,7 +529,6 @@
                     <connections>
                         <outlet property="checkInButton" destination="2DL-E6-Inc" id="f6s-UF-YLs"/>
                         <outlet property="mapView" destination="j8u-RV-yRn" id="Uze-zZ-Th9"/>
-                        <segue destination="x5g-Cf-YmB" kind="show" identifier="gotoplayer" id="bty-V5-NaH"/>
                         <segue destination="XYl-M6-THt" kind="show" identifier="playlist" id="8a5-vN-qGZ"/>
                     </connections>
                 </viewController>
@@ -675,7 +670,6 @@
                                             <outlet property="artistLabel" destination="xNV-pO-cUp" id="qJm-DZ-dGq"/>
                                             <outlet property="songImageView" destination="5Wn-Vh-WzK" id="h5a-6O-uIN"/>
                                             <outlet property="titleLabel" destination="J9h-9H-Ths" id="20f-Jv-QOG"/>
-                                            <segue destination="x5g-Cf-YmB" kind="show" id="EzG-l2-O6y"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -699,7 +693,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Play"/>
                                             <connections>
-                                                <segue destination="x5g-Cf-YmB" kind="show" id="l1K-R4-sl1"/>
+                                                <action selector="didClickPlay:" destination="XYl-M6-THt" eventType="touchUpInside" id="9mQ-hx-SVD"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -797,7 +791,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L0m-2o-pUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="zOX-f4-tgs"/>
+                <tapGestureRecognizer id="zOX-f4-tgs">
+                    <connections>
+                        <segue destination="x5g-Cf-YmB" kind="presentation" id="76U-Wd-HkZ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="732" y="324.7376311844078"/>
         </scene>
@@ -818,8 +816,8 @@
         <image name="spotifyWhite" width="2400" height="2400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fJn-3m-Jz9"/>
+        <segue reference="nbH-iS-X6V"/>
         <segue reference="oBg-nf-TrH"/>
-        <segue reference="YAI-tQ-w9a"/>
+        <segue reference="76U-Wd-HkZ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -13,7 +13,6 @@
 #import <SpotifyMetadata/SpotifyMetadata.h>
 #import <MapKit/MapKit.h>
 #import "City.h"
-#import "CitiesViewController.h"
 @protocol HandleMapSearch
 
 -(void)ZoomInOnLocation:(CLLocation*)location;

@@ -22,6 +22,17 @@
 @end
 
 @implementation PlaylistViewController
+- (IBAction)didClickPlay:(id)sender {
+    
+    
+    NSDictionary *cityDic =  @{ @"city"     : self.city,
+                                @"index" : [NSNumber numberWithInt:0],
+                                };
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
+                                                        object:self userInfo:cityDic];
+    
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -113,8 +124,11 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    [self.delegate didChooseSongWithIndex:indexPath.row];
-    
+    NSDictionary *cityDic =  @{ @"city"     : self.city,
+                                @"index" : [NSNumber numberWithInteger:indexPath.row],
+                                };
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
+                                                        object:self userInfo:cityDic];
 }
 
 - (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {

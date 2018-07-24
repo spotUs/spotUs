@@ -195,11 +195,7 @@
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri{
     
-    NSDictionary *cityDic =  @{ @"city"     : self.city,
-                                @"index" : [NSNumber numberWithInt:self.currentSongIndex],
-                                };
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
-     object:self userInfo:cityDic];
+
     [self refreshSongData];
     self.isPlaying = YES;
     [self.pauseButton setSelected:NO];
