@@ -36,13 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[self.songIDs addObjectsFromArray: self.city.tracks];
-    /*testing delete this and actually get the songIDs from city passed
-    self.songIDs = [NSMutableArray array];
-    [self.songIDs addObject:@"01Mi9xc3nOoxuJWSptf7LY"];
-    [self.songIDs addObject:@"6FT9FZccFD6nE8dMNslz2n"];
-    [self.songIDs addObject:@"6e13443Ve7RGcAUScTgYtl"];
-    */
+
     NSDictionary *emptyDic = [NSDictionary dictionary];
     self.dataArray = [NSMutableArray array];
     for (int i = 0; i < self.city.tracks.count; i++) {
