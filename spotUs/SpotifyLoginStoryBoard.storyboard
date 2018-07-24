@@ -615,7 +615,9 @@
                         <viewLayoutGuide key="safeArea" id="EZp-KU-1SW"/>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="kfL-Aj-zEY" id="1ZI-ou-SbZ"/>
                         <outlet property="loginWithSpotify" destination="kfL-Aj-zEY" id="qJ7-FV-Ysd"/>
+                        <outlet property="spotifylogoimage" destination="plr-MZ-VPt" id="q59-77-fO1"/>
                         <outlet property="webViewBG" destination="AIr-qO-7Pn" id="cAr-Px-zvl"/>
                         <segue destination="jNm-aI-Duq" kind="show" identifier="signupsegue" id="hrC-93-B8F"/>
                         <segue destination="XJG-ac-cSG" kind="show" identifier="loginsegue" id="Is9-90-9Ke"/>
