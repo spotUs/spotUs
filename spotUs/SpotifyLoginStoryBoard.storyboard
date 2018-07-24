@@ -15,7 +15,7 @@
         <!--Player View-->
         <scene sceneID="DBN-Ao-cJl">
             <objects>
-                <viewController storyboardIdentifier="spotify" id="x5g-Cf-YmB" customClass="PlayerView" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="player" id="x5g-Cf-YmB" customClass="PlayerView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WaM-mx-SRj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

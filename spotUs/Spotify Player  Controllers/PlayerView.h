@@ -16,12 +16,11 @@
 #import <Parse/Parse.h>
 
 @protocol NowPlayingDelegate
-
 -(void)didStartPlayingonCity:(City*)city;
-
 @end
 
 @interface PlayerView : UIViewController
+
 @property (nonatomic, weak) SPTAudioStreamingController *player;
 @property (nonatomic, strong) SPTAuth *auth;
 @property (nonatomic, strong) City *city;
@@ -29,16 +28,8 @@
 @property BOOL isRepeating;
 @property BOOL isPlaying;
 @property BOOL didSelect;
-
-
-
-@property (nonatomic, weak) id<NowPlayingDelegate> nowPlayingDelegate;
-
-
 @property NSInteger songIndex;
 
-
-
-
+@property (nonatomic, weak) id<NowPlayingDelegate> nowPlayingDelegate;
 
 @end
