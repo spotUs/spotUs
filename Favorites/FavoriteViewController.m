@@ -83,7 +83,7 @@
         else {
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             NSLog(@"INDEX %lu", (unsigned long)songIndex);
-            self.dataArray[songIndex] = dataDictionary;
+            self.dataArray[0] = dataDictionary;
             //self.filteredDataArray = self.dataArray;
             [self.favoriteCollectionView reloadData];
             NSLog(@"it's been fetched");

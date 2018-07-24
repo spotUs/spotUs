@@ -13,7 +13,7 @@
         <!--Favorite View Controller-->
         <scene sceneID="zEs-J2-qBU">
             <objects>
-                <viewController storyboardIdentifier="please" id="60Q-cZ-j1f" customClass="FavoriteViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="favs" id="60Q-cZ-j1f" customClass="FavoriteViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cAE-eQ-oSB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,10 +66,10 @@
                                         </view>
                                         <color key="backgroundColor" red="1" green="0.76165711629999999" blue="0.81187532250000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
-                                            <outlet property="artist" destination="TW8-qd-Rff" id="Y78-OU-2e6"/>
-                                            <outlet property="city" destination="NHP-VP-yA3" id="ppm-ES-iqt"/>
-                                            <outlet property="posterImage" destination="URQ-Xg-KN1" id="c5d-aR-jjw"/>
-                                            <outlet property="song" destination="AN6-fY-tPU" id="EX5-kb-4Wu"/>
+                                            <outlet property="artist" destination="TW8-qd-Rff" id="9dM-p7-A4k"/>
+                                            <outlet property="city" destination="NHP-VP-yA3" id="6pQ-tx-les"/>
+                                            <outlet property="posterImage" destination="URQ-Xg-KN1" id="54u-8c-CFW"/>
+                                            <outlet property="song" destination="AN6-fY-tPU" id="sbF-Nw-ice"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
