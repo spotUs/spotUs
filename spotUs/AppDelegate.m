@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 #import "PlayerView.h"
-#import "SpotifyLoginViewController.h"
-#import "StartViewController.h"
 #import "GifViewController.h"
 #import "QueryManager.h"
 

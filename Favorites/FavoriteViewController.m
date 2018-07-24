@@ -10,13 +10,15 @@
 #import "FavoriteCollectionViewCell.h"
 #import "PlayerView.h"
 #import "QueryManager.h"
+#import "FavoriteTableViewCell.h"
 
-@interface FavoriteViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate>
+@interface FavoriteViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *favoriteCollectionView;
 @property (strong, nonatomic) NSMutableArray<NSDictionary *> *dataArray;
 @property (strong, nonatomic) NSArray<NSDictionary *> *filteredDataArray;
 @property (strong, nonatomic) NSArray *favorites;
+@property (weak, nonatomic) IBOutlet UITableView *favoriteTableView;
 
 @end
 
@@ -25,6 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.favoriteTableView.delegate = self;
+    self.favoriteTableView.dataSource = self;
     self.favoriteCollectionView.delegate = self;
     self.favoriteCollectionView.dataSource = self;
     // Do any additional setup after loading the view.
@@ -81,6 +85,7 @@
             self.dataArray[songIndex] = dataDictionary;
             //self.filteredDataArray = self.dataArray;
             [self.favoriteCollectionView reloadData];
+            [self.favoriteTableView reloadData];
             NSLog(@"it's been fetched");
             
         }
@@ -106,6 +111,17 @@
     [self.delegate didChooseSongWithIndex:indexPath.row];
     [self dismissViewControllerAnimated:YES completion:nil];
     
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    FavoriteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"fav" forIndexPath:indexPath];
+    [cell updateTrackCellwithData:self.dataArray[indexPath.row]];
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.favorites.count;
 }
 /*
 #pragma mark - Navigation

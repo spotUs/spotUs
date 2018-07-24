@@ -7,7 +7,6 @@
 //
 
 #import "GifViewController.h"
-#import "SpotifyLoginViewController.h"
 #import "PlayerView.h"
 #import "Parse.h"
 #import "SignUpViewController.h"
