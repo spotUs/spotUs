@@ -218,6 +218,10 @@
      playlistVC.delegate = self;
  }
 
+- (IBAction)isFavorite:(id)sender {
+    [QueryManager addFavSongId:self.citySongIDs[self.currentSongIndex] withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    }];
+}
 
 
 
