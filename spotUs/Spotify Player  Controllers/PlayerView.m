@@ -53,6 +53,25 @@
     [self.pauseButton setSelected:NO];
     // start music again and seek when user lets go
 }
+- (IBAction)goBack:(id)sender {
+    
+    
+    self.currentSongIndex = MAX(self.currentSongIndex-3, 0);
+    
+    NSString *song = self.citySongIDs[self.currentSongIndex];
+    self.currentSongIndex++;
+
+    NSString *playRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song];
+    [self.player playSpotifyURI:playRequest startingWithIndex:0 startingWithPosition:0 callback:^(NSError *error) {
+        
+        if(error){
+            NSLog(@"Error starting music: %@", error.localizedDescription);
+        }
+        
+    }];
+    
+    
+}
 
 - (IBAction)goFoward:(id)sender {
     [self.player skipNext:nil];

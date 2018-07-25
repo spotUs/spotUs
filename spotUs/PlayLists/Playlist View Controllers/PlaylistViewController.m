@@ -25,7 +25,7 @@
 - (IBAction)didClickPlay:(id)sender {
     
     
-    NSDictionary *cityDic =  @{ @"city"     : self.city,
+    NSDictionary *cityDic =  @{ @"citytracks"     : self.city.tracks,
                                 @"index" : [NSNumber numberWithInt:0],
                                 };
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
