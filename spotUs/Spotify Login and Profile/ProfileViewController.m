@@ -14,6 +14,7 @@
 #import "GifViewController.h"
 #import "SignUpViewController.h"
 #import "PlaylistViewController.h"
+#import "FavoriteViewController.h"
 
 @interface ProfileViewController () 
 @property (weak, nonatomic) IBOutlet UILabel *hometownLabel;
@@ -147,6 +148,12 @@
         playlistVC.auth = self.auth;
         playlistVC.player = self.player;
         playlistVC.city = self.userCity;
+        
+    }
+    else if ([[segue destinationViewController] isKindOfClass:[FavoriteViewController class]]){
+        FavoriteViewController *favoriteVC = (FavoriteViewController *)[segue destinationViewController];
+        favoriteVC.auth = self.auth;
+        favoriteVC.player = self.player;
         
     }
 }
