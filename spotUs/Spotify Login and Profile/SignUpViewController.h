@@ -12,11 +12,15 @@
 #import <SafariServices/SafariServices.h>
 #import <SpotifyMetadata/SpotifyMetadata.h>
 #import <Parse/Parse.h>
+#import "City.h"
 
 @interface SignUpViewController : UIViewController
 @property (nonatomic, strong) SPTAudioStreamingController *player;
 @property (nonatomic, strong) SPTAuth *auth;
 @property (nonatomic, strong) SPTUser *currentUser;
+@property (nonatomic, strong) NSString *msg;
 @property (weak, nonatomic) IBOutlet UILabel *msgLabel;
 @property (nonatomic) BOOL signup;
+@property (nonatomic, strong) City *userCity;
+@property (nonatomic) int index;
 @end
