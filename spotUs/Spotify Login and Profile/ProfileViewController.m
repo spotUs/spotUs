@@ -22,33 +22,11 @@
 @property (weak, nonatomic) IBOutlet UIView *favoriteView;
 @property (weak, nonatomic) IBOutlet UIView *exploreView;
 
-
+@property (strong, nonatomic) City *userCity;
 
 @end
 
 @implementation ProfileViewController
-
-
-- (IBAction)onTapEdit:(id)sender {
-    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"Edit Your City"
-                                                                              message: @""
-                                                                       preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"name";
-        textField.textColor = [UIColor blackColor];
-        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        textField.borderStyle = UITextBorderStyleRoundedRect;
-    }];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        NSArray * textfields = alertController.textFields;
-        UITextField * namefield = textfields[0];
-        UITextField * passwordfiled = textfields[1];
-        NSLog(@"%@:%@",namefield.text,passwordfiled.text);
-        
-    }]];
-    [self presentViewController:alertController animated:YES completion:nil];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -89,6 +67,7 @@
         
         [hometown fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
             City *fullHometown  = (City*)object;
+            self.userCity = fullHometown;
             self.hometownLabel.attributedText=[[NSAttributedString alloc]
                                                initWithString:fullHometown.name
                                                attributes:@{
@@ -97,12 +76,6 @@
                                                             NSForegroundColorAttributeName:[UIColor whiteColor]
                                                             }
                                                ];
-            //self.hometownLabel.layer.borderColor = [UIColor whiteColor].CGColor;
-            //self.hometownLabel.layer.borderWidth = 1.0;
-           // self.hometownLabel.layer.cornerRadius = 15;
-
-
-
         }];
         
     }];
@@ -123,29 +96,6 @@
     GifViewController *gifVC = (GifViewController *) [storyboard instantiateViewControllerWithIdentifier:@"gifviewcontroller"]; //TODO add gifviewcontroller identifier
     [self presentViewController:gifVC animated:YES completion:nil];
 }
-
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    if ([[segue destinationViewController] isKindOfClass:[SignUpViewController class]]){
-        SignUpViewController *signupVC = [segue destinationViewController];
-        signupVC.msgLabel.text = @"SpotUs is currently only available in the cities below. Edit your city below and click confirm to save your changes.";
-        signupVC.auth = self.auth;
-        signupVC.player = self.player;
-        signupVC.currentUser = self.currentUser;
-    }
-    else if ([[segue destinationViewController] isKindOfClass:[PhotoMapViewController class]]){
-        PhotoMapViewController *mapVC = (PhotoMapViewController *)[segue destinationViewController];
-        mapVC.auth = self.auth;
-        mapVC.player = self.player;
-    }
-}
-
-
 
 - (UIImage *)blurredImageWithImage:(UIImage*)sourceImage{
     
@@ -170,6 +120,29 @@
     }
     
     return retVal;
+}
+
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([[segue destinationViewController] isKindOfClass:[SignUpViewController class]]){
+        SignUpViewController *signupVC = [segue destinationViewController];
+        signupVC.msgLabel.text = @"SpotUs is currently only available in the cities below. Edit your city below and click confirm to save your changes.";
+        signupVC.auth = self.auth;
+        signupVC.player = self.player;
+        signupVC.currentUser = self.currentUser;
+        signupVC.signup = NO;
+        signupVC.userCity = self.userCity;
+    }
+    else if ([[segue destinationViewController] isKindOfClass:[PhotoMapViewController class]]){
+        PhotoMapViewController *mapVC = (PhotoMapViewController *)[segue destinationViewController];
+        mapVC.auth = self.auth;
+        mapVC.player = self.player;
+    }
 }
 
 
