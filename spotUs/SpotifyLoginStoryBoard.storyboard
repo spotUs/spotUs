@@ -112,10 +112,11 @@
                                                     <action selector="repeatOrUnrepeat:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="jXC-0y-Bm6"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbm-Kp-nvG">
-                                                <rect key="frame" x="5" y="15" width="52" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbm-Kp-nvG">
+                                                <rect key="frame" x="8" y="14" width="38" height="38"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="favorite"/>
+                                                <state key="normal" title="favorite" image="grayfavorite"/>
+                                                <state key="selected" image="redLike"/>
                                                 <connections>
                                                     <action selector="isFavorite:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="5Zz-SL-gx4"/>
                                                 </connections>
@@ -208,6 +209,7 @@
                     <size key="freeformSize" width="375" height="641"/>
                     <connections>
                         <outlet property="albumTitleLabel" destination="FB9-wG-eKh" id="Dby-wU-5nh"/>
+                        <outlet property="favoriteButton" destination="Kbm-Kp-nvG" id="6Qy-us-Skv"/>
                         <outlet property="musicSlider" destination="54k-zG-om8" id="SZ1-oM-2De"/>
                         <outlet property="pauseButton" destination="4hG-LN-kxo" id="62v-PK-k2b"/>
                         <outlet property="repeatButton" destination="DZI-Sf-NGi" id="7Bt-fZ-sdr"/>
@@ -219,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeN-2U-H7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2551" y="98"/>
+            <point key="canvasLocation" x="2149.5999999999999" y="97.601199400299862"/>
         </scene>
         <!--ProfileViewController-->
         <scene sceneID="r9J-IQ-nYd">
@@ -594,15 +596,15 @@
             <objects>
                 <viewController id="XYl-M6-THt" customClass="PlaylistViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T7v-68-9iE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="iag-Wo-gMA">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zSC-Er-mCe">
-                                <rect key="frame" x="0.0" y="120" width="375" height="469"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R9e-hD-3aX">
                                     <size key="itemSize" width="165" height="167"/>
@@ -791,7 +793,7 @@
             <objects>
                 <viewController id="doH-Xt-ZKf" customClass="FavoriteViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mKm-zW-GCn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ntA-bk-3aY">
@@ -875,7 +877,7 @@
             <objects>
                 <viewController id="kuO-Fu-imm" customClass="FavoriteViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nm3-wa-i1U">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RzU-v0-5Kd">
@@ -942,11 +944,13 @@
     <resources>
         <image name="Screen Shot 2018-07-16 at 3.38.25 PM" width="80" height="64"/>
         <image name="Screen Shot 2018-07-16 at 3.38.38 PM" width="80" height="50"/>
+        <image name="grayfavorite" width="256" height="256"/>
         <image name="internet" width="128" height="128"/>
         <image name="like (1)" width="128" height="128"/>
         <image name="miami" width="1200" height="540"/>
         <image name="pause-btn" width="310" height="360"/>
         <image name="play-btn" width="90" height="88"/>
+        <image name="redLike" width="64" height="64"/>
         <image name="repeat" width="32" height="32"/>
         <image name="repeat (2)" width="32" height="32"/>
         <image name="screen_shot_2018_07_18_at_4_11_56_pm_1" width="256" height="256"/>

@@ -66,19 +66,36 @@ static NSArray *_citiesarray = nil;
     PFUser *currUser = [PFUser currentUser];
     [self fetchFavs:^(NSArray *favs, NSError *error) {
         NSMutableArray *favarray = [NSMutableArray arrayWithArray:favs];
-        if (![favarray containsObject:songId]) {
+        if (![self user:favs HasLiked:songId]) {
             [favarray addObject:songId];
             [currUser setObject:favarray forKey:@"favs"];
             [currUser saveInBackgroundWithBlock:completion];
+            NSLog(@"added");
         }
         else {
-            [favarray removeObject:songId];
-            [currUser removeObject:favarray forKey:@"favs"];
+            NSMutableArray *temp = [NSMutableArray arrayWithArray:favs];
+            NSMutableArray *discarded = [NSMutableArray array];
+            for(int i = 0; i<temp.count; i++) {
+                if([temp[i] isEqualToString:songId]) {
+                    [discarded addObject:temp[i]];
+                }
+            }
+            [temp removeObjectsInArray:discarded];
+            [currUser setObject:[NSArray arrayWithArray:temp] forKey:@"favs"];
             [currUser saveInBackgroundWithBlock:completion];
+            NSLog(@"removed");
         }
     }];
 }
 
++(BOOL)user:(NSArray *) favs HasLiked:(NSString *)songId {
+    for(NSString *s in favs) {
+        if([s isEqualToString:songId]) {
+            return YES;
+        }
+    }
+    return NO;
+}
 
 + (void) fetchFavs: (void(^)(NSArray *favs, NSError *error))completion {
     PFUser *currUser = [PFUser currentUser];
