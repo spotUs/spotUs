@@ -28,7 +28,7 @@
 @property (nonatomic, strong) NSArray<NSString*>   *citySongIDs;
 @property BOOL nowPlaying;
 @property BOOL didSelect;
-@property NSUInteger currentSongIndex;
+@property NSInteger currentSongIndex;
 
 
 @property (nonatomic, weak) id<DismissDelegate> dismissDelegate;

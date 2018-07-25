@@ -13,15 +13,14 @@
 #import "PhotoMapViewController.h"
 #import "GifViewController.h"
 #import "SignUpViewController.h"
+#import "PlaylistViewController.h"
 
 @interface ProfileViewController () 
 @property (weak, nonatomic) IBOutlet UILabel *hometownLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
-@property (strong, nonatomic) City *playingCity;
 @property (weak, nonatomic) IBOutlet UIImageView *blurredImage;
 @property (weak, nonatomic) IBOutlet UIView *favoriteView;
 @property (weak, nonatomic) IBOutlet UIView *exploreView;
-
 @property (strong, nonatomic) City *userCity;
 
 @end
@@ -142,6 +141,13 @@
         PhotoMapViewController *mapVC = (PhotoMapViewController *)[segue destinationViewController];
         mapVC.auth = self.auth;
         mapVC.player = self.player;
+    }
+    else if ([[segue destinationViewController] isKindOfClass:[PlaylistViewController class]]){
+        PlaylistViewController *playlistVC = (PlaylistViewController *)[segue destinationViewController];
+        playlistVC.auth = self.auth;
+        playlistVC.player = self.player;
+        playlistVC.city = self.userCity;
+        
     }
 }
 
