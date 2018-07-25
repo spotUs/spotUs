@@ -221,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeN-2U-H7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2149.5999999999999" y="97.601199400299862"/>
+            <point key="canvasLocation" x="1074" y="674"/>
         </scene>
         <!--ProfileViewController-->
         <scene sceneID="r9J-IQ-nYd">
@@ -731,25 +731,20 @@
                                     <action selector="pauseOrUnpause:" destination="fY4-ON-nYx" eventType="touchUpInside" id="13m-Ig-dWI"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpotUs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioW-zJ-jQj">
-                                <rect key="frame" x="159.5" y="15" width="57" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJ4-sI-JpK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJ4-sI-JpK">
                                 <rect key="frame" x="188" y="37" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDC-u6-aQ0">
-                                <rect key="frame" x="16" y="11" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Cm4-0k-UWR"/>
-                                    <constraint firstAttribute="width" constant="41" id="DxV-R5-2bJ"/>
-                                </constraints>
-                                <state key="normal" title="Home"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="spotUsSlogan" translatesAutoresizingMaskIntoConstraints="NO" id="ebO-PN-uQW">
+                                <rect key="frame" x="149" y="0.0" width="92" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDC-u6-aQ0">
+                                <rect key="frame" x="16" y="5" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Home" image="home"/>
                                 <connections>
                                     <action selector="onTapHomeBtn:" destination="fY4-ON-nYx" eventType="touchUpInside" id="1fo-dR-HJZ"/>
                                 </connections>
@@ -758,15 +753,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="jJ4-sI-JpK" firstAttribute="top" secondItem="ioW-zJ-jQj" secondAttribute="bottom" constant="1" id="6hs-ZX-V8K"/>
-                            <constraint firstItem="ioW-zJ-jQj" firstAttribute="top" secondItem="EAs-YU-6fn" secondAttribute="top" constant="15" id="KUb-SB-P9g"/>
-                            <constraint firstItem="PDC-u6-aQ0" firstAttribute="leading" secondItem="EAs-YU-6fn" secondAttribute="leading" constant="20" id="PVV-Ef-C3c"/>
                             <constraint firstItem="EAs-YU-6fn" firstAttribute="trailing" secondItem="F9f-cr-DAQ" secondAttribute="trailing" constant="20" id="VUK-Vj-DEn"/>
-                            <constraint firstItem="ioW-zJ-jQj" firstAttribute="centerX" secondItem="j2M-H1-9hF" secondAttribute="centerX" id="Xn5-cr-W9N"/>
                             <constraint firstItem="F9f-cr-DAQ" firstAttribute="centerY" secondItem="j2M-H1-9hF" secondAttribute="centerY" id="Ykn-2r-z9p"/>
                             <constraint firstItem="jJ4-sI-JpK" firstAttribute="centerX" secondItem="j2M-H1-9hF" secondAttribute="centerX" id="rfx-ez-QJQ"/>
-                            <constraint firstItem="ioW-zJ-jQj" firstAttribute="centerX" secondItem="j2M-H1-9hF" secondAttribute="centerX" id="sZR-PE-Hyh"/>
-                            <constraint firstItem="PDC-u6-aQ0" firstAttribute="top" secondItem="EAs-YU-6fn" secondAttribute="top" constant="13" id="ttC-37-WzW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EAs-YU-6fn"/>
                         <connections>
@@ -776,7 +765,6 @@
                     <connections>
                         <outlet property="albumTitleLabel" destination="jJ4-sI-JpK" id="B6F-eG-Rkx"/>
                         <outlet property="pauseButton" destination="F9f-cr-DAQ" id="a5o-cs-qXu"/>
-                        <outlet property="songTitle" destination="ioW-zJ-jQj" id="frG-91-oGk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L0m-2o-pUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -786,7 +774,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="913" y="52"/>
+            <point key="canvasLocation" x="912.79999999999995" y="51.27436281859071"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="reQ-yK-zpY">
@@ -945,6 +933,7 @@
         <image name="backward" width="512" height="512"/>
         <image name="fast-forward-2" width="512" height="512"/>
         <image name="grayfavorite" width="256" height="256"/>
+        <image name="home" width="64" height="64"/>
         <image name="internet" width="128" height="128"/>
         <image name="like (1)" width="128" height="128"/>
         <image name="miami" width="1200" height="540"/>
@@ -954,10 +943,11 @@
         <image name="repeat" width="32" height="32"/>
         <image name="repeat (2)" width="32" height="32"/>
         <image name="screen_shot_2018_07_18_at_4_11_56_pm_1" width="256" height="256"/>
+        <image name="spotUsSlogan" width="868" height="726"/>
         <image name="spotifyWhite" width="2400" height="2400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ec3-4W-Z55"/>
+        <segue reference="8a5-vN-qGZ"/>
         <segue reference="KW6-86-RT6"/>
         <segue reference="U8D-uR-5nx"/>
     </inferredMetricsTieBreakers>

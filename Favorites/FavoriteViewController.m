@@ -32,7 +32,7 @@
     self.favoriteCollectionView.delegate = self;
     self.favoriteCollectionView.dataSource = self;
     // Do any additional setup after loading the view.
-    
+     self.favoriteTableView.rowHeight = 110;
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*) self.favoriteCollectionView.collectionViewLayout;
     layout.minimumInteritemSpacing = 5;
     layout.minimumLineSpacing = 5;

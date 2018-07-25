@@ -47,7 +47,7 @@ CLLocationManager *locationManager;
                 self.locationCity = city;
                 foundCity = YES;
                 self.checkInButton.enabled = YES;
-                [self.checkInButton setTintColor:[UIColor greenColor]];
+                [self.checkInButton setTintColor:[UIColor redColor]];
                 [self.checkInButton setTitle:[NSString stringWithFormat:@"Discover %@",self.locationCity.name] forState:UIControlStateNormal];
                 break;
             }
