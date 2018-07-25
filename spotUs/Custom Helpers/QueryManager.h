@@ -19,7 +19,7 @@
 + (City *_Nonnull) getCityFromName: (NSString *_Nonnull)name;
 
 + (void) addFavSongId: (NSString *_Nonnull)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion;
-
+    
 + (void) fetchFavs: (void(^_Nullable)(NSArray * _Nonnull favs, NSError * _Nullable error))completion ;
 
 @end

@@ -66,11 +66,19 @@ static NSArray *_citiesarray = nil;
     PFUser *currUser = [PFUser currentUser];
     [self fetchFavs:^(NSArray *favs, NSError *error) {
         NSMutableArray *favarray = [NSMutableArray arrayWithArray:favs];
-        [favarray addObject:songId];
-        [currUser setObject:favarray forKey:@"favs"];
-        [currUser saveInBackgroundWithBlock:completion];
+        if (![favarray containsObject:songId]) {
+            [favarray addObject:songId];
+            [currUser setObject:favarray forKey:@"favs"];
+            [currUser saveInBackgroundWithBlock:completion];
+        }
+        else {
+            [favarray removeObject:songId];
+            [currUser removeObject:favarray forKey:@"favs"];
+            [currUser saveInBackgroundWithBlock:completion];
+        }
     }];
 }
+
 
 + (void) fetchFavs: (void(^)(NSArray *favs, NSError *error))completion {
     PFUser *currUser = [PFUser currentUser];
@@ -88,6 +96,7 @@ static NSArray *_citiesarray = nil;
         }
     }];
 }
+
 
 
 @end
