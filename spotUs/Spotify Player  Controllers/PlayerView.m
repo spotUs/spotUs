@@ -13,7 +13,6 @@
 
 
 @interface PlayerView () <SPTAudioStreamingPlaybackDelegate>
-@property (nonatomic, strong) NSArray<NSString*>   *citySongIDs;
 @property (weak, nonatomic) IBOutlet UILabel *timeElapsedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLeftLabel;
 
@@ -85,7 +84,6 @@
     self.player.playbackDelegate = self;
     self.musicSlider.minimumValue = 0.0;
     self.musicSlider.value = 0;
-    self.citySongIDs = self.city.tracks;
     [self refreshSongData];
 
 }

@@ -69,11 +69,10 @@
         self.player.playbackDelegate = self;
         NSDictionary *userInfo = notification.userInfo;
 
-        self.city = userInfo[@"city"];
+        self.citySongIDs = userInfo[@"citytracks"];
+
         self.currentSongIndex = [userInfo[@"index"] intValue];
         
-        NSArray *citySongs = self.city.tracks;
-        self.citySongIDs = citySongs;
 
         [self startMusic];
         
@@ -179,7 +178,7 @@
         PlayerView *playerView = (PlayerView *)[segue destinationViewController];
         playerView.player = self.player;
         playerView.auth = self.auth;
-        playerView.city = self.city;
+        playerView.citySongIDs = self.citySongIDs;
         playerView.currentSongIndex = self.currentSongIndex;
         playerView.nowPlaying = YES;
         playerView.dismissDelegate = self;

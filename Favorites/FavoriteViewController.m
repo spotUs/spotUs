@@ -108,7 +108,11 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    NSDictionary *cityDic =  @{ @"favtracks"     : self.favorites,
+                                @"index" : [NSNumber numberWithInteger:indexPath.row],
+                                };
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Play Favorites"
+                                                        object:self userInfo:cityDic];
     
 }
 

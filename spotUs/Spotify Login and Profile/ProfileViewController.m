@@ -144,13 +144,7 @@
 
     }
     
-    else if([[segue destinationViewController]  isKindOfClass:[PlayerView class]]){
-        PlayerView *playerView = (PlayerView *)[segue destinationViewController];
-        playerView.player = self.player;
-        playerView.auth = self.auth;
-        playerView.city = self.playingCity;
-        playerView.nowPlaying = YES;
-    }
+
     
 
     

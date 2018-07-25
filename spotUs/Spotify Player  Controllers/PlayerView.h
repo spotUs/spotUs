@@ -25,7 +25,7 @@
 
 @property (nonatomic, weak) SPTAudioStreamingController *player;
 @property (nonatomic, strong) SPTAuth *auth;
-@property (nonatomic, strong) City *city;
+@property (nonatomic, strong) NSArray<NSString*>   *citySongIDs;
 @property BOOL nowPlaying;
 @property BOOL didSelect;
 @property NSUInteger currentSongIndex;

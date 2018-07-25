@@ -118,7 +118,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSDictionary *cityDic =  @{ @"city"     : self.city,
+    NSDictionary *cityDic =  @{ @"citytracks"     : self.city.tracks,
                                 @"index" : [NSNumber numberWithInteger:indexPath.row],
                                 };
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
