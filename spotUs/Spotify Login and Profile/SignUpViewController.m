@@ -62,34 +62,24 @@
             [ErrorAlert showAlert:error.localizedDescription inVC:self];
         } else {
             NSLog(@"User saved city successfully");
-            
             [self getUserTopTracks];
-            
         }
     }];
-
-    
-    
 }
-
 
 // The number of columns of data
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    
     return 1;
 }
 
 // The number of rows of data
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     return self.cities.count;
-    
 }
+
 // The data to return for the row and component (column) that's being passed in
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    
     return self.cities[row].name;
-    
-    
 }
 
 - (void) getUserTopTracks {
@@ -98,8 +88,6 @@
     NSDictionary *headers = @{@"Authorization":[@"Bearer " stringByAppendingString:self.auth.session.accessToken]};
     [request setAllHTTPHeaderFields:(headers)];
     [request setHTTPMethod:@"GET"];
-    
-    
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSDictionary *datadict = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
@@ -110,49 +98,25 @@
             NSString *spotifyID = dictionary[@"id"];
             [songIDs addObject:spotifyID];
         }
-        
         self.mostPlayedIDs = songIDs;
-        
-        
         NSMutableArray<NSString*> *citySongs = [NSMutableArray arrayWithArray:self.selectedCity.tracks];
-        
         for(int i = 0; i < 5; i++){
-            
             if(![citySongs containsObject:self.mostPlayedIDs[i]]){
                 [citySongs addObject:self.mostPlayedIDs[i]];
             }
-            
             if( i == self.mostPlayedIDs.count-1){
-                
                 break;
             }
-            
         }
-        
         self.selectedCity.tracks = citySongs;
-        
         [self.selectedCity saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            
-            
             if(succeeded){
-                
                 NSLog(@"User tracks sucessfully added");
                 [self performSegueWithIdentifier:@"create" sender:self];
-
-            }
-            
-            else{
-                
+            } else{
                 NSLog(@"Error queueing songs: %@", error.localizedDescription);
-
             }
         }];
-        
-        
-        
-
-        
-        
     }] resume];
 }
 
