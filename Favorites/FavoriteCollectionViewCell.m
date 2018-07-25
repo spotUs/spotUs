@@ -13,6 +13,8 @@
 @implementation FavoriteCollectionViewCell
 
 - (void) updateTrackCellwithData: (NSDictionary *)trackdict{
+    
+    
     //get image
     NSArray *images = trackdict[@"album"][@"images"];
     if (images.count > 0){

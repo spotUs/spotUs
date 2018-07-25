@@ -70,7 +70,7 @@
 - (void) fetchTrackData: (NSUInteger)songIndex{
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:[@"https://api.spotify.com/v1/tracks/" stringByAppendingString:self.favorites[songIndex]]]];
-    NSDictionary *headers = @{@"Authorization":[@"Bearer " stringByAppendingString:@"BQAec91XNWk2aYaCd2y7bS7SLbIyEuRocj_S_LJgMfNa475qqXZG2VW8E1ZuRbNq-O_f674WxpovxFcG76LvrdAOg_dozsYRYA057kgH0K8YbuwnoyVy0bPqo0IgNce6dRhAaW_tc5DmNNM"]};
+    NSDictionary *headers = @{@"Authorization":[@"Bearer " stringByAppendingString:  self.auth.session.accessToken]};
     [request setAllHTTPHeaderFields:(headers)];
     [request setHTTPMethod:@"GET"];
 
@@ -116,10 +116,21 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSDictionary *cityDic =  @{ @"favtracks"     : self.favorites,
+                                @"index" : [NSNumber numberWithInteger:indexPath.row],
+                                };
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Play Favorites"
+                                                        object:self userInfo:cityDic];
+    
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     FavoriteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"fav" forIndexPath:indexPath];
     [cell updateTrackCellwithData:self.dataArray[indexPath.row]];
+    
     //NSLog(@"it's been updated");
     return cell;
 }
@@ -127,14 +138,20 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.favorites.count;
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([[segue destinationViewController] isKindOfClass:[FavoriteViewController class]]){
+        FavoriteViewController *favoriteVC = (FavoriteViewController *)[segue destinationViewController];
+        favoriteVC.auth = self.auth;
+        favoriteVC.player = self.player;
+        
+    }
 }
-*/
 
 @end
