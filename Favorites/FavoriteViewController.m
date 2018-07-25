@@ -108,7 +108,6 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    [self.delegate didChooseSongWithIndex:indexPath.row];
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
