@@ -349,11 +349,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="PwE-4o-kaL">
                         <barButtonItem key="backBarButtonItem" title="Profile" id="ada-7z-LcN"/>
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="qlB-To-mR1">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="qlB-To-mR1">
                             <connections>
                                 <action selector="onTapLogoutBtn:" destination="rzA-pg-DWH" id="cpg-aG-O6X"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="TMr-M1-vd6"/>
                     </navigationItem>
                     <connections>
                         <outlet property="blurredImage" destination="dAG-Xl-ONJ" id="dLP-kU-PwB"/>
@@ -455,7 +456,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHA-Y8-rzg">
                                 <rect key="frame" x="0.0" y="20" width="375" height="589"/>
                                 <connections>
-                                    <segue destination="AdY-KY-RAQ" kind="embed" id="nU8-1k-Ajg"/>
+                                    <segue destination="AdY-KY-RAQ" kind="embed" identifier="homesegue" id="nU8-1k-Ajg"/>
                                 </connections>
                             </containerView>
                         </subviews>
