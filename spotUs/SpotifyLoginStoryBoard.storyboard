@@ -354,7 +354,12 @@
                                 <action selector="onTapLogoutBtn:" destination="rzA-pg-DWH" id="cpg-aG-O6X"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="TMr-M1-vd6"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="TMr-M1-vd6">
+                            <connections>
+                                <action selector="onTapEdit:" destination="rzA-pg-DWH" id="ns6-E6-mou"/>
+                                <segue destination="jNm-aI-Duq" kind="show" id="U8D-uR-5nx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="blurredImage" destination="dAG-Xl-ONJ" id="dLP-kU-PwB"/>
@@ -373,7 +378,7 @@
             <objects>
                 <viewController title="SignUpViewController" id="jNm-aI-Duq" customClass="SignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gzY-qE-40N">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SpotUs is currently only available in the cities below. Click confirm with a selected city to finish setting up your account!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjj-3h-xQh">
@@ -401,6 +406,7 @@
                     </view>
                     <connections>
                         <outlet property="cityPicker" destination="bBy-xv-1Ei" id="yaq-e7-30T"/>
+                        <outlet property="msgLabel" destination="xjj-3h-xQh" id="rdz-2o-xLs"/>
                         <segue destination="XJG-ac-cSG" kind="show" identifier="create" id="KW6-86-RT6"/>
                     </connections>
                 </viewController>
@@ -840,6 +846,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nbH-iS-X6V"/>
-        <segue reference="Is9-90-9Ke"/>
+        <segue reference="KW6-86-RT6"/>
+        <segue reference="U8D-uR-5nx"/>
     </inferredMetricsTieBreakers>
 </document>

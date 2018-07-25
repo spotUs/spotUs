@@ -17,4 +17,5 @@
 @property (nonatomic, strong) SPTAudioStreamingController *player;
 @property (nonatomic, strong) SPTAuth *auth;
 @property (nonatomic, strong) SPTUser *currentUser;
+@property (weak, nonatomic) IBOutlet UILabel *msgLabel;
 @end
