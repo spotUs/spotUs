@@ -100,8 +100,17 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S52-oa-b8v">
                                         <rect key="frame" x="0.0" y="400" width="335" height="60"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZI-Sf-NGi">
-                                                <rect key="frame" x="283" y="14" width="32" height="32"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbm-Kp-nvG">
+                                                <rect key="frame" x="20" y="0.0" width="30" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="favorite" image="grayfavorite"/>
+                                                <state key="selected" image="redLike"/>
+                                                <connections>
+                                                    <action selector="isFavorite:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="5Zz-SL-gx4"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZI-Sf-NGi">
+                                                <rect key="frame" x="276" y="0.0" width="26" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="ATH-dl-OTH"/>
                                                     <constraint firstAttribute="width" constant="32" id="Hoe-t6-ljW"/>
@@ -110,15 +119,6 @@
                                                 <state key="selected" image="repeat"/>
                                                 <connections>
                                                     <action selector="repeatOrUnrepeat:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="jXC-0y-Bm6"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbm-Kp-nvG">
-                                                <rect key="frame" x="8" y="14" width="38" height="38"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="favorite" image="grayfavorite"/>
-                                                <state key="selected" image="redLike"/>
-                                                <connections>
-                                                    <action selector="isFavorite:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="5Zz-SL-gx4"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -138,7 +138,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="8Bp-Q0-uPF"/>
                                                     <constraint firstAttribute="height" constant="50" id="mlk-Fj-j4K"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="Screen Shot 2018-07-16 at 3.38.25 PM"/>
+                                                <state key="normal" title="Button" image="backward"/>
                                                 <connections>
                                                     <action selector="goBack:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="NSA-4E-Re3"/>
                                                 </connections>
@@ -149,10 +149,10 @@
                                                     <constraint firstAttribute="height" constant="50" id="1gc-Bg-Vl3"/>
                                                     <constraint firstAttribute="width" constant="50" id="Dlc-aR-GT1"/>
                                                 </constraints>
-                                                <state key="normal" image="pause-btn">
+                                                <state key="normal" image="pause-2">
                                                     <color key="titleColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
-                                                <state key="selected" image="play-btn"/>
+                                                <state key="selected" image="play-2"/>
                                                 <connections>
                                                     <action selector="pauseOrUnpause:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="UrC-KE-QRa"/>
                                                 </connections>
@@ -163,7 +163,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="ZAT-3x-qum"/>
                                                     <constraint firstAttribute="width" constant="50" id="Zog-vz-ep9"/>
                                                 </constraints>
-                                                <state key="normal" image="Screen Shot 2018-07-16 at 3.38.38 PM">
+                                                <state key="normal" image="fast-forward-2">
                                                     <color key="titleColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
@@ -725,21 +725,10 @@
                                     <constraint firstAttribute="height" constant="50" id="XY0-bT-tEG"/>
                                     <constraint firstAttribute="width" constant="50" id="uCZ-xN-BDT"/>
                                 </constraints>
-                                <state key="normal" image="pause-btn"/>
-                                <state key="selected" image="play-btn"/>
+                                <state key="normal" image="pause-2"/>
+                                <state key="selected" image="play-2"/>
                                 <connections>
                                     <action selector="pauseOrUnpause:" destination="fY4-ON-nYx" eventType="touchUpInside" id="13m-Ig-dWI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDC-u6-aQ0">
-                                <rect key="frame" x="20" y="13" width="41" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Cm4-0k-UWR"/>
-                                    <constraint firstAttribute="width" constant="41" id="DxV-R5-2bJ"/>
-                                </constraints>
-                                <state key="normal" title="Home"/>
-                                <connections>
-                                    <action selector="onTapHomeBtn:" destination="fY4-ON-nYx" eventType="touchUpInside" id="1fo-dR-HJZ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpotUs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioW-zJ-jQj">
@@ -754,6 +743,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDC-u6-aQ0">
+                                <rect key="frame" x="16" y="11" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Cm4-0k-UWR"/>
+                                    <constraint firstAttribute="width" constant="41" id="DxV-R5-2bJ"/>
+                                </constraints>
+                                <state key="normal" title="Home"/>
+                                <connections>
+                                    <action selector="onTapHomeBtn:" destination="fY4-ON-nYx" eventType="touchUpInside" id="1fo-dR-HJZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -786,7 +786,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="910" y="-6"/>
+            <point key="canvasLocation" x="909.60000000000002" y="-6.2968515742128943"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="reQ-yK-zpY">
@@ -799,7 +799,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ntA-bk-3aY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.26427155489999998" green="0.62948875770000001" blue="0.26605949439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8TO-YW-WTy">
                                     <size key="itemSize" width="178" height="177"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -842,7 +842,7 @@
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="1" green="0.76165711629999999" blue="0.81187532250000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.99097795050000004" green="0.99097795050000004" blue="0.99097795050000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="artist" destination="BG8-IP-ReO" id="vJ6-bc-VXM"/>
                                             <outlet property="city" destination="lJG-ZD-6lN" id="22T-g9-YdX"/>
@@ -942,14 +942,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Screen Shot 2018-07-16 at 3.38.25 PM" width="80" height="64"/>
-        <image name="Screen Shot 2018-07-16 at 3.38.38 PM" width="80" height="50"/>
+        <image name="backward" width="512" height="512"/>
+        <image name="fast-forward-2" width="512" height="512"/>
         <image name="grayfavorite" width="256" height="256"/>
         <image name="internet" width="128" height="128"/>
         <image name="like (1)" width="128" height="128"/>
         <image name="miami" width="1200" height="540"/>
-        <image name="pause-btn" width="310" height="360"/>
-        <image name="play-btn" width="90" height="88"/>
+        <image name="pause-2" width="512" height="512"/>
+        <image name="play-2" width="512" height="512"/>
         <image name="redLike" width="64" height="64"/>
         <image name="repeat" width="32" height="32"/>
         <image name="repeat (2)" width="32" height="32"/>
