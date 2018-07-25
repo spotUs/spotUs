@@ -12,7 +12,7 @@
 #import "City.h"
 #import "PhotoMapViewController.h"
 #import "GifViewController.h"
-
+#import "SignUpViewController.h"
 
 @interface ProfileViewController () 
 @property (weak, nonatomic) IBOutlet UILabel *hometownLabel;
@@ -131,24 +131,18 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([[segue destinationViewController] isKindOfClass:[UINavigationController class]]){
-        UINavigationController *navigationController = [segue destinationViewController];
-        
-        
+    if ([[segue destinationViewController] isKindOfClass:[SignUpViewController class]]){
+        SignUpViewController *signupVC = [segue destinationViewController];
+        signupVC.msgLabel.text = @"SpotUs is currently only available in the cities below. Edit your city below and click confirm to save your changes.";
+        signupVC.auth = self.auth;
+        signupVC.player = self.player;
+        signupVC.currentUser = self.currentUser;
     }
     else if ([[segue destinationViewController] isKindOfClass:[PhotoMapViewController class]]){
         PhotoMapViewController *mapVC = (PhotoMapViewController *)[segue destinationViewController];
         mapVC.auth = self.auth;
         mapVC.player = self.player;
-        mapVC.nowPlayingIntermediateDelegate = self;
-
     }
-    
-
-    
-
-    
-    
 }
 
 

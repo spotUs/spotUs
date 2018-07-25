@@ -18,4 +18,5 @@
 @property (nonatomic, strong) SPTAuth *auth;
 @property (nonatomic, strong) SPTUser *currentUser;
 @property (weak, nonatomic) IBOutlet UILabel *msgLabel;
+@property (nonatomic) BOOL signup;
 @end

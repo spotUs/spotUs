@@ -29,7 +29,7 @@
 @implementation SignUpViewController
 - (IBAction)onTapConfirm:(id)sender {
     
-    [self registerUser];
+    [self saveUserCity];
 }
 
 - (void)viewDidLoad {
@@ -48,7 +48,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)registerUser {
+- (void)saveUserCity {
     // initialize a user object
     PFUser *currUser = [PFUser currentUser];
     //query the city object
@@ -62,34 +62,29 @@
             [ErrorAlert showAlert:error.localizedDescription inVC:self];
         } else {
             NSLog(@"User saved city successfully");
-            
             [self getUserTopTracks];
-            
+            if (self.signup == YES){
+                [self performSegueWithIdentifier:@"create" sender:self];
+            } else {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
         }
     }];
-
-    
-    
 }
-
 
 // The number of columns of data
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    
     return 1;
 }
 
 // The number of rows of data
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     return self.cities.count;
-    
 }
+
 // The data to return for the row and component (column) that's being passed in
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    
     return self.cities[row].name;
-    
-    
 }
 
 - (void) getUserTopTracks {
@@ -98,8 +93,6 @@
     NSDictionary *headers = @{@"Authorization":[@"Bearer " stringByAppendingString:self.auth.session.accessToken]};
     [request setAllHTTPHeaderFields:(headers)];
     [request setHTTPMethod:@"GET"];
-    
-    
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSDictionary *datadict = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
@@ -110,49 +103,24 @@
             NSString *spotifyID = dictionary[@"id"];
             [songIDs addObject:spotifyID];
         }
-        
         self.mostPlayedIDs = songIDs;
-        
-        
         NSMutableArray<NSString*> *citySongs = [NSMutableArray arrayWithArray:self.selectedCity.tracks];
-        
         for(int i = 0; i < 5; i++){
-            
             if(![citySongs containsObject:self.mostPlayedIDs[i]]){
                 [citySongs addObject:self.mostPlayedIDs[i]];
             }
-            
             if( i == self.mostPlayedIDs.count-1){
-                
                 break;
             }
-            
         }
-        
         self.selectedCity.tracks = citySongs;
-        
         [self.selectedCity saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            
-            
             if(succeeded){
-                
                 NSLog(@"User tracks sucessfully added");
-                [self performSegueWithIdentifier:@"create" sender:self];
-
-            }
-            
-            else{
-                
-                NSLog(@"Error queueing songs: %@", error.localizedDescription);
-
+            } else{
+                NSLog(@"Error adding user top tracks : %@", error.localizedDescription);
             }
         }];
-        
-        
-        
-
-        
-        
     }] resume];
 }
 
@@ -161,15 +129,16 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    /*UINavigationController *navController = (UINavigationController*)[segue destinationViewController];
-    ProfileViewController *profileVC = (ProfileViewController *)navController.topViewController;
-    profileVC.player = self.player;
-    profileVC.auth = self.auth;
-    profileVC.currentUser = self.currentUser;*/
-    ParentViewController *parentVC = (ParentViewController *)[segue destinationViewController];
-    parentVC.auth = self.auth;
-    parentVC.player = self.player;
-    
+    if ([[segue destinationViewController] isKindOfClass:[ParentViewController class]]){
+        ParentViewController *parentVC = (ParentViewController *)[segue destinationViewController];
+        parentVC.auth = self.auth;
+        parentVC.player = self.player;
+    } else if ([[segue destinationViewController] isKindOfClass:[ProfileViewController class]]){
+        ProfileViewController *profileVC = (ProfileViewController *)[segue destinationViewController];
+        profileVC.auth = self.auth;
+        profileVC.player = self.player;
+        profileVC.currentUser = self.currentUser;
+    }
 }
 
 
