@@ -23,6 +23,7 @@
 @property BOOL isSeeking;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (weak, nonatomic) IBOutlet UIButton *repeatButton;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 
 
 
@@ -171,7 +172,16 @@
     self.timeLeftLabel.text = [self stringFromTimeInterval:self.player.metadata.currentTrack.duration-self.musicSlider.value];
     [self.repeatButton setSelected:self.player.playbackState.isRepeating];
     [self.pauseButton setSelected:!self.player.playbackState.isPlaying];
-    
+
+    [QueryManager fetchFavs:^(NSArray * _Nonnull favs, NSError * _Nullable error) {
+        NSString *stringID = [self.player.metadata.currentTrack.uri substringFromIndex:14];
+        if([favs containsObject:stringID]) {
+            [self.favoriteButton setSelected: YES];
+        }
+        else {
+            [self.favoriteButton setSelected: NO];
+        }
+    }];
 }
 
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval {
@@ -186,9 +196,16 @@
 - (IBAction)isFavorite:(id)sender {
     
     NSString *stringID = [self.player.metadata.currentTrack.uri substringFromIndex:14];
-   
     [QueryManager addFavSongId:stringID withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
     }];
+    
+    if(self.favoriteButton.isSelected){
+        [self.favoriteButton setSelected:NO];
+        
+    }
+    else {
+        [self.favoriteButton setSelected:YES];
+    }
     
 }
 
