@@ -17,10 +17,12 @@
 
 - (void)viewDidLoad {
     [[NSNotificationCenter defaultCenter] addObserverForName:@"homeNotification" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
-        NSString * storyboardName = @"SpotifyLoginStoryBoard";
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
-        [self presentViewController:vc animated:YES completion:nil];
+//        NSString * storyboardName = @"SpotifyLoginStoryBoard";
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+//        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+//        [self presentViewController:vc animated:YES completion:nil];
+        //[self performSegueWithIdentifier:@"homesegue" sender:self];
+
     }];
 }
 
