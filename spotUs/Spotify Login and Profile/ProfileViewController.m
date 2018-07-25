@@ -29,6 +29,28 @@
 
 @implementation ProfileViewController
 
+
+- (IBAction)onTapEdit:(id)sender {
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"Edit Your City"
+                                                                              message: @""
+                                                                       preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"name";
+        textField.textColor = [UIColor blackColor];
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        textField.borderStyle = UITextBorderStyleRoundedRect;
+    }];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSArray * textfields = alertController.textFields;
+        UITextField * namefield = textfields[0];
+        UITextField * passwordfiled = textfields[1];
+        NSLog(@"%@:%@",namefield.text,passwordfiled.text);
+        
+    }]];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

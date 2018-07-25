@@ -11,6 +11,7 @@
 #import "ProfileViewController.h"
 #import "City.h"
 #import "ParentViewController.h"
+#import "QueryManager.h"
 
 @interface SignUpViewController () <UIPickerViewDelegate,UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UIPickerView *cityPicker;
@@ -38,18 +39,8 @@
     self.cityPicker.dataSource = self;
     self.cityPicker.delegate = self;
     
-    PFQuery *query = [PFQuery queryWithClassName:@"City"];
-    [query includeKey:@"name"];
-    [query includeKey:@"tracks"];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        
-        self.cities = objects;
-        [self.cityPicker reloadAllComponents];
-    }];
-    
-    
-
+    self.cities = QueryManager.citiesarray;
+    [self.cityPicker reloadAllComponents];
 }
 
 - (void)didReceiveMemoryWarning {
