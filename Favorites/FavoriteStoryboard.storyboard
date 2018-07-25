@@ -13,7 +13,7 @@
         <!--Favorite View Controller-->
         <scene sceneID="zEs-J2-qBU">
             <objects>
-                <viewController storyboardIdentifier="favs" id="60Q-cZ-j1f" customClass="FavoriteViewController" sceneMemberID="viewController">
+                <viewController id="60Q-cZ-j1f" customClass="FavoriteViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cAE-eQ-oSB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,7 +164,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Kca-Ri-wPU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rf5-QU-jl9" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="favs" automaticallyAdjustsScrollViewInsets="NO" id="rf5-QU-jl9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="loo-D3-WKG">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
