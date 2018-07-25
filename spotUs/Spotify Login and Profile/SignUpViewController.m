@@ -29,7 +29,7 @@
 @implementation SignUpViewController
 - (IBAction)onTapConfirm:(id)sender {
     
-    [self registerUser];
+    [self saveUserCity];
 }
 
 - (void)viewDidLoad {
@@ -48,7 +48,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)registerUser {
+- (void)saveUserCity {
     // initialize a user object
     PFUser *currUser = [PFUser currentUser];
     //query the city object
@@ -63,6 +63,11 @@
         } else {
             NSLog(@"User saved city successfully");
             [self getUserTopTracks];
+            if (self.signup == YES){
+                [self performSegueWithIdentifier:@"create" sender:self];
+            } else {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
         }
     }];
 }
@@ -112,9 +117,8 @@
         [self.selectedCity saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if(succeeded){
                 NSLog(@"User tracks sucessfully added");
-                [self performSegueWithIdentifier:@"create" sender:self];
             } else{
-                NSLog(@"Error queueing songs: %@", error.localizedDescription);
+                NSLog(@"Error adding user top tracks : %@", error.localizedDescription);
             }
         }];
     }] resume];
@@ -125,15 +129,16 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    /*UINavigationController *navController = (UINavigationController*)[segue destinationViewController];
-    ProfileViewController *profileVC = (ProfileViewController *)navController.topViewController;
-    profileVC.player = self.player;
-    profileVC.auth = self.auth;
-    profileVC.currentUser = self.currentUser;*/
-    ParentViewController *parentVC = (ParentViewController *)[segue destinationViewController];
-    parentVC.auth = self.auth;
-    parentVC.player = self.player;
-    
+    if ([[segue destinationViewController] isKindOfClass:[ParentViewController class]]){
+        ParentViewController *parentVC = (ParentViewController *)[segue destinationViewController];
+        parentVC.auth = self.auth;
+        parentVC.player = self.player;
+    } else if ([[segue destinationViewController] isKindOfClass:[ProfileViewController class]]){
+        ProfileViewController *profileVC = (ProfileViewController *)[segue destinationViewController];
+        profileVC.auth = self.auth;
+        profileVC.player = self.player;
+        profileVC.currentUser = self.currentUser;
+    }
 }
 
 

@@ -134,6 +134,9 @@
     if ([[segue destinationViewController] isKindOfClass:[SignUpViewController class]]){
         SignUpViewController *signupVC = [segue destinationViewController];
         signupVC.msgLabel.text = @"SpotUs is currently only available in the cities below. Edit your city below and click confirm to save your changes.";
+        signupVC.auth = self.auth;
+        signupVC.player = self.player;
+        signupVC.currentUser = self.currentUser;
     }
     else if ([[segue destinationViewController] isKindOfClass:[PhotoMapViewController class]]){
         PhotoMapViewController *mapVC = (PhotoMapViewController *)[segue destinationViewController];

@@ -186,6 +186,7 @@
         signupVC.auth = self.auth;
         signupVC.currentUser = self.currentUser;
         signupVC.msgLabel.text = @"SpotUs is currently only available in the cities below. Choose your city and then click confirm to finish setting up your account!";
+        signupVC.signup = YES;
     }
 }
 
