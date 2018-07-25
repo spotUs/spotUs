@@ -172,7 +172,7 @@
     self.timeLeftLabel.text = [self stringFromTimeInterval:self.player.metadata.currentTrack.duration-self.musicSlider.value];
     [self.repeatButton setSelected:self.player.playbackState.isRepeating];
     [self.pauseButton setSelected:!self.player.playbackState.isPlaying];
-    
+
     [QueryManager fetchFavs:^(NSArray * _Nonnull favs, NSError * _Nullable error) {
         NSString *stringID = [self.player.metadata.currentTrack.uri substringFromIndex:14];
         if([favs containsObject:stringID]) {
