@@ -171,6 +171,7 @@
     self.timeLeftLabel.text = [self stringFromTimeInterval:self.player.metadata.currentTrack.duration-self.musicSlider.value];
     [self.repeatButton setSelected:self.player.playbackState.isRepeating];
     [self.pauseButton setSelected:!self.player.playbackState.isPlaying];
+    
 }
 
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval {
