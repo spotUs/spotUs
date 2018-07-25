@@ -26,6 +26,12 @@
 @end
 
 @implementation TinyPlayerViewController
+- (IBAction)onTap:(id)sender {
+    
+    if(self.player.playbackState.isPlaying){
+    [self performSegueWithIdentifier:@"expandplayer" sender:self];
+    }
+}
 
 - (IBAction)onTapHomeBtn:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"homeNotification"
@@ -46,6 +52,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.pauseButton setEnabled:NO];
+    
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveTestNotification:)
                                                  name:@"Chose Playlist"
@@ -97,6 +107,7 @@
 }
 
 -(void)startMusic{
+    [self.pauseButton setEnabled:YES];
     NSString *song = self.citySongIDs[self.currentSongIndex];
     self.currentSongIndex++;
     NSString *playRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song];
