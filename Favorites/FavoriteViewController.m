@@ -117,6 +117,7 @@
     
     FavoriteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"fav" forIndexPath:indexPath];
     [cell updateTrackCellwithData:self.dataArray[indexPath.row]];
+    NSLog(@"it's been updated");
     return cell;
 }
 
