@@ -19,11 +19,6 @@
 @property (strong, nonatomic) NSArray<NSString*> *mostPlayedIDs;
 @property (strong, nonatomic) City *selectedCity;
 
-
-
-
-
-
 @end
 
 @implementation SignUpViewController
@@ -40,13 +35,8 @@
     self.cityPicker.delegate = self;
     self.cities = QueryManager.citiesarray;
     [self.cityPicker reloadAllComponents];
-    self.msgLabel.text = self.msg;
-}
-
-- (void)setPickerViewIndex {
+    //if editing city get index of current city
     if (self.signup == NO){
-        NSLog(@"%@",self.userCity);
-        NSLog(@"%@",self.cities);
         NSUInteger index = [self.cities indexOfObjectWithOptions:NSEnumerationConcurrent passingTest:^BOOL(City * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSLog(@"obj: %@",obj.name);
             NSLog(@"usercity: %@",self.userCity.name);
@@ -56,14 +46,14 @@
                 return NO;
             }
         }];
-        NSLog(@"index: %d",index);
+        //check to make sure in bounds
         if (index < [self.cityPicker numberOfRowsInComponent:0]){
-            NSLog(@"number of rows: %d",[self.cityPicker numberOfRowsInComponent:0]);
-            //[self.cityPicker selectedRowInComponent:index];
-            //[self.cityPicker selectRow:index inComponent:0 animated:YES];
+            [self.cityPicker selectRow:index inComponent:0 animated:YES];
         }
     }
+    self.msgLabel.text = self.msg;
 }
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -107,7 +97,6 @@
 
 // The data to return for the row and component (column) that's being passed in
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    [self setPickerViewIndex];
     return self.cities[row].name;
 }
 

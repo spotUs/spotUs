@@ -22,5 +22,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *msgLabel;
 @property (nonatomic) BOOL signup;
 @property (nonatomic, strong) City *userCity;
-@property (nonatomic) int index;
 @end
