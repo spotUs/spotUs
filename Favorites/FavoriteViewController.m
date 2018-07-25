@@ -42,7 +42,7 @@
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
     [QueryManager fetchFavs:^(NSArray *favs, NSError *error) {
-        NSLog(@"FAVS %@", favs);
+        //NSLog(@"FAVS %@", favs);
         self.favorites = favs;
         NSDictionary *emptyDic = [NSDictionary dictionary];
         NSMutableArray *mutableStorage = [NSMutableArray array];
@@ -81,12 +81,12 @@
         }
         else {
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            NSLog(@"INDEX %lu", (unsigned long)songIndex);
+            //NSLog(@"INDEX %lu", (unsigned long)songIndex);
             self.dataArray[songIndex] = dataDictionary;
             //self.filteredDataArray = self.dataArray;
             [self.favoriteCollectionView reloadData];
             [self.favoriteTableView reloadData];
-            NSLog(@"it's been fetched");
+           // NSLog(@"it's been fetched");
             
         }
     }];
@@ -102,7 +102,7 @@
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSLog(@"COUNTER %lu", (unsigned long)self.favorites.count);
+    //NSLog(@"COUNTER %lu", (unsigned long)self.favorites.count);
     return self.dataArray.count;
 }
 
@@ -120,7 +120,7 @@
     
     FavoriteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"fav" forIndexPath:indexPath];
     [cell updateTrackCellwithData:self.dataArray[indexPath.row]];
-    NSLog(@"it's been updated");
+    //NSLog(@"it's been updated");
     return cell;
 }
 

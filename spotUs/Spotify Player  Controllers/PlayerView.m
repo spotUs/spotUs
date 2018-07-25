@@ -57,13 +57,14 @@
     
     
     if(self.player.playbackState.position < 5){
-    
-    
-    self.currentSongIndex = MAX(self.currentSongIndex-3, 0);
+        
+        
+        self.currentSongIndex = MAX(self.currentSongIndex-3, 0);
     }
     else{
+        
         self.currentSongIndex = MAX(self.currentSongIndex-2, 0);
-
+        
     }
     
     NSString *song = self.citySongIDs[self.currentSongIndex];
