@@ -17,7 +17,6 @@
 @interface ProfileViewController () 
 @property (weak, nonatomic) IBOutlet UILabel *hometownLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
-@property (weak, nonatomic) IBOutlet UIButton *nowPlayingButton;
 @property (strong, nonatomic) City *playingCity;
 @property (weak, nonatomic) IBOutlet UIImageView *blurredImage;
 @property (weak, nonatomic) IBOutlet UIView *favoriteView;
