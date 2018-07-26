@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *albumTitleLabel;
 @property BOOL isSeeking;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
+@property (weak, nonatomic) IBOutlet UIImageView *spotUsLogo;
 
 @property int currentSongIndex;
 
@@ -107,6 +108,7 @@
 }
 
 -(void)startMusic{
+    [self.spotUsLogo setHidden:YES];
     [self.pauseButton setEnabled:YES];
     NSString *song = self.citySongIDs[self.currentSongIndex];
     self.currentSongIndex++;
