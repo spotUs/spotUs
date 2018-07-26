@@ -65,14 +65,12 @@ typedef enum : NSUInteger {
 	 * reached the end.
 	 *
 	 * \see SpPlaybackSkipToNext
-	 * \deprecated Use SPPlaybackNotifyMetadataChanged instead.
 	 */
 	SPPlaybackNotifyNext,
 
 	/**
 	 * \brief Playback as skipped to the previous track
 	 * \see SpPlaybackSkipToPrev
-	 * \deprecated Use SPPlaybackNotifyMetadataChanged instead.
 	 */
 	SPPlaybackNotifyPrev,
 
@@ -179,7 +177,6 @@ typedef enum : NSUInteger {
 	 * an informational event that does not require action, but may be used to
 	 * update the UI display, such as whether the user is playing from a preset.
 	 *
-	 * \deprecated Use SPPlaybackNotifyMetadataChanged instead.
 	 */
 	SPPlaybackNotifyContextChanged,
 

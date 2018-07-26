@@ -7,10 +7,15 @@
 //
 
 #import "QueryManager.h"
+#import "Parse.h"
 
 @implementation QueryManager
 static NSDictionary *_citiesdict = nil;
+static NSDictionary *_citiesIDdict = nil;
+
 static NSArray *_citiesarray = nil;
+static PFUser *_currentParseUser = nil;
+
 
 + (NSDictionary *)citiesdict{
     if (_citiesdict == nil) {
@@ -22,6 +27,19 @@ static NSArray *_citiesarray = nil;
 + (void)setCitiesdict:(NSDictionary *)newcitiesdict{
     if (_citiesdict != newcitiesdict){
         _citiesdict = [newcitiesdict copy];
+    }
+}
+
++ (NSDictionary *)citiesIDdict{
+    if (_citiesIDdict == nil) {
+        _citiesIDdict = [NSDictionary dictionary];
+    }
+    return _citiesdict;
+}
+
++ (void)setCitiesIDdict:(NSDictionary *)newcitiesdict{
+    if (_citiesIDdict != newcitiesdict){
+        _citiesIDdict = [newcitiesdict copy];
     }
 }
 
@@ -38,6 +56,19 @@ static NSArray *_citiesarray = nil;
     }
 }
 
++ (PFUser *)currentParseUser{
+    if (_currentParseUser == nil) {
+        _currentParseUser = [PFUser currentUser];
+    }
+    return _currentParseUser;
+}
+
++ (void)setCurrentParseUser:(PFUser *)newParseUser{
+    if (_currentParseUser != newParseUser){
+        _currentParseUser = [newParseUser copy];
+    }
+}
+
 + (void) fetchCities:(void(^)(NSArray *cities, NSError *error))completion {
     PFQuery *query = [PFQuery queryWithClassName:@"City"];
     query.limit = 20;
@@ -45,6 +76,8 @@ static NSArray *_citiesarray = nil;
     [query includeKey:@"lat"];
     [query includeKey:@"name"];
     [query includeKey:@"tracks"];
+    [query includeKey:@"imageName"];
+
     [query orderByAscending:@"name"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *cities, NSError *error) {
@@ -61,6 +94,14 @@ static NSArray *_citiesarray = nil;
 + (City *) getCityFromName: (NSString *)name {
     return [_citiesdict objectForKey:name];
 }
+
++ (City *)getCityFromID:(NSString *)objectID{
+    return [_citiesIDdict objectForKey:objectID];
+}
+
+
+
+
 
 + (void) addFavSongId: (NSString *)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     PFUser *currUser = [PFUser currentUser];

@@ -15,7 +15,7 @@
 #import "SignUpViewController.h"
 #import "PlaylistViewController.h"
 #import "FavoriteViewController.h"
-
+#import "QueryManager.h"
 @interface ProfileViewController () 
 @property (weak, nonatomic) IBOutlet UILabel *hometownLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -51,34 +51,29 @@
     self.navigationItem.title = self.currentUser.displayName;
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
     self.profileImageView.clipsToBounds = YES;
-    self.blurredImage.image = [self blurredImageWithImage:self.blurredImage.image];
 
     
     
     NSURL *profileURL = self.currentUser.largestImage.imageURL;
     [self.profileImageView setImageWithURL:profileURL];
     
-    NSLog(@"usercity: %@",[PFUser currentUser][@"city"]);
-    [[PFUser currentUser] fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        
-        PFUser *currentUser = (PFUser *)object;
-        
-        City *hometown = currentUser[@"city"];
-        
-        [hometown fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-            City *fullHometown  = (City*)object;
-            self.userCity = fullHometown;
-            self.hometownLabel.attributedText=[[NSAttributedString alloc]
-                                               initWithString:fullHometown.name
-                                               attributes:@{
-                                                            NSStrokeWidthAttributeName: @-3.0,
-                                                            NSStrokeColorAttributeName:[UIColor blackColor],
-                                                            NSForegroundColorAttributeName:[UIColor whiteColor]
-                                                            }
-                                               ];
-        }];
-        
-    }];
+    PFUser *currentUser = QueryManager.currentParseUser;
+    
+    City *blankCity = currentUser[@"city"];
+    
+    self.userCity = (City* )[QueryManager getCityFromID:blankCity.objectId];
+    
+    
+    self.hometownLabel.attributedText=[[NSAttributedString alloc]
+                                       initWithString:self.userCity.name
+                                       attributes:@{
+                                                    NSStrokeWidthAttributeName: @-3.0,
+                                                    NSStrokeColorAttributeName:[UIColor blackColor],
+                                                    NSForegroundColorAttributeName:[UIColor whiteColor]
+                                                    }
+                                       ];
+    
+    self.blurredImage.image = [self blurredImageWithImage:[UIImage imageNamed:self.userCity[@"imageName"]]];
     
     
     // Do any additional setup after loading the view.

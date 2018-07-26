@@ -94,6 +94,6 @@ __deprecated_msg("Use `SFSafariViewController` or a `WKWebView` to present the `
 
  @param callback Called when cookies are cleared.
  */
-- (void) clearCookies:(void (^)())callback;
+- (void) clearCookies:(void (^)(void))callback;
 
 @end

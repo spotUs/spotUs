@@ -12,6 +12,7 @@
 #import "SignUpViewController.h"
 #import "ProfileViewController.h"
 #import "ParentViewController.h"
+#import "QueryManager.h"
 
 @interface GifViewController () <UIApplicationDelegate,SPTAudioStreamingDelegate>
 
@@ -135,6 +136,9 @@
                     [PFUser logInWithUsernameInBackground:username password:@"spotify" block:^(PFUser * user, NSError *  error) {
                         if (error != nil) {
                             NSLog(@"User log in failed: %@", error.localizedDescription);
+                            [[PFUser currentUser] fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+                                QueryManager.currentParseUser = (PFUser *)object;
+                            }];
                         } else {
                             NSLog(@"User logged in successfully");
                             [self performSegueWithIdentifier:@"loginsegue" sender:nil];
