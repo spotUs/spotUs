@@ -46,6 +46,7 @@
     self.collectionView.dataSource = self;
     self.searchBar.delegate = self;
     
+    
     //set the size of the cells
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*) self.collectionView.collectionViewLayout;
     layout.minimumInteritemSpacing = 5;
@@ -105,6 +106,8 @@
     PlayListCollectionHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header" forIndexPath:indexPath];
     
     header.cityLabel.text = self.city.name;
+    header.image.image = [UIImage imageNamed:self.city[@"imageName"]];
+
     
     return header;
     

@@ -28,13 +28,23 @@
         configuration.server = @"https://spotusapp.herokuapp.com/parse";
     }];
     [Parse initializeWithConfiguration:config];
+    
     [QueryManager fetchCities:^(NSArray *cities, NSError *error) {
         QueryManager.citiesarray = cities;
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        NSMutableDictionary *idDict = [NSMutableDictionary dictionary];
+        
+
         for (int i = 0; i < cities.count; i++){
+            City *city = cities[i];
+            
             [dict setObject:cities[i] forKey:cities[i][@"name"]];
+            [idDict setObject:cities[i] forKey:city.objectId];
+
         }
         QueryManager.citiesdict = dict;
+        QueryManager.citiesIDdict = idDict;
+
     }];
     return YES;
 }

@@ -108,6 +108,8 @@
 }
 
 -(void)startMusic{
+    
+    
     [self.spotUsLogo setHidden:YES];
     [self.pauseButton setEnabled:YES];
     NSString *song = self.citySongIDs[self.currentSongIndex];
