@@ -44,16 +44,7 @@
     
     self.userCity = (City* )[QueryManager getCityFromID:blankCity.objectId];
     
-    
-    self.hometownLabel.attributedText=[[NSAttributedString alloc]
-                                       initWithString:self.userCity.name
-                                       attributes:@{
-                                                    NSStrokeWidthAttributeName: @-3.0,
-                                                    NSStrokeColorAttributeName:[UIColor blackColor],
-                                                    NSForegroundColorAttributeName:[UIColor whiteColor]
-                                                    }
-           
-                                       ];
+    self.hometownLabel.text = [self.userCity.name uppercaseString];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:profileURL];
     

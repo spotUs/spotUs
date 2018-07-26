@@ -40,6 +40,13 @@
 	<string>Program requires GPS to locate your current city</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Program requires GPS to locate your current city</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>HindVadodara-Bold.ttf</string>
+		<string>HindVadodara-Light.ttf</string>
+		<string>HindVadodara-Medium.ttf</string>
+		<string>HindVadodara-Regular.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
