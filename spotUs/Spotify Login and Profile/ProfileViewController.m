@@ -20,8 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *hometownLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *blurredImage;
-@property (weak, nonatomic) IBOutlet UIView *favoriteView;
-@property (weak, nonatomic) IBOutlet UIView *exploreView;
 @property (strong, nonatomic) City *userCity;
 
 @end
@@ -30,23 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
- 
- 
-    self.favoriteView.layer.borderColor = [UIColor colorWithRed:1.00 green:0.38 blue:0.58 alpha:1.0].CGColor;
-    self.favoriteView.layer.borderWidth = 3.0;
-    [self.favoriteView.layer setShadowOffset:CGSizeMake(2, 2)];
-    [self.favoriteView.layer setShadowColor:[[UIColor blackColor] CGColor]];
-    [self.favoriteView.layer setShadowOpacity:0.3];
-    
-
-    
-    self.exploreView.layer.borderColor = [UIColor colorWithRed:0.20 green:0.64 blue:0.00 alpha:1.0].CGColor;
-    self.exploreView.layer.borderWidth = 3.0;
-    [self.exploreView.layer setShadowOffset:CGSizeMake(2, 2)];
-    [self.exploreView.layer setShadowColor:[[UIColor blackColor] CGColor]];
-    [self.exploreView.layer setShadowOpacity:.3];
-    
     
     self.navigationItem.title = self.currentUser.displayName;
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
@@ -71,10 +52,19 @@
                                                     NSStrokeColorAttributeName:[UIColor blackColor],
                                                     NSForegroundColorAttributeName:[UIColor whiteColor]
                                                     }
+           
                                        ];
     
-    self.blurredImage.image = [self blurredImageWithImage:[UIImage imageNamed:self.userCity[@"imageName"]]];
+   /*  [self.blurredImage setImageWithURL:profileURL];
+    [seself.blurredImage
+    NSURLRequest *request = [NSURLRequest requestWithURL:profileURL];
     
+    [self.blurredImage setImageWithURLRequest:request placeholderImage:self.blurredImage.image success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+        self.blurredImage.image = [self blurredImageWithImage: self.blurredImage.image];
+
+    } failure:nil];
+
+    */
     
     // Do any additional setup after loading the view.
 }
@@ -101,7 +91,7 @@
     //  Setting up Gaussian Blur
     CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
     [filter setValue:inputImage forKey:kCIInputImageKey];
-    [filter setValue:[NSNumber numberWithFloat:6.0f] forKey:@"inputRadius"];
+   [filter setValue:[NSNumber numberWithFloat:15.0f] forKey:@"inputRadius"];
     CIImage *result = [filter valueForKey:kCIOutputImageKey];
     
     /*  CIGaussianBlur has a tendency to shrink the image a little, this ensures it matches

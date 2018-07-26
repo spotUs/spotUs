@@ -99,10 +99,6 @@ static PFUser *_currentParseUser = nil;
     return [_citiesIDdict objectForKey:objectID];
 }
 
-
-
-
-
 + (void) addFavSongId: (NSString *)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     PFUser *currUser = [PFUser currentUser];
     [self fetchFavs:^(NSArray *favs, NSError *error) {

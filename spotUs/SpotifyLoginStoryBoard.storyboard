@@ -238,86 +238,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Rn-cU-F4i">
-                                <rect key="frame" x="24" y="359" width="0.0" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5L-FM-bmk">
-                                <rect key="frame" x="31" y="609" width="0.0" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fod-TP-Nr1">
-                                <rect key="frame" x="0.0" y="64" width="375" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="miami" translatesAutoresizingMaskIntoConstraints="NO" id="dAG-Xl-ONJ">
-                                <rect key="frame" x="0.0" y="36" width="375" height="167"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kvL-xe-bm4">
+                                <rect key="frame" x="0.0" y="64" width="375" height="525"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hometown" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzc-ku-SIA">
-                                <rect key="frame" x="31" y="82" width="322" height="28"/>
+                                <rect key="frame" x="37" y="116" width="322" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MmQ-cn-pM6">
-                                <rect key="frame" x="0.0" y="201" width="191" height="388"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNP-4Z-QbR">
+                                <rect key="frame" x="51" y="272" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="like (1)" translatesAutoresizingMaskIntoConstraints="NO" id="cX5-NQ-HR8">
-                                        <rect key="frame" x="47" y="144" width="96" height="96"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNP-4Z-QbR">
-                                        <rect key="frame" x="0.0" y="0.0" width="191" height="388"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <segue destination="doH-Xt-ZKf" kind="show" id="wUC-mq-zGa"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ivq-bz-geL">
-                                <rect key="frame" x="192" y="201" width="183" height="388"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="internet" translatesAutoresizingMaskIntoConstraints="NO" id="hPM-rf-9gb">
-                                        <rect key="frame" x="43" y="144" width="96" height="96"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkT-cv-rlC">
-                                        <rect key="frame" x="-6" y="-24" width="189" height="387"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal">
-                                            <color key="titleColor" red="0.20000000000000001" green="0.64313725490196072" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="NH1-rC-6tQ" kind="show" id="gQn-Dh-zH8"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2m-ff-JL2">
-                                <rect key="frame" x="126" y="137" width="132" height="132"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7V-Rj-CkU">
-                                <rect key="frame" x="-8" y="64" width="389" height="139"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="like"/>
                                 <connections>
-                                    <segue destination="XYl-M6-THt" kind="show" id="ec3-4W-Z55"/>
+                                    <segue destination="doH-Xt-ZKf" kind="show" id="wUC-mq-zGa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkT-cv-rlC">
+                                <rect key="frame" x="275" y="270" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="worldwide">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.64313725490196072" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NH1-rC-6tQ" kind="show" id="gQn-Dh-zH8"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OKskyline" translatesAutoresizingMaskIntoConstraints="NO" id="muF-28-aZ1">
+                                <rect key="frame" x="-8" y="413" width="383" height="178"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2m-ff-JL2">
+                                <rect key="frame" x="121" y="226" width="132" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2sJ-ND-GRw"/>
                     </view>
                     <navigationItem key="navigationItem" id="PwE-4o-kaL">
@@ -335,36 +294,34 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="blurredImage" destination="dAG-Xl-ONJ" id="dLP-kU-PwB"/>
-                        <outlet property="exploreView" destination="ivq-bz-geL" id="iz6-MM-Lol"/>
-                        <outlet property="favoriteView" destination="MmQ-cn-pM6" id="jd9-ue-ZGR"/>
+                        <outlet property="blurredImage" destination="kvL-xe-bm4" id="PAT-dM-tVD"/>
                         <outlet property="hometownLabel" destination="Xzc-ku-SIA" id="016-tF-YQ9"/>
                         <outlet property="profileImageView" destination="S2m-ff-JL2" id="EtJ-UU-asQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyn-sf-e0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1022" y="-425"/>
+            <point key="canvasLocation" x="1156" y="-425.03748125937034"/>
         </scene>
         <!--SignUpViewController-->
         <scene sceneID="OzT-d9-2xk">
             <objects>
                 <viewController title="SignUpViewController" id="jNm-aI-Duq" customClass="SignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gzY-qE-40N">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpotUs is currently only available in the cities below. Click confirm with a selected city to finish setting up your account!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjj-3h-xQh">
-                                <rect key="frame" x="50" y="70" width="275" height="81.5"/>
+                                <rect key="frame" x="50" y="114" width="275" height="81.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-xv-1Ei">
-                                <rect key="frame" x="0.0" y="182" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="226" width="375" height="216"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMe-SN-55C">
-                                <rect key="frame" x="160" y="417.5" width="55" height="30"/>
+                                <rect key="frame" x="160" y="461.5" width="55" height="30"/>
                                 <state key="normal" title="Confirm"/>
                                 <connections>
                                     <action selector="onTapConfirm:" destination="jNm-aI-Duq" eventType="touchUpInside" id="hkc-mv-SdC"/>
@@ -966,12 +923,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="OKskyline" width="350" height="160"/>
         <image name="backward" width="512" height="512"/>
         <image name="fast-forward-2" width="512" height="512"/>
         <image name="grayfavorite" width="256" height="256"/>
         <image name="home" width="64" height="64"/>
-        <image name="internet" width="128" height="128"/>
-        <image name="like (1)" width="128" height="128"/>
+        <image name="like" width="64" height="64"/>
         <image name="miami" width="550" height="217"/>
         <image name="pause-2" width="512" height="512"/>
         <image name="play-2" width="512" height="512"/>
@@ -981,10 +938,11 @@
         <image name="screen_shot_2018_07_18_at_4_11_56_pm_1" width="256" height="256"/>
         <image name="spotUsSlogan" width="868" height="726"/>
         <image name="spotifyWhite" width="2400" height="2400"/>
+        <image name="worldwide" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nbH-iS-X6V"/>
+        <segue reference="8a5-vN-qGZ"/>
         <segue reference="Is9-90-9Ke"/>
-        <segue reference="hrC-93-B8F"/>
+        <segue reference="U8D-uR-5nx"/>
     </inferredMetricsTieBreakers>
 </document>
