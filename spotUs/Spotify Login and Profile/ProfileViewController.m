@@ -55,16 +55,16 @@
            
                                        ];
     
-   /*  [self.blurredImage setImageWithURL:profileURL];
-    [seself.blurredImage
     NSURLRequest *request = [NSURLRequest requestWithURL:profileURL];
     
-    [self.blurredImage setImageWithURLRequest:request placeholderImage:self.blurredImage.image success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
-        self.blurredImage.image = [self blurredImageWithImage: self.blurredImage.image];
+    [self.blurredImage setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+        
+        
+        self.blurredImage.image = [self blurredImageWithImage: image];
 
     } failure:nil];
 
-    */
+    
     
     // Do any additional setup after loading the view.
 }
