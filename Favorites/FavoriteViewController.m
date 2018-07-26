@@ -56,6 +56,11 @@
         }
 
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveTestNotification:)
+                                                 name:@"Update Favorites"
+                                               object:nil];
 
     
 }
@@ -138,6 +143,34 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.favorites.count;
 }
+
+
+- (void) receiveTestNotification:(NSNotification *) notification{
+    if ([[notification name] isEqualToString:@"Update Favorites"]){
+        [QueryManager fetchFavs:^(NSArray *favs, NSError *error) {
+            //NSLog(@"FAVS %@", favs);
+            self.favorites = favs;
+            NSDictionary *emptyDic = [NSDictionary dictionary];
+            NSMutableArray *mutableStorage = [NSMutableArray array];
+            for (int i = 0; i < self.favorites.count; i++) {
+                [mutableStorage addObject:emptyDic];
+            }
+            self.dataArray = [NSMutableArray arrayWithArray:mutableStorage];
+            for (NSUInteger i = 0; i < self.favorites.count; i++){
+                
+                [self fetchTrackData:i];
+            }
+            
+        }];
+        
+        
+    }
+   
+
+    
+}
+
+
 
 #pragma mark - Navigation
 

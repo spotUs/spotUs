@@ -197,6 +197,9 @@
     
     NSString *stringID = [self.player.metadata.currentTrack.uri substringFromIndex:14];
     [QueryManager addFavSongId:stringID withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Update Favorites"
+                                                            object:self];
     }];
     
     if(self.favoriteButton.isSelected){
