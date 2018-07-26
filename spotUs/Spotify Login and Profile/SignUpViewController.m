@@ -108,7 +108,7 @@
     [request setHTTPMethod:@"GET"];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSDictionary *datadict = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
+        NSDictionary *datadict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
         NSArray *tracksArray = datadict[@"items"]; //iterate through the array to get the id of each song
         NSMutableArray<NSString*> *songIDs = [NSMutableArray new];
         for(NSDictionary *dictionary in tracksArray){
