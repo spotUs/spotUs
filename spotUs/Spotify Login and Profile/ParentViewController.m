@@ -12,17 +12,22 @@
 
 @interface ParentViewController ()
 @property (weak, nonatomic) IBOutlet UIView *container;
+@property (strong, nonatomic) UINavigationController *navController;
 @end
 @implementation ParentViewController
 
 - (void)viewDidLoad {
     [[NSNotificationCenter defaultCenter] addObserverForName:@"homeNotification" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
-//        NSString * storyboardName = @"SpotifyLoginStoryBoard";
-//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-//        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
-//        [self presentViewController:vc animated:YES completion:nil];
-        //[self performSegueWithIdentifier:@"homesegue" sender:self];
-
+        //remove current navController top child VCs from stack
+        [self.navController willMoveToParentViewController:nil];
+        [self.navController.view removeFromSuperview];
+        [self.navController removeFromParentViewController];
+        //clear the navController's hierarchy history of stack VCs
+        [self.navController popToRootViewControllerAnimated:YES];
+        //add the navController back to the container
+        [self addChildViewController:self.navController];
+        [self.container addSubview:self.navController.view];
+        [self.navController didMoveToParentViewController:self];
     }];
 }
 
@@ -35,11 +40,11 @@
     
     
     if ([[segue destinationViewController] isKindOfClass:[UINavigationController class]]){
-        UINavigationController *navController = (UINavigationController *)[segue destinationViewController];
+        self.navController = (UINavigationController *)[segue destinationViewController];
         
-        if([navController.topViewController isKindOfClass:ProfileViewController.class]){
+        if([self.navController.topViewController isKindOfClass:ProfileViewController.class]){
             
-            ProfileViewController *profileVC = (ProfileViewController*)navController.topViewController;
+            ProfileViewController *profileVC = (ProfileViewController*)self.navController.topViewController;
             profileVC.auth = self.auth;
             profileVC.player = self.player;
             profileVC.currentUser = self.currentUser;
