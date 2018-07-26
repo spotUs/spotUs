@@ -351,20 +351,20 @@
             <objects>
                 <viewController title="SignUpViewController" id="jNm-aI-Duq" customClass="SignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gzY-qE-40N">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpotUs is currently only available in the cities below. Click confirm with a selected city to finish setting up your account!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjj-3h-xQh">
-                                <rect key="frame" x="50" y="114" width="275" height="81.5"/>
+                                <rect key="frame" x="50" y="70" width="275" height="81.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-xv-1Ei">
-                                <rect key="frame" x="0.0" y="226" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="182" width="375" height="216"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMe-SN-55C">
-                                <rect key="frame" x="160" y="461.5" width="55" height="30"/>
+                                <rect key="frame" x="160" y="417.5" width="55" height="30"/>
                                 <state key="normal" title="Confirm"/>
                                 <connections>
                                     <action selector="onTapConfirm:" destination="jNm-aI-Duq" eventType="touchUpInside" id="hkc-mv-SdC"/>
@@ -436,7 +436,7 @@
                                     <constraint firstAttribute="height" constant="60" id="Mfh-JN-0ql"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="fY4-ON-nYx" kind="embed" id="l3k-0d-fDR"/>
+                                    <segue destination="fY4-ON-nYx" kind="embed" identifier="child" id="l3k-0d-fDR"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHA-Y8-rzg">
@@ -458,6 +458,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B4q-6n-HcI"/>
                     </view>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="container" destination="XHA-Y8-rzg" id="Lrf-Yp-iLU"/>
                     </connections>
@@ -908,7 +909,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fav" rowHeight="163" id="6ns-JB-Lse" customClass="FavoriteTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fav" rowHeight="163" id="6ns-JB-Lse" customClass="FavoriteTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="163"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6ns-JB-Lse" id="bxg-43-bJz">
@@ -971,7 +972,7 @@
         <image name="home" width="64" height="64"/>
         <image name="internet" width="128" height="128"/>
         <image name="like (1)" width="128" height="128"/>
-        <image name="miami" width="1200" height="540"/>
+        <image name="miami" width="550" height="217"/>
         <image name="pause-2" width="512" height="512"/>
         <image name="play-2" width="512" height="512"/>
         <image name="redLike" width="64" height="64"/>
@@ -982,8 +983,8 @@
         <image name="spotifyWhite" width="2400" height="2400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ec3-4W-Z55"/>
-        <segue reference="KW6-86-RT6"/>
-        <segue reference="U8D-uR-5nx"/>
+        <segue reference="nbH-iS-X6V"/>
+        <segue reference="Is9-90-9Ke"/>
+        <segue reference="hrC-93-B8F"/>
     </inferredMetricsTieBreakers>
 </document>

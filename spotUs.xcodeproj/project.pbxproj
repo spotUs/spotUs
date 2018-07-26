@@ -38,7 +38,6 @@
 		3E7A9A6221067EED007CB62B /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A9A6121067EED007CB62B /* FavoriteViewController.m */; };
 		3E7A9A6821067F9E007CB62B /* FavoriteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A9A6721067F9E007CB62B /* FavoriteCollectionViewCell.m */; };
 		3E7C233E2107EA7900E1C749 /* FavoriteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C233D2107EA7900E1C749 /* FavoriteTableViewCell.m */; };
-		3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */; };
 		446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */; };
 		6C0A49CC21028A4D0042C063 /* QueryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A49CB21028A4D0042C063 /* QueryManager.m */; };
 		6C0A4A1A21067E770042C063 /* ParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A4A1921067E770042C063 /* ParentViewController.m */; };
@@ -124,7 +123,6 @@
 		3E7A9A6721067F9E007CB62B /* FavoriteCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoriteCollectionViewCell.m; sourceTree = "<group>"; };
 		3E7C233C2107EA7900E1C749 /* FavoriteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoriteTableViewCell.h; sourceTree = "<group>"; };
 		3E7C233D2107EA7900E1C749 /* FavoriteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoriteTableViewCell.m; sourceTree = "<group>"; };
-		3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIStoryboard.storyboard; sourceTree = "<group>"; };
 		6C0A49CA21028A4D0042C063 /* QueryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QueryManager.h; sourceTree = "<group>"; };
 		6C0A49CB21028A4D0042C063 /* QueryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueryManager.m; sourceTree = "<group>"; };
 		6C0A4A1821067E770042C063 /* ParentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParentViewController.h; sourceTree = "<group>"; };
@@ -359,7 +357,6 @@
 				3E3953AB20EFE6F800D0FF7D /* AppDelegate.h */,
 				3E3953AC20EFE6F800D0FF7D /* AppDelegate.m */,
 				3E3953B120EFE6F800D0FF7D /* Main.storyboard */,
-				3E9A573420FD30CC006AECC0 /* UIStoryboard.storyboard */,
 				3E3953B420EFE6F800D0FF7D /* Assets.xcassets */,
 				3E3953B620EFE6F800D0FF7D /* LaunchScreen.storyboard */,
 				3E3953B920EFE6F800D0FF7D /* Info.plist */,
@@ -547,7 +544,6 @@
 				3E75A21421013A2C00E707EA /* violin.gif in Resources */,
 				3E097D3021010790003FC5F6 /* (null) in Resources */,
 				3E3953B520EFE6F800D0FF7D /* Assets.xcassets in Resources */,
-				3E9A573520FD30CC006AECC0 /* UIStoryboard.storyboard in Resources */,
 				3E3953B320EFE6F800D0FF7D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
