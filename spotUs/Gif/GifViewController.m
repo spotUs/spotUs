@@ -126,12 +126,13 @@
         SPTUser *currentUser = (SPTUser *)object;
         self.currentUser = currentUser;
         PFQuery *query = [PFUser query];
-        [query whereKey:@"username" equalTo:currentUser.displayName];
+        NSString *username = currentUser.displayName ? currentUser.displayName : currentUser.canonicalUserName;
+        [query whereKey:@"username" equalTo:username];
         query.limit = 1;
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
             if (!error) {
                 if(users.count != 0){
-                    [PFUser logInWithUsernameInBackground:currentUser.displayName password:@"spotify" block:^(PFUser * user, NSError *  error) {
+                    [PFUser logInWithUsernameInBackground:username password:@"spotify" block:^(PFUser * user, NSError *  error) {
                         if (error != nil) {
                             NSLog(@"User log in failed: %@", error.localizedDescription);
                         } else {
@@ -143,7 +144,7 @@
                 else{
                     NSLog(@"loggedout parse");
                     PFUser *newUser = [PFUser user];
-                    newUser.username = currentUser.displayName;
+                    newUser.username = username;
                     newUser.password = @"spotify";
                     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
                         if (error != nil) {
