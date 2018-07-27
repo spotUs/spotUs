@@ -146,6 +146,7 @@
         ParentViewController *parentVC = (ParentViewController *)[segue destinationViewController];
         parentVC.auth = self.auth;
         parentVC.player = self.player;
+        parentVC.currentUser = self.currentUser;
     } else if ([[segue destinationViewController] isKindOfClass:[ProfileViewController class]]){
         ProfileViewController *profileVC = (ProfileViewController *)[segue destinationViewController];
         profileVC.auth = self.auth;
