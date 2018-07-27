@@ -166,7 +166,8 @@
     self.songTitle.text = albumArtTrack.name;
     self.artistNameLabel.text = albumArtTrack.artistName;
     NSURL *albumURL = [NSURL URLWithString:albumArtTrack.albumCoverArtURL];
-    [self.songImage setImageWithURL:albumURL];
+    [QueryManager fadeImg:albumURL imgView:self.songImage];
+    //[self.songImage setImageWithURL:albumURL];
     self.musicSlider.maximumValue = self.player.metadata.currentTrack.duration;
     self.musicSlider.value =  self.player.playbackState.position;
     self.timeElapsedLabel.text = [self stringFromTimeInterval:self.musicSlider.value];

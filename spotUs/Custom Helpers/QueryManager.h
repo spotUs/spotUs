@@ -31,4 +31,5 @@
 
 + (void) fetchFlags: (void(^_Nullable)(NSArray * _Nullable favs, NSError * _Nullable error))completion;
 
++ (void) fadeImg: (NSURL *)imgURL imgView:(UIImageView *)imgView;
 @end
