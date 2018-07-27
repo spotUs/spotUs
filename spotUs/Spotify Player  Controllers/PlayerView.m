@@ -12,7 +12,7 @@
 #import "QueryManager.h"
 
 
-@interface PlayerView () <SPTAudioStreamingPlaybackDelegate>
+@interface PlayerView () <SPTAudioStreamingPlaybackDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *timeElapsedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLeftLabel;
 
@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *repeatButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 
+@property (strong, nonatomic) NSArray *ina;
 
 
 @end
@@ -223,5 +224,28 @@
 - (IBAction)flagged:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Flagged!" message:@"Why did you flag this song?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Inappropriate Material",@"Does not match city", nil];
     [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == [alertView firstOtherButtonIndex]){
+        NSLog(@"inappropriate Material");
+        [QueryManager fetchFavs:^(NSArray *flags, NSError *error) {
+            //NSLog(@"FAVS %@", favs);
+          //  self.ina
+            self.ina =flags;
+            NSDictionary *emptyDic = [NSDictionary dictionary];
+            NSMutableArray *mutableStorage = [NSMutableArray array];
+            
+            
+        }];
+        //cancel clicked ...do your action
+    }
+    else if(buttonIndex == [alertView cancelButtonIndex]){
+        NSLog(@"cancelled");
+    }
+    else {
+        NSLog(@"Does not match city");
+    }
 }
 @end
