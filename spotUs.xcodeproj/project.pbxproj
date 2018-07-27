@@ -10,6 +10,12 @@
 		060896AB210639B00041644D /* LocationSearchTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 060896AA210639B00041644D /* LocationSearchTable.m */; };
 		060896AE21065C990041644D /* PlayListCollectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 060896AD21065C990041644D /* PlayListCollectionHeader.m */; };
 		067FB79E210105E100B997FD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067FB79D210105E100B997FD /* CoreLocation.framework */; };
+		069EE3C3210B9AF90069762E /* HanaleiFill-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 069EE3C2210B9AF80069762E /* HanaleiFill-Regular.ttf */; };
+		069EE3D3210B9BDA0069762E /* HindVadodara-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 069EE3CE210B9BD90069762E /* HindVadodara-Bold.ttf */; };
+		069EE3D4210B9BDA0069762E /* HindVadodara-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 069EE3CF210B9BD90069762E /* HindVadodara-Light.ttf */; };
+		069EE3D5210B9BDA0069762E /* HindVadodara-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 069EE3D0210B9BD90069762E /* HindVadodara-Medium.ttf */; };
+		069EE3D6210B9BDA0069762E /* HindVadodara-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 069EE3D1210B9BD90069762E /* HindVadodara-Regular.ttf */; };
+		069EE3D7210B9BDA0069762E /* HindVadodara-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 069EE3D2210B9BD90069762E /* HindVadodara-SemiBold.ttf */; };
 		06F6BD4920FD04FB00E85B28 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */; };
 		06F6BD4B20FD050300E85B28 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */; };
 		06F6BD4D20FD055200E85B28 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4C20FD055200E85B28 /* AVFoundation.framework */; };
@@ -35,7 +41,6 @@
 		3E75A21421013A2C00E707EA /* violin.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E75A21321013A2C00E707EA /* violin.gif */; };
 		3E75A21621013C7500E707EA /* WebViewContent.html in Resources */ = {isa = PBXBuildFile; fileRef = 3E75A21521013C7500E707EA /* WebViewContent.html */; };
 		3E79495E210B76EA0001E6BB /* FlagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E79495D210B76EA0001E6BB /* FlagsViewController.m */; };
-		3E794960210B895A0001E6BB /* FlagStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E79495F210B895A0001E6BB /* FlagStoryboard.storyboard */; };
 		3E7A9A50210635DC007CB62B /* FavoriteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E7A9A4F210635DC007CB62B /* FavoriteStoryboard.storyboard */; };
 		3E7A9A6221067EED007CB62B /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A9A6121067EED007CB62B /* FavoriteViewController.m */; };
 		3E7A9A6821067F9E007CB62B /* FavoriteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A9A6721067F9E007CB62B /* FavoriteCollectionViewCell.m */; };
@@ -80,6 +85,12 @@
 		060896AC21065C990041644D /* PlayListCollectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayListCollectionHeader.h; sourceTree = "<group>"; };
 		060896AD21065C990041644D /* PlayListCollectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayListCollectionHeader.m; sourceTree = "<group>"; };
 		067FB79D210105E100B997FD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		069EE3C2210B9AF80069762E /* HanaleiFill-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HanaleiFill-Regular.ttf"; sourceTree = "<group>"; };
+		069EE3CE210B9BD90069762E /* HindVadodara-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindVadodara-Bold.ttf"; sourceTree = "<group>"; };
+		069EE3CF210B9BD90069762E /* HindVadodara-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindVadodara-Light.ttf"; sourceTree = "<group>"; };
+		069EE3D0210B9BD90069762E /* HindVadodara-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindVadodara-Medium.ttf"; sourceTree = "<group>"; };
+		069EE3D1210B9BD90069762E /* HindVadodara-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindVadodara-Regular.ttf"; sourceTree = "<group>"; };
+		069EE3D2210B9BD90069762E /* HindVadodara-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindVadodara-SemiBold.ttf"; sourceTree = "<group>"; };
 		06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
 		06F6BD4C20FD055200E85B28 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -121,7 +132,6 @@
 		3E75A21521013C7500E707EA /* WebViewContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WebViewContent.html; sourceTree = "<group>"; };
 		3E79495C210B76EA0001E6BB /* FlagsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlagsViewController.h; sourceTree = "<group>"; };
 		3E79495D210B76EA0001E6BB /* FlagsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlagsViewController.m; sourceTree = "<group>"; };
-		3E79495F210B895A0001E6BB /* FlagStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FlagStoryboard.storyboard; sourceTree = "<group>"; };
 		3E7A9A4F210635DC007CB62B /* FavoriteStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoriteStoryboard.storyboard; sourceTree = "<group>"; };
 		3E7A9A6021067EED007CB62B /* FavoriteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoriteViewController.h; sourceTree = "<group>"; };
 		3E7A9A6121067EED007CB62B /* FavoriteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoriteViewController.m; sourceTree = "<group>"; };
@@ -136,11 +146,6 @@
 		6C0A4A1B21067F320042C063 /* TinyPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyPlayerViewController.h; sourceTree = "<group>"; };
 		6C0A4A1C21067F320042C063 /* TinyPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TinyPlayerViewController.m; sourceTree = "<group>"; };
 		6C234DE5210A85D5009F484D /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
-		6C234DEA210A91F3009F484D /* HindVadodara-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindVadodara-Medium.ttf"; sourceTree = "<group>"; };
-		6C234DEB210A91F3009F484D /* HindVadodara-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindVadodara-Regular.ttf"; sourceTree = "<group>"; };
-		6C234DEC210A91F3009F484D /* HindVadodara-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindVadodara-Bold.ttf"; sourceTree = "<group>"; };
-		6C234DED210A91F3009F484D /* HindVadodara-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindVadodara-Light.ttf"; sourceTree = "<group>"; };
-		6C234DEE210A91F3009F484D /* HindVadodara-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindVadodara-SemiBold.ttf"; sourceTree = "<group>"; };
 		6CB5858A21000184009BD66B /* PlaylistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistViewController.h; sourceTree = "<group>"; };
 		6CB5858B21000184009BD66B /* PlaylistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaylistViewController.m; sourceTree = "<group>"; };
 		6CB5858D21000392009BD66B /* PlaylistCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistCollectionViewCell.h; sourceTree = "<group>"; };
@@ -404,7 +409,6 @@
 			children = (
 				3E79495C210B76EA0001E6BB /* FlagsViewController.h */,
 				3E79495D210B76EA0001E6BB /* FlagsViewController.m */,
-				3E79495F210B895A0001E6BB /* FlagStoryboard.storyboard */,
 			);
 			path = Flags;
 			sourceTree = "<group>";
@@ -426,11 +430,12 @@
 		6C234DE7210A91BC009F484D /* font */ = {
 			isa = PBXGroup;
 			children = (
-				6C234DEC210A91F3009F484D /* HindVadodara-Bold.ttf */,
-				6C234DED210A91F3009F484D /* HindVadodara-Light.ttf */,
-				6C234DEA210A91F3009F484D /* HindVadodara-Medium.ttf */,
-				6C234DEB210A91F3009F484D /* HindVadodara-Regular.ttf */,
-				6C234DEE210A91F3009F484D /* HindVadodara-SemiBold.ttf */,
+				069EE3CE210B9BD90069762E /* HindVadodara-Bold.ttf */,
+				069EE3CF210B9BD90069762E /* HindVadodara-Light.ttf */,
+				069EE3D0210B9BD90069762E /* HindVadodara-Medium.ttf */,
+				069EE3D1210B9BD90069762E /* HindVadodara-Regular.ttf */,
+				069EE3D2210B9BD90069762E /* HindVadodara-SemiBold.ttf */,
+				069EE3C2210B9AF80069762E /* HanaleiFill-Regular.ttf */,
 			);
 			path = font;
 			sourceTree = "<group>";
@@ -574,16 +579,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				069EE3D4210B9BDA0069762E /* HindVadodara-Light.ttf in Resources */,
 				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
+				069EE3C3210B9AF90069762E /* HanaleiFill-Regular.ttf in Resources */,
 				3E7A9A50210635DC007CB62B /* FavoriteStoryboard.storyboard in Resources */,
 				6C234DE6210A85D5009F484D /* Storyboard.storyboard in Resources */,
+				069EE3D3210B9BDA0069762E /* HindVadodara-Bold.ttf in Resources */,
 				3E3953B820EFE6F800D0FF7D /* LaunchScreen.storyboard in Resources */,
 				3E75A21621013C7500E707EA /* WebViewContent.html in Resources */,
 				3E75A21421013A2C00E707EA /* violin.gif in Resources */,
+				069EE3D5210B9BDA0069762E /* HindVadodara-Medium.ttf in Resources */,
+				069EE3D7210B9BDA0069762E /* HindVadodara-SemiBold.ttf in Resources */,
+				069EE3D6210B9BDA0069762E /* HindVadodara-Regular.ttf in Resources */,
 				3E097D3021010790003FC5F6 /* (null) in Resources */,
 				3E3953B520EFE6F800D0FF7D /* Assets.xcassets in Resources */,
 				3E3953B320EFE6F800D0FF7D /* Main.storyboard in Resources */,
-				3E794960210B895A0001E6BB /* FlagStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
