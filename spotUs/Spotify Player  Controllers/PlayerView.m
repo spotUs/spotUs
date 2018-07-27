@@ -18,7 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *songImage;
 @property (weak, nonatomic) IBOutlet UILabel *songTitle;
-@property (weak, nonatomic) IBOutlet UILabel *albumTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *artistNameLabel;
 @property (weak, nonatomic) IBOutlet UISlider *musicSlider;
 @property BOOL isSeeking;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
@@ -163,7 +163,7 @@
 - (void) refreshSongData{
     SPTPlaybackTrack *albumArtTrack = self.player.metadata.currentTrack;
     self.songTitle.text = albumArtTrack.name;
-    self.albumTitleLabel.text = albumArtTrack.albumName;
+    self.artistNameLabel.text = albumArtTrack.artistName;
     NSURL *albumURL = [NSURL URLWithString:albumArtTrack.albumCoverArtURL];
     [self.songImage setImageWithURL:albumURL];
     self.musicSlider.maximumValue = self.player.metadata.currentTrack.duration;

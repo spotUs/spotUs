@@ -16,7 +16,7 @@
 @interface TinyPlayerViewController () <SPTAudioStreamingPlaybackDelegate, DismissDelegate>
 @property (nonatomic, strong) NSArray<NSString*>   *citySongIDs;
 @property (weak, nonatomic) IBOutlet UILabel *songTitle;
-@property (weak, nonatomic) IBOutlet UILabel *albumTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *artistNameLabel;
 @property BOOL isSeeking;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (weak, nonatomic) IBOutlet UIImageView *spotUsLogo;
@@ -167,7 +167,7 @@
     
     SPTPlaybackTrack *albumArtTrack = self.player.metadata.currentTrack;
     self.songTitle.text = albumArtTrack.name;
-    self.albumTitleLabel.text = albumArtTrack.albumName;
+    self.artistNameLabel.text = albumArtTrack.artistName;
     
   
     [self.pauseButton setSelected:!self.player.playbackState.isPlaying];
