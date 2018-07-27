@@ -313,6 +313,7 @@
                         <outlet property="blurredImage" destination="kvL-xe-bm4" id="PAT-dM-tVD"/>
                         <outlet property="hometownLabel" destination="Xzc-ku-SIA" id="016-tF-YQ9"/>
                         <outlet property="profileImageView" destination="S2m-ff-JL2" id="EtJ-UU-asQ"/>
+                        <outlet property="skylineImageView" destination="muF-28-aZ1" id="frJ-ea-W39"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyn-sf-e0j" userLabel="First Responder" sceneMemberID="firstResponder"/>

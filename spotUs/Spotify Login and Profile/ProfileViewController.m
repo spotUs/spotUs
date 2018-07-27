@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *hometownLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *blurredImage;
+@property (weak, nonatomic) IBOutlet UIImageView *skylineImageView;
 @property (strong, nonatomic) City *userCity;
 
 @end
@@ -34,6 +35,7 @@
     self.profileImageView.clipsToBounds = YES;
 
     
+
     self.profileImageView.image = QueryManager.userImage;
     
     PFUser *currentUser = QueryManager.currentParseUser;
@@ -41,6 +43,8 @@
     City *blankCity = currentUser[@"city"];
     
     self.userCity = (City* )[QueryManager getCityFromID:blankCity.objectId];
+    self.skylineImageView.image = [UIImage imageNamed:self.userCity[@"imageName"]];
+
     
     self.hometownLabel.text = [self.userCity.name uppercaseString];
     
