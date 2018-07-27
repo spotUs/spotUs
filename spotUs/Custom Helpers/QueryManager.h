@@ -15,6 +15,8 @@
 @property (class, nonatomic, strong) NSDictionary * _Nullable citiesIDdict;
 @property (class, nonatomic, strong) NSArray * _Nullable citiesarray;
 @property (class, nonatomic, strong) PFUser * _Nullable currentParseUser;
+@property (class, nonatomic, strong) UIImage  * _Nonnull userImage;
+
 
 
 + (void) fetchCities:(void(^_Nullable)(NSArray * _Nonnull cities, NSError * _Nullable error))completion ;

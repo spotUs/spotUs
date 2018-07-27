@@ -34,9 +34,7 @@
     self.profileImageView.clipsToBounds = YES;
 
     
-    
-    NSURL *profileURL = self.currentUser.largestImage.imageURL;
-    [self.profileImageView setImageWithURL:profileURL];
+    self.profileImageView.image = QueryManager.userImage;
     
     PFUser *currentUser = QueryManager.currentParseUser;
     
@@ -46,16 +44,10 @@
     
     self.hometownLabel.text = [self.userCity.name uppercaseString];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:profileURL];
-    
-    [self.blurredImage setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
-        
-        
-        self.blurredImage.image = [self blurredImageWithImage: image];
 
-    } failure:nil];
+    self.blurredImage.image = [self blurredImageWithImage: QueryManager.userImage];
 
-        
+
         NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
     attachment.image = [UIImage imageNamed:@"pin-30"];
     

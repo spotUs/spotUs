@@ -29,6 +29,9 @@
 @implementation TinyPlayerViewController
 - (IBAction)onTap:(id)sender {
     
+    
+    
+    
     if(self.player.playbackState.isPlaying){
     [self performSegueWithIdentifier:@"expandplayer" sender:self];
     }
