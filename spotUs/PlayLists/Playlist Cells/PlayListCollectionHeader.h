@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PlayListCollectionHeader : UICollectionReusableView
-@property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 
 @end

@@ -590,20 +590,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OKskyline" translatesAutoresizingMaskIntoConstraints="NO" id="6Ba-Df-XkP">
-                                <rect key="frame" x="0.0" y="429" width="375" height="177"/>
+                                <rect key="frame" x="0.0" y="445" width="375" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zSC-Er-mCe">
                                 <rect key="frame" x="0.0" y="125" width="375" height="464"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R9e-hD-3aX">
                                     <size key="itemSize" width="165" height="167"/>
-                                    <size key="headerReferenceSize" width="50" height="209"/>
+                                    <size key="headerReferenceSize" width="50" height="88"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="playlistCollectionCell" id="xgZ-oc-q89" customClass="PlaylistCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="209" width="165" height="167"/>
+                                        <rect key="frame" x="0.0" y="88" width="165" height="167"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="165" height="167"/>
@@ -649,22 +649,18 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="header" id="pzH-Jz-a6n" customClass="PlayListCollectionHeader">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="miami" highlightedImage="miami" translatesAutoresizingMaskIntoConstraints="NO" id="DDS-Mt-6Bc">
-                                            <rect key="frame" x="40" y="0.0" width="295" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqv-tS-IUV">
-                                            <rect key="frame" x="40" y="139" width="295" height="21"/>
+                                            <rect key="frame" x="40" y="19" width="295" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMN-58-cS9">
-                                            <rect key="frame" x="172" y="168" width="30" height="30"/>
+                                            <rect key="frame" x="172" y="48" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Play"/>
                                             <connections>
@@ -674,7 +670,6 @@
                                     </subviews>
                                     <connections>
                                         <outlet property="cityLabel" destination="dqv-tS-IUV" id="ySt-E0-v08"/>
-                                        <outlet property="image" destination="DDS-Mt-6Bc" id="00t-Oy-Khf"/>
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
@@ -698,6 +693,7 @@
                     <connections>
                         <outlet property="collectionView" destination="zSC-Er-mCe" id="QD5-Il-Ode"/>
                         <outlet property="searchBar" destination="iag-Wo-gMA" id="2RJ-aE-ugf"/>
+                        <outlet property="skylineImageView" destination="6Ba-Df-XkP" id="N9U-7T-e1B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bff-oq-CK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -958,7 +954,6 @@
         <image name="heart-button" width="128" height="128"/>
         <image name="home" width="64" height="64"/>
         <image name="martinspotus" width="1024" height="1024"/>
-        <image name="miami" width="550" height="217"/>
         <image name="pause-2" width="512" height="512"/>
         <image name="play-2" width="512" height="512"/>
         <image name="redLike" width="64" height="64"/>

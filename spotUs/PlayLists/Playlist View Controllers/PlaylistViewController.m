@@ -15,6 +15,7 @@
 @interface PlaylistViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIImageView *skylineImageView;
 
 @property (strong, nonatomic) NSMutableArray<NSDictionary *> *dataArray;
 @property (strong, nonatomic) NSArray<NSDictionary *> *filteredDataArray;
@@ -36,8 +37,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.skylineImageView.image = [UIImage imageNamed:self.city[@"imageName"]];
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
+
 
     NSDictionary *emptyDic = [NSDictionary dictionary];
     self.dataArray = [NSMutableArray array];
@@ -108,7 +112,6 @@
     PlayListCollectionHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header" forIndexPath:indexPath];
     
     header.cityLabel.text = self.city.name;
-    header.image.image = [UIImage imageNamed:self.city[@"imageName"]];
 
     
     return header;
