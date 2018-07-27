@@ -32,7 +32,7 @@
     
     
     
-    if(self.player.playbackState.isPlaying){
+    if(self.spotUsLabel.isHidden){
     [self performSegueWithIdentifier:@"expandplayer" sender:self];
     }
 }

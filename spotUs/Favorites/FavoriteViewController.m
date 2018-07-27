@@ -11,6 +11,7 @@
 #import "PlayerView.h"
 #import "QueryManager.h"
 #import "FavoriteTableViewCell.h"
+#import "PlayListCollectionHeader.h"
 
 @interface FavoriteViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -19,13 +20,33 @@
 @property (strong, nonatomic) NSArray<NSDictionary *> *filteredDataArray;
 @property (strong, nonatomic) NSArray *favorites;
 @property (weak, nonatomic) IBOutlet UITableView *favoriteTableView;
+@property (weak, nonatomic) IBOutlet UILabel *favoritesMessageLabel;
 
 @end
 
 @implementation FavoriteViewController
 
+
+- (IBAction)didclickPlay:(id)sender {
+    
+    NSDictionary *cityDic =  @{ @"citytracks"     : self.favorites,
+                                @"index" : [NSNumber numberWithInt:0],
+                                };
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
+                                                        object:self userInfo:cityDic];
+    
+    
+}
+
+
+
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.favoriteCollectionView.backgroundColor = [UIColor clearColor];
+    self.favoriteCollectionView.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.favoriteTableView.delegate = self;
     self.favoriteTableView.dataSource = self;
@@ -40,22 +61,9 @@
     CGFloat itemWidth = (self.favoriteCollectionView.frame.size.width - layout.minimumInteritemSpacing * (cellsPerLine - 1)) / cellsPerLine;
     CGFloat itemHeight = itemWidth;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
-    
-    [QueryManager fetchFavs:^(NSArray *favs, NSError *error) {
-        //NSLog(@"FAVS %@", favs);
-        self.favorites = favs;
-        NSDictionary *emptyDic = [NSDictionary dictionary];
-        NSMutableArray *mutableStorage = [NSMutableArray array];
-        for (int i = 0; i < self.favorites.count; i++) {
-            [mutableStorage addObject:emptyDic];
-        }
-        self.dataArray = [NSMutableArray arrayWithArray:mutableStorage];
-        for (NSUInteger i = 0; i < self.favorites.count; i++){
-            
-            [self fetchTrackData:i];
-        }
+    [self updateFavData];
 
-    }];
+   
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveTestNotification:)
@@ -147,30 +155,68 @@
 
 - (void) receiveTestNotification:(NSNotification *) notification{
     if ([[notification name] isEqualToString:@"Update Favorites"]){
-        [QueryManager fetchFavs:^(NSArray *favs, NSError *error) {
-            //NSLog(@"FAVS %@", favs);
-            self.favorites = favs;
-            NSDictionary *emptyDic = [NSDictionary dictionary];
-            NSMutableArray *mutableStorage = [NSMutableArray array];
-            for (int i = 0; i < self.favorites.count; i++) {
-                [mutableStorage addObject:emptyDic];
-            }
-            self.dataArray = [NSMutableArray arrayWithArray:mutableStorage];
-            for (NSUInteger i = 0; i < self.favorites.count; i++){
-                
-                [self fetchTrackData:i];
-            }
-            
-        }];
-        
+     
+        [self updateFavData];
         
     }
    
 
     
 }
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    
+    PlayListCollectionHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header" forIndexPath:indexPath];
+    
+    if(self.favorites.count == 0){
+        header.isEmpty = YES;
+    }
+    
+    else{
+        
+        header.isEmpty = NO;
 
+        
+        
+    }
+    
+    
+    return header;
+    
+    
+    
+}
 
+-(void)updateFavData{
+    [QueryManager fetchFavs:^(NSArray *favs, NSError *error) {
+        //NSLog(@"FAVS %@", favs);
+        self.favorites = favs;
+        if(self.favorites.count > 0){
+            self.favoritesMessageLabel.text = @"";
+        }
+        else{
+            self.favoritesMessageLabel.text = @"You currently have no favorites! Click on the heart when playing music to add some!";
+            
+            
+        }
+        
+        
+        NSDictionary *emptyDic = [NSDictionary dictionary];
+        NSMutableArray *mutableStorage = [NSMutableArray array];
+        for (int i = 0; i < self.favorites.count; i++) {
+            [mutableStorage addObject:emptyDic];
+        }
+        self.dataArray = [NSMutableArray arrayWithArray:mutableStorage];
+        [self.favoriteCollectionView reloadData];
+        for (NSUInteger i = 0; i < self.favorites.count; i++){
+            
+            [self fetchTrackData:i];
+        }
+        
+    }];
+    
+    
+    
+}
 
 #pragma mark - Navigation
 
