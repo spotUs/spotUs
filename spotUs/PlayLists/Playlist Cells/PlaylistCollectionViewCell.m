@@ -8,6 +8,7 @@
 
 #import "PlaylistCollectionViewCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "QueryManager.h"
 
 @implementation PlaylistCollectionViewCell
 
@@ -18,7 +19,8 @@
         NSDictionary *imgData = images[0];
         NSLog(@"IMGURL %@",imgData[@"url"]);
         NSURL *imgURL = [NSURL URLWithString: imgData[@"url"]];
-        [self.songImageView setImageWithURL:imgURL];
+        [QueryManager fadeImg:imgURL imgView:self.songImageView];
+        //[self.songImageView setImageWithURL:imgURL];
     } else {
         //get a place holder image
     }

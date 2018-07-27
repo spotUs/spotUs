@@ -8,6 +8,7 @@
 
 #import "QueryManager.h"
 #import "Parse.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation QueryManager
 static NSDictionary *_citiesdict = nil;
@@ -187,6 +188,30 @@ static UIImage *_profileImage = nil;
                 completion(nil,error);}
         }
     }];
+}
+
++ (void) fadeImg: (NSURL *)imgURL imgView:(UIImageView *)imgView {
+    NSURLRequest *request = [NSURLRequest requestWithURL:imgURL];
+    __weak UIImageView *weakImg = imgView;
+    [imgView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *imageRequest, NSHTTPURLResponse *imageResponse, UIImage *image) {
+        // imageResponse will be nil if the image is cached
+        if (imageResponse) {
+            NSLog(@"Image was NOT cached, fade in image");
+            weakImg.alpha = 0.0;
+            weakImg.image = image;
+            //Animate UIImageView back to alpha 1 over 0.4sec
+            [UIView animateWithDuration:0.4 animations:^{
+                weakImg.alpha = 1.0;
+            }];
+        }
+        else {
+            NSLog(@"Image was cached so just update the image");
+            weakImg.image = image;
+        }
+    }
+                            failure:^(NSURLRequest *request, NSHTTPURLResponse * response, NSError *error) {
+                                NSLog(@"ERROR with loading image");
+                            }];
 }
 
 
