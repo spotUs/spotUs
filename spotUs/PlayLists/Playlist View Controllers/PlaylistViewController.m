@@ -10,12 +10,14 @@
 #import "PlaylistCollectionViewCell.h"
 #import "PlayerView.h"
 #import "PlayListCollectionHeader.h"
+#import "PlaylistTableViewCell.h"
 
 
-@interface PlaylistViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate>
+@interface PlaylistViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIImageView *skylineImageView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSMutableArray<NSDictionary *> *dataArray;
 @property (strong, nonatomic) NSArray<NSDictionary *> *filteredDataArray;
@@ -34,10 +36,19 @@
     
     
 }
+- (IBAction)onTapViewToggle:(id)sender {
+    if ([self.collectionView alpha] == 1) {
+        NSLog(@"changing tableview");
+        [self.collectionView setAlpha:0];
+        [self.tableView setAlpha:1];
+    } else {
+        [self.collectionView setAlpha:1];
+        [self.tableView setAlpha:0];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.skylineImageView.image = [UIImage imageNamed:self.city[@"imageName"]];
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -48,9 +59,12 @@
     for (int i = 0; i < self.city.tracks.count; i++) {
         [self.dataArray addObject:emptyDic];
     }
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.searchBar.delegate = self;
+    
     
     
     //set the size of the cells
@@ -92,10 +106,25 @@
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];            
             self.dataArray[songIndex] = dataDictionary;
             self.filteredDataArray = self.dataArray;
+            [self.tableView reloadData];
             [self.collectionView reloadData];
+            
         }
     }];
     [task resume];
+}
+
+//table view implementation
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PlaylistTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlaylistTableViewCell"];
+    NSLog(@"updating?");
+    [cell updateTrackCellwithData:self.filteredDataArray[indexPath.row]];
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"%lu",self.filteredDataArray.count);
+    return self.filteredDataArray.count;
 }
 
 //collection view implementation
@@ -121,6 +150,7 @@
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    NSLog(@"%lu",self.filteredDataArray.count);
     return self.filteredDataArray.count;
 }
 
@@ -146,6 +176,7 @@
         self.filteredDataArray = self.dataArray;
     }
     [self.collectionView reloadData];
+    [self.tableView reloadData];
 }
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar {

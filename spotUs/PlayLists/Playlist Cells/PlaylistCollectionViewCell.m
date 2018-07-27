@@ -17,7 +17,7 @@
     NSArray *images = trackdict[@"album"][@"images"];
     if (images.count > 0){
         NSDictionary *imgData = images[0];
-        NSLog(@"IMGURL %@",imgData[@"url"]);
+        //NSLog(@"IMGURL %@",imgData[@"url"]);
         NSURL *imgURL = [NSURL URLWithString: imgData[@"url"]];
         [QueryManager fadeImg:imgURL imgView:self.songImageView];
         //[self.songImageView setImageWithURL:imgURL];
