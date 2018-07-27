@@ -232,19 +232,24 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == [alertView firstOtherButtonIndex]){
         [self.ina addObject:@"Report"];
         NSLog(@"inappropriate Material");
-        [QueryManager fetchFlags:^(NSArray *flags, NSError *error) {
-            flags = self.ina;
-
-       
+        NSString *stringID = [self.player.metadata.currentTrack.uri substringFromIndex:14];
+        [QueryManager addInappropriate:stringID withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             
-            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Update Favorites"
+                                                                object:self];
         }];
-        //cancel clicked ...do your action
+        
     }
     else if(buttonIndex == [alertView cancelButtonIndex]){
         NSLog(@"cancelled");
     }
     else {
+        NSString *stringID = [self.player.metadata.currentTrack.uri substringFromIndex:14];
+        [QueryManager addUnmatched:stringID withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Update Favorites"
+                                                                object:self];
+        }];
         NSLog(@"Does not match city");
     }
 }
