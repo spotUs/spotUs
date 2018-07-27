@@ -128,6 +128,15 @@
                                                     <action selector="repeatOrUnrepeat:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="jXC-0y-Bm6"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEy-bS-e2N">
+                                                <rect key="frame" x="70" y="19" width="32" height="28"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Flag" image="flag"/>
+                                                <state key="highlighted" image="black-flag"/>
+                                                <connections>
+                                                    <action selector="flagged:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="Sgd-pr-BKg"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -233,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeN-2U-H7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-98" y="644"/>
+            <point key="canvasLocation" x="-295.19999999999999" y="571.66416791604206"/>
         </scene>
         <!--ProfileViewController-->
         <scene sceneID="r9J-IQ-nYd">
@@ -930,8 +939,10 @@
     <resources>
         <image name="OKskyline" width="350" height="160"/>
         <image name="backward" width="512" height="512"/>
+        <image name="black-flag" width="64" height="64"/>
         <image name="earth" width="64" height="64"/>
         <image name="fast-forward-2" width="512" height="512"/>
+        <image name="flag" width="64" height="64"/>
         <image name="grayfavorite" width="256" height="256"/>
         <image name="heart-button" width="128" height="128"/>
         <image name="home" width="64" height="64"/>
