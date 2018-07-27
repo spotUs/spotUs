@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *repeatButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 
-@property (strong, nonatomic) NSArray *ina;
+@property (strong, nonatomic) NSMutableArray *ina;
 
 
 @end
@@ -229,13 +229,12 @@
 - (void)alertView:(UIAlertView *)alertView
 clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == [alertView firstOtherButtonIndex]){
+        [self.ina addObject:@"Report"];
         NSLog(@"inappropriate Material");
-        [QueryManager fetchFavs:^(NSArray *flags, NSError *error) {
-            //NSLog(@"FAVS %@", favs);
-          //  self.ina
-            self.ina =flags;
-            NSDictionary *emptyDic = [NSDictionary dictionary];
-            NSMutableArray *mutableStorage = [NSMutableArray array];
+        [QueryManager fetchFlags:^(NSArray *flags, NSError *error) {
+            flags = self.ina;
+
+       
             
             
         }];
