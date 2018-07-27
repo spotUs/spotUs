@@ -220,7 +220,8 @@
   
 }
 
-
-
-
+- (IBAction)flagged:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Flagged!" message:@"Why did you flag this song?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Inappropriate Material",@"Does not match city", nil];
+    [alert show];
+}
 @end

@@ -17,11 +17,19 @@
 
 
 @protocol DismissDelegate
+
+
 -(void)didDismissWithIndex:(NSNumber*)index;
+
+
 @end
 
 
 @interface PlayerView : UIViewController
+
+- (IBAction)flagged:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *alertText;
 
 @property (nonatomic, weak) SPTAudioStreamingController *player;
 @property (nonatomic, strong) SPTAuth *auth;
