@@ -248,9 +248,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkT-cv-rlC">
-                                <rect key="frame" x="277" y="296" width="44" height="44"/>
+                                <rect key="frame" x="277" y="300" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="worldwide">
+                                <state key="normal" image="earth">
                                     <color key="titleColor" red="0.20000000000000001" green="0.64313725490196072" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -266,15 +266,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNP-4Z-QbR">
-                                <rect key="frame" x="49" y="300" width="40" height="40"/>
+                                <rect key="frame" x="49" y="300" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="like"/>
+                                <state key="normal" image="heart-button"/>
                                 <connections>
                                     <segue destination="doH-Xt-ZKf" kind="show" id="wUC-mq-zGa"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hometown" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzc-ku-SIA">
-                                <rect key="frame" x="22" y="106" width="322" height="28"/>
+                                <rect key="frame" x="35" y="104" width="318" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HindVadodara-Bold" family="Hind Vadodara" pointSize="35"/>
                                 <nil key="highlightedColor"/>
@@ -305,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyn-sf-e0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1156" y="-425.03748125937034"/>
+            <point key="canvasLocation" x="1000.8" y="-741.67916041979015"/>
         </scene>
         <!--SignUpViewController-->
         <scene sceneID="OzT-d9-2xk">
@@ -929,10 +929,11 @@
     <resources>
         <image name="OKskyline" width="350" height="160"/>
         <image name="backward" width="512" height="512"/>
+        <image name="earth" width="64" height="64"/>
         <image name="fast-forward-2" width="512" height="512"/>
         <image name="grayfavorite" width="256" height="256"/>
+        <image name="heart-button" width="128" height="128"/>
         <image name="home" width="64" height="64"/>
-        <image name="like" width="64" height="64"/>
         <image name="miami" width="550" height="217"/>
         <image name="pause-2" width="512" height="512"/>
         <image name="play-2" width="512" height="512"/>
@@ -942,7 +943,6 @@
         <image name="screen_shot_2018_07_18_at_4_11_56_pm_1" width="256" height="256"/>
         <image name="spotUsSlogan" width="868" height="726"/>
         <image name="spotifyWhite" width="2400" height="2400"/>
-        <image name="worldwide" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8a5-vN-qGZ"/>

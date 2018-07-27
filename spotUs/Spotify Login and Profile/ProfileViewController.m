@@ -55,7 +55,16 @@
 
     } failure:nil];
 
+        
+        NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+    attachment.image = [UIImage imageNamed:@"pin-30"];
     
+    NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
+    
+    NSMutableAttributedString *myString= [[NSMutableAttributedString alloc] initWithString:[self.userCity.name uppercaseString]];
+    [myString appendAttributedString:attachmentString];
+    
+    self.hometownLabel.attributedText = myString;
     
     // Do any additional setup after loading the view.
 }
