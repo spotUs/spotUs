@@ -47,14 +47,12 @@ CLLocationManager *locationManager;
                 self.locationCity = city;
                 foundCity = YES;
                 self.checkInButton.enabled = YES;
-                [self.checkInButton setTintColor:[UIColor redColor]];
-                [self.checkInButton setTitle:[NSString stringWithFormat:@"Discover %@",self.locationCity.name] forState:UIControlStateNormal];
                 break;
             }
         }
         if(!foundCity){
             
-            [self.checkInButton setTitle:@"No SpotUs City Nearby" forState:UIControlStateNormal];
+        
             self.checkInButton.enabled = NO;
             [self.checkInButton setTintColor:[UIColor grayColor]];
         }
@@ -76,9 +74,6 @@ CLLocationManager *locationManager;
 }
 
 - (void)viewDidLoad {
-    [self.checkInButton.layer setBorderWidth:3.0];
-    [self.checkInButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
-    [self.checkInButton setTitle:@"No SpotUs City Nearby" forState:UIControlStateNormal];
     self.checkInButton.enabled = NO;
     [self.checkInButton setTintColor:[UIColor grayColor]];
 

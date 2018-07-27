@@ -42,6 +42,7 @@
 	<string>Program requires GPS to locate your current city</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>HanaleiFill-Regular.tff</string>
 		<string>HindVadodara-Bold.ttf</string>
 		<string>HindVadodara-Light.ttf</string>
 		<string>HindVadodara-Medium.ttf</string>

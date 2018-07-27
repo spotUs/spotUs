@@ -36,6 +36,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.collectionView.backgroundColor = [UIColor clearColor];
+    self.collectionView.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
 
     NSDictionary *emptyDic = [NSDictionary dictionary];
     self.dataArray = [NSMutableArray array];
