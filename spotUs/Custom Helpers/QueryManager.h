@@ -27,4 +27,6 @@
     
 + (void) fetchFavs: (void(^_Nullable)(NSArray * _Nonnull favs, NSError * _Nullable error))completion ;
 
++ (void) fetchFlags: (void(^_Nullable)(NSArray * _Nullable favs, NSError * _Nullable error))completion;
+
 @end

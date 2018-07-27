@@ -151,6 +151,24 @@ static PFUser *_currentParseUser = nil;
     }];
 }
 
++ (void) fetchFlags: (void(^)(NSArray *favs, NSError *error))completion {
+    PFUser *currUser = [PFUser currentUser];
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:currUser.username];
+    [query includeKey:@"flag"];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        if (!error) {
+            PFUser *user = (PFUser *)object;
+            NSArray *flags = user[@"flag"];
+            if (completion) {
+                completion(flags, nil);}
+        } else {
+            NSLog(@"%@",error.localizedDescription);
+            if(completion) {
+                completion(nil,error);}
+        }
+    }];
+}
 
 
 @end
