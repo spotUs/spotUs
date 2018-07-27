@@ -19,15 +19,28 @@
 - (void)viewDidLoad {
     [[NSNotificationCenter defaultCenter] addObserverForName:@"homeNotification" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         //remove current navController top child VCs from stack
+        
+        if(![self.navController.visibleViewController isKindOfClass:ProfileViewController.class]){
+
+        
         [self.navController willMoveToParentViewController:nil];
         [self.navController.view removeFromSuperview];
         [self.navController removeFromParentViewController];
         //clear the navController's hierarchy history of stack VCs
         [self.navController popToRootViewControllerAnimated:YES];
+        
+        
+            
         //add the navController back to the container
         [self addChildViewController:self.navController];
+        CATransition *applicationLoadViewIn =[CATransition animation];
+        [applicationLoadViewIn setDuration:.2];
+        [applicationLoadViewIn setType:kCATransitionPush];
+        [applicationLoadViewIn setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+        [[self.navController.view layer]addAnimation:applicationLoadViewIn forKey:kCATransitionReveal];
         [self.container addSubview:self.navController.view];
         [self.navController didMoveToParentViewController:self];
+        }
     }];
 }
 
@@ -65,9 +78,6 @@
     
 }
 
-- (void)didStartPlayingonCityParent:(City *)city{
-    
-    
-}
+
 
 @end

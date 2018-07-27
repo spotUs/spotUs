@@ -15,6 +15,8 @@ static NSDictionary *_citiesIDdict = nil;
 
 static NSArray *_citiesarray = nil;
 static PFUser *_currentParseUser = nil;
+static UIImage *_profileImage = nil;
+
 
 
 + (NSDictionary *)citiesdict{
@@ -68,6 +70,23 @@ static PFUser *_currentParseUser = nil;
         _currentParseUser = [newParseUser copy];
     }
 }
+
++ (UIImage*)userImage{
+    
+    return _profileImage;
+}
+
+
++ (void)setUserImage:(UIImage *)userImage{
+    
+    
+    if (_profileImage != userImage){
+        _profileImage = userImage;
+    }
+    
+}
+    
+    
 
 + (void) fetchCities:(void(^)(NSArray *cities, NSError *error))completion {
     PFQuery *query = [PFQuery queryWithClassName:@"City"];

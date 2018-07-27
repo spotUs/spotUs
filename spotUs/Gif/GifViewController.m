@@ -126,6 +126,11 @@
     [SPTUser requestCurrentUserWithAccessToken:self.auth.session.accessToken callback:^(NSError *error, id object) {
         SPTUser *currentUser = (SPTUser *)object;
         self.currentUser = currentUser;
+        NSURL *profileURL = self.currentUser.largestImage.imageURL;
+        NSData *data = [NSData dataWithContentsOfURL:profileURL];
+        UIImage *image = [UIImage imageWithData:data];
+        QueryManager.userImage = image;
+        
         PFQuery *query = [PFUser query];
         NSString *username = currentUser.displayName ? currentUser.displayName : currentUser.canonicalUserName;
         [query whereKey:@"username" equalTo:username];
