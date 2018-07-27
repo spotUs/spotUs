@@ -10,4 +10,15 @@
 
 @implementation PlayListCollectionHeader
 
+
+
+- (void)setIsEmpty:(BOOL)isEmpty{
+    
+    [self.playButton setHidden:isEmpty];
+
+    
+    
+    
+}
+
 @end
