@@ -220,7 +220,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="375" height="641"/>
                     <connections>
-                        <outlet property="albumTitleLabel" destination="FB9-wG-eKh" id="Dby-wU-5nh"/>
+                        <outlet property="artistNameLabel" destination="FB9-wG-eKh" id="rvv-QJ-0ck"/>
                         <outlet property="favoriteButton" destination="Kbm-Kp-nvG" id="6Qy-us-Skv"/>
                         <outlet property="musicSlider" destination="54k-zG-om8" id="SZ1-oM-2De"/>
                         <outlet property="pauseButton" destination="4hG-LN-kxo" id="62v-PK-k2b"/>
@@ -312,20 +312,21 @@
             <objects>
                 <viewController title="SignUpViewController" id="jNm-aI-Duq" customClass="SignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gzY-qE-40N">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpotUs is currently only available in the cities below. Click confirm with a selected city to finish setting up your account!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjj-3h-xQh">
-                                <rect key="frame" x="50" y="114" width="275" height="81.5"/>
+                                <rect key="frame" x="50" y="70" width="275" height="81.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-xv-1Ei">
-                                <rect key="frame" x="0.0" y="226" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="182" width="375" height="216"/>
+                                <color key="tintColor" red="1" green="0.2096394214" blue="0.033988638639999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMe-SN-55C">
-                                <rect key="frame" x="160" y="461.5" width="55" height="30"/>
+                                <rect key="frame" x="160" y="417.5" width="55" height="30"/>
                                 <state key="normal" title="Confirm"/>
                                 <connections>
                                     <action selector="onTapConfirm:" destination="jNm-aI-Duq" eventType="touchUpInside" id="hkc-mv-SdC"/>
@@ -757,7 +758,7 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="albumTitleLabel" destination="jJ4-sI-JpK" id="B6F-eG-Rkx"/>
+                        <outlet property="artistNameLabel" destination="jJ4-sI-JpK" id="Kk2-gr-d0k"/>
                         <outlet property="pauseButton" destination="F9f-cr-DAQ" id="a5o-cs-qXu"/>
                         <outlet property="songTitle" destination="hzy-QH-hT8" id="n0i-4K-eit"/>
                         <outlet property="spotUsLogo" destination="ebO-PN-uQW" id="IdR-hH-oYv"/>
@@ -946,7 +947,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8a5-vN-qGZ"/>
-        <segue reference="Is9-90-9Ke"/>
+        <segue reference="KW6-86-RT6"/>
         <segue reference="U8D-uR-5nx"/>
     </inferredMetricsTieBreakers>
 </document>
