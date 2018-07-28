@@ -37,13 +37,13 @@
     
 }
 - (IBAction)onTapViewToggle:(id)sender {
-    if ([self.collectionView alpha] == 1) {
+    if ([self.collectionView isHidden]) {
         NSLog(@"changing tableview");
-        [self.collectionView setAlpha:0];
-        [self.tableView setAlpha:1];
+        [self.collectionView setHidden:NO];
+        [self.tableView setHidden:YES];
     } else {
-        [self.collectionView setAlpha:1];
-        [self.tableView setAlpha:0];
+        [self.collectionView setHidden:YES];
+        [self.tableView setHidden:NO];
     }
 }
 
@@ -52,7 +52,9 @@
     self.skylineImageView.image = [UIImage imageNamed:self.city[@"imageName"]];
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
-
+    
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
 
     NSDictionary *emptyDic = [NSDictionary dictionary];
     self.dataArray = [NSMutableArray array];
@@ -116,7 +118,7 @@
 
 //table view implementation
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PlaylistTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlaylistTableViewCell"];
+    PlaylistTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlaylistTableCell" forIndexPath:indexPath];
     NSLog(@"updating?");
     [cell updateTrackCellwithData:self.filteredDataArray[indexPath.row]];
     return cell;
@@ -125,6 +127,15 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSLog(@"%lu",self.filteredDataArray.count);
     return self.filteredDataArray.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSDictionary *cityDic =  @{ @"citytracks"     : self.city.tracks,
+                                @"index" : [NSNumber numberWithInteger:indexPath.row],
+                                };
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
+                                                        object:self userInfo:cityDic];
 }
 
 //collection view implementation
@@ -137,20 +148,12 @@
 
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    
     PlayListCollectionHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header" forIndexPath:indexPath];
-    
     header.cityLabel.text = self.city.name;
-
-    
     return header;
-    
-    
-    
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSLog(@"%lu",self.filteredDataArray.count);
     return self.filteredDataArray.count;
 }
 
@@ -190,7 +193,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.'
-
+    PlaylistViewController *playlistVC = (PlaylistViewController *)[segue destinationViewController];
+    playlistVC.auth = self.auth;
+    playlistVC.player = self.player;
+    playlistVC.city = self.city;
     
 
 }
