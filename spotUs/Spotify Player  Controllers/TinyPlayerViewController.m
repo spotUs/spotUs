@@ -9,6 +9,7 @@
 #import "TinyPlayerViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "PlayerView.h"
+#import "QueryManager.h"
 
 
 
@@ -129,6 +130,10 @@
 }
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri{
+    
+    [QueryManager addLastPlayed:self.citySongIDs[self.currentSongIndex] withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        NSLog(@"added last played");
+    }];
     
     [self refreshSongData];
     [self.pauseButton setSelected:NO];

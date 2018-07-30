@@ -44,4 +44,6 @@
 
 + (void) getUserfromUsername: (NSString *)username withCompletion:(void(^)(PFUser *user, NSError *error))completion;
 
++ (void) addLastPlayed: (NSString *)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+
 @end
