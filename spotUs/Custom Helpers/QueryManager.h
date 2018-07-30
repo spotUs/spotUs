@@ -42,5 +42,6 @@
 
 + (void) getTrackfromID: (NSString *) spotifyID withCompletion:(void(^)(Track *track, NSError *error))completion;
 
++ (void) getUserfromUsername: (NSString *)username withCompletion:(void(^)(PFUser *user, NSError *error))completion;
 
 @end

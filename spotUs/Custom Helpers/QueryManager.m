@@ -298,5 +298,21 @@ static UIImage *_profileImage = nil;
     }];
 }
  
-
++ (void) getUserfromUsername: (NSString *)username withCompletion:(void(^)(PFUser *user, NSError *error))completion {
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:username];
+    [query includeKey:@"username"];
+    [query includeKey:@"city"];
+    [query includeKey:@"favs"];
+    [query includeKey:@"lastPlayed"];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        if (error){
+            NSLog(@"error getting user: %@",error.localizedDescription);
+            if (completion) {completion (nil,error);}
+        } else {
+            PFUser *user = (PFUser *)object;
+            if (completion) {completion(user,nil);}
+        }
+    }];
+}
 @end

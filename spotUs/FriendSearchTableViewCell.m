@@ -41,7 +41,6 @@
 }
 
 - (BOOL) userAdded {
-    NSLog(@"%@",[PFUser currentUser][@"friends"]);
     return [[PFUser currentUser][@"friends"] containsObject: self.user.username];
 }
 
