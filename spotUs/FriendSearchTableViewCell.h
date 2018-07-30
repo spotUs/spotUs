@@ -11,6 +11,7 @@
 
 @interface FriendSearchTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *addUserBtn;
 
 - (void) updateFriendSearchCellwithUser: (PFUser *)user;
 

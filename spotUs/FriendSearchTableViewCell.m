@@ -30,8 +30,13 @@
 }
 
 - (void) updateFriendSearchCellwithUser: (PFUser *)user{
-    self.nameLabel.text = user.username;
     self.user = user;
+    self.nameLabel.text = user.username;
+    self.addUserBtn.selected = [self userAdded];
+}
+
+- (BOOL) userAdded {
+    return [[PFUser currentUser][@"friends"] containsObject: self.user];
 }
 
 
