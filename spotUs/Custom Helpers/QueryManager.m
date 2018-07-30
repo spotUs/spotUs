@@ -284,5 +284,19 @@ static UIImage *_profileImage = nil;
                             }];
 }
 
++ (void) getTrackfromID: (NSString *) spotifyID withCompletion:(void(^)(Track *track, NSError *error))completion {
+    PFQuery *query = [PFQuery queryWithClassName:@"Track"];
+    [query whereKey:@"spotifyID" equalTo:spotifyID];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        if (error){
+            NSLog(@"error getting track obj: %@",error.localizedDescription);
+            if (completion) {completion(nil,error);}
+        } else {
+            Track *track = (Track *)object;
+            if (completion) {completion(track,nil);}
+        }
+    }];
+}
+ 
 
 @end

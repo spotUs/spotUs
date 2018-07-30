@@ -17,4 +17,6 @@
 
 + (void) addNewTrack: (NSString *)spotifyID in:(City *)city withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
++ (void) addFlag: (Track *) track;
+
 @end

@@ -54,7 +54,7 @@
         } else {
             NSLog(@"added flag");
         }
-    }]
+    }];
 }
 
 @end

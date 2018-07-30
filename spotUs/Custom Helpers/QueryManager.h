@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 #import "City.h"
+#import "Track.h"
 
 @interface QueryManager : NSObject
 @property (class, nonatomic, strong) NSDictionary * _Nullable citiesdict;
@@ -38,5 +39,8 @@
 + (void) fetchUnmatched: (void(^_Nullable)(NSArray * _Nullable favs, NSError * _Nullable error))completion;
 
 + (void) fadeImg: (NSURL *_Nullable)imgURL imgView:(UIImageView *_Nullable)imgView;
+
++ (void) getTrackfromID: (NSString *) spotifyID withCompletion:(void(^)(Track *track, NSError *error))completion;
+
 
 @end
