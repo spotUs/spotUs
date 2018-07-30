@@ -1,0 +1,24 @@
+//
+//  Track.m
+//  spotUs
+//
+//  Created by Megan Ung on 7/30/18.
+//  Copyright © 2018 Lizbeth Alejandra Gonzalez. All rights reserved.
+//
+
+#import "Track.h"
+
+@implementation Track
+@dynamic spotifyID;
+
++ (nonnull NSString *)parseClassName {
+    return @"Track";
+}
+
++ (void) addNewTrack: (NSString *)spotifyID withCompletion: (PFBooleanResultBlock  _Nullable)completion{
+    Track *newTrack = [[Track alloc] init];
+    newTrack.spotifyID = spotifyID;
+    [newTrack saveInBackgroundWithBlock:completion];
+}
+
+@end

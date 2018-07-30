@@ -52,6 +52,7 @@
 		6C234DE6210A85D5009F484D /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C234DE5210A85D5009F484D /* Storyboard.storyboard */; };
 		6C2C2E3D210BD1D90070D8EA /* PlaylistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C2E3C210BD1D90070D8EA /* PlaylistTableViewCell.m */; };
 		6C2C2E40210BDEBE0070D8EA /* PlaylistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C2E3F210BDEBE0070D8EA /* PlaylistTableViewController.m */; };
+		6C2C2E43210F61720070D8EA /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C2E42210F61720070D8EA /* Track.m */; };
 		6C83415A1856828FB8E13F87 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		6CB5858C21000184009BD66B /* PlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5858B21000184009BD66B /* PlaylistViewController.m */; };
 		6CB5858F21000392009BD66B /* PlaylistCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5858E21000392009BD66B /* PlaylistCollectionViewCell.m */; };
@@ -152,6 +153,8 @@
 		6C2C2E3C210BD1D90070D8EA /* PlaylistTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaylistTableViewCell.m; sourceTree = "<group>"; };
 		6C2C2E3E210BDEBE0070D8EA /* PlaylistTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistTableViewController.h; sourceTree = "<group>"; };
 		6C2C2E3F210BDEBE0070D8EA /* PlaylistTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaylistTableViewController.m; sourceTree = "<group>"; };
+		6C2C2E41210F61720070D8EA /* Track.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		6C2C2E42210F61720070D8EA /* Track.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
 		6CB5858A21000184009BD66B /* PlaylistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistViewController.h; sourceTree = "<group>"; };
 		6CB5858B21000184009BD66B /* PlaylistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaylistViewController.m; sourceTree = "<group>"; };
 		6CB5858D21000392009BD66B /* PlaylistCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistCollectionViewCell.h; sourceTree = "<group>"; };
@@ -455,6 +458,8 @@
 			children = (
 				6CC2534820FD08D500D7093E /* City.h */,
 				6CC2534920FD08D500D7093E /* City.m */,
+				6C2C2E41210F61720070D8EA /* Track.h */,
+				6C2C2E42210F61720070D8EA /* Track.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -718,6 +723,7 @@
 				3E7A9A6221067EED007CB62B /* FavoriteViewController.m in Sources */,
 				3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */,
 				3E7A9A6821067F9E007CB62B /* FavoriteCollectionViewCell.m in Sources */,
+				6C2C2E43210F61720070D8EA /* Track.m in Sources */,
 				060896AB210639B00041644D /* LocationSearchTable.m in Sources */,
 				6C2C2E40210BDEBE0070D8EA /* PlaylistTableViewController.m in Sources */,
 				3E097D3621010C18003FC5F6 /* GifViewController.m in Sources */,
