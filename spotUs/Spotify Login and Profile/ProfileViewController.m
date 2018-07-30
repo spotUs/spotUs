@@ -26,6 +26,10 @@
 @end
 
 @implementation ProfileViewController
+- (IBAction)didTapHomeTown:(id)sender {
+    [self performSegueWithIdentifier:@"hometown" sender:self];
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
