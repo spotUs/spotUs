@@ -10,6 +10,10 @@
 #import <Parse/Parse.h>
 #import "City.h"
 #import "Track.h"
+#import <SpotifyAuthentication/SpotifyAuthentication.h>
+#import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
+#import <SafariServices/SafariServices.h>
+#import <SpotifyMetadata/SpotifyMetadata.h>
 
 @interface QueryManager : NSObject
 @property (class, nonatomic, strong) NSDictionary * _Nullable citiesdict;
@@ -17,6 +21,9 @@
 @property (class, nonatomic, strong) NSArray * _Nullable citiesarray;
 @property (class, nonatomic, strong) PFUser * _Nullable currentParseUser;
 @property (class, nonatomic, strong) UIImage  * _Nonnull userImage;
+@property (class, nonatomic, strong) SPTAuth *auth;
+
+
 
 
 
@@ -34,7 +41,7 @@
 
 + (void) fetchFavs: (void(^_Nullable)(NSArray * _Nonnull favs, NSError * _Nullable error))completion ;
 
-+ (void) fetchInaproppriate: (void(^_Nullable)(NSArray * _Nullable favs, NSError * _Nullable error))completion;
++ (void) fetchInappropriate: (void(^)(NSArray *favs, NSError *error))completion;
 
 + (void) fetchUnmatched: (void(^_Nullable)(NSArray * _Nullable favs, NSError * _Nullable error))completion;
 
@@ -44,5 +51,10 @@
 
 
 + (void) addLastPlayed: (NSString *)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+
++ (void) fetchLastPlayed: (void(^)(NSArray *lastPlayed, NSError *error))completion;
+
++ (void) getSPTracksFromIDs: (NSArray<NSString*>*)spotifyIDs withCompletion: (PFIdResultBlock  _Nullable)completion;
+
 
 @end

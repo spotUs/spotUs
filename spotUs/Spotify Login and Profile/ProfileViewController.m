@@ -16,6 +16,7 @@
 #import "PlaylistViewController.h"
 #import "FavoriteViewController.h"
 #import "QueryManager.h"
+#import "StatsViewController.h"
 @interface ProfileViewController () 
 @property (weak, nonatomic) IBOutlet UILabel *hometownLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -141,6 +142,13 @@
         FavoriteViewController *favoriteVC = (FavoriteViewController *)[segue destinationViewController];
         favoriteVC.auth = self.auth;
         favoriteVC.player = self.player;
+        
+    }
+    
+    else if ([[segue destinationViewController] isKindOfClass:[StatsViewController class]]){
+        StatsViewController *statsVC = (StatsViewController *)[segue destinationViewController];
+        statsVC.auth = self.auth;
+        statsVC.player = self.player;
         
     }
 }

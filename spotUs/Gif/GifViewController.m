@@ -122,6 +122,8 @@
 
 - (void)audioStreamingDidLogin:(SPTAudioStreamingController *)audioStreaming {
     
+    QueryManager.auth = self.auth;
+    
     NSLog(@"audiostreaming");
     [SPTUser requestCurrentUserWithAccessToken:self.auth.session.accessToken callback:^(NSError *error, id object) {
         SPTUser *currentUser = (SPTUser *)object;

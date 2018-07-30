@@ -17,6 +17,19 @@ static NSDictionary *_citiesIDdict = nil;
 static NSArray *_citiesarray = nil;
 static PFUser *_currentParseUser = nil;
 static UIImage *_profileImage = nil;
+static SPTAuth *_auth = nil;
+
+
++ (SPTAuth *)auth{
+
+    return _auth;
+}
+
++ (void)setAuth:(SPTAuth *)auth{
+    
+    _auth = auth;
+    
+}
 
 
 
@@ -300,6 +313,36 @@ static UIImage *_profileImage = nil;
                 completion(nil,error);}
         }
     }];
+}
+
++ (void) getSPTracksFromIDs: (NSArray<NSString*>*)spotifyIDs withCompletion: (PFIdResultBlock  _Nullable)completion{
+    
+    NSMutableArray *properFormat = [NSMutableArray array];
+    
+    
+
+    
+    for(NSString *stringID in spotifyIDs){
+        
+    
+        [properFormat addObject:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", @"spotify:track:",stringID]]];
+    }
+    
+    
+    [SPTTrack tracksWithURIs:properFormat accessToken:self.auth.session.accessToken market:nil callback:^(NSError *error, id object) {
+        
+        if (!error) {
+            if (completion) {
+                completion(object, nil);}
+        } else {
+            NSLog(@"%@",error.localizedDescription);
+            if(completion) {
+                completion(nil,error);}
+        }
+        
+  
+        }];
+        
 }
 
 + (void) fadeImg: (NSURL *)imgURL imgView:(UIImageView *)imgView {

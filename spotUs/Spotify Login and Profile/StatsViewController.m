@@ -7,6 +7,7 @@
 //
 
 #import "StatsViewController.h"
+#import "QueryManager.h"
 
 @interface StatsViewController ()
 
@@ -17,12 +18,49 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    [QueryManager fetchLastPlayed:^(NSArray *lastPlayed, NSError *error) {
+        
+        
+        NSMutableArray *properFormat = [NSMutableArray array];
+        
+        for(NSString *stringID in lastPlayed){
+            
+            
+            [properFormat addObject:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", @"spotify:track:",stringID]]];
+        }
+        
+        
+        [SPTTrack tracksWithURIs:properFormat accessToken:self.auth.session.accessToken market:nil callback:^(NSError *error, id object) {
+            
+            if(error){
+                
+                NSLog(@"%@",error.localizedDescription);
+            }
+            
+            else{
+                
+                NSArray *tracks = (NSArray *)object;
+                
+                for(SPTTrack *track in tracks){
+                    
+                }
+            }
+            
+            
+            
+            
+        }];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation

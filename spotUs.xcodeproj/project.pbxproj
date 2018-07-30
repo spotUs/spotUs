@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060000B3210FCE2B00292449 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060000B2210FCE2B00292449 /* StatsViewController.m */; };
 		06030036210F80D8008E90F3 /* PlayListTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 06030035210F80D8008E90F3 /* PlayListTableHeader.m */; };
 		060896AB210639B00041644D /* LocationSearchTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 060896AA210639B00041644D /* LocationSearchTable.m */; };
 		060896AE21065C990041644D /* PlayListCollectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 060896AD21065C990041644D /* PlayListCollectionHeader.m */; };
@@ -87,6 +88,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		060000B1210FCE2B00292449 /* StatsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
+		060000B2210FCE2B00292449 /* StatsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
 		06030034210F80D8008E90F3 /* PlayListTableHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayListTableHeader.h; sourceTree = "<group>"; };
 		06030035210F80D8008E90F3 /* PlayListTableHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayListTableHeader.m; sourceTree = "<group>"; };
 		060896A9210639B00041644D /* LocationSearchTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationSearchTable.h; sourceTree = "<group>"; };
@@ -236,6 +239,8 @@
 				6C0A4A1921067E770042C063 /* ParentViewController.m */,
 				06F6BD7520FEB55200E85B28 /* ProfileViewController.h */,
 				06F6BD7620FEB55200E85B28 /* ProfileViewController.m */,
+				060000B1210FCE2B00292449 /* StatsViewController.h */,
+				060000B2210FCE2B00292449 /* StatsViewController.m */,
 			);
 			path = "Spotify Login and Profile";
 			sourceTree = "<group>";
@@ -739,6 +744,7 @@
 				6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */,
 				6C2C2E3D210BD1D90070D8EA /* PlaylistTableViewCell.m in Sources */,
 				6C2C2E46210F9FC50070D8EA /* LeftRightSegue.m in Sources */,
+				060000B3210FCE2B00292449 /* StatsViewController.m in Sources */,
 				3E79495E210B76EA0001E6BB /* FlagsViewController.m in Sources */,
 				3E3953BB20EFE6F800D0FF7D /* main.m in Sources */,
 				06030036210F80D8008E90F3 /* PlayListTableHeader.m in Sources */,

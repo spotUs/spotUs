@@ -229,7 +229,17 @@
             
         }
         
-        
+        [QueryManager getSPTracksFromIDs:self.favorites withCompletion:^(id  _Nullable object, NSError * _Nullable error) {
+            
+            
+            
+            
+        }
+            
+            
+            
+            
+        }
         NSDictionary *emptyDic = [NSDictionary dictionary];
         NSMutableArray *mutableStorage = [NSMutableArray array];
         for (int i = 0; i < self.favorites.count; i++) {
