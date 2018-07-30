@@ -11,6 +11,7 @@
 #import "PlayerView.h"
 #import "PlayListCollectionHeader.h"
 #import "PlaylistTableViewCell.h"
+#import "PlayListTableHeader.h"
 
 
 @interface PlaylistViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -122,21 +123,36 @@
 
 //table view implementation
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    if(indexPath.row == 0){
+        
+        PlayListTableHeader * header = [tableView dequeueReusableCellWithIdentifier:@"PlayListTableHeader" forIndexPath:indexPath];
+        
+        header.cityLabel.text = self.city.name;
+        return header;
+    }
+    
+    else{
+    
     PlaylistTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlaylistTableCell" forIndexPath:indexPath];
     NSLog(@"updating?");
-    [cell updateTrackCellwithData:self.filteredDataArray[indexPath.row]];
+     cell.layer.backgroundColor = [[UIColor clearColor] CGColor];
+
+    [cell updateTrackCellwithData:self.filteredDataArray[indexPath.row-1]];
     return cell;
+        
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSLog(@"%lu",self.filteredDataArray.count);
-    return self.filteredDataArray.count;
+    return self.filteredDataArray.count+1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSDictionary *cityDic =  @{ @"citytracks"     : self.city.tracks,
-                                @"index" : [NSNumber numberWithInteger:indexPath.row],
+                                @"index" : [NSNumber numberWithInteger:indexPath.row-1],
                                 };
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
                                                         object:self userInfo:cityDic];
@@ -183,6 +199,7 @@
         self.filteredDataArray = self.dataArray;
     }
     [self.collectionView reloadData];
+    
     [self.tableView reloadData];
 }
 

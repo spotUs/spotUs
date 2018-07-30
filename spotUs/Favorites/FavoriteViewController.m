@@ -12,6 +12,8 @@
 #import "QueryManager.h"
 #import "FavoriteTableViewCell.h"
 #import "PlayListCollectionHeader.h"
+#import "PlaylistTableViewCell.h"
+#import "PlayListTableHeader.h"
 
 @interface FavoriteViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -21,6 +23,7 @@
 @property (strong, nonatomic) NSArray *favorites;
 @property (weak, nonatomic) IBOutlet UITableView *favoriteTableView;
 @property (weak, nonatomic) IBOutlet UILabel *favoritesMessageLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *viewButton;
 
 @end
 
@@ -39,6 +42,19 @@
 }
 
 
+- (IBAction)onTapViewToggle:(id)sender {
+    if ([self.favoriteCollectionView isHidden]) {
+        NSLog(@"changing tableview");
+        [self.favoriteCollectionView setHidden:NO];
+        [self.favoriteTableView setHidden:YES];
+        self.viewButton.title = @"TableView";
+    } else {
+        [self.favoriteCollectionView setHidden:YES];
+        [self.favoriteTableView setHidden:NO];
+        self.viewButton.title = @"GridView";
+        
+    }
+}
 
 
 
@@ -132,7 +148,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSDictionary *cityDic =  @{ @"favtracks"     : self.favorites,
-                                @"index" : [NSNumber numberWithInteger:indexPath.row],
+                                @"index" : [NSNumber numberWithInteger:indexPath.row-1],
                                 };
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Play Favorites"
                                                         object:self userInfo:cityDic];
@@ -141,15 +157,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    FavoriteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"fav" forIndexPath:indexPath];
-    [cell updateTrackCellwithData:self.dataArray[indexPath.row]];
+    if(indexPath.row == 0){
+        
+        PlayListTableHeader * header = [tableView dequeueReusableCellWithIdentifier:@"PlayListTableHeader" forIndexPath:indexPath];
+        
+        header.cityLabel.text = @"Favorites";
+        return header;
+    }
     
-    //NSLog(@"it's been updated");
-    return cell;
+    else{
+        
+        PlaylistTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlaylistTableCell" forIndexPath:indexPath];
+        NSLog(@"updating?");
+        cell.layer.backgroundColor = [[UIColor clearColor] CGColor];
+        
+        [cell updateTrackCellwithData:self.dataArray[indexPath.row-1]];
+        return cell;
+        
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.favorites.count;
+    return self.favorites.count+1;
 }
 
 

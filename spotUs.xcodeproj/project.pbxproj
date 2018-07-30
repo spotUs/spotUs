@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06030036210F80D8008E90F3 /* PlayListTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 06030035210F80D8008E90F3 /* PlayListTableHeader.m */; };
 		060896AB210639B00041644D /* LocationSearchTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 060896AA210639B00041644D /* LocationSearchTable.m */; };
 		060896AE21065C990041644D /* PlayListCollectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 060896AD21065C990041644D /* PlayListCollectionHeader.m */; };
 		067FB79E210105E100B997FD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067FB79D210105E100B997FD /* CoreLocation.framework */; };
@@ -86,6 +87,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06030034210F80D8008E90F3 /* PlayListTableHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayListTableHeader.h; sourceTree = "<group>"; };
+		06030035210F80D8008E90F3 /* PlayListTableHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayListTableHeader.m; sourceTree = "<group>"; };
 		060896A9210639B00041644D /* LocationSearchTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationSearchTable.h; sourceTree = "<group>"; };
 		060896AA210639B00041644D /* LocationSearchTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationSearchTable.m; sourceTree = "<group>"; };
 		060896AC21065C990041644D /* PlayListCollectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayListCollectionHeader.h; sourceTree = "<group>"; };
@@ -255,6 +258,8 @@
 				060896AD21065C990041644D /* PlayListCollectionHeader.m */,
 				6C2C2E3B210BD1D90070D8EA /* PlaylistTableViewCell.h */,
 				6C2C2E3C210BD1D90070D8EA /* PlaylistTableViewCell.m */,
+				06030034210F80D8008E90F3 /* PlayListTableHeader.h */,
+				06030035210F80D8008E90F3 /* PlayListTableHeader.m */,
 			);
 			path = "Playlist Cells";
 			sourceTree = "<group>";
@@ -736,6 +741,7 @@
 				6C2C2E46210F9FC50070D8EA /* LeftRightSegue.m in Sources */,
 				3E79495E210B76EA0001E6BB /* FlagsViewController.m in Sources */,
 				3E3953BB20EFE6F800D0FF7D /* main.m in Sources */,
+				06030036210F80D8008E90F3 /* PlayListTableHeader.m in Sources */,
 				6C0A4A1A21067E770042C063 /* ParentViewController.m in Sources */,
 				6CC2534A20FD08D500D7093E /* City.m in Sources */,
 				3E35630A20FEA8D100DDAA9E /* PhotoMapViewController.m in Sources */,
