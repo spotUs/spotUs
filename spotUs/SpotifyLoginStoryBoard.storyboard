@@ -269,9 +269,13 @@
                                     <segue destination="NH1-rC-6tQ" kind="show" id="gQn-Dh-zH8"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2m-ff-JL2">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2m-ff-JL2">
                                 <rect key="frame" x="121" y="176" width="132" height="132"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="DQ7-aL-RRS" appends="YES" id="loX-s4-awg"/>
+                                </connections>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OKskyline" translatesAutoresizingMaskIntoConstraints="NO" id="muF-28-aZ1">
                                 <rect key="frame" x="-8" y="413" width="383" height="178"/>
@@ -342,6 +346,11 @@
                 <tapGestureRecognizer id="PeY-Mg-lPD">
                     <connections>
                         <action selector="didTapHomeTown:" destination="rzA-pg-DWH" id="CzJ-YQ-Ai5"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="DQ7-aL-RRS">
+                    <connections>
+                        <segue destination="kQT-Ne-KPu" kind="show" id="lrd-t7-rkx"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -431,21 +440,21 @@
             <objects>
                 <viewController title="SignUpViewController" id="jNm-aI-Duq" customClass="SignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gzY-qE-40N">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpotUs is currently only available in the cities below. Click confirm with a selected city to finish setting up your account!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjj-3h-xQh">
-                                <rect key="frame" x="50" y="70" width="275" height="81.5"/>
+                                <rect key="frame" x="50" y="114" width="275" height="81.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-xv-1Ei">
-                                <rect key="frame" x="0.0" y="182" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="226" width="375" height="216"/>
                                 <color key="tintColor" red="1" green="0.2096394214" blue="0.033988638639999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMe-SN-55C">
-                                <rect key="frame" x="160" y="417.5" width="55" height="30"/>
+                                <rect key="frame" x="160" y="461.5" width="55" height="30"/>
                                 <state key="normal" title="Confirm"/>
                                 <connections>
                                     <action selector="onTapConfirm:" destination="jNm-aI-Duq" eventType="touchUpInside" id="hkc-mv-SdC"/>
@@ -565,6 +574,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcG-on-gfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="161" y="-425"/>
+        </scene>
+        <!--Stats View Controller-->
+        <scene sceneID="if1-UW-ioN">
+            <objects>
+                <viewController id="kQT-Ne-KPu" customClass="StatsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dG6-ah-SRj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="pc4-Pm-gUe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UHR-ld-6uy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1001" y="-1489"/>
         </scene>
         <!--Photo Map View Controller-->
         <scene sceneID="0g0-PM-RNF">
@@ -1261,6 +1285,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="tkD-dk-LkX"/>
         <segue reference="Is9-90-9Ke"/>
-        <segue reference="hrC-93-B8F"/>
+        <segue reference="U8D-uR-5nx"/>
     </inferredMetricsTieBreakers>
 </document>
