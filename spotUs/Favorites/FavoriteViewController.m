@@ -65,10 +65,15 @@
     self.favoriteCollectionView.backgroundColor = [UIColor clearColor];
     self.favoriteCollectionView.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
     
+  
+  
+    
+    
     self.favoriteTableView.delegate = self;
     self.favoriteTableView.dataSource = self;
     self.favoriteCollectionView.delegate = self;
     self.favoriteCollectionView.dataSource = self;
+    self.searchBar.delegate = self;
     // Do any additional setup after loading the view.
      self.favoriteTableView.rowHeight = 110;
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*) self.favoriteCollectionView.collectionViewLayout;
@@ -113,7 +118,7 @@
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             //NSLog(@"INDEX %lu", (unsigned long)songIndex);
             self.dataArray[songIndex] = dataDictionary;
-            //self.filteredDataArray = self.dataArray;
+            self.filteredDataArray = self.dataArray;
             [self.favoriteCollectionView reloadData];
             [self.favoriteTableView reloadData];
            // NSLog(@"it's been fetched");
@@ -126,14 +131,14 @@
 //collection view implementation
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     FavoriteCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"favoriteCollectionViewCell" forIndexPath:indexPath];
-    [cell updateTrackCellwithData:self.dataArray[indexPath.row]];
-    //[cell updateTrackCellwithData:self.filteredDataArray[indexPath.row]];
+   // [cell updateTrackCellwithData:self.dataArray[indexPath.row]];
+    [cell updateTrackCellwithData:self.filteredDataArray[indexPath.row]];
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     //NSLog(@"COUNTER %lu", (unsigned long)self.favorites.count);
-    return self.dataArray.count;
+    return self.filteredDataArray.count;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -172,14 +177,15 @@
         NSLog(@"updating?");
         cell.layer.backgroundColor = [[UIColor clearColor] CGColor];
         
-        [cell updateTrackCellwithData:self.dataArray[indexPath.row-1]];
+        [cell updateTrackCellwithData:self.filteredDataArray[indexPath.row-1]];
         return cell;
         
     }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.favorites.count+1;
+    NSLog(@"%lu",self.filteredDataArray.count);
+    return self.filteredDataArray.count+1;
 }
 
 
@@ -256,6 +262,27 @@
     
     
     
+}
+
+- (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (searchText.length != 0) {
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSDictionary *evaluatedObject, NSDictionary *bindings){
+            return [[evaluatedObject[@"name"] lowercaseString] containsString:[searchText lowercaseString]];
+        }];
+        self.filteredDataArray = [self.dataArray filteredArrayUsingPredicate:predicate];
+        
+        NSLog(@"%@",self.dataArray);
+    }
+    else {
+        self.filteredDataArray = self.dataArray;
+    }
+    [self.favoriteCollectionView reloadData];
+    
+    [self.favoriteTableView reloadData];
+}
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
 }
 
 #pragma mark - Navigation
