@@ -33,6 +33,23 @@
         }
     }
     self.artist.text = artistStr;
+    //get the track obj and the city of it
+    [QueryManager getTrackfromID:trackdict[@"id"] withCompletion:^(Track *track, NSError *error) {
+        if (error){
+            NSLog(@"error could not get city: %@",error.localizedDescription);
+        } else {
+            NSUInteger i = 0;
+            NSString *citystr = @"";
+            while (track.citynames.count > i){
+                citystr = [citystr stringByAppendingString:track.citynames[i]];
+                i = i + 1;
+                if (i != track.citynames.count){
+                    citystr = [citystr stringByAppendingString:@", "];
+                }
+            }
+            self.city.text = citystr;
+        }
+    }];
 }
 
 @end
