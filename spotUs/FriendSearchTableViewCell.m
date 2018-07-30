@@ -8,6 +8,12 @@
 
 #import "FriendSearchTableViewCell.h"
 
+@interface FriendSearchTableViewCell()
+
+@property (strong, nonatomic) PFUser *user;
+
+@end
+
 @implementation FriendSearchTableViewCell
 
 - (void)awakeFromNib {
@@ -22,5 +28,11 @@
 }
 - (IBAction)onTapAddFriend:(id)sender {
 }
+
+- (void) updateFriendSearchCellwithUser: (PFUser *)user{
+    self.nameLabel.text = user.username;
+    self.user = user;
+}
+
 
 @end

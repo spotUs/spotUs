@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface FriendSearchTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
+- (void) updateFriendSearchCellwithUser: (PFUser *)user;
 
 @end
