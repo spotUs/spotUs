@@ -12,6 +12,7 @@
 #import "City.h"
 #import "ParentViewController.h"
 #import "QueryManager.h"
+#import "Track.h"
 
 @interface SignUpViewController () <UIPickerViewDelegate,UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UIPickerView *cityPicker;
@@ -112,9 +113,14 @@
         NSArray *tracksArray = datadict[@"items"]; //iterate through the array to get the id of each song
         NSMutableArray<NSString*> *songIDs = [NSMutableArray new];
         for(NSDictionary *dictionary in tracksArray){
-            
             NSString *spotifyID = dictionary[@"id"];
             [songIDs addObject:spotifyID];
+            //create track obj and add it
+            [Track addNewTrack:spotifyID in:self.selectedCity withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                if (error){
+                    NSLog(@"error making new track: %@",error.localizedDescription);
+                }
+            }];
         }
         self.mostPlayedIDs = songIDs;
         NSMutableArray<NSString*> *citySongs = [NSMutableArray arrayWithArray:self.selectedCity.tracks];
