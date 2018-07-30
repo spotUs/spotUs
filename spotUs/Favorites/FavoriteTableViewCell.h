@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QueryManager.h"
 
 @interface FavoriteTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *posterImage;

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "QueryManager.h"
 
 @interface FavoriteCollectionViewCell : UICollectionViewCell
 

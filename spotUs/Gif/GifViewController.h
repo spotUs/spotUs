@@ -12,6 +12,7 @@
 #import <SafariServices/SafariServices.h>
 #import <SpotifyMetadata/SpotifyMetadata.h>
 #import <Parse/Parse.h>
+#import "QueryManager.h"
 
 @protocol GifViewControllerDelegate
 @end

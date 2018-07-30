@@ -12,10 +12,10 @@
 
 @interface Track : PFObject <PFSubclassing>
 @property (nonatomic, strong) NSString *spotifyID;
-@property (nonatomic, strong) NSMutableArray <City *> *cities;
+@property (nonatomic, strong) NSMutableArray <NSString *> *citynames;
 @property (nonatomic) int numFlags;
 
-+ (void) addNewTrack: (NSString *)spotifyID in:(City *)city withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) addNewTrack: (NSString *)spotifyID in:(NSString *)cityname withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 + (void) addFlag: (Track *) track;
 
