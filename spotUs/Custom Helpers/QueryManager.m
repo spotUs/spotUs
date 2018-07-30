@@ -180,6 +180,29 @@ static UIImage *_profileImage = nil;
     }];
 }
 
++ (void) addLastPlayed: (NSString *)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion {
+    PFUser *currUser = [PFUser currentUser];
+    [self fetchLastPlayed:^(NSArray *lastPlayed, NSError *error) {
+        NSMutableArray *lastPlayedArray = [NSMutableArray arrayWithArray:lastPlayed];
+        if (![lastPlayedArray containsObject:songId]) {
+            [lastPlayedArray addObject:songId];
+        }
+        
+        if([lastPlayedArray count] > 5){
+            
+            [lastPlayedArray removeObjectAtIndex:0];
+        }
+            
+        [currUser setObject:lastPlayedArray forKey:@"lastPlayed"];
+
+        [currUser saveInBackgroundWithBlock:completion];
+
+ 
+    }];
+    
+}
+
+
 +(BOOL)user:(NSArray *) favs HasLiked:(NSString *)songId {
     for(NSString *s in favs) {
         if([s isEqualToString:songId]) {
@@ -252,6 +275,25 @@ static UIImage *_profileImage = nil;
             NSArray *flags = user[@"flag"];
             if (completion) {
                 completion(flags, nil);}
+        } else {
+            NSLog(@"%@",error.localizedDescription);
+            if(completion) {
+                completion(nil,error);}
+        }
+    }];
+}
+
++ (void) fetchLastPlayed: (void(^)(NSArray *lastPlayed, NSError *error))completion {
+    PFUser *currUser = [PFUser currentUser];
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:currUser.username];
+    [query includeKey:@"lastPlayed"];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        if (!error) {
+            PFUser *user = (PFUser *)object;
+            NSArray *lastPlayed = user[@"lastPlayed"];
+            if (completion) {
+                completion(lastPlayed, nil);}
         } else {
             NSLog(@"%@",error.localizedDescription);
             if(completion) {
