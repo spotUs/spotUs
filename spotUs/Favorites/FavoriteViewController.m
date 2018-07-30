@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *favoriteTableView;
 @property (weak, nonatomic) IBOutlet UILabel *favoritesMessageLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *viewButton;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
