@@ -13,6 +13,7 @@
 @interface Track : PFObject <PFSubclassing>
 @property (nonatomic, strong) NSString *spotifyID;
 @property (nonatomic, strong) NSMutableArray <City *> *cities;
+@property (nonatomic) int numFlags;
 
 + (void) addNewTrack: (NSString *)spotifyID in:(City *)city withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
