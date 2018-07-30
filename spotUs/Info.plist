@@ -48,6 +48,10 @@
 		<string>HindVadodara-Medium.ttf</string>
 		<string>HindVadodara-Regular.ttf</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

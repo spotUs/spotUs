@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *skylineImageView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *viewButton;
 @property (strong, nonatomic) NSMutableArray<NSDictionary *> *dataArray;
 @property (strong, nonatomic) NSArray<NSDictionary *> *filteredDataArray;
 
@@ -41,9 +42,12 @@
         NSLog(@"changing tableview");
         [self.collectionView setHidden:NO];
         [self.tableView setHidden:YES];
+        self.viewButton.title = @"TableView";
     } else {
         [self.collectionView setHidden:YES];
         [self.tableView setHidden:NO];
+        self.viewButton.title = @"GridView";
+
     }
 }
 
