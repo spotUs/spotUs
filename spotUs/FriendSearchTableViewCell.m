@@ -27,6 +27,11 @@
     // Configure the view for the selected state
 }
 - (IBAction)onTapAddFriend:(id)sender {
+    if ([self userAdded]){
+        [self removeFriend];
+    } else {
+        [self addFriend];
+    }
 }
 
 - (void) updateFriendSearchCellwithUser: (PFUser *)user{
@@ -36,7 +41,36 @@
 }
 
 - (BOOL) userAdded {
-    return [[PFUser currentUser][@"friends"] containsObject: self.user];
+    NSLog(@"%@",[PFUser currentUser][@"friends"]);
+    return [[PFUser currentUser][@"friends"] containsObject: self.user.username];
+}
+
+- (void) removeFriend {
+    NSMutableArray *friends = [PFUser currentUser][@"friends"];
+    [friends removeObject:self.user.username];
+    [[PFUser currentUser] setObject:friends forKey:@"friends"];
+    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error){
+            NSLog(@"error removing friend: %@",error.localizedDescription);
+        } else {
+            NSLog(@"succesfully removed friend");
+            [self updateFriendSearchCellwithUser:self.user];
+        }
+    }];
+}
+
+- (void) addFriend{
+    NSMutableArray *friends = [PFUser currentUser][@"friends"];
+    [friends addObject:self.user.username];
+    [[PFUser currentUser] setObject:friends forKey:@"friends"];
+    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error){
+            NSLog(@"error adding friend: %@",error.localizedDescription);
+        } else {
+            NSLog(@"succesfully added friend");
+            [self updateFriendSearchCellwithUser:self.user];
+        }
+    }];
 }
 
 

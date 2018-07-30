@@ -70,6 +70,7 @@
     self.selectedCity = self.cities[row];
     currUser[@"city"] = self.selectedCity;
     currUser[@"favs"] = [NSMutableArray array];
+    currUser[@"friends"] = [NSMutableArray array];
     [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (error != nil) {
             NSLog(@"Error saving city: %@", error.localizedDescription);
