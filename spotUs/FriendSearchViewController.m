@@ -15,7 +15,10 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (strong, nonatomic) NSArray <PFUser *> *users;
-@property (strong, nonatomic) NSArray <PFUser *> *filteredusers;
+@property (strong, nonatomic) NSArray <PFUser *> *filteredFriends;
+@property (strong, nonatomic) NSArray <PFUser *> *filteredNotFriends;
+@property (strong, nonatomic) NSArray <PFUser *> *usersFriends;
+@property (strong, nonatomic) NSArray <PFUser *> *usersNotFriends;
 
 @end
 
@@ -28,15 +31,13 @@
     
     self.searchBar.delegate = self;
     
-    // get users that are not current user
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" notEqualTo:[PFUser currentUser].username];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        self.filteredusers = objects;
-        self.users = objects;
-        [self.tableView reloadData];
-    }];
+    self.usersFriends = [NSArray array];
+    self.usersNotFriends = [NSArray array];
+    self.filteredFriends = self.usersFriends;
+    self.filteredNotFriends = self.usersNotFriends;
     
+    [self updateUsers];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,14 +45,52 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) updateUsers {
+    // get users that are not current user and friends
+    PFQuery *friendQuery = [PFUser query];
+    [friendQuery whereKey:@"username" notEqualTo:[PFUser currentUser].username];
+    [friendQuery whereKey:@"username" containedIn:[PFUser currentUser][@"friends"]];
+    [friendQuery orderByAscending:@"username"];
+    [friendQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        self.usersFriends = objects;
+        self.filteredFriends = objects;
+        NSLog(@"filteredfriends %@",self.filteredFriends);
+        [self.tableView reloadData];
+    }];
+    // get non friends
+    PFQuery *notFriendQuery = [PFUser query];
+    [notFriendQuery whereKey:@"username" notEqualTo:[PFUser currentUser].username];
+    [notFriendQuery whereKey:@"username" notContainedIn:[PFUser currentUser][@"friends"]];
+    [notFriendQuery orderByAscending:@"username"];
+    [notFriendQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        self.usersNotFriends = objects;
+        self.filteredNotFriends = objects;
+        [self.tableView reloadData];
+    }];
+}
+
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    FriendSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FriendSearchCell" forIndexPath:indexPath];
-    [cell updateFriendSearchCellwithUser:self.filteredusers[indexPath.row]];
-    return cell;
+    if (indexPath.row == 0){
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"divider" forIndexPath:indexPath];
+        cell.textLabel.text = @"Friends: ";
+        return cell;
+    } else if (indexPath.row == self.filteredFriends.count + 1){
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"divider" forIndexPath:indexPath];
+        cell.textLabel.text = @"Other Users: ";
+        return cell;
+    } else {
+        FriendSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FriendSearchCell" forIndexPath:indexPath];
+        if (indexPath.row - 1 < self.filteredFriends.count){
+            [cell updateFriendSearchCellwithUser:self.filteredFriends[indexPath.row - 1]];
+        } else {
+            [cell updateFriendSearchCellwithUser:self.filteredNotFriends[indexPath.row - 2 - self.filteredFriends.count]];
+        }
+        return cell;
+    }
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.filteredusers.count;
+    return self.filteredFriends.count + self.filteredNotFriends.count + 2;
 }
 
 //search bar
@@ -60,9 +99,11 @@
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(PFUser *evaluatedObject, NSDictionary *bindings) {
             return [[evaluatedObject.username lowercaseString] containsString:[searchText lowercaseString]];
         }];
-        self.filteredusers = [self.users filteredArrayUsingPredicate:predicate];
+        self.filteredFriends = [self.usersFriends filteredArrayUsingPredicate:predicate];
+        self.filteredNotFriends = [self.usersNotFriends filteredArrayUsingPredicate:predicate];
     } else {
-        self.filteredusers = self.users;
+        self.filteredNotFriends = self.usersNotFriends;
+        self.filteredFriends = self.usersFriends;
     }
     [self.tableView reloadData];
 }

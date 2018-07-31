@@ -308,7 +308,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="friends"/>
                                 <connections>
-                                    <segue destination="e68-I8-Drw" kind="show" id="6CJ-RI-Die"/>
+                                    <segue destination="e68-I8-Drw" kind="show" id="ge9-Mp-oKv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -361,11 +361,11 @@
             <objects>
                 <viewController id="e68-I8-Drw" customClass="FriendSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oQn-i5-Flu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ibN-fv-8F0">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="469"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendSearchCell" rowHeight="71" id="pit-y1-zAn" customClass="FriendSearchTableViewCell">
@@ -407,10 +407,19 @@
                                             <outlet property="nameLabel" destination="6VB-8C-WOJ" id="tuq-Uz-cJ4"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="divider" rowHeight="53" id="Zoh-kk-b4F">
+                                        <rect key="frame" x="0.0" y="99" width="375" height="53"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zoh-kk-b4F" id="BnM-OV-c6a">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.8839054404145078" green="0.8839054404145078" blue="0.8839054404145078" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="RHb-cS-H5A">
-                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -433,7 +442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Owd-Oa-XXG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1986.4000000000001" y="-524.8875562218891"/>
+            <point key="canvasLocation" x="2208.8000000000002" y="-481.70914542728639"/>
         </scene>
         <!--SignUpViewController-->
         <scene sceneID="OzT-d9-2xk">
