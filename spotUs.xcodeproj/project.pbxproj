@@ -47,6 +47,9 @@
 		3E7A9A6221067EED007CB62B /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A9A6121067EED007CB62B /* FavoriteViewController.m */; };
 		3E7A9A6821067F9E007CB62B /* FavoriteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7A9A6721067F9E007CB62B /* FavoriteCollectionViewCell.m */; };
 		3E7C233E2107EA7900E1C749 /* FavoriteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C233D2107EA7900E1C749 /* FavoriteTableViewCell.m */; };
+		3EBB344F2110E60B00D02F32 /* BuddyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBB344E2110E60B00D02F32 /* BuddyStoryboard.storyboard */; };
+		3EBB34522110E61A00D02F32 /* BuddyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB34512110E61A00D02F32 /* BuddyViewController.m */; };
+		3EBB34552110E63F00D02F32 /* BuddyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB34542110E63F00D02F32 /* BuddyCollectionViewCell.m */; };
 		446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F2FB4F5A82CDFF4BAC312 /* libPods-spotUsTests.a */; };
 		6C0A49CC21028A4D0042C063 /* QueryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A49CB21028A4D0042C063 /* QueryManager.m */; };
 		6C0A4A1A21067E770042C063 /* ParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A4A1921067E770042C063 /* ParentViewController.m */; };
@@ -151,6 +154,11 @@
 		3E7A9A6721067F9E007CB62B /* FavoriteCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoriteCollectionViewCell.m; sourceTree = "<group>"; };
 		3E7C233C2107EA7900E1C749 /* FavoriteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoriteTableViewCell.h; sourceTree = "<group>"; };
 		3E7C233D2107EA7900E1C749 /* FavoriteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoriteTableViewCell.m; sourceTree = "<group>"; };
+		3EBB344E2110E60B00D02F32 /* BuddyStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BuddyStoryboard.storyboard; sourceTree = "<group>"; };
+		3EBB34502110E61A00D02F32 /* BuddyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuddyViewController.h; sourceTree = "<group>"; };
+		3EBB34512110E61A00D02F32 /* BuddyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuddyViewController.m; sourceTree = "<group>"; };
+		3EBB34532110E63F00D02F32 /* BuddyCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuddyCollectionViewCell.h; sourceTree = "<group>"; };
+		3EBB34542110E63F00D02F32 /* BuddyCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuddyCollectionViewCell.m; sourceTree = "<group>"; };
 		6C0A49CA21028A4D0042C063 /* QueryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QueryManager.h; sourceTree = "<group>"; };
 		6C0A49CB21028A4D0042C063 /* QueryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueryManager.m; sourceTree = "<group>"; };
 		6C0A4A1821067E770042C063 /* ParentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParentViewController.h; sourceTree = "<group>"; };
@@ -398,6 +406,7 @@
 		3E3953AA20EFE6F800D0FF7D /* spotUs */ = {
 			isa = PBXGroup;
 			children = (
+				3EBB344D2110E5FA00D02F32 /* New Group */,
 				6C2C2E4D2110C1090070D8EA /* Friends */,
 				3E79495B210B76A20001E6BB /* Flags */,
 				3E7A9A4E210635B1007CB62B /* Favorites */,
@@ -460,6 +469,18 @@
 				3E7C233D2107EA7900E1C749 /* FavoriteTableViewCell.m */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		3EBB344D2110E5FA00D02F32 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				3EBB344E2110E60B00D02F32 /* BuddyStoryboard.storyboard */,
+				3EBB34502110E61A00D02F32 /* BuddyViewController.h */,
+				3EBB34512110E61A00D02F32 /* BuddyViewController.m */,
+				3EBB34532110E63F00D02F32 /* BuddyCollectionViewCell.h */,
+				3EBB34542110E63F00D02F32 /* BuddyCollectionViewCell.m */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		6C234DE7210A91BC009F484D /* font */ = {
@@ -634,6 +655,7 @@
 			files = (
 				069EE3D4210B9BDA0069762E /* HindVadodara-Light.ttf in Resources */,
 				06F6BD5120FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard in Resources */,
+				3EBB344F2110E60B00D02F32 /* BuddyStoryboard.storyboard in Resources */,
 				069EE3C3210B9AF90069762E /* HanaleiFill-Regular.ttf in Resources */,
 				3E7A9A50210635DC007CB62B /* FavoriteStoryboard.storyboard in Resources */,
 				6C234DE6210A85D5009F484D /* Storyboard.storyboard in Resources */,
@@ -749,6 +771,7 @@
 				6CB5858F21000392009BD66B /* PlaylistCollectionViewCell.m in Sources */,
 				6C0A49CC21028A4D0042C063 /* QueryManager.m in Sources */,
 				6C2C2E4C210FA4290070D8EA /* FriendSearchTableViewCell.m in Sources */,
+				3EBB34552110E63F00D02F32 /* BuddyCollectionViewCell.m in Sources */,
 				6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */,
 				6C2C2E3D210BD1D90070D8EA /* PlaylistTableViewCell.m in Sources */,
 				6C2C2E46210F9FC50070D8EA /* LeftRightSegue.m in Sources */,
@@ -773,6 +796,7 @@
 				060896AE21065C990041644D /* PlayListCollectionHeader.m in Sources */,
 				3E7C233E2107EA7900E1C749 /* FavoriteTableViewCell.m in Sources */,
 				06F6BD6220FD102500E85B28 /* PlayerView.m in Sources */,
+				3EBB34522110E61A00D02F32 /* BuddyViewController.m in Sources */,
 				06F6BD7720FEB55200E85B28 /* ProfileViewController.m in Sources */,
 				6CC2535A20FD446E00D7093E /* SignUpViewController.m in Sources */,
 			);
