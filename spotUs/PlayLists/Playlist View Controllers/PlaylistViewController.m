@@ -29,7 +29,7 @@
 @implementation PlaylistViewController
 - (IBAction)didClickPlay:(id)sender {
     
-    
+    [QueryManager setLastPlayedCity:self.city withCompletion:nil];
     NSDictionary *cityDic =  @{ @"citytracks"     : self.city.tracks,
                                 @"index" : [NSNumber numberWithInt:0],
                                 };
@@ -139,9 +139,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [QueryManager setLastPlayedCity:self.city withCompletion:nil];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSDictionary *cityDic =  @{ @"citytracks"     : self.city.tracks,
                                 @"index" : [NSNumber numberWithInteger:indexPath.row-1],
                                 };
@@ -169,7 +169,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [QueryManager setLastPlayedCity:self.city withCompletion:nil];
     NSDictionary *cityDic =  @{ @"citytracks"     : self.city.tracks,
                                 @"index" : [NSNumber numberWithInteger:indexPath.row],
                                 };
@@ -204,10 +204,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.'
-    PlaylistViewController *playlistVC = (PlaylistViewController *)[segue destinationViewController];
-    playlistVC.auth = self.auth;
-    playlistVC.player = self.player;
-    playlistVC.city = self.city;
     
 
 }

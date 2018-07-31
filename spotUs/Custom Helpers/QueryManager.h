@@ -23,10 +23,6 @@
 @property (class, nonatomic, strong) UIImage  * _Nonnull userImage;
 @property (class, nonatomic, strong) SPTAuth *auth;
 
-
-
-
-
 + (void) fetchCities:(void(^_Nullable)(NSArray * _Nonnull cities, NSError * _Nullable error))completion ;
 
 + (City *_Nonnull) getCityFromName: (NSString *_Nonnull)name;
@@ -47,15 +43,16 @@
 
 + (void) fadeImg: (NSURL *_Nullable)imgURL imgView:(UIImageView *_Nullable)imgView;
 
-+ (void) getTrackfromID: (NSString *) spotifyID withCompletion:(void(^)(Track *track, NSError *error))completion;
++ (void) getTrackfromID: (NSString *_Nonnull) spotifyID withCompletion:(void(^_Nullable)(Track *track, NSError *error))completion;
 
-+ (void) getUserfromUsername: (NSString *)username withCompletion:(void(^)(PFUser *user, NSError *error))completion;
++ (void) getUserfromUsername: (NSString *_Nonnull)username withCompletion:(void(^_Nullable)(PFUser *user, NSError *error))completion;
 
-+ (void) addLastPlayed: (NSString *)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) addLastPlayed: (NSString *_Nonnull)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 + (void) fetchLastPlayedOfUsername:(NSString *)username WithCompletion:(void(^)(NSArray *lastPlayed, NSError *error))completion;
 
-+ (void) getSPTracksFromIDs: (NSArray<NSString*>*)spotifyIDs withCompletion: (PFIdResultBlock  _Nullable)completion;
++ (void) getSPTracksFromIDs: (NSArray<NSString*>*_Nonnull)spotifyIDs withCompletion: (PFIdResultBlock  _Nullable)completion;
 
++ (void) setLastPlayedCity: (City *_Nonnull)city withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 @end

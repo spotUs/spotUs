@@ -83,7 +83,7 @@
         NSLog (@"Successfully received the chosen Playlist!");
         self.player.playbackDelegate = self;
         NSDictionary *userInfo = notification.userInfo;
-
+        NSLog(@"%@",notification);
         self.citySongIDs = userInfo[@"citytracks"];
 
         self.currentSongIndex = [userInfo[@"index"] intValue];

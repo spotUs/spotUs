@@ -361,11 +361,11 @@
             <objects>
                 <viewController id="e68-I8-Drw" customClass="FriendSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oQn-i5-Flu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ibN-fv-8F0">
-                                <rect key="frame" x="0.0" y="120" width="375" height="469"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendSearchCell" rowHeight="71" id="pit-y1-zAn" customClass="FriendSearchTableViewCell">
@@ -419,7 +419,7 @@
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="RHb-cS-H5A">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -595,12 +595,12 @@
             </objects>
             <point key="canvasLocation" x="161" y="-425"/>
         </scene>
-        <!--Stats View Controller-->
+        <!--Title-->
         <scene sceneID="if1-UW-ioN">
             <objects>
                 <viewController id="kQT-Ne-KPu" customClass="StatsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dG6-ah-SRj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O4H-0B-eW6">
@@ -651,6 +651,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pc4-Pm-gUe"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="vOq-Jv-xFN"/>
                     <connections>
                         <outlet property="statsTableView" destination="O4H-0B-eW6" id="MwH-i4-OQj"/>
                     </connections>
@@ -664,14 +665,14 @@
             <objects>
                 <viewController storyboardIdentifier="map" id="NH1-rC-6tQ" customClass="PhotoMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DKl-8v-rCf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j8u-RV-yRn">
-                                <rect key="frame" x="0.0" y="64" width="375" height="527"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="649"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2DL-E6-Inc">
-                                <rect key="frame" x="159" y="525" width="56" height="53"/>
+                                <rect key="frame" x="159" y="603" width="56" height="53"/>
                                 <state key="normal" title="Button" image="martinspotus"/>
                                 <state key="selected" image="Screen Shot 2018-07-20 at 2.41.33 PM"/>
                                 <connections>
@@ -786,7 +787,7 @@
             <objects>
                 <viewController id="XYl-M6-THt" customClass="PlaylistViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T7v-68-9iE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OKskyline" translatesAutoresizingMaskIntoConstraints="NO" id="6Ba-Df-XkP">
@@ -794,7 +795,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tmw-Y8-jpA">
-                                <rect key="frame" x="0.0" y="120" width="375" height="469"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PlaylistTableCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaylistTableCell" rowHeight="90" id="Ksl-Xp-oV8" customClass="PlaylistTableViewCell">
@@ -868,7 +869,7 @@
                                 </prototypes>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zSC-Er-mCe">
-                                <rect key="frame" x="0.0" y="120" width="375" height="469"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R9e-hD-3aX">
                                     <size key="itemSize" width="165" height="167"/>
                                     <size key="headerReferenceSize" width="50" height="88"/>
@@ -948,7 +949,7 @@
                                 </collectionReusableView>
                             </collectionView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="iag-Wo-gMA">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -1084,7 +1085,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ntA-bk-3aY">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ntA-bk-3aY">
                                 <rect key="frame" x="0.0" y="93" width="375" height="496"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1238,11 +1239,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="oXy-Hi-2cZ"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="ntA-bk-3aY"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="b7d-06-6hM">
                         <barButtonItem key="backBarButtonItem" title="Grid View" id="Bai-mQ-tXI"/>
