@@ -10,7 +10,6 @@
 #import "QueryManager.h"
 
 @interface FavoriteTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *posterImage;
 @property (weak, nonatomic) IBOutlet UILabel *artist;
 @property (weak, nonatomic) IBOutlet UILabel *song;
 @property (weak, nonatomic) IBOutlet UILabel *city;

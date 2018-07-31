@@ -16,8 +16,6 @@
     NSArray<SPTPartialArtist*> *artists = spTrack.artists;
     self.song.text = spTrack.name;
     self.artist.text = artists[0].name;
-    NSURL *imgURL =  spTrack.album.largestCover.imageURL;
-    [self.posterImage setImageWithURL:imgURL];
     
     [QueryManager getTrackfromID:spTrack.identifier withCompletion:^(Track *track, NSError *error) {
         if (error){

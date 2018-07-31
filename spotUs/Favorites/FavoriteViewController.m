@@ -65,10 +65,6 @@
     self.favoriteCollectionView.backgroundColor = [UIColor clearColor];
     self.favoriteCollectionView.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
     
-  
-  
-    
-    
     self.favoriteTableView.delegate = self;
     self.favoriteTableView.dataSource = self;
     self.favoriteCollectionView.delegate = self;
@@ -146,7 +142,7 @@
     
     else{
         
-        PlaylistTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlaylistTableCell" forIndexPath:indexPath];
+        FavoriteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavoriteTableViewCell" forIndexPath:indexPath];
         NSLog(@"updating?");
         cell.layer.backgroundColor = [[UIColor clearColor] CGColor];
         

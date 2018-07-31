@@ -9,7 +9,8 @@
 #import "StatsViewController.h"
 #import "QueryManager.h"
 
-@interface StatsViewController ()
+@interface StatsViewController () <UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *statsTableView;
 
 @end
 
