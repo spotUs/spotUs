@@ -14,6 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *song;
 @property (weak, nonatomic) IBOutlet UILabel *city;
 
-- (void) updateTrackCellwithData: (NSDictionary *)trackdict;
+- (void) updateTrackCellwithData: (SPTTrack *)trackdict;
 
 @end
