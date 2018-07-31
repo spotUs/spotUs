@@ -172,12 +172,9 @@ CLLocationManager *locationManager;
     UIImage *btnImage = [UIImage imageNamed:@"next-btn"];
     [btn setImage:btnImage forState:UIControlStateNormal];
     annotationView.rightCalloutAccessoryView = btn;
-    
-    UILabel *fromLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 10)];
-    fromLabel.text = @"okok";
-    UIView *detailsview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
-    [detailsview addSubview:fromLabel];
-    annotationView.detailCalloutAccessoryView = detailsview;
+
+    self.detailsViewLabel.text = @"testing";
+    annotationView.detailCalloutAccessoryView = self.detailsView;
     
     return annotationView;
 }
