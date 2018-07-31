@@ -43,6 +43,7 @@
     self.usersNotFriends = [NSArray array];
     self.filteredFriends = self.usersFriends;
     self.filteredNotFriends = self.usersNotFriends;
+    self.tableView.rowHeight = 63;
     
     [self updateUsers];
 
