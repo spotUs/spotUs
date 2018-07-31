@@ -20,13 +20,18 @@
 @property (weak, nonatomic) IBOutlet UIImageView *skylineImageView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *viewButton;
+@property (strong, nonatomic) UIBarButtonItem *gridButton;
+@property (strong, nonatomic) UIBarButtonItem *listButton;
+
+
 @property (strong, nonatomic) NSMutableArray<NSDictionary *> *dataArray;
 @property (strong, nonatomic) NSArray<NSDictionary *> *filteredDataArray;
 
 @end
 
 @implementation PlaylistViewController
+
+
 - (IBAction)didClickPlay:(id)sender {
     
     [QueryManager setLastPlayedCity:self.city withCompletion:nil];
@@ -37,19 +42,6 @@
                                                         object:self userInfo:cityDic];
     
     
-}
-- (IBAction)onTapViewToggle:(id)sender {
-    if ([self.collectionView isHidden]) {
-        NSLog(@"changing tableview");
-        [self.collectionView setHidden:NO];
-        [self.tableView setHidden:YES];
-        self.viewButton.title = @"TableView";
-    } else {
-        [self.collectionView setHidden:YES];
-        [self.tableView setHidden:NO];
-        self.viewButton.title = @"GridView";
-
-    }
 }
 
 - (void)viewDidLoad {
@@ -68,6 +60,18 @@
     self.collectionView.dataSource = self;
     self.searchBar.delegate = self;
     
+  
+    
+    self.gridButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"grid"]
+                                                          style:UIBarButtonItemStylePlain
+                                                         target:self
+                                                         action:@selector(toggleView)];
+    self.listButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"list"]
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(toggleView)];
+    
+    self.navigationItem.rightBarButtonItem= self.listButton;
     
     
     //set the size of the cells
@@ -81,6 +85,23 @@
     
     [self updateCityData];
 
+}
+
+-(void)toggleView{
+    
+    if ([self.collectionView isHidden]) {
+        NSLog(@"changing tableview");
+        [self.collectionView setHidden:NO];
+        [self.tableView setHidden:YES];
+        self.navigationItem.rightBarButtonItem= self.listButton;
+    } else {
+        [self.collectionView setHidden:YES];
+        [self.tableView setHidden:NO];
+        self.navigationItem.rightBarButtonItem= self.gridButton;
+
+    }
+    
+    
 }
 
 

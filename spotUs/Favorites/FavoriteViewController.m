@@ -21,9 +21,10 @@
 @property (strong, nonatomic) NSMutableArray<NSDictionary *> *dataArray;
 @property (strong, nonatomic) NSArray<SPTTrack *> *filteredDataArray;
 @property (strong, nonatomic) NSArray *favorites;
+@property (strong, nonatomic) UIBarButtonItem *gridButton;
+@property (strong, nonatomic) UIBarButtonItem *listButton;
 @property (weak, nonatomic) IBOutlet UITableView *favoriteTableView;
 @property (weak, nonatomic) IBOutlet UILabel *favoritesMessageLabel;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *viewButton;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
@@ -43,27 +44,41 @@
 }
 
 
-- (IBAction)onTapViewToggle:(id)sender {
+
+
+-(void)toggleView{
+    
     if ([self.favoriteCollectionView isHidden]) {
         NSLog(@"changing tableview");
         [self.favoriteCollectionView setHidden:NO];
         [self.favoriteTableView setHidden:YES];
-        self.viewButton.title = @"TableView";
+        self.navigationItem.rightBarButtonItem= self.listButton;
     } else {
         [self.favoriteCollectionView setHidden:YES];
         [self.favoriteTableView setHidden:NO];
-        self.viewButton.title = @"GridView";
+        self.navigationItem.rightBarButtonItem= self.gridButton;
         
     }
+    
+    
 }
-
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.favoriteCollectionView.backgroundColor = [UIColor clearColor];
     self.favoriteCollectionView.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.gridButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"grid"]
+                                                    style:UIBarButtonItemStylePlain
+                                                   target:self
+                                                   action:@selector(toggleView)];
+    self.listButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"list"]
+                                                    style:UIBarButtonItemStylePlain
+                                                   target:self
+                                                   action:@selector(toggleView)];
+    
+    self.navigationItem.rightBarButtonItem= self.listButton;
+
+    
     
     self.favoriteTableView.delegate = self;
     self.favoriteTableView.dataSource = self;
@@ -87,6 +102,8 @@
                                              selector:@selector(receiveTestNotification:)
                                                  name:@"Update Favorites"
                                                object:nil];
+    
+    
 
     
 }
