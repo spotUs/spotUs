@@ -167,7 +167,8 @@ CLLocationManager *locationManager;
         //pinView.pinColor = MKPinAnnotationColorGreen;
         pinView.canShowCallout = YES;
         //pinView.animatesDrop = YES;
-        pinView.image = [UIImage imageNamed:@"pin-20"];    //as suggested by Squatch
+     
+        pinView.image = [UIImage imageNamed:@"superSmall"];    //as suggested by Squatch
     }
     else {
         [_mapView.userLocation setTitle:@"I am here"];
