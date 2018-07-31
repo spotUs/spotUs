@@ -9,7 +9,7 @@
 #import "Track.h"
 
 @implementation Track
-@dynamic spotifyID, citynames, numFlags;
+@dynamic spotifyID, citynames, flaggers;
 
 + (nonnull NSString *)parseClassName {
     return @"Track";
@@ -24,7 +24,7 @@
             //this track obj does not already exist so create new one
             Track *newTrack = [[Track alloc] init];
             newTrack.spotifyID = spotifyID;
-            newTrack.numFlags = 0;
+            newTrack.flaggers = [NSMutableArray array];
             newTrack.citynames = [NSMutableArray array];
             [newTrack.citynames addObject:cityname];
             [newTrack saveInBackgroundWithBlock:completion];
@@ -43,15 +43,6 @@
     
 }
 
-+ (void) addFlag: (Track *) track {
-    track.numFlags = track.numFlags + 1;
-    [track saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (error){
-            NSLog(@"error could not add flag: %@",error.localizedDescription);
-        } else {
-            NSLog(@"added flag");
-        }
-    }];
-}
+
 
 @end

@@ -10,7 +10,7 @@
 #import "FriendSearchTableViewCell.h"
 #import "StatsViewController.h"
 
-@interface FriendSearchViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@interface FriendSearchViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, FriendStatusDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -101,6 +101,7 @@
         return cell;
     } else {
         FriendSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FriendSearchCell" forIndexPath:indexPath];
+        cell.delegate = self;
         if (indexPath.row - 1 < self.filteredFriends.count){
             [cell updateFriendSearchCellwithUser:self.filteredFriends[indexPath.row - 1]];
         } else {
@@ -143,7 +144,13 @@
     }
 }
 
+- (void)didChangeFriendStatus{
+    
+    [self updateUsers];
 
+    
+    
+}
 
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation

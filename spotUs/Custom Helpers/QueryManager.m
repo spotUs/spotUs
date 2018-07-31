@@ -131,41 +131,7 @@ static SPTAuth *_auth = nil;
 + (City *)getCityFromID:(NSString *)objectID{
     return [_citiesIDdict objectForKey:objectID];
 }
-+ (void) addInappropriate: (NSString *)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion {
-    PFUser *currUser = [PFUser currentUser];
-    [self fetchInappropriate:^(NSArray *flags, NSError *error) {
-        NSMutableArray *flagArray = [NSMutableArray arrayWithArray:flags];
-        if (![flagArray containsObject:songId]) {
-            [flagArray addObject:songId];
-            [currUser setObject:flagArray forKey:@"inappropriate"];
-            [currUser saveInBackgroundWithBlock:completion];
-        }
-        else {
-            [flagArray removeObject:songId];
-            [currUser removeObject:flagArray forKey:@"inappropriate"];
-            [currUser saveInBackgroundWithBlock:completion];
-        }
-    }];
-    
-}
 
-+ (void) addUnmatched: (NSString *)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion {
-    PFUser *currUser = [PFUser currentUser];
-    [self fetchUnmatched:^(NSArray *flags, NSError *error) {
-        NSMutableArray *flagArray = [NSMutableArray arrayWithArray:flags];
-        if (![flagArray containsObject:songId]) {
-            [flagArray addObject:songId];
-            [currUser setObject:flagArray forKey:@"unmatch"];
-            [currUser saveInBackgroundWithBlock:completion];
-        }
-        else {
-            [flagArray removeObject:songId];
-            [currUser removeObject:flagArray forKey:@"unmatch"];
-            [currUser saveInBackgroundWithBlock:completion];
-        }
-    }];
-    
-}
 
 + (void) addFavSongId: (NSString *)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     PFUser *currUser = [PFUser currentUser];
@@ -240,42 +206,8 @@ static SPTAuth *_auth = nil;
     }
     return NO;
 }
-+ (void) fetchInappropriate: (void(^)(NSArray *favs, NSError *error))completion {
-    PFUser *currUser = [PFUser currentUser];
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:currUser.username];
-    [query includeKey:@"inappropriate"];
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        if (!error) {
-            PFUser *user = (PFUser *)object;
-            NSArray *flags = user[@"inappropriate"];
-            if (completion) {
-                completion(flags, nil);}
-        } else {
-            NSLog(@"%@",error.localizedDescription);
-            if(completion) {
-                completion(nil,error);}
-        }
-    }];
-}
-+ (void) fetchUnmatched: (void(^)(NSArray *favs, NSError *error))completion {
-    PFUser *currUser = [PFUser currentUser];
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:currUser.username];
-    [query includeKey:@"unmatched"];
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        if (!error) {
-            PFUser *user = (PFUser *)object;
-            NSArray *flags = user[@"unmatched"];
-            if (completion) {
-                completion(flags, nil);}
-        } else {
-            NSLog(@"%@",error.localizedDescription);
-            if(completion) {
-                completion(nil,error);}
-        }
-    }];
-}
+
+
 + (void) fetchFavs: (void(^)(NSArray *favs, NSError *error))completion {
     PFUser *currUser = [PFUser currentUser];
     PFQuery *query = [PFUser query];
@@ -293,24 +225,7 @@ static SPTAuth *_auth = nil;
     }];
 }
 
-+ (void) fetchFlags: (void(^)(NSArray *favs, NSError *error))completion {
-    PFUser *currUser = [PFUser currentUser];
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:currUser.username];
-    [query includeKey:@"flag"];
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        if (!error) {
-            PFUser *user = (PFUser *)object;
-            NSArray *flags = user[@"flag"];
-            if (completion) {
-                completion(flags, nil);}
-        } else {
-            NSLog(@"%@",error.localizedDescription);
-            if(completion) {
-                completion(nil,error);}
-        }
-    }];
-}
+
 
 + (void) fetchLastPlayedOfUsername:(NSString *)username WithCompletion:(void(^)(NSArray *lastPlayed, NSError *error))completion {
     PFQuery *query = [PFUser query];
@@ -394,6 +309,51 @@ static SPTAuth *_auth = nil;
             if (completion) {completion(track,nil);}
         }
     }];
+}
+
+
++ (void) flagMismatchWithID: (NSString *)songID withCompletion:(PFBooleanResultBlock _Nullable)completion{
+    
+    [self getTrackfromID:songID withCompletion:^(Track *track, NSError *error) {
+        
+        
+        if(error){
+            
+            completion(NO,error);
+        }
+        
+        else{
+            
+            
+            NSMutableArray<NSString*> *flaggers = [NSMutableArray arrayWithArray:track.flaggers];
+            
+            if(![flaggers containsObject:[PFUser currentUser].username]){
+                
+                [flaggers addObject:[PFUser currentUser].username];
+            }
+            
+            
+            track.flaggers = flaggers;
+            [track saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                
+                if(error){
+                    
+                    completion(NO,error);
+                    
+                }
+                else{
+                    completion(YES,nil);
+                }
+            }];
+            
+            
+            
+        }
+    }];
+    
+    
+    
+    
 }
  
 + (void) getUserfromUsername: (NSString *)username withCompletion:(void(^)(PFUser *user, NSError *error))completion {

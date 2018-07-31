@@ -227,34 +227,61 @@
 }
 
 - (IBAction)flagged:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Flagged!" message:@"Why did you flag this song?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Inappropriate Material",@"Does not match city", nil];
-    [alert show];
-}
+    
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:@"Flagged"
+                                 message:@"Why did you flag this song?"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    //Add Buttons
+    
+    UIAlertAction* inapp = [UIAlertAction
+                            actionWithTitle:@"Inappropiate Material"
+                            style:UIAlertActionStyleDefault
+                            handler:^(UIAlertAction * action) {
+                                //Handle your yes please button action here
+                                NSLog(@"inappropriate Material");
+                                NSString *stringID = [self.player.metadata.currentTrack.uri substringFromIndex:14];
+                                [QueryManager flagMismatchWithID:stringID withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                                    if(succeeded){
+                                        
+                                        [[NSNotificationCenter defaultCenter] postNotificationName:@"Update Favorites"
+                                                                                            object:self];
+                                    }
+                                }];
+                            }];
+                                    
+                            
+                      
+    
+    UIAlertAction* noMatch = [UIAlertAction
+                              actionWithTitle:@"Does not match city"
+                              style:UIAlertActionStyleDefault
+                              handler:^(UIAlertAction * action) {
+                                  NSString *stringID = [self.player.metadata.currentTrack.uri substringFromIndex:14];
+                                  [QueryManager flagMismatchWithID:stringID withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                                      if(succeeded){
+                                          
+                                          [[NSNotificationCenter defaultCenter] postNotificationName:@"Update Favorites"
+                                                                                              object:self];
+                                      }
+                                  }];
+                              }];
+                                  
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"Cancel"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action) {
+                         
+                                 
+                             }];
+    
+    [alert addAction:inapp];
+    [alert addAction:noMatch];
+    [alert addAction:cancel];
 
-- (void)alertView:(UIAlertView *)alertView
-clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == [alertView firstOtherButtonIndex]){
-        [self.ina addObject:@"Report"];
-        NSLog(@"inappropriate Material");
-        NSString *stringID = [self.player.metadata.currentTrack.uri substringFromIndex:14];
-        [QueryManager addInappropriate:stringID withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Update Favorites"
-                                                                object:self];
-        }];
-        
-    }
-    else if(buttonIndex == [alertView cancelButtonIndex]){
-        NSLog(@"cancelled");
-    }
-    else {
-        NSString *stringID = [self.player.metadata.currentTrack.uri substringFromIndex:14];
-        [QueryManager addUnmatched:stringID withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Update Favorites"
-                                                                object:self];
-        }];
-        NSLog(@"Does not match city");
-    }
+    
+    [self presentViewController:alert animated:YES completion:nil];
+
 }
 @end
