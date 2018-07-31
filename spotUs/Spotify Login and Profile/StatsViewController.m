@@ -28,8 +28,18 @@
     self.statsTableView.delegate = self;
     // Do any additional setup after loading the view.
     
+    NSString *username;
     
-    [QueryManager fetchLastPlayed:^(NSArray *lastPlayed, NSError *error) {
+    if(self.user == nil){
+        
+        username = [PFUser currentUser].username;
+    }
+    
+    else{
+        username = self.user.username;
+    }
+    
+    [QueryManager fetchLastPlayedOfUsername:username WithCompletion:^(NSArray *lastPlayed, NSError *error) {
         
         self.lastPlayedIDs = [lastPlayed reverseObjectEnumerator].allObjects;
         

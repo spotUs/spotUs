@@ -53,7 +53,7 @@
 
 + (void) addLastPlayed: (NSString *)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
-+ (void) fetchLastPlayed: (void(^)(NSArray *lastPlayed, NSError *error))completion;
++ (void) fetchLastPlayedOfUsername:(NSString *)username WithCompletion:(void(^)(NSArray *lastPlayed, NSError *error))completion;
 
 + (void) getSPTracksFromIDs: (NSArray<NSString*>*)spotifyIDs withCompletion: (PFIdResultBlock  _Nullable)completion;
 
