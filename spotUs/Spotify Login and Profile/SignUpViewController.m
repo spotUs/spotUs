@@ -38,10 +38,10 @@
     [self.cityPicker reloadAllComponents];
     
     //adding background image to view controller
-    UIImage *backgroundImage = [UIImage imageNamed:@"colorfulMap"];
-    UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
-    backgroundImageView.image=backgroundImage;
-    [self.view insertSubview:backgroundImageView atIndex:0];
+//    UIImage *backgroundImage = [UIImage imageNamed:@"colorfulMap"];
+//    UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
+//    backgroundImageView.image=backgroundImage;
+//    [self.view insertSubview:backgroundImageView atIndex:0];
     
     //if editing city get index of current city
     if (self.signup == NO){
