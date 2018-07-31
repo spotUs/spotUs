@@ -36,6 +36,13 @@
     self.cityPicker.delegate = self;
     self.cities = QueryManager.citiesarray;
     [self.cityPicker reloadAllComponents];
+    
+    //adding background image to view controller
+    UIImage *backgroundImage = [UIImage imageNamed:@"colorfulMap"];
+    UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
+    backgroundImageView.image=backgroundImage;
+    [self.view insertSubview:backgroundImageView atIndex:0];
+    
     //if editing city get index of current city
     if (self.signup == NO){
         NSUInteger index = [self.cities indexOfObjectWithOptions:NSEnumerationConcurrent passingTest:^BOOL(City * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

@@ -94,7 +94,7 @@
     //  Setting up Gaussian Blur
     CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
     [filter setValue:inputImage forKey:kCIInputImageKey];
-   [filter setValue:[NSNumber numberWithFloat:15.0f] forKey:@"inputRadius"];
+   [filter setValue:[NSNumber numberWithFloat:4.0f] forKey:@"inputRadius"];
     CIImage *result = [filter valueForKey:kCIOutputImageKey];
     
     /*  CIGaussianBlur has a tendency to shrink the image a little, this ensures it matches

@@ -443,35 +443,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpotUs is currently only available in the cities below. Click confirm with a selected city to finish setting up your account!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjj-3h-xQh">
-                                <rect key="frame" x="50" y="114" width="275" height="81.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Note: SpotUs is currently only available in the cities below. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjj-3h-xQh">
+                                <rect key="frame" x="26" y="153" width="349" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-xv-1Ei">
-                                <rect key="frame" x="0.0" y="226" width="375" height="216"/>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-xv-1Ei">
+                                <rect key="frame" x="0.0" y="169" width="375" height="172"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="0.2096394214" blue="0.033988638639999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMe-SN-55C">
-                                <rect key="frame" x="160" y="461.5" width="55" height="30"/>
-                                <state key="normal" title="Confirm"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="black-white-map" translatesAutoresizingMaskIntoConstraints="NO" id="wS7-95-Ler">
+                                <rect key="frame" x="0.0" y="387" width="375" height="202"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMe-SN-55C">
+                                <rect key="frame" x="151" y="349" width="73" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.26427155489999998" green="0.62948875770000001" blue="0.26605949439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Confirm">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="onTapConfirm:" destination="jNm-aI-Duq" eventType="touchUpInside" id="hkc-mv-SdC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What's your city?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSA-Se-6wI">
+                                <rect key="frame" x="86" y="104" width="189" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="bBy-xv-1Ei" firstAttribute="top" secondItem="xjj-3h-xQh" secondAttribute="bottom" constant="30" id="6Ui-gP-4RS"/>
-                            <constraint firstItem="xjj-3h-xQh" firstAttribute="leading" secondItem="4A9-mb-3nN" secondAttribute="leading" constant="50" id="7Ch-Ax-wRX"/>
-                            <constraint firstItem="bBy-xv-1Ei" firstAttribute="trailing" secondItem="4A9-mb-3nN" secondAttribute="trailing" id="7SA-PI-oQy"/>
-                            <constraint firstItem="4A9-mb-3nN" firstAttribute="trailing" secondItem="xjj-3h-xQh" secondAttribute="trailing" constant="50" id="ExR-av-PIt"/>
-                            <constraint firstItem="DMe-SN-55C" firstAttribute="top" secondItem="bBy-xv-1Ei" secondAttribute="bottom" constant="20" id="MLi-QQ-Ebw"/>
-                            <constraint firstItem="DMe-SN-55C" firstAttribute="centerX" secondItem="gzY-qE-40N" secondAttribute="centerX" id="ScV-VB-f3X"/>
-                            <constraint firstItem="xjj-3h-xQh" firstAttribute="top" secondItem="4A9-mb-3nN" secondAttribute="top" constant="50" id="qYa-VK-M7N"/>
-                            <constraint firstItem="bBy-xv-1Ei" firstAttribute="leading" secondItem="4A9-mb-3nN" secondAttribute="leading" id="wNc-O8-uXy"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4A9-mb-3nN"/>
                     </view>
                     <connections>
@@ -482,7 +490,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67e-m3-sS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-702" y="-1430"/>
+            <point key="canvasLocation" x="-703.20000000000005" y="-1430.7346326836582"/>
         </scene>
         <!--Location Search Table-->
         <scene sceneID="XF2-DD-mWU">
@@ -1265,6 +1273,7 @@
         <image name="add-user" width="100" height="100"/>
         <image name="backward" width="512" height="512"/>
         <image name="black-flag" width="64" height="64"/>
+        <image name="black-white-map" width="265" height="190"/>
         <image name="check-user" width="100" height="100"/>
         <image name="earth" width="64" height="64"/>
         <image name="fast-forward-2" width="512" height="512"/>
@@ -1284,7 +1293,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tkD-dk-LkX"/>
-        <segue reference="Is9-90-9Ke"/>
+        <segue reference="KW6-86-RT6"/>
         <segue reference="U8D-uR-5nx"/>
     </inferredMetricsTieBreakers>
 </document>
