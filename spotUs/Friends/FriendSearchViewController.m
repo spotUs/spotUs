@@ -8,6 +8,7 @@
 
 #import "FriendSearchViewController.h"
 #import "FriendSearchTableViewCell.h"
+#import "StatsViewController.h"
 
 @interface FriendSearchViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
@@ -20,6 +21,8 @@
 @property (strong, nonatomic) NSArray <PFUser *> *filteredNotFriends;
 @property (strong, nonatomic) NSArray <PFUser *> *usersFriends;
 @property (strong, nonatomic) NSArray <PFUser *> *usersNotFriends;
+@property  NSInteger tappedIndex;
+
 
 @end
 
@@ -132,17 +135,39 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:true];
+    self.tappedIndex = indexPath.row;
+    
+    if(self.tappedIndex - 1 < self.filteredFriends.count){
+
+    [self performSegueWithIdentifier:@"stats" sender:indexPath];
+    }
 }
 
-/*
-#pragma mark - Navigation
+
+
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([[segue destinationViewController] isKindOfClass:[StatsViewController class]]){
+        StatsViewController *statVC = (StatsViewController*)[segue destinationViewController];
+        statVC.auth = self.auth;
+        statVC.user = self.filteredFriends[self.tappedIndex-1];
+        
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
 }
-*/
+
 
 
 

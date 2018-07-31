@@ -11,10 +11,12 @@
 #import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
 #import <SafariServices/SafariServices.h>
 #import <SpotifyMetadata/SpotifyMetadata.h>
+#import "Parse.h"
 
 @interface StatsViewController : UIViewController
-@property (nonatomic, strong) SPTAudioStreamingController *player;
 @property (nonatomic, strong) SPTAuth *auth;
+@property (strong, nonatomic) PFUser *user;
+
 
 
 @end

@@ -13,6 +13,8 @@
 @interface StatsViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *statsTableView;
 @property (strong, nonatomic) NSArray<SPTTrack*> *lastPlayed;
+@property (strong, nonatomic) NSArray<NSString*> *lastPlayedIDs;
+
 
 
 @end
@@ -26,13 +28,29 @@
     self.statsTableView.delegate = self;
     // Do any additional setup after loading the view.
     
+    NSString *username;
     
-    [QueryManager fetchLastPlayed:^(NSArray *lastPlayed, NSError *error) {
+    if(self.user == nil){
+        
+        username = [PFUser currentUser].username;
+    }
+    
+    else{
+        username = self.user.username;
+    }
+    
+    self.navigationItem.title = username;
+    
+    [QueryManager fetchLastPlayedOfUsername:username WithCompletion:^(NSArray *lastPlayed, NSError *error) {
+        
+        self.lastPlayedIDs = [lastPlayed reverseObjectEnumerator].allObjects;
         
         
-        [QueryManager getSPTracksFromIDs:lastPlayed withCompletion:^(id  _Nullable object, NSError * _Nullable error) {
+        
+        [QueryManager getSPTracksFromIDs:self.lastPlayedIDs withCompletion:^(id  _Nullable object, NSError * _Nullable error) {
             
             self.lastPlayed = object;
+            [self.statsTableView reloadData];
         }];
 
     }];
@@ -40,8 +58,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSDictionary *cityDic =  @{ @"favtracks"     : self.lastPlayed,
-                                @"index" : [NSNumber numberWithInteger:indexPath.row-1],
+    [self.statsTableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    
+    
+    
+    NSDictionary *cityDic =  @{ @"favtracks"     : self.lastPlayedIDs,
+                                @"index" : [NSNumber numberWithInteger:indexPath.row],
                                 };
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Play Favorites"
                                                         object:self userInfo:cityDic];
@@ -57,7 +80,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
 
-        FavoriteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavoriteTableViewCell" forIndexPath:indexPath];
+        FavoriteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"stats" forIndexPath:indexPath];
         NSLog(@"updating?");
         cell.layer.backgroundColor = [[UIColor clearColor] CGColor];
         

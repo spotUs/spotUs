@@ -195,15 +195,31 @@ static SPTAuth *_auth = nil;
 
 + (void) addLastPlayed: (NSString *)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     PFUser *currUser = [PFUser currentUser];
-    [self fetchLastPlayed:^(NSArray *lastPlayed, NSError *error) {
+    [self fetchLastPlayedOfUsername:[PFUser currentUser].username WithCompletion:^(NSArray *lastPlayed, NSError *error) {
         NSMutableArray *lastPlayedArray = [NSMutableArray arrayWithArray:lastPlayed];
         if (![lastPlayedArray containsObject:songId]) {
             [lastPlayedArray addObject:songId];
         }
         
+        else{
+        
+        for(NSString *song in [NSArray arrayWithArray:lastPlayedArray]){
+            
+            if([song isEqualToString:songId]){
+                
+                [lastPlayedArray removeObject:songId];
+                [lastPlayedArray addObject:songId];
+                // if song already in last played, move to top of queue
+
+            }
+        }
+            
+        }
+        
         if([lastPlayedArray count] > 5){
             
             [lastPlayedArray removeObjectAtIndex:0];
+            // remove last played song
         }
             
         [currUser setObject:lastPlayedArray forKey:@"lastPlayed"];
@@ -296,10 +312,9 @@ static SPTAuth *_auth = nil;
     }];
 }
 
-+ (void) fetchLastPlayed: (void(^)(NSArray *lastPlayed, NSError *error))completion {
-    PFUser *currUser = [PFUser currentUser];
++ (void) fetchLastPlayedOfUsername:(NSString *)username WithCompletion:(void(^)(NSArray *lastPlayed, NSError *error))completion {
     PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:currUser.username];
+    [query whereKey:@"username" equalTo:username];
     [query includeKey:@"lastPlayed"];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         if (!error) {

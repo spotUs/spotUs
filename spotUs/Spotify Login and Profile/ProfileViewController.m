@@ -17,6 +17,7 @@
 #import "FavoriteViewController.h"
 #import "QueryManager.h"
 #import "StatsViewController.h"
+#import "FriendSearchViewController.h"
 @interface ProfileViewController () 
 @property (weak, nonatomic) IBOutlet UILabel *hometownLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -148,7 +149,11 @@
     else if ([[segue destinationViewController] isKindOfClass:[StatsViewController class]]){
         StatsViewController *statsVC = (StatsViewController *)[segue destinationViewController];
         statsVC.auth = self.auth;
-        statsVC.player = self.player;
+        
+    }
+    else if ([[segue destinationViewController] isKindOfClass:[FriendSearchViewController class]]){
+        FriendSearchViewController *friendsVC = (FriendSearchViewController *)[segue destinationViewController];
+        friendsVC.auth = self.auth;
         
     }
 }

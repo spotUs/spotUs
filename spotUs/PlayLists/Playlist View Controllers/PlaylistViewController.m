@@ -116,6 +116,8 @@
         PlayListTableHeader * header = [tableView dequeueReusableCellWithIdentifier:@"PlayListTableHeader" forIndexPath:indexPath];
         
         header.cityLabel.text = self.city.name;
+        header.layer.backgroundColor = [[UIColor clearColor] CGColor];
+
         return header;
     }
     
@@ -139,6 +141,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [QueryManager setLastPlayedCity:self.city withCompletion:nil];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     NSDictionary *cityDic =  @{ @"citytracks"     : self.city.tracks,
                                 @"index" : [NSNumber numberWithInteger:indexPath.row-1],
                                 };
