@@ -141,12 +141,27 @@
             if (!error) {
                 if(users.count != 0){
                     [PFUser logInWithUsernameInBackground:username password:@"spotify" block:^(PFUser * user, NSError *  error) {
+                        
+                        
                         if (error != nil) {
                             NSLog(@"User log in failed: %@", error.localizedDescription);
-                            [[PFUser currentUser] fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-                                QueryManager.currentParseUser = (PFUser *)object;
-                            }];
+              
+                            
                         } else {
+                            [[PFUser currentUser] fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+                                
+                                PFUser *currentUser = (PFUser *)object;
+                                
+                                QueryManager.currentParseUser = currentUser;
+                                
+                                
+                                
+                                currentUser[@"profileImageURL"] = self.currentUser.largestImage.imageURL.absoluteString;
+                                [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                                    
+                                }];
+                                
+                            }];
                             NSLog(@"User logged in successfully");
                             [self performSegueWithIdentifier:@"loginsegue" sender:nil];
                         }

@@ -10,5 +10,6 @@
 
 @interface PlayListTableHeader : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
+@property (nonatomic) BOOL isEmpty;
 
 @end
