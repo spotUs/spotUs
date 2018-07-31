@@ -10,6 +10,8 @@
 #import "QueryManager.h"
 #import "FavoriteTableViewCell.h"
 #import <CoreLocation/CoreLocation.h>
+#import "UIImageView+AFNetworking.h"
+
 #define METERS_PER_MILE 1609.344
 @interface StatsViewController () <UITableViewDelegate,UITableViewDataSource,MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *statsTableView;
@@ -34,6 +36,8 @@
     self.friendProfileImage.clipsToBounds = YES;
     self.mapView.delegate = self;
     
+    
+    
     NSString *username;
     
     if(self.user == nil){
@@ -52,7 +56,11 @@
     self.navigationItem.title = username;
     
     [QueryManager getUserfromUsername:username withCompletion:^(PFUser *user, NSError *error) {
+        
+        
         self.user = user;
+        [self.friendProfileImage setImageWithURL:[NSURL URLWithString:user[@"profileImageURL"]]];
+
         self.selectedCity =self.user[@"city"];
         
         NSLog(@"%@", self.user[@"city"]);
@@ -68,7 +76,7 @@
         [annotation setCoordinate:ctrpoint];
         
         NSString *myString = self.user.username;
-        NSString *test = [myString stringByAppendingString:@"'s city"];
+        NSString *test = self.selectedCity.name;
         [annotation setTitle:test];
         [self.mapView addAnnotation:annotation];
         
