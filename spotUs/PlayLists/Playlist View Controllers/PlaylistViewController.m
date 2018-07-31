@@ -116,6 +116,8 @@
         PlayListTableHeader * header = [tableView dequeueReusableCellWithIdentifier:@"PlayListTableHeader" forIndexPath:indexPath];
         
         header.cityLabel.text = self.city.name;
+        header.layer.backgroundColor = [[UIColor clearColor] CGColor];
+
         return header;
     }
     

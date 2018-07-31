@@ -316,7 +316,7 @@
                         <viewLayoutGuide key="safeArea" id="2sJ-ND-GRw"/>
                     </view>
                     <navigationItem key="navigationItem" title="SpotUs" id="PwE-4o-kaL">
-                        <barButtonItem key="backBarButtonItem" title="Profile" id="ada-7z-LcN"/>
+                        <barButtonItem key="backBarButtonItem" title="Home" id="ada-7z-LcN"/>
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="qlB-To-mR1">
                             <connections>
                                 <action selector="onTapLogoutBtn:" destination="rzA-pg-DWH" id="cpg-aG-O6X"/>
@@ -356,7 +356,7 @@
             </objects>
             <point key="canvasLocation" x="1000.8" y="-741.67916041979015"/>
         </scene>
-        <!--Friend Search View Controller-->
+        <!--Stats-->
         <scene sceneID="WmE-jC-wh7">
             <objects>
                 <viewController id="e68-I8-Drw" customClass="FriendSearchViewController" sceneMemberID="viewController">
@@ -435,9 +435,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bkm-XC-e9z"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Stats" id="UvW-fH-Lfr"/>
                     <connections>
                         <outlet property="searchBar" destination="RHb-cS-H5A" id="KZK-bG-0hg"/>
                         <outlet property="tableView" destination="ibN-fv-8F0" id="aAx-Lp-Jl6"/>
+                        <segue destination="kQT-Ne-KPu" kind="show" identifier="stats" id="aPd-C3-D0H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Owd-Oa-XXG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1082,7 +1084,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ntA-bk-3aY">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ntA-bk-3aY">
                                 <rect key="frame" x="0.0" y="93" width="375" height="496"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1236,6 +1238,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="oXy-Hi-2cZ"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ntA-bk-3aY"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="b7d-06-6hM">
                         <barButtonItem key="backBarButtonItem" title="Grid View" id="Bai-mQ-tXI"/>
@@ -1351,7 +1358,8 @@
         <image name="spotifyWhite" width="2400" height="2400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tkD-dk-LkX"/>
+        <segue reference="nbH-iS-X6V"/>
+        <segue reference="aPd-C3-D0H"/>
         <segue reference="KW6-86-RT6"/>
         <segue reference="U8D-uR-5nx"/>
     </inferredMetricsTieBreakers>

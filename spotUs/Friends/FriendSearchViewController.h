@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import <SpotifyAuthentication/SpotifyAuthentication.h>
+#import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
+#import <SafariServices/SafariServices.h>
+#import <SpotifyMetadata/SpotifyMetadata.h>
 
 @interface FriendSearchViewController : UIViewController
+
+@property (nonatomic, strong) SPTAuth *auth;
 
 @end
