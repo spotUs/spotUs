@@ -12,10 +12,11 @@
 #import <SafariServices/SafariServices.h>
 #import <SpotifyMetadata/SpotifyMetadata.h>
 #import "Parse.h"
-
+#import  <MapKit/MapKit.h>
 @interface StatsViewController : UIViewController
 @property (nonatomic, strong) SPTAuth *auth;
 @property (strong, nonatomic) PFUser *user;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 
 

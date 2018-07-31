@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *statsTableView;
 @property (strong, nonatomic) NSArray<SPTTrack*> *lastPlayed;
 @property (strong, nonatomic) NSArray<NSString*> *lastPlayedIDs;
+@property (weak, nonatomic) IBOutlet UIImageView *friendProfileImage;
 
 
 
@@ -27,16 +28,22 @@
     self.statsTableView.dataSource = self;
     self.statsTableView.delegate = self;
     // Do any additional setup after loading the view.
+    self.friendProfileImage.layer.cornerRadius = self.friendProfileImage.frame.size.width / 2;
+    self.friendProfileImage.clipsToBounds = YES;
+    self.friendProfileImage.image = QueryManager.userImage;
     
     NSString *username;
     
     if(self.user == nil){
         
         username = [PFUser currentUser].username;
+        
+       
     }
     
     else{
         username = self.user.username;
+        
     }
     
     self.navigationItem.title = username;

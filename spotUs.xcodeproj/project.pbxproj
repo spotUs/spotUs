@@ -406,6 +406,7 @@
 				3E79495B210B76A20001E6BB /* Flags */,
 				3E7A9A4E210635B1007CB62B /* Favorites */,
 				6C234DE7210A91BC009F484D /* font */,
+				069EE3C2210B9AF80069762E /* HanaleiFill-Regular.ttf */,
 				060896B02106AD610041644D /* PlayLists */,
 				3E097D3321010BD5003FC5F6 /* Gif */,
 				3E3562FF20FEA81300DDAA9E /* Maps */,
@@ -486,7 +487,6 @@
 				069EE3D0210B9BD90069762E /* HindVadodara-Medium.ttf */,
 				069EE3D1210B9BD90069762E /* HindVadodara-Regular.ttf */,
 				069EE3D2210B9BD90069762E /* HindVadodara-SemiBold.ttf */,
-				069EE3C2210B9AF80069762E /* HanaleiFill-Regular.ttf */,
 			);
 			path = font;
 			sourceTree = "<group>";
