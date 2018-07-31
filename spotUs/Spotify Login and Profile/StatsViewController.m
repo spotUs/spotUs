@@ -80,7 +80,7 @@
         [annotation setTitle:test];
         [self.mapView addAnnotation:annotation];
         
-        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(ctrpoint, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(ctrpoint, 0.9*METERS_PER_MILE, 0.9*METERS_PER_MILE);
         
         [self.mapView setRegion:viewRegion animated:YES];
     }];

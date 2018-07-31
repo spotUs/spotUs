@@ -19,7 +19,7 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *favoriteCollectionView;
 @property (strong, nonatomic) NSMutableArray<NSDictionary *> *dataArray;
-@property (strong, nonatomic) NSArray<NSDictionary *> *filteredDataArray;
+@property (strong, nonatomic) NSArray<SPTTrack *> *filteredDataArray;
 @property (strong, nonatomic) NSArray *favorites;
 @property (weak, nonatomic) IBOutlet UITableView *favoriteTableView;
 @property (weak, nonatomic) IBOutlet UILabel *favoritesMessageLabel;
@@ -140,11 +140,14 @@
         
         if(self.favorites.count == 0){
             header.isEmpty = YES;
+            self.favoriteTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         }
         
         else{
             
             header.isEmpty = NO;
+            self.favoriteTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+
             
         
         }

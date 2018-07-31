@@ -21,4 +21,13 @@
     // Configure the view for the selected state
 }
 
+- (void)setIsEmpty:(BOOL)isEmpty{
+    
+    [self.playButton setHidden:isEmpty];
+    
+    
+    
+    
+}
+
 @end

@@ -11,5 +11,6 @@
 @interface PlayListTableHeader : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 @property (nonatomic) BOOL isEmpty;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 @end
