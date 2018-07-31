@@ -8,9 +8,12 @@
 
 #import "StatsViewController.h"
 #import "QueryManager.h"
+#import "FavoriteTableViewCell.h"
 
 @interface StatsViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *statsTableView;
+@property (strong, nonatomic) NSArray<SPTTrack*> *lastPlayed;
+
 
 @end
 
@@ -18,42 +21,50 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.statsTableView.dataSource = self;
+    self.statsTableView.delegate = self;
     // Do any additional setup after loading the view.
     
     
     [QueryManager fetchLastPlayed:^(NSArray *lastPlayed, NSError *error) {
         
         
-        NSMutableArray *properFormat = [NSMutableArray array];
-        
-        for(NSString *stringID in lastPlayed){
+        [QueryManager getSPTracksFromIDs:lastPlayed withCompletion:^(id  _Nullable object, NSError * _Nullable error) {
             
-            
-            [properFormat addObject:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", @"spotify:track:",stringID]]];
-        }
-        
-        
-        [SPTTrack tracksWithURIs:properFormat accessToken:self.auth.session.accessToken market:nil callback:^(NSError *error, id object) {
-            
-            if(error){
-                
-                NSLog(@"%@",error.localizedDescription);
-            }
-            
-            else{
-                
-                NSArray *tracks = (NSArray *)object;
-                
-                for(SPTTrack *track in tracks){
-                    
-                }
-            }
-            
-            
-            
-            
+            self.lastPlayed = object;
         }];
+
     }];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSDictionary *cityDic =  @{ @"favtracks"     : self.lastPlayed,
+                                @"index" : [NSNumber numberWithInteger:indexPath.row-1],
+                                };
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Play Favorites"
+                                                        object:self userInfo:cityDic];
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    
+    return self.lastPlayed.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+
+        FavoriteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavoriteTableViewCell" forIndexPath:indexPath];
+        NSLog(@"updating?");
+        cell.layer.backgroundColor = [[UIColor clearColor] CGColor];
+        
+        [cell updateTrackCellwithData:self.lastPlayed[indexPath.row]];
+        return cell;
+        
+    
 }
 
 - (void)didReceiveMemoryWarning {
