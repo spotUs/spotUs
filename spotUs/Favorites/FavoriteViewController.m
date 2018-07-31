@@ -101,33 +101,6 @@
 }
 
 
-
-- (void) fetchTrackData: (NSUInteger)songIndex{
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:[@"https://api.spotify.com/v1/tracks/" stringByAppendingString:self.favorites[songIndex]]]];
-    NSDictionary *headers = @{@"Authorization":[@"Bearer " stringByAppendingString:  self.auth.session.accessToken]};
-    [request setAllHTTPHeaderFields:(headers)];
-    [request setHTTPMethod:@"GET"];
-
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (error != nil) {
-            NSLog(@"%@", [error localizedDescription]);
-        }
-        else {
-            NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            //NSLog(@"INDEX %lu", (unsigned long)songIndex);
-            self.dataArray[songIndex] = dataDictionary;
-            self.filteredDataArray = self.dataArray;
-            [self.favoriteCollectionView reloadData];
-            [self.favoriteTableView reloadData];
-           // NSLog(@"it's been fetched");
-            
-        }
-    }];
-    [task resume];
-}
-
 //collection view implementation
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     FavoriteCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"favoriteCollectionViewCell" forIndexPath:indexPath];
@@ -185,6 +158,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSLog(@"%lu",self.filteredDataArray.count);
+    
+    
     return self.filteredDataArray.count+1;
 }
 
@@ -238,31 +213,16 @@
         [QueryManager getSPTracksFromIDs:self.favorites withCompletion:^(id  _Nullable object, NSError * _Nullable error) {
             
             
+            self.dataArray = object;
+            self.filteredDataArray = self.dataArray;
+            
+            [self.favoriteCollectionView reloadData];
+            [self.favoriteTableView reloadData];
             
             
         }];
             
-            /*
-            
-            
-        }
-        NSDictionary *emptyDic = [NSDictionary dictionary];
-        NSMutableArray *mutableStorage = [NSMutableArray array];
-        for (int i = 0; i < self.favorites.count; i++) {
-            [mutableStorage addObject:emptyDic];
-        }
-        self.dataArray = [NSMutableArray arrayWithArray:mutableStorage];
-        [self.favoriteCollectionView reloadData];
-        for (NSUInteger i = 0; i < self.favorites.count; i++){
-            
-            [self fetchTrackData:i];
-        }
-        
-    }];
-             
-             
-             */
-    
+
     
     
     }];
@@ -271,8 +231,8 @@
 
 - (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText.length != 0) {
-        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSDictionary *evaluatedObject, NSDictionary *bindings){
-            return [[evaluatedObject[@"name"] lowercaseString] containsString:[searchText lowercaseString]];
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(SPTTrack *evaluatedObject, NSDictionary *bindings){
+            return [[evaluatedObject.name lowercaseString] containsString:[searchText lowercaseString]];
         }];
         self.filteredDataArray = [self.dataArray filteredArrayUsingPredicate:predicate];
         

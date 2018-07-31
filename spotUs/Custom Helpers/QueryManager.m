@@ -320,8 +320,6 @@ static SPTAuth *_auth = nil;
     NSMutableArray *properFormat = [NSMutableArray array];
     
     
-
-    
     for(NSString *stringID in spotifyIDs){
         
     

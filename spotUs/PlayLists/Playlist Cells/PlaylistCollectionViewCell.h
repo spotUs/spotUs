@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SpotifyAuthentication/SpotifyAuthentication.h>
+#import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
+#import <SafariServices/SafariServices.h>
+#import <SpotifyMetadata/SpotifyMetadata.h>
 
 @interface PlaylistCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *songImageView;

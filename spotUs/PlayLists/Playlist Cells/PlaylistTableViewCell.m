@@ -21,21 +21,31 @@
     // Configure the view for the selected state
 }
 
-- (void) updateTrackCellwithData: (NSDictionary *)trackdict {
-    //get title
-    NSLog(@"%@",trackdict[@"name"]);
+- (void) updateTrackCellwithData: (SPTTrack *)spTrack{
+    
+    NSArray<SPTPartialArtist*> *artists = spTrack.artists;
+    self.titleLabel.text = spTrack.name;
+    self.artistLabel.text = artists[0].name;
 
-    self.titleLabel.text = trackdict[@"name"];
-    //get artists
-    NSArray *artists = trackdict[@"artists"];
-    NSString *artistStr = @"";
-    for (NSUInteger i = 0; i < artists.count; i++){
-        artistStr = [artistStr stringByAppendingString:artists[i][@"name"]];
-        if (artists.count - 1 > i){ // if it is not the last artist
-            artistStr = [artistStr stringByAppendingString:@", "];
+    /*
+    [QueryManager getTrackfromID:spTrack.identifier withCompletion:^(Track *track, NSError *error) {
+        if (error){
+            NSLog(@"error could not get city: %@",error.localizedDescription);
+        } else {
+            NSUInteger i = 0;
+            NSString *citystr = @"";
+            while (track.citynames.count > i){
+                citystr = [citystr stringByAppendingString:track.citynames[i]];
+                i = i + 1;
+                if (i != track.citynames.count){
+                    citystr = [citystr stringByAppendingString:@", "];
+                }
+            }
+            self.city.text = citystr;
         }
-    }
-    self.artistLabel.text = artistStr;
+    }];
+    */
+    
 }
 
 @end
