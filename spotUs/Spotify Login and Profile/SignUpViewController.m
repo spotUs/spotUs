@@ -124,7 +124,7 @@
             NSString *spotifyID = dictionary[@"id"];
             [songIDs addObject:spotifyID];
             //create track obj and add it
-            [Track addNewTrack:spotifyID in:self.selectedCity withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            [Track addNewTrack:spotifyID in:self.selectedCity.name withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                 if (error){
                     NSLog(@"error making new track: %@",error.localizedDescription);
                 }

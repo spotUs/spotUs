@@ -134,9 +134,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    PlayListTableHeader * header = [tableView dequeueReusableCellWithIdentifier:@"PlayListTableHeader" forIndexPath:indexPath];
+
     if(indexPath.row == 0){
         
-        PlayListTableHeader * header = [tableView dequeueReusableCellWithIdentifier:@"PlayListTableHeader" forIndexPath:indexPath];
+        if(self.favorites.count == 0){
+            header.isEmpty = YES;
+        }
+        
+        else{
+            
+            header.isEmpty = NO;
+            
+        
+        }
+        
         
         header.cityLabel.text = @"Favorites";
         return header;
