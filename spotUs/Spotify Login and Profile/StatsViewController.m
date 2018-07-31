@@ -9,12 +9,14 @@
 #import "StatsViewController.h"
 #import "QueryManager.h"
 #import "FavoriteTableViewCell.h"
-
-@interface StatsViewController () <UITableViewDelegate,UITableViewDataSource>
+#import <CoreLocation/CoreLocation.h>
+#define METERS_PER_MILE 1609.344
+@interface StatsViewController () <UITableViewDelegate,UITableViewDataSource,MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *statsTableView;
 @property (strong, nonatomic) NSArray<SPTTrack*> *lastPlayed;
 @property (strong, nonatomic) NSArray<NSString*> *lastPlayedIDs;
 @property (weak, nonatomic) IBOutlet UIImageView *friendProfileImage;
+@property (strong, nonatomic) City * selectedCity;
 
 
 
@@ -30,7 +32,7 @@
     // Do any additional setup after loading the view.
     self.friendProfileImage.layer.cornerRadius = self.friendProfileImage.frame.size.width / 2;
     self.friendProfileImage.clipsToBounds = YES;
-    self.friendProfileImage.image = QueryManager.userImage;
+    self.mapView.delegate = self;
     
     NSString *username;
     
@@ -44,9 +46,36 @@
     else{
         username = self.user.username;
         
+        
     }
     
     self.navigationItem.title = username;
+    
+    [QueryManager getUserfromUsername:username withCompletion:^(PFUser *user, NSError *error) {
+        self.user = user;
+        self.selectedCity =self.user[@"city"];
+        
+        NSLog(@"%@", self.user[@"city"]);
+        
+        CLLocationCoordinate2D  ctrpoint;
+        
+        double longi = [self.selectedCity[@"lng"] doubleValue];
+        NSLog(@"%f",longi);
+        double lat = [self.selectedCity[@"lat"] doubleValue];
+        ctrpoint.latitude = lat;
+        ctrpoint.longitude = longi;
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        [annotation setCoordinate:ctrpoint];
+        
+        NSString *myString = self.user.username;
+        NSString *test = [myString stringByAppendingString:@"'s city"];
+        [annotation setTitle:test];
+        [self.mapView addAnnotation:annotation];
+        
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(ctrpoint, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+        
+        [self.mapView setRegion:viewRegion animated:YES];
+    }];
     
     [QueryManager fetchLastPlayedOfUsername:username WithCompletion:^(NSArray *lastPlayed, NSError *error) {
         
@@ -61,6 +90,9 @@
         }];
 
     }];
+    
+  
+   
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -102,6 +134,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+//- (void)viewWillAppear:(BOOL)animated {
+//    CLLocationCoordinate2D zoomLocation;
+//    double longi = [self.selectedCity[@"lng"] doubleValue];
+//    NSLog(@"%f",longi);
+//    double lat = [self.selectedCity[@"lat"] doubleValue];
+//    zoomLocation.latitude =lat;
+//    zoomLocation.longitude= longi;
+//
+//    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+//
+//    [_mapView setRegion:viewRegion animated:YES];
+//}
 
 
 /*
