@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "QueryManager.h"
+#import <SpotifyAuthentication/SpotifyAuthentication.h>
+#import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
+#import <SafariServices/SafariServices.h>
+#import <SpotifyMetadata/SpotifyMetadata.h>
 
 @interface FavoriteCollectionViewCell : UICollectionViewCell
 

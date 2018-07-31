@@ -12,7 +12,7 @@
 #import "PlayListCollectionHeader.h"
 #import "PlaylistTableViewCell.h"
 #import "PlayListTableHeader.h"
-
+#import "QueryManager.h"
 
 @interface PlaylistViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -61,11 +61,7 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
 
-    NSDictionary *emptyDic = [NSDictionary dictionary];
-    self.dataArray = [NSMutableArray array];
-    for (int i = 0; i < self.city.tracks.count; i++) {
-        [self.dataArray addObject:emptyDic];
-    }
+
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.collectionView.delegate = self;
@@ -83,43 +79,34 @@
     CGFloat itemHeight = itemWidth;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
-    //populate the dataArray
-    for (NSUInteger i = 0; i < self.city.tracks.count; i++){
-        
-        [self fetchTrackData:i];
-    }
+    [self updateCityData];
 
 }
+
+
+-(void)updateCityData{
+
+        [QueryManager getSPTracksFromIDs:self.city.tracks withCompletion:^(id  _Nullable object, NSError * _Nullable error) {
+            
+            
+            self.dataArray = object;
+            self.filteredDataArray = self.dataArray;
+            
+            [self.collectionView reloadData];
+            [self.tableView reloadData];
+            
+            
+        }];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void) fetchTrackData: (NSUInteger)songIndex{
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:[@"https://api.spotify.com/v1/tracks/" stringByAppendingString:self.city.tracks[songIndex]]]];
-    NSLog(@"sessiontoken: %@", self.auth.session.accessToken);
-    NSDictionary *headers = @{@"Authorization":[@"Bearer " stringByAppendingString:self.auth.session.accessToken]};
-    [request setAllHTTPHeaderFields:(headers)];
-    [request setHTTPMethod:@"GET"];
-    
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (error != nil) {
-            NSLog(@"%@", [error localizedDescription]);
-        }
-        else {
-            NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];            
-            self.dataArray[songIndex] = dataDictionary;
-            self.filteredDataArray = self.dataArray;
-            [self.tableView reloadData];
-            [self.collectionView reloadData];
-            
-        }
-    }];
-    [task resume];
-}
+
 
 //table view implementation
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -188,8 +175,8 @@
 
 - (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText.length != 0) {
-        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSDictionary *evaluatedObject, NSDictionary *bindings){
-            return [[evaluatedObject[@"name"] lowercaseString] containsString:[searchText lowercaseString]];
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(SPTTrack *evaluatedObject, NSDictionary *bindings){
+            return [[evaluatedObject.name lowercaseString] containsString:[searchText lowercaseString]];
         }];
         self.filteredDataArray = [self.dataArray filteredArrayUsingPredicate:predicate];
         

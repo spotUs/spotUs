@@ -12,31 +12,15 @@
 
 @implementation PlaylistCollectionViewCell
 
-- (void) updateTrackCellwithData: (NSDictionary *)trackdict{
-    //get image
-    NSArray *images = trackdict[@"album"][@"images"];
-    if (images.count > 0){
-        NSDictionary *imgData = images[0];
-        //NSLog(@"IMGURL %@",imgData[@"url"]);
-        NSURL *imgURL = [NSURL URLWithString: imgData[@"url"]];
-        [QueryManager fadeImg:imgURL imgView:self.songImageView];
-        //[self.songImageView setImageWithURL:imgURL];
-    } else {
-        //get a place holder image
-    }
+- (void) updateTrackCellwithData: (SPTTrack *)spTrack{
     
-    //get title
-    self.titleLabel.text = trackdict[@"name"];
-    //get artists
-    NSArray *artists = trackdict[@"artists"];
-    NSString *artistStr = @"";
-    for (NSUInteger i = 0; i < artists.count; i++){
-        artistStr = [artistStr stringByAppendingString:artists[i][@"name"]];
-        if (artists.count - 1 > i){ // if it is not the last artist
-            artistStr = [artistStr stringByAppendingString:@", "];
-        }
-    }
-    self.artistLabel.text = artistStr;
+    NSArray<SPTPartialArtist*> *artists = spTrack.artists;
+    self.titleLabel.text = spTrack.name;
+    self.artistLabel.text = artists[0].name;
+    NSURL *imgURL =  spTrack.album.largestCover.imageURL;
+    [QueryManager fadeImg:imgURL imgView:self.songImageView];
+
+    
 }
 
 @end
