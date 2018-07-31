@@ -54,6 +54,7 @@
         } else {
             NSLog(@"succesfully removed friend");
             [self updateFriendSearchCellwithUser:self.user];
+            [self.delegate didChangeFriendStatus];
         }
     }];
 }
@@ -68,6 +69,8 @@
         } else {
             NSLog(@"succesfully added friend");
             [self updateFriendSearchCellwithUser:self.user];
+            [self.delegate didChangeFriendStatus];
+
         }
     }];
 }

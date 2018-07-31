@@ -35,16 +35,10 @@
 
 + (void) addFavSongId: (NSString *_Nonnull)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
-+ (void) addInappropriate: (NSString *_Nonnull)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion;
-
-+ (void) addUnmatched: (NSString *_Nonnull)songId withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 + (void) fetchFavs: (void(^_Nullable)(NSArray * _Nonnull favs, NSError * _Nullable error))completion ;
 
-+ (void) fetchInappropriate: (void(^)(NSArray *favs, NSError *error))completion;
-
-+ (void) fetchUnmatched: (void(^_Nullable)(NSArray * _Nullable favs, NSError * _Nullable error))completion;
-
++ (void) flagMismatchWithID: (NSString *)songID withCompletion:(PFBooleanResultBlock _Nullable)completion;
 + (void) fadeImg: (NSURL *_Nullable)imgURL imgView:(UIImageView *_Nullable)imgView;
 
 + (void) getTrackfromID: (NSString *) spotifyID withCompletion:(void(^)(Track *track, NSError *error))completion;

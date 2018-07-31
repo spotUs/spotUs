@@ -9,7 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
+
+@protocol FriendStatusDelegate
+
+- (void)didChangeFriendStatus;
+
+@end
+
 @interface FriendSearchTableViewCell : UITableViewCell
+@property (nonatomic, weak) id<FriendStatusDelegate> delegate;
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addUserBtn;
 
