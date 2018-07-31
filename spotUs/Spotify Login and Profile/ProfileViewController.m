@@ -119,7 +119,7 @@
     // Pass the selected object to the new view controller.
     if ([[segue destinationViewController] isKindOfClass:[SignUpViewController class]]){
         SignUpViewController *signupVC = [segue destinationViewController];
-        signupVC.msg = @"SpotUs is currently only available in the cities below. Edit your city below and click confirm to save your changes.";
+        signupVC.msg = @"SpotUs is currently only available in the cities above. Edit your city below and click confirm to save your changes.";
         signupVC.auth = self.auth;
         signupVC.player = self.player;
         signupVC.currentUser = self.currentUser;
