@@ -39,6 +39,8 @@
         username = self.user.username;
     }
     
+    self.navigationItem.title = username;
+    
     [QueryManager fetchLastPlayedOfUsername:username WithCompletion:^(NSArray *lastPlayed, NSError *error) {
         
         self.lastPlayedIDs = [lastPlayed reverseObjectEnumerator].allObjects;

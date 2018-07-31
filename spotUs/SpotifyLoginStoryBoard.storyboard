@@ -595,7 +595,7 @@
             </objects>
             <point key="canvasLocation" x="161" y="-425"/>
         </scene>
-        <!--Stats View Controller-->
+        <!--Title-->
         <scene sceneID="if1-UW-ioN">
             <objects>
                 <viewController id="kQT-Ne-KPu" customClass="StatsViewController" sceneMemberID="viewController">
@@ -651,6 +651,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pc4-Pm-gUe"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="vOq-Jv-xFN"/>
                     <connections>
                         <outlet property="statsTableView" destination="O4H-0B-eW6" id="MwH-i4-OQj"/>
                     </connections>
@@ -1084,7 +1085,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ntA-bk-3aY">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ntA-bk-3aY">
                                 <rect key="frame" x="0.0" y="93" width="375" height="496"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1238,11 +1239,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="oXy-Hi-2cZ"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="ntA-bk-3aY"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="b7d-06-6hM">
                         <barButtonItem key="backBarButtonItem" title="Grid View" id="Bai-mQ-tXI"/>

@@ -136,8 +136,11 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:true];
     self.tappedIndex = indexPath.row;
+    
+    if(self.tappedIndex - 1 < self.filteredFriends.count){
 
     [self performSegueWithIdentifier:@"stats" sender:indexPath];
+    }
 }
 
 
