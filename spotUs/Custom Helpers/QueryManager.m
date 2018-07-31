@@ -388,6 +388,7 @@ static SPTAuth *_auth = nil;
     [query includeKey:@"city"];
     [query includeKey:@"favs"];
     [query includeKey:@"lastPlayed"];
+    [query includeKey:@"lastPlayedCity"];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         if (error){
             NSLog(@"error getting user: %@",error.localizedDescription);
@@ -398,4 +399,11 @@ static SPTAuth *_auth = nil;
         }
     }];
 }
+
++ (void) setLastPlayedCity: (City *)city withCompletion: (PFBooleanResultBlock  _Nullable)completion {
+    PFUser *user = [PFUser currentUser];
+    [user setObject:city forKey:@"lastPlayedCity"];
+    [user saveInBackgroundWithBlock:completion];
+}
+
 @end
