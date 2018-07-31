@@ -23,6 +23,8 @@
 @property (strong, nonatomic) UISearchController *resultSearchController;
 @property BOOL waitingForLocation;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
+@property (weak, nonatomic) IBOutlet UIView *detailsView;
+@property (weak, nonatomic) IBOutlet UILabel *detailsViewLabel;
 
 @end
 
@@ -74,6 +76,7 @@ CLLocationManager *locationManager;
 }
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     self.checkInButton.enabled = NO;
     [self.checkInButton setTintColor:[UIColor grayColor]];
 
@@ -114,7 +117,41 @@ CLLocationManager *locationManager;
         annotation.title = c[@"name"];
         [self.mapView addAnnotation:annotation];
     }
+    [self getFriendsLastPlayedLocation];
 
+}
+
+- (void) getFriendsLastPlayedLocation {
+    for (NSString *friendname in [PFUser currentUser][@"friends"]){
+        [QueryManager getUserfromUsername:friendname withCompletion:^(PFUser *user, NSError *error) {
+            if (error){
+                NSLog(@"error getting friend's user obj': %@",error.localizedDescription);
+            } else {
+                /*if (user[@"lastPlayedCity"] != nil){
+                    City *friendloc = (City *)user[@"lastPlayedCity"];
+                    double lng = [friendloc[@"lng"] doubleValue];
+                    double lat = [friendloc[@"lat"] doubleValue];
+                    CLLocationCoordinate2D location;
+                    location.latitude = lat;
+                    location.longitude = lng;
+                    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+                    annotation.coordinate = location;
+                    annotation.title = user.username;
+                    [self.mapView addAnnotation:annotation];
+                }*/
+                double lng = -80.1918;
+                double lat = 25.7617;
+                CLLocationCoordinate2D location;
+                location.latitude = lat;
+                location.longitude = lng;
+                MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+                annotation.coordinate = location;
+                annotation.title = user.username;
+                [self.mapView addAnnotation:annotation];
+            }
+        }];
+    }
+    
 }
 
 //mapview delegate method
@@ -130,10 +167,14 @@ CLLocationManager *locationManager;
         annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin"];
         annotationView.canShowCallout = true;
     }
+    
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     UIImage *btnImage = [UIImage imageNamed:@"next-btn"];
     [btn setImage:btnImage forState:UIControlStateNormal];
     annotationView.rightCalloutAccessoryView = btn;
+
+    self.detailsViewLabel.text = @"testing";
+    annotationView.detailCalloutAccessoryView = self.detailsView;
     
     return annotationView;
 }

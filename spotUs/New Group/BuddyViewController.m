@@ -7,10 +7,25 @@
 //
 
 #import "BuddyViewController.h"
+#import <MapKit/MapKit.h>
+#import "Parse.h"
+#import "PlayerView.h"
+#import "City.h"
+#import "ErrorAlert.h"
+#import <CoreLocation/CoreLocation.h>
+#import "LocationSearchTable.h"
+#import "QueryManager.h"
+#import "PlaylistViewController.h"
+
 
 @interface BuddyViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 
+@property (strong, nonatomic) City *locationCity;
+@property(strong, nonatomic) PFUser *friend;
+
 @end
+
+#define METERS_PER_MILE 1609.344
 
 @implementation BuddyViewController
 
@@ -18,14 +33,25 @@
     [super viewDidLoad];
     
      self.mapView.delegate = self;
+  
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
+    
     // Dispose of any resources that can be recreated.
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    CLLocationCoordinate2D zoomLocation;
+    zoomLocation.latitude = 39.281516;
+    zoomLocation.longitude= -76.580806;
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+    
+    [_mapView setRegion:viewRegion animated:YES];
+}
 /*
 #pragma mark - Navigation
 
