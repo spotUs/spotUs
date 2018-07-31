@@ -398,6 +398,7 @@
 		3E3953AA20EFE6F800D0FF7D /* spotUs */ = {
 			isa = PBXGroup;
 			children = (
+				6C2C2E4D2110C1090070D8EA /* Friends */,
 				3E79495B210B76A20001E6BB /* Flags */,
 				3E7A9A4E210635B1007CB62B /* Favorites */,
 				6C234DE7210A91BC009F484D /* font */,
@@ -416,10 +417,6 @@
 				3E3953B920EFE6F800D0FF7D /* Info.plist */,
 				3E3953BA20EFE6F800D0FF7D /* main.m */,
 				06F6BD5020FD080000E85B28 /* SpotifyLoginStoryBoard.storyboard */,
-				6C2C2E47210FA3E60070D8EA /* FriendSearchViewController.h */,
-				6C2C2E48210FA3E60070D8EA /* FriendSearchViewController.m */,
-				6C2C2E4A210FA4290070D8EA /* FriendSearchTableViewCell.h */,
-				6C2C2E4B210FA4290070D8EA /* FriendSearchTableViewCell.m */,
 			);
 			path = spotUs;
 			sourceTree = "<group>";
@@ -476,6 +473,17 @@
 				069EE3C2210B9AF80069762E /* HanaleiFill-Regular.ttf */,
 			);
 			path = font;
+			sourceTree = "<group>";
+		};
+		6C2C2E4D2110C1090070D8EA /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				6C2C2E47210FA3E60070D8EA /* FriendSearchViewController.h */,
+				6C2C2E48210FA3E60070D8EA /* FriendSearchViewController.m */,
+				6C2C2E4A210FA4290070D8EA /* FriendSearchTableViewCell.h */,
+				6C2C2E4B210FA4290070D8EA /* FriendSearchTableViewCell.m */,
+			);
+			path = Friends;
 			sourceTree = "<group>";
 		};
 		6CC2534B20FD08E300D7093E /* Models */ = {
