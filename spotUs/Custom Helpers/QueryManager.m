@@ -201,9 +201,25 @@ static SPTAuth *_auth = nil;
             [lastPlayedArray addObject:songId];
         }
         
+        else{
+        
+        for(NSString *song in [NSArray arrayWithArray:lastPlayedArray]){
+            
+            if([song isEqualToString:songId]){
+                
+                [lastPlayedArray removeObject:songId];
+                [lastPlayedArray addObject:songId];
+                // if song already in last played, move to top of queue
+
+            }
+        }
+            
+        }
+        
         if([lastPlayedArray count] > 5){
             
             [lastPlayedArray removeObjectAtIndex:0];
+            // remove last played song
         }
             
         [currUser setObject:lastPlayedArray forKey:@"lastPlayed"];

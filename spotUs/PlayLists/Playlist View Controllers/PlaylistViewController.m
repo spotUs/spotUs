@@ -137,7 +137,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSDictionary *cityDic =  @{ @"citytracks"     : self.city.tracks,
                                 @"index" : [NSNumber numberWithInteger:indexPath.row-1],
                                 };

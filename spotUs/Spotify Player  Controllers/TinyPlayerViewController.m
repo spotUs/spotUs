@@ -131,7 +131,7 @@
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri{
     
-    [QueryManager addLastPlayed:self.citySongIDs[self.currentSongIndex] withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [QueryManager addLastPlayed:self.citySongIDs[self.currentSongIndex-1] withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         NSLog(@"added last played");
     }];
     

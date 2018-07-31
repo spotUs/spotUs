@@ -449,7 +449,7 @@
             <objects>
                 <viewController title="SignUpViewController" id="jNm-aI-Duq" customClass="SignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gzY-qE-40N">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Note: SpotUs is currently only available in the cities above " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjj-3h-xQh">
@@ -600,13 +600,62 @@
                     <view key="view" contentMode="scaleToFill" id="dG6-ah-SRj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O4H-0B-eW6">
+                                <rect key="frame" x="16" y="305" width="343" height="249"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PlaylistTableCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stats" rowHeight="52" id="SWI-3t-9XR" customClass="PlaylistTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="52"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SWI-3t-9XR" id="TUs-U1-5Ip">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="51.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08H-Kh-DqK">
+                                                    <rect key="frame" x="25" y="11" width="308" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsX-Sc-n3M">
+                                                    <rect key="frame" x="25" y="29" width="293" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="fsX-Sc-n3M" firstAttribute="top" secondItem="08H-Kh-DqK" secondAttribute="bottom" constant="3.5" id="1Ft-Aa-gWa"/>
+                                                <constraint firstItem="fsX-Sc-n3M" firstAttribute="top" secondItem="08H-Kh-DqK" secondAttribute="bottom" constant="3.5" id="7sH-D6-lRD"/>
+                                                <constraint firstAttribute="trailing" secondItem="08H-Kh-DqK" secondAttribute="trailing" constant="10" id="Bh2-oc-UqY"/>
+                                                <constraint firstItem="08H-Kh-DqK" firstAttribute="leading" secondItem="TUs-U1-5Ip" secondAttribute="leadingMargin" constant="10" id="EYa-Wj-nXi"/>
+                                                <constraint firstItem="fsX-Sc-n3M" firstAttribute="leading" secondItem="TUs-U1-5Ip" secondAttribute="leading" constant="25" id="GYf-AM-D0a"/>
+                                                <constraint firstItem="08H-Kh-DqK" firstAttribute="top" secondItem="TUs-U1-5Ip" secondAttribute="topMargin" id="O6T-MQ-p9g"/>
+                                                <constraint firstAttribute="trailing" secondItem="fsX-Sc-n3M" secondAttribute="trailing" constant="25" id="otD-Pl-ZyI"/>
+                                                <constraint firstAttribute="bottom" secondItem="fsX-Sc-n3M" secondAttribute="bottom" constant="6.5" id="qbc-FL-Tzo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="artistLabel" destination="fsX-Sc-n3M" id="BwY-hr-tJm"/>
+                                            <outlet property="titleLabel" destination="08H-Kh-DqK" id="7bx-3U-ho1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pc4-Pm-gUe"/>
                     </view>
+                    <connections>
+                        <outlet property="statsTableView" destination="O4H-0B-eW6" id="MwH-i4-OQj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHR-ld-6uy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1001" y="-1489"/>
+            <point key="canvasLocation" x="1000.8" y="-1489.2053973013494"/>
         </scene>
         <!--Photo Map View Controller-->
         <scene sceneID="0g0-PM-RNF">

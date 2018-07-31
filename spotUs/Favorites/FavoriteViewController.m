@@ -99,8 +99,8 @@
 
 //collection view implementation
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
     FavoriteCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"favoriteCollectionViewCell" forIndexPath:indexPath];
-   // [cell updateTrackCellwithData:self.dataArray[indexPath.row]];
     [cell updateTrackCellwithData:self.filteredDataArray[indexPath.row]];
     return cell;
 }
@@ -121,6 +121,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.favoriteTableView deselectRowAtIndexPath:indexPath animated:YES];
+
     
     NSDictionary *cityDic =  @{ @"favtracks"     : self.favorites,
                                 @"index" : [NSNumber numberWithInteger:indexPath.row-1],
