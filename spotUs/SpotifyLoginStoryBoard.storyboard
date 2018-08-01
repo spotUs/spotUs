@@ -451,24 +451,24 @@
             <objects>
                 <viewController title="SignUpViewController" id="jNm-aI-Duq" customClass="SignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gzY-qE-40N">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Note: SpotUs is currently only available in the cities above " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjj-3h-xQh">
-                                <rect key="frame" x="28" y="621" width="333" height="12"/>
+                                <rect key="frame" x="28" y="543" width="333" height="12"/>
                                 <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="12"/>
                                 <color key="textColor" red="0.67958835660000005" green="0.67958835660000005" blue="0.67958835660000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-xv-1Ei">
-                                <rect key="frame" x="-16" y="359" width="391" height="216"/>
+                                <rect key="frame" x="-16" y="281" width="391" height="216"/>
                                 <color key="tintColor" red="1" green="0.2096394214" blue="0.033988638639999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </pickerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="spotUsSlogan" translatesAutoresizingMaskIntoConstraints="NO" id="oNm-6k-TWk">
-                                <rect key="frame" x="101" y="32" width="173" height="259"/>
+                                <rect key="frame" x="101" y="76" width="173" height="137"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMe-SN-55C">
-                                <rect key="frame" x="151" y="583" width="73" height="30"/>
+                                <rect key="frame" x="151" y="505" width="73" height="30"/>
                                 <color key="backgroundColor" red="0.26427155489999998" green="0.62948875770000001" blue="0.26605949439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Confirm">
@@ -479,7 +479,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your city?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSA-Se-6wI">
-                                <rect key="frame" x="82" y="319" width="211" height="31.5"/>
+                                <rect key="frame" x="82" y="241" width="211" height="31.5"/>
                                 <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="24"/>
                                 <color key="textColor" red="0.12771286527308084" green="0.32539080981654284" blue="0.59517766497461921" alpha="0.78000000000000003" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
