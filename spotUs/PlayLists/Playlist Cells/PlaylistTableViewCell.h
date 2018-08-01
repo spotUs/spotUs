@@ -15,6 +15,7 @@
 @interface PlaylistTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 
 - (void) updateTrackCellwithData: (NSDictionary *)trackdict;
 

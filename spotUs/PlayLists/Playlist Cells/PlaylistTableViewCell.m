@@ -7,6 +7,7 @@
 //
 
 #import "PlaylistTableViewCell.h"
+#import "QueryManager.h"
 
 @implementation PlaylistTableViewCell
 
@@ -26,8 +27,7 @@
     NSArray<SPTPartialArtist*> *artists = spTrack.artists;
     self.titleLabel.text = spTrack.name;
     self.artistLabel.text = artists[0].name;
-
-    /*
+    
     [QueryManager getTrackfromID:spTrack.identifier withCompletion:^(Track *track, NSError *error) {
         if (error){
             NSLog(@"error could not get city: %@",error.localizedDescription);
@@ -41,10 +41,10 @@
                     citystr = [citystr stringByAppendingString:@", "];
                 }
             }
-            self.city.text = citystr;
+            self.cityLabel.text = citystr;
         }
     }];
-    */
+    
     
 }
 
