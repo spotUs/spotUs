@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (weak, nonatomic) IBOutlet UIButton *repeatButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (strong ,nonatomic) UIImage *notificationImage;
+
 
 @property (strong, nonatomic) NSMutableArray *ina;
 
@@ -117,9 +119,43 @@
     self.musicSlider.minimumValue = 0.0;
     self.musicSlider.value = 0;
     [self refreshSongData];
+    
+    [[AVAudioSession sharedInstance] setCategory:@"AVAudioSessionCategoryPlayback" error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
+    [self becomeFirstResponder];
+    
+
 
 }
 
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event{
+    
+    
+    switch (event.subtype) {
+        case UIEventSubtypeRemoteControlPlay:
+            [self pauseOrUnpause:nil];
+            break;
+            
+        case UIEventSubtypeRemoteControlPause:
+            [self pauseOrUnpause:nil];
+            break;
+            
+        case UIEventSubtypeRemoteControlPreviousTrack:
+            [self goBack:nil];
+            break;
+            
+        case UIEventSubtypeRemoteControlNextTrack:
+            [self goFoward:nil];
+            
+        default:
+            break;
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -168,6 +204,33 @@
     self.musicSlider.value = position;
     self.timeElapsedLabel.text = [self stringFromTimeInterval:position];
     self.timeLeftLabel.text = [self stringFromTimeInterval:self.player.metadata.currentTrack.duration-position];
+    
+    
+    SPTPlaybackTrack *albumArtTrack = self.player.metadata.currentTrack;
+    
+    if(albumArtTrack != nil){
+        
+        
+        
+        NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
+        if(self.notificationImage != nil){
+            MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage: self.notificationImage];
+            [songInfo setValue:albumArt forKey:MPMediaItemPropertyArtwork];
+            
+        }
+        
+        [songInfo setObject:albumArtTrack.name forKey:MPMediaItemPropertyTitle];
+        [songInfo setObject:albumArtTrack.artistName forKey:MPMediaItemPropertyArtist];
+        [songInfo setObject:albumArtTrack.albumName forKey:MPMediaItemPropertyAlbumTitle];
+        [songInfo setObject:[NSNumber numberWithDouble:albumArtTrack.duration] forKey:MPMediaItemPropertyPlaybackDuration];
+        [songInfo setObject:[NSNumber numberWithFloat:position] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+        
+        
+        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
+    }
+    
+    
+    
 }
 
 
@@ -194,7 +257,39 @@
             [self.favoriteButton setSelected: NO];
         }
     }];
+    
+    [self updateControlCenterImage:[ NSURL URLWithString:self.player.metadata.currentTrack.albumCoverArtURL]];
+    
+    
+    
+    NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
+    
+    
+    [songInfo setObject:albumArtTrack.name forKey:MPMediaItemPropertyTitle];
+    [songInfo setObject:albumArtTrack.artistName forKey:MPMediaItemPropertyArtist];
+    [songInfo setObject:albumArtTrack.albumName forKey:MPMediaItemPropertyAlbumTitle];
+    [songInfo setObject:[NSNumber numberWithDouble:albumArtTrack.duration] forKey:MPMediaItemPropertyPlaybackDuration];
+    
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
+    
 }
+
+- (void)updateControlCenterImage:(NSURL *)imageUrl
+{
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        
+       
+        UIImage *artworkImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageUrl]];
+        if(artworkImage)
+        {
+            self.notificationImage = artworkImage;
+            
+        }
+        
+    });
+}
+
 
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval {
     NSInteger ti = (NSInteger)interval;
@@ -203,6 +298,8 @@
     
     return [NSString stringWithFormat:@"%01ld:%02ld",  (long)minutes, (long)seconds];
 }
+
+
 
 
 - (IBAction)isFavorite:(id)sender {

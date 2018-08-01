@@ -327,6 +327,11 @@
     self.currentSongIndex = [index intValue];
     [self refreshSongData];
     self.player.playbackDelegate = self;
+    [[AVAudioSession sharedInstance] setCategory:@"AVAudioSessionCategoryPlayback" error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
+    [self becomeFirstResponder];
     
 }
 
