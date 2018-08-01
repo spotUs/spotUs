@@ -192,7 +192,7 @@
             [songInfo setValue:albumArt forKey:MPMediaItemPropertyArtwork];
             
         }
-        
+
         [songInfo setObject:albumArtTrack.name forKey:MPMediaItemPropertyTitle];
         [songInfo setObject:albumArtTrack.artistName forKey:MPMediaItemPropertyArtist];
         [songInfo setObject:albumArtTrack.albumName forKey:MPMediaItemPropertyAlbumTitle];
@@ -291,7 +291,8 @@
     
     NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
     
-    
+    [songInfo setObject:[NSNumber numberWithInt:5]  forKey:MPMediaItemPropertyRating];
+
     [songInfo setObject:albumArtTrack.name forKey:MPMediaItemPropertyTitle];
     [songInfo setObject:albumArtTrack.artistName forKey:MPMediaItemPropertyArtist];
     [songInfo setObject:albumArtTrack.albumName forKey:MPMediaItemPropertyAlbumTitle];
@@ -311,7 +312,6 @@
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         
-        NSMutableDictionary *songInfo = [NSMutableDictionary dictionaryWithDictionary:[MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo] ;
         UIImage *artworkImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageUrl]];
         if(artworkImage)
         {
