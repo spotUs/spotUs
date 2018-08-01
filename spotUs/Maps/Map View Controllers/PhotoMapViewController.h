@@ -25,6 +25,7 @@
 
 @property (strong, nonatomic) NSArray *cities;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet MKMapView *friendsMapView;
 @property (nonatomic, strong) SPTAudioStreamingController *player;
 @property (nonatomic, strong) SPTAuth *auth;
 @property (nonatomic, weak) id<NowPlayingIntermediateDelegate> nowPlayingIntermediateDelegate;

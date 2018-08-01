@@ -61,6 +61,15 @@ CLLocationManager *locationManager;
     }
 }
 
+- (IBAction)showOtherMapTapped:(id)sender {
+    if ([self.mapView isHidden]){
+        self.mapView.hidden = NO;
+        self.friendsMapView.hidden = YES;
+    } else {
+        self.mapView.hidden = YES;
+        self.friendsMapView.hidden = NO;
+    }
+}
 
 - (void)ZoomInOnLocation:(CLLocation *)location{
     MKCoordinateSpan span;
@@ -97,7 +106,8 @@ CLLocationManager *locationManager;
     self.definesPresentationContext = YES;
 
     self.mapView.delegate = self;
-
+    self.friendsMapView.delegate = self;
+    
     self.cities = QueryManager.citiesarray;
     
     locationManager = [[CLLocationManager alloc] init];
@@ -127,34 +137,29 @@ CLLocationManager *locationManager;
             if (error){
                 NSLog(@"error getting friend's user obj': %@",error.localizedDescription);
             } else {
-                /*if (user[@"lastPlayedCity"] != nil){
+                NSLog(@"last played city %@",user[@"lastPlayedCity"]);
+                if (user[@"lastPlayedCity"] != nil){
                     City *friendloc = (City *)user[@"lastPlayedCity"];
                     double lng = [friendloc[@"lng"] doubleValue];
                     double lat = [friendloc[@"lat"] doubleValue];
+                    NSLog(@"%f",lng );
                     CLLocationCoordinate2D location;
                     location.latitude = lat;
                     location.longitude = lng;
                     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
                     annotation.coordinate = location;
                     annotation.title = user.username;
-                    [self.mapView addAnnotation:annotation];
-                }*/
-                double lng = -80.1918;
-                double lat = 25.7617;
-                CLLocationCoordinate2D location;
-                location.latitude = lat;
-                location.longitude = lng;
-                MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-                annotation.coordinate = location;
-                annotation.title = user.username;
-                [self.mapView addAnnotation:annotation];
+                    [self.friendsMapView addAnnotation:annotation];
+                }
             }
         }];
     }
     
 }
+
 -(MKAnnotationView *)mapView:(MKMapView *)mV viewForAnnotation:(id <MKAnnotation>)annotation
 {
+    if ([mV isEqual:self.friendsMapView]){
     MKAnnotationView *pinView = nil;
     if(annotation != _mapView.userLocation)
     {
@@ -168,17 +173,57 @@ CLLocationManager *locationManager;
         pinView.canShowCallout = YES;
         //pinView.animatesDrop = YES;
      
-        pinView.image = [UIImage imageNamed:@"superSmall"];    //as suggested by Squatch
+        pinView.image = [UIImage imageNamed:@"smallMan"];    //as suggested by Squatch
     }
     else {
         [_mapView.userLocation setTitle:@"I am here"];
     }
     return pinView;
+    }
+    else {
+        if(annotation == self.mapView.userLocation){
+                    // prevent showing pin for current location
+                    return nil;
+                }
+        
+                MKPinAnnotationView *annotationView = (MKPinAnnotationView*)[mV dequeueReusableAnnotationViewWithIdentifier:@"Pin"];
+                if (annotationView == nil) {
+                    annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin"];
+                    annotationView.canShowCallout = true;
+                }
+        
+                UIButton *btn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+                UIImage *btnImage = [UIImage imageNamed:@"next-btn"];
+                [btn setImage:btnImage forState:UIControlStateNormal];
+                annotationView.rightCalloutAccessoryView = btn;
+        
+                self.detailsViewLabel.text = @"testing";
+                annotationView.detailCalloutAccessoryView = self.detailsView;
+        
+                return annotationView;
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(calloutTapped:)];
+    [view addGestureRecognizer:tapGesture];
+}
+
+-(void)calloutTapped:(UITapGestureRecognizer *) sender
+{
+    NSLog(@"Callout was tapped");
+    MKAnnotationView * view = (MKAnnotationView *) sender.view;
+    NSLog(@"%@",view.annotation.title);
+
+    self.searchCity = [QueryManager getCityFromName:view.annotation.title];
+    [self performSegueWithIdentifier:@"playlist" sender:self];
+
+    
 }
 
 //mapview delegate method
 //- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-//
+// 
 //    if(annotation == self.mapView.userLocation){
 //        // prevent showing pin for current location
 //        return nil;
@@ -197,9 +242,6 @@ CLLocationManager *locationManager;
 //
 //    self.detailsViewLabel.text = @"testing";
 //    annotationView.detailCalloutAccessoryView = self.detailsView;
-
-
-
 
 //    return annotationView;
 //}
