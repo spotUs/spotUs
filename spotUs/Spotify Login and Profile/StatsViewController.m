@@ -31,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [SVProgressHUD showWithStatus:@"Loading Profile"];
+    [SVProgressHUD showWithStatus:@"Loading Profile..."];
     
     self.statsTableView.dataSource = self;
     self.statsTableView.delegate = self;
