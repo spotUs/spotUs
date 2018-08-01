@@ -178,10 +178,24 @@
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePosition:(NSTimeInterval)position{
     
-    MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
-    NSMutableDictionary *playingInfo = [NSMutableDictionary dictionaryWithDictionary:center.nowPlayingInfo];
-    [playingInfo setObject:[NSNumber numberWithFloat:position] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
-    center.nowPlayingInfo = playingInfo;
+    SPTPlaybackTrack *albumArtTrack = self.player.metadata.currentTrack;
+
+    if(albumArtTrack != nil){
+  
+    
+    NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
+    
+    [songInfo setObject:albumArtTrack.name forKey:MPMediaItemPropertyTitle];
+    [songInfo setObject:albumArtTrack.artistName forKey:MPMediaItemPropertyArtist];
+    [songInfo setObject:albumArtTrack.albumName forKey:MPMediaItemPropertyAlbumTitle];
+    [songInfo setObject:[NSNumber numberWithDouble:albumArtTrack.duration] forKey:MPMediaItemPropertyPlaybackDuration];
+    [songInfo setObject:[NSNumber numberWithFloat:position] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+
+    
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
+    }
+    
+    
     
 }
 - (void)audioStreamingDidSkipToNextTrack:(SPTAudioStreamingController *)audioStreaming{
