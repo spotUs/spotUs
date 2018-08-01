@@ -11,6 +11,7 @@
 #import "FavoriteTableViewCell.h"
 #import <CoreLocation/CoreLocation.h>
 #import "UIImageView+AFNetworking.h"
+#import "PlaylistViewController.h"
 
 #define METERS_PER_MILE 1609.344
 @interface StatsViewController () <UITableViewDelegate,UITableViewDataSource,MKMapViewDelegate>
@@ -41,16 +42,9 @@
     NSString *username;
     
     if(self.user == nil){
-        
         username = [PFUser currentUser].username;
-        
-       
-    }
-    
-    else{
+    } else{
         username = self.user.username;
-        
-        
     }
     
     self.navigationItem.title = username;
@@ -143,28 +137,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void)viewWillAppear:(BOOL)animated {
-//    CLLocationCoordinate2D zoomLocation;
-//    double longi = [self.selectedCity[@"lng"] doubleValue];
-//    NSLog(@"%f",longi);
-//    double lat = [self.selectedCity[@"lat"] doubleValue];
-//    zoomLocation.latitude =lat;
-//    zoomLocation.longitude= longi;
-//
-//    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
-//
-//    [_mapView setRegion:viewRegion animated:YES];
-//}
 
 
-/*
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    PlaylistViewController *playlistVC = (PlaylistViewController *)[segue destinationViewController];
+    playlistVC.auth = self.auth;
+    playlistVC.city = self.selectedCity;
 }
-*/
+
 
 @end
