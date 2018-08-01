@@ -739,9 +739,10 @@
                                     <segue destination="XYl-M6-THt" kind="show" id="nbH-iS-X6V"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jm2-Bx-h1d">
-                                <rect key="frame" x="132" y="462" width="111" height="30"/>
-                                <state key="normal" title="show other map"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jm2-Bx-h1d">
+                                <rect key="frame" x="278" y="520" width="62" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="friends"/>
                                 <connections>
                                     <action selector="showOtherMapTapped:" destination="NH1-rC-6tQ" eventType="touchUpInside" id="lVZ-aH-Ut8"/>
                                 </connections>
@@ -754,7 +755,6 @@
                             <constraint firstItem="j8u-RV-yRn" firstAttribute="trailing" secondItem="Ege-q5-UYR" secondAttribute="trailing" id="Ch8-TK-lHh"/>
                             <constraint firstItem="fiS-ZA-l3J" firstAttribute="top" secondItem="j8u-RV-yRn" secondAttribute="top" id="EAF-DZ-XOu"/>
                             <constraint firstItem="j8u-RV-yRn" firstAttribute="top" secondItem="Ege-q5-UYR" secondAttribute="top" id="Fds-Pb-5mh"/>
-                            <constraint firstItem="2DL-E6-Inc" firstAttribute="top" secondItem="jm2-Bx-h1d" secondAttribute="bottom" constant="36" id="GWG-eW-Eo9"/>
                             <constraint firstItem="j8u-RV-yRn" firstAttribute="leading" secondItem="Ege-q5-UYR" secondAttribute="leading" id="PRd-zM-7zE"/>
                             <constraint firstItem="j8u-RV-yRn" firstAttribute="trailing" secondItem="Ege-q5-UYR" secondAttribute="trailing" id="SYe-Iv-CG6"/>
                             <constraint firstItem="fiS-ZA-l3J" firstAttribute="width" secondItem="j8u-RV-yRn" secondAttribute="width" id="X9v-7D-deD"/>
@@ -766,7 +766,6 @@
                             <constraint firstItem="j8u-RV-yRn" firstAttribute="leading" secondItem="Ege-q5-UYR" secondAttribute="leading" id="pGb-DA-Ydu"/>
                             <constraint firstItem="fiS-ZA-l3J" firstAttribute="leading" secondItem="Ege-q5-UYR" secondAttribute="leading" id="qEe-Nr-nyO"/>
                             <constraint firstItem="fiS-ZA-l3J" firstAttribute="top" secondItem="Ege-q5-UYR" secondAttribute="top" id="x2h-jY-8hg"/>
-                            <constraint firstItem="jm2-Bx-h1d" firstAttribute="centerX" secondItem="DKl-8v-rCf" secondAttribute="centerX" id="zdP-Wp-lV1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ege-q5-UYR"/>
                     </view>
@@ -782,7 +781,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gA7-Cc-Ezd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1977" y="-1454"/>
+            <point key="canvasLocation" x="1976.8" y="-1454.1229385307347"/>
         </scene>
         <!--Gif View Controller-->
         <scene sceneID="IPk-sA-Bnz">
