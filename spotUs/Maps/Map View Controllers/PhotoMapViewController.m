@@ -61,6 +61,15 @@ CLLocationManager *locationManager;
     }
 }
 
+- (IBAction)showOtherMapTapped:(id)sender {
+    if ([self.mapView isHidden]){
+        self.mapView.hidden = NO;
+        self.friendsMapView.hidden = YES;
+    } else {
+        self.mapView.hidden = YES;
+        self.friendsMapView.hidden = NO;
+    }
+}
 
 - (void)ZoomInOnLocation:(CLLocation *)location{
     MKCoordinateSpan span;
@@ -97,7 +106,8 @@ CLLocationManager *locationManager;
     self.definesPresentationContext = YES;
 
     self.mapView.delegate = self;
-
+    self.friendsMapView.delegate = self;
+    
     self.cities = QueryManager.citiesarray;
     
     locationManager = [[CLLocationManager alloc] init];
@@ -147,7 +157,7 @@ CLLocationManager *locationManager;
                 MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
                 annotation.coordinate = location;
                 annotation.title = user.username;
-                [self.mapView addAnnotation:annotation];
+                [self.friendsMapView addAnnotation:annotation];
             }
         }];
     }
@@ -156,6 +166,7 @@ CLLocationManager *locationManager;
 
 -(MKAnnotationView *)mapView:(MKMapView *)mV viewForAnnotation:(id <MKAnnotation>)annotation
 {
+    if ([mV isEqual:self.friendsMapView]){
     MKAnnotationView *pinView = nil;
     if(annotation != _mapView.userLocation)
     {
@@ -175,6 +186,29 @@ CLLocationManager *locationManager;
         [_mapView.userLocation setTitle:@"I am here"];
     }
     return pinView;
+    }
+    else {
+        if(annotation == self.mapView.userLocation){
+                    // prevent showing pin for current location
+                    return nil;
+                }
+        
+                MKPinAnnotationView *annotationView = (MKPinAnnotationView*)[mV dequeueReusableAnnotationViewWithIdentifier:@"Pin"];
+                if (annotationView == nil) {
+                    annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin"];
+                    annotationView.canShowCallout = true;
+                }
+        
+                UIButton *btn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+                UIImage *btnImage = [UIImage imageNamed:@"next-btn"];
+                [btn setImage:btnImage forState:UIControlStateNormal];
+                annotationView.rightCalloutAccessoryView = btn;
+        
+                self.detailsViewLabel.text = @"testing";
+                annotationView.detailCalloutAccessoryView = self.detailsView;
+        
+                return annotationView;
+    }
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
@@ -219,12 +253,12 @@ CLLocationManager *locationManager;
 //    return annotationView;
 //}
 
-//- (void) mapView: (MKMapView *)mapView annotationView:(nonnull MKAnnotationView *)view calloutAccessoryControlTapped:(nonnull UIControl *)control {
-//    NSLog(@"%@",view.annotation.title);
-//
-//    self.searchCity = [QueryManager getCityFromName:view.annotation.title];
-//    [self performSegueWithIdentifier:@"playlist" sender:self];
-//}
+- (void) mapView: (MKMapView *)mapView annotationView:(nonnull MKAnnotationView *)view calloutAccessoryControlTapped:(nonnull UIControl *)control {
+    NSLog(@"%@",view.annotation.title);
+
+    self.searchCity = [QueryManager getCityFromName:view.annotation.title];
+    [self performSegueWithIdentifier:@"playlist" sender:self];
+}
 
 
 - (void)didReceiveMemoryWarning {
