@@ -23,9 +23,6 @@
 @property (strong, nonatomic) UISearchController *resultSearchController;
 @property BOOL waitingForLocation;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
-@property (weak, nonatomic) IBOutlet UIView *detailsView;
-@property (weak, nonatomic) IBOutlet UILabel *detailsViewLabel;
-
 @end
 
 @implementation PhotoMapViewController
@@ -63,13 +60,13 @@ CLLocationManager *locationManager;
 
 - (IBAction)showOtherMapTapped:(id)sender {
     if ([self.mapView isHidden]){
-        self.mapView.hidden = NO;
-        self.friendsMapView.hidden = YES;
-    } else {
-        self.mapView.hidden = YES;
-        self.friendsMapView.hidden = NO;
+    [UIView transitionWithView:self.friendsMapView duration:0.5
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{self.mapView.hidden = NO; self.friendsMapView.hidden = YES;}completion:NULL];
     }
-}
+    else
+        [UIView transitionWithView:self.mapView duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{self.friendsMapView.hidden = NO; self.mapView.hidden = YES;  } completion:NULL];
+        }
 
 - (void)ZoomInOnLocation:(CLLocation *)location{
     MKCoordinateSpan span;
@@ -82,6 +79,7 @@ CLLocationManager *locationManager;
     region.span = span;
     
     self.mapView.region = region;
+    self.friendsMapView.region = region;
 }
 
 - (void)viewDidLoad {
@@ -90,7 +88,7 @@ CLLocationManager *locationManager;
     [self.checkInButton setTintColor:[UIColor grayColor]];
 
     LocationSearchTable *locationSearchTable = [self.storyboard instantiateViewControllerWithIdentifier:@"LocationSearchTable"];
-    
+
     
     self.resultSearchController = [[UISearchController alloc ] initWithSearchResultsController:locationSearchTable];
     self.resultSearchController.searchResultsUpdater = locationSearchTable;
