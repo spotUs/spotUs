@@ -7,15 +7,21 @@ App that allows users to access popular music and play both in their own locatio
 
 ## Required User Stories
 
-The following **required** functionality is completed:
+The following functionality is completed:
 
-- [ ] User can listen to a playlist of a certain city through integrated Spotify player
+- [x] User can listen to a playlist of a certain city through integrated Spotify player
 - users can view cities through map or list of most popular cities 
 - get user location and suggest nearest city playlist
-- [ ] user can add songs to a city's playlist
-- [ ] user listen history
-- [ ] sharing on other social media 
-- [ ] User can login/logout
+- [x] When signing up, the user's top played tracks will be added to their corresponding hometown's playlist
+- [x] users can add friends and view the city they are listening to along with their recently played tracks
+- [x] Users can seek, skip and repeat tracks on the main player view
+- [x] Users can flag songs as inappropiate for city, enough unique flags will remove city from playlist
+- [x] Users can view song currently played, pause/play, and go to main page at all times through always-present player bar
+- [x] Users can favorite songs and view their favorites seperately
+- [x] Users have option to seamlessly switch from tableview to grid view for all playlists
+- [x] Users can change their hometown at any time
+- [x] Users can see a silhouette of their hometown on their profile screen and see a silhouette for each city's playlist 
+
 
 What is your product pitch?
     It is difficult to grasp the true beat vibe of a city. SpotUs will provide a solution by providing users playlist specific  to the cities. The playlists consist of the favorite songs of the city's residents.
