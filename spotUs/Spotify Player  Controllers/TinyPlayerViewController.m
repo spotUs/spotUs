@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (weak, nonatomic) IBOutlet UILabel *spotUsLabel;
 
+@property (strong ,nonatomic) UIImage *notificationImage;
+
 @property int currentSongIndex;
 
 
@@ -179,20 +181,26 @@
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePosition:(NSTimeInterval)position{
     
     SPTPlaybackTrack *albumArtTrack = self.player.metadata.currentTrack;
-
+    
     if(albumArtTrack != nil){
-  
-    
-    NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
-    
-    [songInfo setObject:albumArtTrack.name forKey:MPMediaItemPropertyTitle];
-    [songInfo setObject:albumArtTrack.artistName forKey:MPMediaItemPropertyArtist];
-    [songInfo setObject:albumArtTrack.albumName forKey:MPMediaItemPropertyAlbumTitle];
-    [songInfo setObject:[NSNumber numberWithDouble:albumArtTrack.duration] forKey:MPMediaItemPropertyPlaybackDuration];
-    [songInfo setObject:[NSNumber numberWithFloat:position] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
-
-    
-    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
+        
+        
+        
+        NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
+        if(self.notificationImage != nil){
+            MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage: self.notificationImage];
+            [songInfo setValue:albumArt forKey:MPMediaItemPropertyArtwork];
+            
+        }
+        
+        [songInfo setObject:albumArtTrack.name forKey:MPMediaItemPropertyTitle];
+        [songInfo setObject:albumArtTrack.artistName forKey:MPMediaItemPropertyArtist];
+        [songInfo setObject:albumArtTrack.albumName forKey:MPMediaItemPropertyAlbumTitle];
+        [songInfo setObject:[NSNumber numberWithDouble:albumArtTrack.duration] forKey:MPMediaItemPropertyPlaybackDuration];
+        [songInfo setObject:[NSNumber numberWithFloat:position] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+        
+        
+        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
     }
     
     
@@ -277,7 +285,12 @@
     self.songTitle.text = albumArtTrack.name;
     self.artistNameLabel.text = albumArtTrack.artistName;
     
+    [self updateControlCenterImage:[ NSURL URLWithString:self.player.metadata.currentTrack.albumCoverArtURL]];
+    
+    
+    
     NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
+    
     
     [songInfo setObject:albumArtTrack.name forKey:MPMediaItemPropertyTitle];
     [songInfo setObject:albumArtTrack.artistName forKey:MPMediaItemPropertyArtist];
@@ -291,6 +304,23 @@
     
 }
 
+
+
+- (void)updateControlCenterImage:(NSURL *)imageUrl
+{
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        
+        NSMutableDictionary *songInfo = [NSMutableDictionary dictionaryWithDictionary:[MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo] ;
+        UIImage *artworkImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageUrl]];
+        if(artworkImage)
+        {
+            self.notificationImage = artworkImage;
+        
+        }
+     
+    });
+}
 
 - (void)didDismissWithIndex:(NSNumber *)index{
     
