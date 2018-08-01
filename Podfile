@@ -8,6 +8,7 @@ target 'spotUs' do
   # Pods for spotUs
   pod 'Parse'
   pod 'AFNetworking'
+  pod 'SVProgressHUD'
 
   target 'spotUsTests' do
     inherit! :search_paths
