@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import <SpotifyAuthentication/SpotifyAuthentication.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
 #import <SpotifyMetadata/SpotifyMetadata.h>
 #import <Parse/Parse.h>

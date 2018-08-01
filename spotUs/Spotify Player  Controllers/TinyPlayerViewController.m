@@ -131,6 +131,19 @@
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri{
     
+    [[AVAudioSession sharedInstance] setCategory:@"AVAudioSessionCategoryPlayback" error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+
+    [self becomeFirstResponder];
+
+
+    
+    
+
+    
+    
+    
     [QueryManager addLastPlayed:self.citySongIDs[self.currentSongIndex-1] withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         NSLog(@"added last played");
     }];
@@ -162,20 +175,116 @@
     
 
 }
+
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePosition:(NSTimeInterval)position{
+    
+    SPTPlaybackTrack *albumArtTrack = self.player.metadata.currentTrack;
+
+    if(albumArtTrack != nil){
+  
+    
+    NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
+    
+    [songInfo setObject:albumArtTrack.name forKey:MPMediaItemPropertyTitle];
+    [songInfo setObject:albumArtTrack.artistName forKey:MPMediaItemPropertyArtist];
+    [songInfo setObject:albumArtTrack.albumName forKey:MPMediaItemPropertyAlbumTitle];
+    [songInfo setObject:[NSNumber numberWithDouble:albumArtTrack.duration] forKey:MPMediaItemPropertyPlaybackDuration];
+    [songInfo setObject:[NSNumber numberWithFloat:position] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+
+    
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
+    }
+    
+    
+    
+}
 - (void)audioStreamingDidSkipToNextTrack:(SPTAudioStreamingController *)audioStreaming{
     
     [self refreshSongData];
     [self.player setRepeat:SPTRepeatOff callback:nil];
     
     
+    
+    
 }
 
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+
+- (void)goBack{
+    
+    
+    if(self.player.playbackState.position < 5){
+        
+        
+        self.currentSongIndex = MAX(self.currentSongIndex-3, 0);
+    }
+    else{
+        
+        self.currentSongIndex = MAX(self.currentSongIndex-2, 0);
+        
+    }
+    
+    NSString *song = self.citySongIDs[self.currentSongIndex];
+    self.currentSongIndex++;
+    
+    NSString *playRequest = [NSString stringWithFormat:@"%@%@",@"spotify:track:",song];
+    [self.player playSpotifyURI:playRequest startingWithIndex:0 startingWithPosition:0 callback:^(NSError *error) {
+        
+        if(error){
+            NSLog(@"Error starting music: %@", error.localizedDescription);
+        }
+        
+    }];
+    
+    
+    
+}
+
+- (void)goFoward{
+    [self.player skipNext:nil];
+}
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event{
+    
+    
+    switch (event.subtype) {
+        case UIEventSubtypeRemoteControlPlay:
+            [self pauseOrUnpause:nil];
+            break;
+            
+        case UIEventSubtypeRemoteControlPause:
+            [self pauseOrUnpause:nil];
+            break;
+            
+        case UIEventSubtypeRemoteControlPreviousTrack:
+            [self goBack];
+            break;
+            
+        case UIEventSubtypeRemoteControlNextTrack:
+            [self goFoward];
+            
+        default:
+            break;
+    }
+}
 
 -(void)refreshSongData{
     
     SPTPlaybackTrack *albumArtTrack = self.player.metadata.currentTrack;
     self.songTitle.text = albumArtTrack.name;
     self.artistNameLabel.text = albumArtTrack.artistName;
+    
+    NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
+    
+    [songInfo setObject:albumArtTrack.name forKey:MPMediaItemPropertyTitle];
+    [songInfo setObject:albumArtTrack.artistName forKey:MPMediaItemPropertyArtist];
+    [songInfo setObject:albumArtTrack.albumName forKey:MPMediaItemPropertyAlbumTitle];
+    [songInfo setObject:[NSNumber numberWithDouble:albumArtTrack.duration] forKey:MPMediaItemPropertyPlaybackDuration];
+ 
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
     
   
     [self.pauseButton setSelected:!self.player.playbackState.isPlaying];
