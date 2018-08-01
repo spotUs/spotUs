@@ -265,6 +265,7 @@
 				6CB5858D21000392009BD66B /* PlaylistCollectionViewCell.h */,
 				6CB5858E21000392009BD66B /* PlaylistCollectionViewCell.m */,
 				060896AC21065C990041644D /* PlayListCollectionHeader.h */,
+				3E7A9A6621067F9E007CB62B /* FavoriteCollectionViewCell.h */,
 				060896AD21065C990041644D /* PlayListCollectionHeader.m */,
 				6C2C2E3B210BD1D90070D8EA /* PlaylistTableViewCell.h */,
 				6C2C2E3C210BD1D90070D8EA /* PlaylistTableViewCell.m */,
@@ -459,7 +460,6 @@
 				3E7A9A4F210635DC007CB62B /* FavoriteStoryboard.storyboard */,
 				3E7A9A6021067EED007CB62B /* FavoriteViewController.h */,
 				3E7A9A6121067EED007CB62B /* FavoriteViewController.m */,
-				3E7A9A6621067F9E007CB62B /* FavoriteCollectionViewCell.h */,
 				3E7A9A6721067F9E007CB62B /* FavoriteCollectionViewCell.m */,
 				3E7C233C2107EA7900E1C749 /* FavoriteTableViewCell.h */,
 				3E7C233D2107EA7900E1C749 /* FavoriteTableViewCell.m */,
@@ -973,7 +973,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = muku.spotUs432432;
+				PRODUCT_BUNDLE_IDENTIFIER = muku.spotUs432432432423;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -995,7 +995,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = muku.spotUs432432;
+				PRODUCT_BUNDLE_IDENTIFIER = muku.spotUs432432432423;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

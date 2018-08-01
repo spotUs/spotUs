@@ -12,6 +12,7 @@
 #import "QueryManager.h"
 
 
+
 @interface PlayerView () <SPTAudioStreamingPlaybackDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *timeElapsedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLeftLabel;
@@ -126,6 +127,11 @@
 }
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri{
+    
+    //[AVAudioSes]
+    
+    [[AVAudioSession sharedInstance] setCategory:@"AVAudioSessionCategoryPlayback" error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
     
     [QueryManager addLastPlayed:self.citySongIDs[self.currentSongIndex-1] withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         NSLog(@"added last played");
