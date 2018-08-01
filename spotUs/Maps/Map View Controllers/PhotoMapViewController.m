@@ -149,6 +149,7 @@ CLLocationManager *locationManager;
                     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
                     annotation.coordinate = location;
                     annotation.title = user.username;
+                    annotation.subtitle = friendloc.name;
                     [self.friendsMapView addAnnotation:annotation];
                 }
             }
@@ -173,7 +174,7 @@ CLLocationManager *locationManager;
         pinView.canShowCallout = YES;
         //pinView.animatesDrop = YES;
      
-        pinView.image = [UIImage imageNamed:@"smallMan"];    //as suggested by Squatch
+        pinView.image = [UIImage imageNamed:@"friendmusic-black"];
     }
     else {
         [_mapView.userLocation setTitle:@"I am here"];
@@ -182,69 +183,44 @@ CLLocationManager *locationManager;
     }
     else {
         if(annotation == self.mapView.userLocation){
-                    // prevent showing pin for current location
-                    return nil;
-                }
-        
-                MKPinAnnotationView *annotationView = (MKPinAnnotationView*)[mV dequeueReusableAnnotationViewWithIdentifier:@"Pin"];
-                if (annotationView == nil) {
-                    annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin"];
-                    annotationView.canShowCallout = true;
-                }
-        
-                UIButton *btn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-                UIImage *btnImage = [UIImage imageNamed:@"next-btn"];
-                [btn setImage:btnImage forState:UIControlStateNormal];
-                annotationView.rightCalloutAccessoryView = btn;
-        
-                self.detailsViewLabel.text = @"testing";
-                annotationView.detailCalloutAccessoryView = self.detailsView;
-        
-                return annotationView;
+            // prevent showing pin for current location
+            return nil;
+        }
+
+        MKPinAnnotationView *annotationView = (MKPinAnnotationView*)[mV dequeueReusableAnnotationViewWithIdentifier:@"Pin"];
+        if (annotationView == nil) {
+            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin"];
+            annotationView.canShowCallout = true;
+        }
+
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        UIImage *btnImage = [UIImage imageNamed:@"next-btn"];
+        [btn setImage:btnImage forState:UIControlStateNormal];
+        annotationView.rightCalloutAccessoryView = btn;
+
+        return annotationView;
     }
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(calloutTapped:)];
-    [view addGestureRecognizer:tapGesture];
+    if (mapView == self.friendsMapView){
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(calloutTapped:)];
+        [view addGestureRecognizer:tapGesture];
+    }
 }
 
 -(void)calloutTapped:(UITapGestureRecognizer *) sender
 {
     NSLog(@"Callout was tapped");
     MKAnnotationView * view = (MKAnnotationView *) sender.view;
-    NSLog(@"%@",view.annotation.title);
+    NSLog(@"%@",view.annotation.subtitle);
 
-    self.searchCity = [QueryManager getCityFromName:view.annotation.title];
+    self.searchCity = [QueryManager getCityFromName:view.annotation.subtitle];
     [self performSegueWithIdentifier:@"playlist" sender:self];
 
     
 }
 
-//mapview delegate method
-//- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-// 
-//    if(annotation == self.mapView.userLocation){
-//        // prevent showing pin for current location
-//        return nil;
-//    }
-//
-//    MKPinAnnotationView *annotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"Pin"];
-//    if (annotationView == nil) {
-//        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin"];
-//        annotationView.canShowCallout = true;
-//    }
-//
-//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-//    UIImage *btnImage = [UIImage imageNamed:@"next-btn"];
-//    [btn setImage:btnImage forState:UIControlStateNormal];
-//    annotationView.rightCalloutAccessoryView = btn;
-//
-//    self.detailsViewLabel.text = @"testing";
-//    annotationView.detailCalloutAccessoryView = self.detailsView;
-
-//    return annotationView;
-//}
 
 - (void) mapView: (MKMapView *)mapView annotationView:(nonnull MKAnnotationView *)view calloutAccessoryControlTapped:(nonnull UIControl *)control {
     NSLog(@"%@",view.annotation.title);
