@@ -45,11 +45,15 @@
 }
 
 - (void) removeFriend {
+    self.addUserBtn.selected = NO;
+
     NSMutableArray *friends = [PFUser currentUser][@"friends"];
     [friends removeObject:self.user.username];
     [[PFUser currentUser] setObject:friends forKey:@"friends"];
     [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error){
+            self.addUserBtn.selected = YES;
+
             NSLog(@"error removing friend: %@",error.localizedDescription);
         } else {
             NSLog(@"succesfully removed friend");
@@ -60,11 +64,15 @@
 }
 
 - (void) addFriend{
+    self.addUserBtn.selected = YES;
+
     NSMutableArray *friends = [PFUser currentUser][@"friends"];
     [friends addObject:self.user.username];
     [[PFUser currentUser] setObject:friends forKey:@"friends"];
     [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error){
+            self.addUserBtn.selected = NO;
+
             NSLog(@"error adding friend: %@",error.localizedDescription);
         } else {
             NSLog(@"succesfully added friend");

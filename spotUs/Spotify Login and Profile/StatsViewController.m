@@ -12,6 +12,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "UIImageView+AFNetworking.h"
 #import "PlaylistViewController.h"
+#import "SVProgressHUD.h"
 
 #define METERS_PER_MILE 1609.344
 @interface StatsViewController () <UITableViewDelegate,UITableViewDataSource,MKMapViewDelegate>
@@ -29,6 +30,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [SVProgressHUD showWithStatus:@"Loading Profile"];
     
     self.statsTableView.dataSource = self;
     self.statsTableView.delegate = self;
@@ -52,10 +55,19 @@
     [QueryManager getUserfromUsername:username withCompletion:^(PFUser *user, NSError *error) {
         
         
+        
         self.user = user;
-        [QueryManager fadeImg:[NSURL URLWithString:user[@"profileImageURL"]] imgView:self.friendProfileImage];
+        if(user[@"profileImageURL"] != nil && [user[@"profileImageURL"] length] > 2){
+            
+            [QueryManager fadeImg:[NSURL URLWithString:user[@"profileImageURL"]] imgView:self.friendProfileImage];
+        }
+        
+        else{
+            
+            self.friendProfileImage.image = [UIImage imageNamed:@"profileicon"];
+        }
         //[self.friendProfileImage setImageWithURL:[NSURL URLWithString:user[@"profileImageURL"]]];
-
+        
         self.selectedCity =self.user[@"city"];
         
         NSLog(@"%@", self.user[@"city"]);
@@ -90,6 +102,7 @@
             
             self.lastPlayed = object;
             [self.statsTableView reloadData];
+            [SVProgressHUD dismiss];
         }];
 
     }];

@@ -9,6 +9,7 @@
 #import "FriendSearchViewController.h"
 #import "FriendSearchTableViewCell.h"
 #import "StatsViewController.h"
+#import "SVProgressHUD.h"
 
 @interface FriendSearchViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, FriendStatusDelegate>
 
@@ -45,6 +46,8 @@
     self.filteredNotFriends = self.usersNotFriends;
     self.tableView.rowHeight = 63;
     
+    [SVProgressHUD showWithStatus:@"Loading Friends..."];
+    
     [self updateUsers];
 
 }
@@ -71,24 +74,26 @@
             self.usersFriends = objects;
             self.filteredFriends = objects;
             NSLog(@"filteredfriends %@",self.filteredFriends);
-            [self.tableView reloadData];
+            
+            // get non friends
+            PFQuery *notFriendQuery = [PFUser query];
+            [notFriendQuery whereKey:@"username" notEqualTo:[PFUser currentUser].username];
+            [notFriendQuery whereKey:@"username" notContainedIn:[PFUser currentUser][@"friends"]];
+            [notFriendQuery orderByAscending:@"username"];
+            [notFriendQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+                if (error) {
+                    NSLog(@"error fetching non friends: %@", error.localizedDescription);
+                } else {
+                    self.usersNotFriends = objects;
+                    self.filteredNotFriends = objects;
+                    [self.tableView reloadData];
+                    [SVProgressHUD dismiss];
+                }
+                [self.refreshControl endRefreshing];
+            }];
         }
     }];
-    // get non friends
-    PFQuery *notFriendQuery = [PFUser query];
-    [notFriendQuery whereKey:@"username" notEqualTo:[PFUser currentUser].username];
-    [notFriendQuery whereKey:@"username" notContainedIn:[PFUser currentUser][@"friends"]];
-    [notFriendQuery orderByAscending:@"username"];
-    [notFriendQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"error fetching non friends: %@", error.localizedDescription);
-        } else {
-            self.usersNotFriends = objects;
-            self.filteredNotFriends = objects;
-            [self.tableView reloadData];
-        }
-        [self.refreshControl endRefreshing];
-    }];
+   
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
