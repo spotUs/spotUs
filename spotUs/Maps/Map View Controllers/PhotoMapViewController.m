@@ -168,7 +168,7 @@ CLLocationManager *locationManager;
         pinView.canShowCallout = YES;
         //pinView.animatesDrop = YES;
      
-        pinView.image = [UIImage imageNamed:@"superSmall"];    //as suggested by Squatch
+        pinView.image = [UIImage imageNamed:@"smallMan"];    //as suggested by Squatch
     }
     else {
         [_mapView.userLocation setTitle:@"I am here"];
@@ -178,7 +178,7 @@ CLLocationManager *locationManager;
 
 //mapview delegate method
 //- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-//
+// 
 //    if(annotation == self.mapView.userLocation){
 //        // prevent showing pin for current location
 //        return nil;
@@ -197,9 +197,6 @@ CLLocationManager *locationManager;
 //
 //    self.detailsViewLabel.text = @"testing";
 //    annotationView.detailCalloutAccessoryView = self.detailsView;
-
-
-
 
 //    return annotationView;
 //}
