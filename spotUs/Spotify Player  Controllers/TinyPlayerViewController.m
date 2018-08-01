@@ -21,6 +21,7 @@
 @property BOOL isSeeking;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (weak, nonatomic) IBOutlet UILabel *spotUsLabel;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 @property (strong ,nonatomic) UIImage *notificationImage;
 
@@ -139,13 +140,6 @@
 
     [self becomeFirstResponder];
 
-
-    
-    
-
-    
-    
-    
     [QueryManager addLastPlayed:self.citySongIDs[self.currentSongIndex-1] withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         NSLog(@"added last played");
     }];
