@@ -137,27 +137,20 @@ CLLocationManager *locationManager;
             if (error){
                 NSLog(@"error getting friend's user obj': %@",error.localizedDescription);
             } else {
-                /*if (user[@"lastPlayedCity"] != nil){
+                NSLog(@"last played city %@",user[@"lastPlayedCity"]);
+                if (user[@"lastPlayedCity"] != nil){
                     City *friendloc = (City *)user[@"lastPlayedCity"];
                     double lng = [friendloc[@"lng"] doubleValue];
                     double lat = [friendloc[@"lat"] doubleValue];
+                    NSLog(@"%f",lng );
                     CLLocationCoordinate2D location;
                     location.latitude = lat;
                     location.longitude = lng;
                     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
                     annotation.coordinate = location;
                     annotation.title = user.username;
-                    [self.mapView addAnnotation:annotation];
-                }*/
-                double lng = -80.1918;
-                double lat = 25.7617;
-                CLLocationCoordinate2D location;
-                location.latitude = lat;
-                location.longitude = lng;
-                MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-                annotation.coordinate = location;
-                annotation.title = user.username;
-                [self.friendsMapView addAnnotation:annotation];
+                    [self.friendsMapView addAnnotation:annotation];
+                }
             }
         }];
     }
