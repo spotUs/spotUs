@@ -153,6 +153,7 @@ CLLocationManager *locationManager;
     }
     
 }
+
 -(MKAnnotationView *)mapView:(MKMapView *)mV viewForAnnotation:(id <MKAnnotation>)annotation
 {
     MKAnnotationView *pinView = nil;
@@ -174,6 +175,23 @@ CLLocationManager *locationManager;
         [_mapView.userLocation setTitle:@"I am here"];
     }
     return pinView;
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(calloutTapped:)];
+    [view addGestureRecognizer:tapGesture];
+}
+
+-(void)calloutTapped:(UITapGestureRecognizer *) sender
+{
+    NSLog(@"Callout was tapped");
+    MKAnnotationView * view = (MKAnnotationView *) sender.view;
+    NSLog(@"%@",view.annotation.title);
+
+    self.searchCity = [QueryManager getCityFromName:view.annotation.title];
+    [self performSegueWithIdentifier:@"playlist" sender:self];
+
+    
 }
 
 //mapview delegate method
@@ -204,12 +222,12 @@ CLLocationManager *locationManager;
 //    return annotationView;
 //}
 
-- (void) mapView: (MKMapView *)mapView annotationView:(nonnull MKAnnotationView *)view calloutAccessoryControlTapped:(nonnull UIControl *)control {
-    NSLog(@"%@",view.annotation.title);
-
-    self.searchCity = [QueryManager getCityFromName:view.annotation.title];
-    [self performSegueWithIdentifier:@"playlist" sender:self];
-}
+//- (void) mapView: (MKMapView *)mapView annotationView:(nonnull MKAnnotationView *)view calloutAccessoryControlTapped:(nonnull UIControl *)control {
+//    NSLog(@"%@",view.annotation.title);
+//
+//    self.searchCity = [QueryManager getCityFromName:view.annotation.title];
+//    [self performSegueWithIdentifier:@"playlist" sender:self];
+//}
 
 
 - (void)didReceiveMemoryWarning {
