@@ -159,9 +159,14 @@ CLLocationManager *locationManager;
 -(MKAnnotationView *)mapView:(MKMapView *)mV viewForAnnotation:(id <MKAnnotation>)annotation
 {
     if ([mV isEqual:self.friendsMapView]){
-    MKAnnotationView *pinView = nil;
-    if(annotation != _mapView.userLocation)
-    {
+        
+        if(annotation == self.friendsMapView.userLocation){
+            // prevent showing pin for current location
+            return nil;
+        }
+        
+        MKAnnotationView *pinView = nil;
+        
         static NSString *defaultPinID = @"Pin";
         pinView = (MKAnnotationView *)[_mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
         if ( pinView == nil )
@@ -171,15 +176,15 @@ CLLocationManager *locationManager;
         //pinView.pinColor = MKPinAnnotationColorGreen;
         pinView.canShowCallout = YES;
         //pinView.animatesDrop = YES;
-     
+        
         pinView.image = [UIImage imageNamed:@"friendmusic-black"];
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         UIImage *btnImage = [UIImage imageNamed:@"next-btn"];
         [btn setImage:btnImage forState:UIControlStateNormal];
         pinView.rightCalloutAccessoryView = btn;
-    }
-
-    return pinView;
+        
+        
+        return pinView;
     }
     else {
         if(annotation == self.mapView.userLocation){
