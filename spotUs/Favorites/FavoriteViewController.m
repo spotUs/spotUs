@@ -18,7 +18,7 @@
 @interface FavoriteViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *favoriteCollectionView;
-@property (strong, nonatomic) NSMutableArray<NSDictionary *> *dataArray;
+@property (strong, nonatomic) NSMutableArray<SPTTrack *> *dataArray;
 @property (strong, nonatomic) NSArray<SPTTrack *> *filteredDataArray;
 @property (strong, nonatomic) NSArray *favorites;
 @property (strong, nonatomic) UIBarButtonItem *gridButton;
