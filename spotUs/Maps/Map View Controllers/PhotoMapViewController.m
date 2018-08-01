@@ -173,10 +173,12 @@ CLLocationManager *locationManager;
         //pinView.animatesDrop = YES;
      
         pinView.image = [UIImage imageNamed:@"friendmusic-black"];
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        UIImage *btnImage = [UIImage imageNamed:@"next-btn"];
+        [btn setImage:btnImage forState:UIControlStateNormal];
+        pinView.rightCalloutAccessoryView = btn;
     }
-    else {
-        [_mapView.userLocation setTitle:@"I am here"];
-    }
+
     return pinView;
     }
     else {
@@ -200,31 +202,16 @@ CLLocationManager *locationManager;
     }
 }
 
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    if (mapView == self.friendsMapView){
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(calloutTapped:)];
-        [view addGestureRecognizer:tapGesture];
-    }
-}
-
--(void)calloutTapped:(UITapGestureRecognizer *) sender
-{
-    NSLog(@"Callout was tapped");
-    MKAnnotationView * view = (MKAnnotationView *) sender.view;
-    NSLog(@"%@",view.annotation.subtitle);
-
-    self.searchCity = [QueryManager getCityFromName:view.annotation.subtitle];
-    [self performSegueWithIdentifier:@"playlist" sender:self];
-
-    
-}
-
-
 - (void) mapView: (MKMapView *)mapView annotationView:(nonnull MKAnnotationView *)view calloutAccessoryControlTapped:(nonnull UIControl *)control {
+    if (mapView == self.friendsMapView){
+        self.searchCity = [QueryManager getCityFromName:view.annotation.subtitle];
+        [self performSegueWithIdentifier:@"playlist" sender:self];
+    } else {
     NSLog(@"%@",view.annotation.title);
 
     self.searchCity = [QueryManager getCityFromName:view.annotation.title];
     [self performSegueWithIdentifier:@"playlist" sender:self];
+    }
 }
 
 
