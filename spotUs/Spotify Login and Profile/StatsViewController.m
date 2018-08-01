@@ -59,7 +59,8 @@
         
         
         self.user = user;
-        [self.friendProfileImage setImageWithURL:[NSURL URLWithString:user[@"profileImageURL"]]];
+        [QueryManager fadeImg:[NSURL URLWithString:user[@"profileImageURL"]] imgView:self.friendProfileImage];
+        //[self.friendProfileImage setImageWithURL:[NSURL URLWithString:user[@"profileImageURL"]]];
 
         self.selectedCity =self.user[@"city"];
         
