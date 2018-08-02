@@ -43,9 +43,25 @@
 
     self.profileImageView.image = QueryManager.userImage;
     
-    PFUser *currentUser = QueryManager.currentParseUser;
-    
-    City *blankCity = currentUser[@"city"];
+    //PFUser *currentUser = QueryManager.currentParseUser;
+    [QueryManager getUserfromUsername:[PFUser currentUser].username withCompletion:^(PFUser *user, NSError *error) {
+        City *usercity = user[@"city"];
+        self.skylineImageView.image = [UIImage imageNamed:usercity[@"imageName"]];
+        self.hometownLabel.text = [usercity.name uppercaseString];
+        self.blurredImage.image = [self blurredImageWithImage: QueryManager.userImage];
+        
+        
+        NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+        attachment.image = [UIImage imageNamed:@"pin-30"];
+        
+        NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
+        
+        NSMutableAttributedString *myString= [[NSMutableAttributedString alloc] initWithString:[usercity.name uppercaseString]];
+        [myString appendAttributedString:attachmentString];
+        
+        self.hometownLabel.attributedText = myString;
+    }];
+    /*City *blankCity = currentUser[@"city"];
     
     self.userCity = (City* )[QueryManager getCityFromID:blankCity.objectId];
     self.skylineImageView.image = [UIImage imageNamed:self.userCity[@"imageName"]];
@@ -65,11 +81,8 @@
     NSMutableAttributedString *myString= [[NSMutableAttributedString alloc] initWithString:[self.userCity.name uppercaseString]];
     [myString appendAttributedString:attachmentString];
     
-    self.hometownLabel.attributedText = myString;
-    
-    
-    
-    // Do any additional setup after loading the view.
+    self.hometownLabel.attributedText = myString;*/
+
 }
 
 
@@ -80,6 +93,7 @@
 - (IBAction)onTapLogoutBtn:(id)sender {
     //[[SPTAudioStreamingController sharedInstance] logout];
     [self.player logout];
+    self.auth.session = nil;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SpotifyLoginStoryBoard"
                                                          bundle:nil];
     GifViewController *gifVC = (GifViewController *) [storyboard instantiateViewControllerWithIdentifier:@"gifviewcontroller"]; 

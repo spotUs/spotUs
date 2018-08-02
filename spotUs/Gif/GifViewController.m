@@ -61,7 +61,6 @@
     if (![self.player startWithClientId:self.auth.clientID error:&audioStreamingInitError]) {
         NSLog(@"There was a problem starting the Spotify SDK: %@", audioStreamingInitError.description);
     }
-  
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -80,6 +79,8 @@
     NSURL *authURL = [self.auth spotifyWebAuthenticationURL];
     // Present in a SafariViewController
     self.authViewController = [[SFSafariViewController alloc] initWithURL:authURL];
+    NSLog(@"hereee");
+    NSLog(@"%@",self.authViewController);
     [self  presentViewController:self.authViewController animated:YES completion:nil];
 }
 
@@ -104,10 +105,16 @@
 // Handle from app delegate
 - (BOOL)finishAuthWithURL:(NSURL *)url {
     // If the incoming url is what we expect we handle it
+    
     if ([self.auth canHandleURL:url]) {
+        NSLog(@"finishwithurl");
         // Close the authentication window
+        NSLog(@"%@",self.authViewController);
+        NSLog(@"%@", self.authViewController.presentingViewController);
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        [self.authViewController dismissViewControllerAnimated:YES completion:nil];
         [self.authViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-        self.authViewController = nil;
+        //self.authViewController = nil;
         // Parse the incoming url to a session object
         [self.auth handleAuthCallbackWithTriggeredAuthURL:url callback:^(NSError *error, SPTSession *session) {
             if (session) {
@@ -125,6 +132,8 @@
     QueryManager.auth = self.auth;
     
     NSLog(@"audiostreaming");
+    NSLog(@"%@",self.authViewController);
+    [self.authViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     [SPTUser requestCurrentUserWithAccessToken:self.auth.session.accessToken callback:^(NSError *error, id object) {
         SPTUser *currentUser = (SPTUser *)object;
         self.currentUser = currentUser;
@@ -152,10 +161,8 @@
                                 
                                 PFUser *currentUser = (PFUser *)object;
                                 
-                                QueryManager.currentParseUser = currentUser;
-                                
-                                
-                                
+                                //QueryManager.currentParseUser = currentUser;
+
                                 currentUser[@"profileImageURL"] = self.currentUser.largestImage.imageURL.absoluteString;
                                 [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                                     
