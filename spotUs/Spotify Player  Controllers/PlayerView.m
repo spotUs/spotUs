@@ -120,11 +120,24 @@
     self.musicSlider.value = 0;
     [self refreshSongData];
     
+    /*
+    UIBarButtonItem *listButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"list"]
+                                                    style:UIBarButtonItemStylePlain
+                                                   target:self
+                                                   action:@selector(didClickBack:)];
+    
+    self.navigationItem.leftBarButtonItem= listButton;
+     
+     */
+    
+    
     [[AVAudioSession sharedInstance] setCategory:@"AVAudioSessionCategoryPlayback" error:nil];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
     [self becomeFirstResponder];
+    
+
     
 
 
