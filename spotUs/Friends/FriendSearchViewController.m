@@ -78,7 +78,7 @@
             // get non friends
             PFQuery *notFriendQuery = [PFUser query];
             [notFriendQuery whereKey:@"username" notEqualTo:[PFUser currentUser].username];
-            [notFriendQuery whereKey:@"username" notContainedIn:[PFUser currentUser][@"friends"]];
+            [notFriendQuery whereKey:@"sentFriendRequests" containsString:[PFUser currentUser].username];
             [notFriendQuery orderByAscending:@"username"];
             [notFriendQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
                 if (error) {

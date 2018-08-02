@@ -18,6 +18,8 @@
 		069EE3D5210B9BDA0069762E /* HindVadodara-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 069EE3D0210B9BD90069762E /* HindVadodara-Medium.ttf */; };
 		069EE3D6210B9BDA0069762E /* HindVadodara-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 069EE3D1210B9BD90069762E /* HindVadodara-Regular.ttf */; };
 		069EE3D7210B9BDA0069762E /* HindVadodara-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 069EE3D2210B9BD90069762E /* HindVadodara-SemiBold.ttf */; };
+		06D8D43D21137A4000153017 /* FriendRequestViewConttoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D8D43C21137A4000153017 /* FriendRequestViewConttoller.m */; };
+		06D8D44021137D8100153017 /* FriendRequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D8D43F21137D8100153017 /* FriendRequestCell.m */; };
 		06F6BD4920FD04FB00E85B28 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */; };
 		06F6BD4B20FD050300E85B28 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */; };
 		06F6BD4D20FD055200E85B28 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4C20FD055200E85B28 /* AVFoundation.framework */; };
@@ -100,6 +102,10 @@
 		069EE3D0210B9BD90069762E /* HindVadodara-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindVadodara-Medium.ttf"; sourceTree = "<group>"; };
 		069EE3D1210B9BD90069762E /* HindVadodara-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindVadodara-Regular.ttf"; sourceTree = "<group>"; };
 		069EE3D2210B9BD90069762E /* HindVadodara-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindVadodara-SemiBold.ttf"; sourceTree = "<group>"; };
+		06D8D43B21137A4000153017 /* FriendRequestViewConttoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendRequestViewConttoller.h; sourceTree = "<group>"; };
+		06D8D43C21137A4000153017 /* FriendRequestViewConttoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRequestViewConttoller.m; sourceTree = "<group>"; };
+		06D8D43E21137D8100153017 /* FriendRequestCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendRequestCell.h; sourceTree = "<group>"; };
+		06D8D43F21137D8100153017 /* FriendRequestCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRequestCell.m; sourceTree = "<group>"; };
 		06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
 		06F6BD4C20FD055200E85B28 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -461,6 +467,10 @@
 				6C2C2E48210FA3E60070D8EA /* FriendSearchViewController.m */,
 				6C2C2E4A210FA4290070D8EA /* FriendSearchTableViewCell.h */,
 				6C2C2E4B210FA4290070D8EA /* FriendSearchTableViewCell.m */,
+				06D8D43B21137A4000153017 /* FriendRequestViewConttoller.h */,
+				06D8D43C21137A4000153017 /* FriendRequestViewConttoller.m */,
+				06D8D43E21137D8100153017 /* FriendRequestCell.h */,
+				06D8D43F21137D8100153017 /* FriendRequestCell.m */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -741,6 +751,7 @@
 				6C0A4A1D21067F320042C063 /* TinyPlayerViewController.m in Sources */,
 				3E35630420FEA86300DDAA9E /* LocationCell.m in Sources */,
 				6CB5858C21000184009BD66B /* PlaylistViewController.m in Sources */,
+				06D8D44021137D8100153017 /* FriendRequestCell.m in Sources */,
 				3E7A9A6221067EED007CB62B /* FavoriteViewController.m in Sources */,
 				3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */,
 				3E7A9A6821067F9E007CB62B /* FavoriteCollectionViewCell.m in Sources */,
@@ -748,6 +759,7 @@
 				6C2C2E43210F61720070D8EA /* Track.m in Sources */,
 				060896AB210639B00041644D /* LocationSearchTable.m in Sources */,
 				3E097D3621010C18003FC5F6 /* GifViewController.m in Sources */,
+				06D8D43D21137A4000153017 /* FriendRequestViewConttoller.m in Sources */,
 				060896AE21065C990041644D /* PlayListCollectionHeader.m in Sources */,
 				3E7C233E2107EA7900E1C749 /* FavoriteTableViewCell.m in Sources */,
 				06F6BD6220FD102500E85B28 /* PlayerView.m in Sources */,
