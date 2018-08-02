@@ -80,7 +80,10 @@
             
             for( PFUser *user in friendUsers){
                 
-                [friends addObject:user.username];
+                if(![friends containsObject:user.username]){
+                    
+                    [friends addObject:user.username];
+                }
             }
             
             [[PFUser currentUser] setObject:friends forKey:@"friends"];
