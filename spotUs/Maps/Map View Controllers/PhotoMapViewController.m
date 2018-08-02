@@ -147,7 +147,7 @@ CLLocationManager *locationManager;
                     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
                     annotation.coordinate = location;
                     annotation.title = user.username;
-                    annotation.subtitle = friendloc.name;
+                    annotation.subtitle = [@"last listened to: " stringByAppendingString:friendloc.name];
                     [self.friendsMapView addAnnotation:annotation];
                 }
             }
@@ -209,7 +209,9 @@ CLLocationManager *locationManager;
 
 - (void) mapView: (MKMapView *)mapView annotationView:(nonnull MKAnnotationView *)view calloutAccessoryControlTapped:(nonnull UIControl *)control {
     if (mapView == self.friendsMapView){
-        self.searchCity = [QueryManager getCityFromName:view.annotation.subtitle];
+        NSString *cityname = [view.annotation.subtitle substringWithRange:NSMakeRange(18, [view.annotation.subtitle length] - 18)];
+        NSLog(@"%@",cityname);
+        self.searchCity = [QueryManager getCityFromName:cityname];
         [self performSegueWithIdentifier:@"playlist" sender:self];
     } else {
     NSLog(@"%@",view.annotation.title);
