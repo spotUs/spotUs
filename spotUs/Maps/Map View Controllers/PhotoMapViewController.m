@@ -146,7 +146,7 @@ CLLocationManager *locationManager;
                     location.longitude = lng;
                     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
                     annotation.coordinate = location;
-                    annotation.title = user.username;
+                    annotation.title = [user.username stringByAppendingString: @"last listened to:"];
                     annotation.subtitle = friendloc.name;
                     [self.friendsMapView addAnnotation:annotation];
                 }
