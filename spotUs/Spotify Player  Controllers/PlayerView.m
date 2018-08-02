@@ -404,9 +404,16 @@
 
 - (IBAction)shareButton:(UIBarButtonItem *)sender
 {
-    NSString *textToShare = @"I recommend this song I listened from SpotUs";
+    NSString * recommend = @"I recommend the song, ";
+    NSString *connected = [recommend stringByAppendingString:self.songTitle.text];
+    NSString *by = @" by ";
+    NSString *connected2 = [by stringByAppendingString:self.artistNameLabel.text];
+    NSString *listened = @" that I listened to on SpotUS";
+    NSString *midString = [connected2 stringByAppendingString:listened];
+    NSString *fullString = [connected stringByAppendingString:midString];
+   
     
-    NSArray *objectsToShare = @[textToShare, self.songImage.image];
+    NSArray *objectsToShare = @[fullString, self.songImage.image];
     
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
     

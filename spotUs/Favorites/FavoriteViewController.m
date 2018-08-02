@@ -306,5 +306,24 @@
         
     }
 }
+- (IBAction)shareFavs:(id)sender {
+    
+    SPTPlaybackTrack *track =  self.player.metadata.currentTrack;
+    
+    
+    
+    NSString *favString = @" is one of my favs";
+    
+    
+    if(track!=nil) {
+    NSArray *objectsToShare = @[track.name,favString];
+    
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+    
+    
+    [self presentViewController:activityVC animated:YES completion:nil];
+    }
+}
 
 @end
