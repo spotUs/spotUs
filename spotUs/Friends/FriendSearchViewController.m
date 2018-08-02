@@ -103,14 +103,16 @@
         return cell;
     } else if (indexPath.row == self.filteredFriends.count + 1){
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"divider" forIndexPath:indexPath];
-        cell.textLabel.text = @"Other Users: ";
+        cell.textLabel.text = @"Friend Requests: ";
         return cell;
     } else {
         FriendSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FriendSearchCell" forIndexPath:indexPath];
         cell.delegate = self;
         if (indexPath.row - 1 < self.filteredFriends.count){
+            cell.isRequest = NO;
             [cell updateFriendSearchCellwithUser:self.filteredFriends[indexPath.row - 1]];
         } else {
+            cell.isRequest = YES;
             [cell updateFriendSearchCellwithUser:self.filteredNotFriends[indexPath.row - 2 - self.filteredFriends.count]];
         }
         return cell;

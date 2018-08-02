@@ -7,6 +7,7 @@
 //
 
 #import "FriendRequestCell.h"
+#import "FriendRequest.h"
 
 @interface FriendRequestCell()
 
@@ -65,9 +66,14 @@
 - (void) addRequest{
     self.addUserBtn.selected = YES;
     
-    NSMutableArray *friends = [NSMutableArray arrayWithArray:[PFUser currentUser][@"sentFriendRequests"]];
-    [friends addObject:self.user.username];
-    [[PFUser currentUser] setObject:friends forKey:@"sentFriendRequests"];
+    FriendRequest *request= [FriendRequest sendRequestFrom:[PFUser currentUser] To:self.user withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        
+        
+    }];
+    
+    NSMutableArray *requests = [NSMutableArray arrayWithArray:[PFUser currentUser][@"sentFriendRequests"]];
+    [requests addObject:request];
+    [[PFUser currentUser] setObject:requests forKey:@"sentFriendRequests"];
     [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error){
             

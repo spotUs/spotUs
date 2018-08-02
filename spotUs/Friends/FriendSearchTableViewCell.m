@@ -27,10 +27,22 @@
     // Configure the view for the selected state
 }
 - (IBAction)onTapAddFriend:(id)sender {
+    
+    if(self.isRequest){
+        
+        [self acceptRequest];
+    }
+    
+    else{
+        
+    
+    
     if ([self userAdded]){
         [self removeFriend];
     } else {
         [self addFriend];
+    }
+        
     }
 }
 
@@ -81,6 +93,29 @@
 
         }
     }];
+}
+
+- (void) acceptRequest{
+    
+    NSMutableArray *friends = [PFUser currentUser][@"friends"];
+    [friends addObject:self.user.username];
+    [[PFUser currentUser] setObject:friends forKey:@"friends"];
+    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error){
+            self.addUserBtn.selected = NO;
+            
+            NSLog(@"error adding friend: %@",error.localizedDescription);
+        } else {
+            NSLog(@"succesfully added friend");
+            [self updateFriendSearchCellwithUser:self.user];
+            [self.delegate didChangeFriendStatus];
+            
+        }
+    }];
+    
+    
+    
+    
 }
 
 

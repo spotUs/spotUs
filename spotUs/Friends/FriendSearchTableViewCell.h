@@ -18,6 +18,7 @@
 
 @interface FriendSearchTableViewCell : UITableViewCell
 @property (nonatomic, weak) id<FriendStatusDelegate> delegate;
+@property BOOL isRequest;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addUserBtn;

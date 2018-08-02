@@ -20,6 +20,7 @@
 		069EE3D7210B9BDA0069762E /* HindVadodara-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 069EE3D2210B9BD90069762E /* HindVadodara-SemiBold.ttf */; };
 		06D8D43D21137A4000153017 /* FriendRequestViewConttoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D8D43C21137A4000153017 /* FriendRequestViewConttoller.m */; };
 		06D8D44021137D8100153017 /* FriendRequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D8D43F21137D8100153017 /* FriendRequestCell.m */; };
+		06D8D4432113A6D600153017 /* FriendRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D8D4422113A6D600153017 /* FriendRequest.m */; };
 		06F6BD4920FD04FB00E85B28 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */; };
 		06F6BD4B20FD050300E85B28 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */; };
 		06F6BD4D20FD055200E85B28 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4C20FD055200E85B28 /* AVFoundation.framework */; };
@@ -106,6 +107,8 @@
 		06D8D43C21137A4000153017 /* FriendRequestViewConttoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRequestViewConttoller.m; sourceTree = "<group>"; };
 		06D8D43E21137D8100153017 /* FriendRequestCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendRequestCell.h; sourceTree = "<group>"; };
 		06D8D43F21137D8100153017 /* FriendRequestCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRequestCell.m; sourceTree = "<group>"; };
+		06D8D4412113A6D600153017 /* FriendRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendRequest.h; sourceTree = "<group>"; };
+		06D8D4422113A6D600153017 /* FriendRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRequest.m; sourceTree = "<group>"; };
 		06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
 		06F6BD4C20FD055200E85B28 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -482,6 +485,8 @@
 				6CC2534920FD08D500D7093E /* City.m */,
 				6C2C2E41210F61720070D8EA /* Track.h */,
 				6C2C2E42210F61720070D8EA /* Track.m */,
+				06D8D4412113A6D600153017 /* FriendRequest.h */,
+				06D8D4422113A6D600153017 /* FriendRequest.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -739,6 +744,7 @@
 				6CB5858F21000392009BD66B /* PlaylistCollectionViewCell.m in Sources */,
 				6C0A49CC21028A4D0042C063 /* QueryManager.m in Sources */,
 				6C2C2E4C210FA4290070D8EA /* FriendSearchTableViewCell.m in Sources */,
+				06D8D4432113A6D600153017 /* FriendRequest.m in Sources */,
 				6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */,
 				6C2C2E3D210BD1D90070D8EA /* PlaylistTableViewCell.m in Sources */,
 				6C2C2E46210F9FC50070D8EA /* LeftRightSegue.m in Sources */,
