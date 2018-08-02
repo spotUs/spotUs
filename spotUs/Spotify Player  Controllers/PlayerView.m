@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeElapsedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLeftLabel;
 
+
 @property (weak, nonatomic) IBOutlet UIImageView *songImage;
 @property (weak, nonatomic) IBOutlet UILabel *songTitle;
 @property (weak, nonatomic) IBOutlet UILabel *artistNameLabel;
@@ -400,4 +401,17 @@
     [self presentViewController:alert animated:YES completion:nil];
 
 }
+
+- (IBAction)shareButton:(UIBarButtonItem *)sender
+{
+    NSString *textToShare = @"I recommend this song I listened from SpotUs";
+    
+    NSArray *objectsToShare = @[textToShare, self.songImage.image];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+    
+    
+    [self presentViewController:activityVC animated:YES completion:nil];
+}
+
 @end
