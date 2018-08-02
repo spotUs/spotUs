@@ -173,7 +173,7 @@
 }
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePosition:(NSTimeInterval)position{
-    
+    self.progressBar.progress = position / self.player.metadata.currentTrack.duration;
     SPTPlaybackTrack *albumArtTrack = self.player.metadata.currentTrack;
     
     if(albumArtTrack != nil){
