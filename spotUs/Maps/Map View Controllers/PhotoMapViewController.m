@@ -23,6 +23,7 @@
 @property (strong, nonatomic) UISearchController *resultSearchController;
 @property BOOL waitingForLocation;
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
+@property (weak, nonatomic) IBOutlet UIButton *mapToggleBtn;
 @end
 
 @implementation PhotoMapViewController
@@ -59,6 +60,11 @@ CLLocationManager *locationManager;
 }
 
 - (IBAction)showOtherMapTapped:(id)sender {
+    if (self.mapToggleBtn.selected) {
+        self.mapToggleBtn.selected = NO;
+    } else {
+        self.mapToggleBtn.selected = YES;
+    }
     if ([self.mapView isHidden]){
     [UIView transitionWithView:self.friendsMapView duration:0.5
                        options:UIViewAnimationOptionTransitionCrossDissolve

@@ -849,6 +849,7 @@
                                     <constraint firstAttribute="width" constant="50" id="t6B-tr-uFZ"/>
                                 </constraints>
                                 <state key="normal" image="friends"/>
+                                <state key="selected" image="black-location"/>
                                 <connections>
                                     <action selector="showOtherMapTapped:" destination="NH1-rC-6tQ" eventType="touchUpInside" id="lVZ-aH-Ut8"/>
                                 </connections>
@@ -883,6 +884,7 @@
                     <connections>
                         <outlet property="checkInButton" destination="2DL-E6-Inc" id="f6s-UF-YLs"/>
                         <outlet property="friendsMapView" destination="fiS-ZA-l3J" id="YX0-Zi-zJJ"/>
+                        <outlet property="mapToggleBtn" destination="jm2-Bx-h1d" id="Txy-8o-eYc"/>
                         <outlet property="mapView" destination="j8u-RV-yRn" id="Uze-zZ-Th9"/>
                         <segue destination="XYl-M6-THt" kind="show" identifier="playlist" id="8a5-vN-qGZ"/>
                     </connections>
@@ -1518,6 +1520,7 @@
         <image name="add-user" width="100" height="100"/>
         <image name="backward" width="512" height="512"/>
         <image name="black-flag" width="64" height="64"/>
+        <image name="black-location" width="50" height="50"/>
         <image name="bluePlay" width="24" height="24"/>
         <image name="check-user" width="100" height="100"/>
         <image name="earth" width="64" height="64"/>
