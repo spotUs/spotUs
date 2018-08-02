@@ -52,11 +52,11 @@
         NSLog(@"changing tableview");
         [self.favoriteCollectionView setHidden:NO];
         [self.favoriteTableView setHidden:YES];
-        self.navigationItem.rightBarButtonItem= self.listButton;
+        self.navigationItem.leftBarButtonItem= self.listButton;
     } else {
         [self.favoriteCollectionView setHidden:YES];
         [self.favoriteTableView setHidden:NO];
-        self.navigationItem.rightBarButtonItem= self.gridButton;
+        self.navigationItem.leftBarButtonItem= self.gridButton;
         
     }
     
@@ -76,8 +76,16 @@
                                                    target:self
                                                    action:@selector(toggleView)];
     
-    self.navigationItem.rightBarButtonItem= self.listButton;
+    self.navigationItem.leftBarButtonItem= self.listButton;
 
+    //backbutton on right side
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Back"
+                                style:UIBarButtonItemStylePlain
+                                   target:self
+                            action:@selector(backBtnClicked:)];
+    self.navigationItem.rightBarButtonItem = backButton;
+    
     
     
     self.favoriteTableView.delegate = self;
@@ -111,6 +119,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)backBtnClicked:(id)sender{
+    NSLog(@"clicked back button");
+    [self performSegueWithIdentifier:@"favtohomesegue" sender:nil];
 }
 
 
