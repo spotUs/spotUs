@@ -77,7 +77,6 @@
                                                    action:@selector(toggleView)];
     
     self.navigationItem.leftBarButtonItem= self.listButton;
-
     //backbutton on right side
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
                                    initWithTitle:@"Back"

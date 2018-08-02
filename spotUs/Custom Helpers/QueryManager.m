@@ -81,7 +81,7 @@ static SPTAuth *_auth = nil;
 
 + (void)setCurrentParseUser:(PFUser *)newParseUser{
     if (_currentParseUser != newParseUser){
-        _currentParseUser = [newParseUser copy];
+        _currentParseUser = newParseUser ;
     }
 }
 

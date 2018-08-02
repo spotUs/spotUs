@@ -43,7 +43,9 @@
 
     self.profileImageView.image = QueryManager.userImage;
     
-    //PFUser *currentUser = QueryManager.currentParseUser;
+    PFUser *currentUser = QueryManager.currentParseUser;
+    
+    /*
     [QueryManager getUserfromUsername:[PFUser currentUser].username withCompletion:^(PFUser *user, NSError *error) {
         City *usercity = user[@"city"];
         self.skylineImageView.image = [UIImage imageNamed:usercity[@"imageName"]];
@@ -61,7 +63,8 @@
         
         self.hometownLabel.attributedText = myString;
     }];
-    /*City *blankCity = currentUser[@"city"];
+     */
+    City *blankCity = currentUser[@"city"];
     
     self.userCity = (City* )[QueryManager getCityFromID:blankCity.objectId];
     self.skylineImageView.image = [UIImage imageNamed:self.userCity[@"imageName"]];
@@ -81,7 +84,7 @@
     NSMutableAttributedString *myString= [[NSMutableAttributedString alloc] initWithString:[self.userCity.name uppercaseString]];
     [myString appendAttributedString:attachmentString];
     
-    self.hometownLabel.attributedText = myString;*/
+    self.hometownLabel.attributedText = myString;
 
 }
 
