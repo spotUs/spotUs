@@ -18,6 +18,8 @@
 		069EE3D5210B9BDA0069762E /* HindVadodara-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 069EE3D0210B9BD90069762E /* HindVadodara-Medium.ttf */; };
 		069EE3D6210B9BDA0069762E /* HindVadodara-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 069EE3D1210B9BD90069762E /* HindVadodara-Regular.ttf */; };
 		069EE3D7210B9BDA0069762E /* HindVadodara-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 069EE3D2210B9BD90069762E /* HindVadodara-SemiBold.ttf */; };
+		06D8D43D21137A4000153017 /* FriendRequestViewConttoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D8D43C21137A4000153017 /* FriendRequestViewConttoller.m */; };
+		06D8D44021137D8100153017 /* FriendRequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D8D43F21137D8100153017 /* FriendRequestCell.m */; };
 		06F6BD4920FD04FB00E85B28 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */; };
 		06F6BD4B20FD050300E85B28 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */; };
 		06F6BD4D20FD055200E85B28 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F6BD4C20FD055200E85B28 /* AVFoundation.framework */; };
@@ -28,7 +30,7 @@
 		06F6BD7720FEB55200E85B28 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F6BD7620FEB55200E85B28 /* ProfileViewController.m */; };
 		1F7879FDCD98413FDA8910D5 /* libPods-spotUsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3AA8DA663A100D73310B19 /* libPods-spotUsUITests.a */; };
 		33E4FAB924A352B967529EFE /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A13BA3C25E14A0FCC3DE60EE /* libPods-spotUs.a */; };
-		3E097D3021010790003FC5F6 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		3E097D3021010790003FC5F6 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		3E097D3621010C18003FC5F6 /* GifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E097D3521010C18003FC5F6 /* GifViewController.m */; };
 		3E35628A20FE53AE00DDAA9E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E35628920FE53AE00DDAA9E /* MapKit.framework */; };
 		3E35630420FEA86300DDAA9E /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E35630320FEA86300DDAA9E /* LocationCell.m */; };
@@ -55,13 +57,13 @@
 		6C2C2E46210F9FC50070D8EA /* LeftRightSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C2E45210F9FC50070D8EA /* LeftRightSegue.m */; };
 		6C2C2E49210FA3E60070D8EA /* FriendSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C2E48210FA3E60070D8EA /* FriendSearchViewController.m */; };
 		6C2C2E4C210FA4290070D8EA /* FriendSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2C2E4B210FA4290070D8EA /* FriendSearchTableViewCell.m */; };
-		6C83415A1856828FB8E13F87 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		6C83415A1856828FB8E13F87 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		6CB5858C21000184009BD66B /* PlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5858B21000184009BD66B /* PlaylistViewController.m */; };
 		6CB5858F21000392009BD66B /* PlaylistCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5858E21000392009BD66B /* PlaylistCollectionViewCell.m */; };
 		6CC2534A20FD08D500D7093E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2534920FD08D500D7093E /* City.m */; };
 		6CC2535720FD39AD00D7093E /* ErrorAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535620FD39AD00D7093E /* ErrorAlert.m */; };
 		6CC2535A20FD446E00D7093E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2535920FD446E00D7093E /* SignUpViewController.m */; };
-		7D5D621B1CE2895F2D45F143 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		7D5D621B1CE2895F2D45F143 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8A6689F27BF93C7B44C4034D /* libPods-spotUs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5A7B8164B3D985B4482606 /* libPods-spotUs.a */; };
 		BE353A6D012E810A75A0C500 /* libPods-spotUsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 928F5C7D80404A8E79713BCD /* libPods-spotUsUITests.a */; };
 		F32D8E99568134814EC63036 /* libPods-spotUsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229C412B71A1F7B9C6622D3A /* libPods-spotUsTests.a */; };
@@ -100,6 +102,10 @@
 		069EE3D0210B9BD90069762E /* HindVadodara-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindVadodara-Medium.ttf"; sourceTree = "<group>"; };
 		069EE3D1210B9BD90069762E /* HindVadodara-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindVadodara-Regular.ttf"; sourceTree = "<group>"; };
 		069EE3D2210B9BD90069762E /* HindVadodara-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindVadodara-SemiBold.ttf"; sourceTree = "<group>"; };
+		06D8D43B21137A4000153017 /* FriendRequestViewConttoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendRequestViewConttoller.h; sourceTree = "<group>"; };
+		06D8D43C21137A4000153017 /* FriendRequestViewConttoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRequestViewConttoller.m; sourceTree = "<group>"; };
+		06D8D43E21137D8100153017 /* FriendRequestCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendRequestCell.h; sourceTree = "<group>"; };
+		06D8D43F21137D8100153017 /* FriendRequestCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRequestCell.m; sourceTree = "<group>"; };
 		06F6BD4820FD04FB00E85B28 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		06F6BD4A20FD050300E85B28 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
 		06F6BD4C20FD055200E85B28 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -204,7 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				446CA1B34E67B7F10A39D7A8 /* libPods-spotUsTests.a in Frameworks */,
-				6C83415A1856828FB8E13F87 /* BuildFile in Frameworks */,
+				6C83415A1856828FB8E13F87 /* (null) in Frameworks */,
 				F32D8E99568134814EC63036 /* libPods-spotUsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,7 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F7879FDCD98413FDA8910D5 /* libPods-spotUsUITests.a in Frameworks */,
-				7D5D621B1CE2895F2D45F143 /* BuildFile in Frameworks */,
+				7D5D621B1CE2895F2D45F143 /* (null) in Frameworks */,
 				BE353A6D012E810A75A0C500 /* libPods-spotUsUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +467,10 @@
 				6C2C2E48210FA3E60070D8EA /* FriendSearchViewController.m */,
 				6C2C2E4A210FA4290070D8EA /* FriendSearchTableViewCell.h */,
 				6C2C2E4B210FA4290070D8EA /* FriendSearchTableViewCell.m */,
+				06D8D43B21137A4000153017 /* FriendRequestViewConttoller.h */,
+				06D8D43C21137A4000153017 /* FriendRequestViewConttoller.m */,
+				06D8D43E21137D8100153017 /* FriendRequestCell.h */,
+				06D8D43F21137D8100153017 /* FriendRequestCell.m */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -622,7 +632,7 @@
 				069EE3D5210B9BDA0069762E /* HindVadodara-Medium.ttf in Resources */,
 				069EE3D7210B9BDA0069762E /* HindVadodara-SemiBold.ttf in Resources */,
 				069EE3D6210B9BDA0069762E /* HindVadodara-Regular.ttf in Resources */,
-				3E097D3021010790003FC5F6 /* BuildFile in Resources */,
+				3E097D3021010790003FC5F6 /* (null) in Resources */,
 				3E3953B520EFE6F800D0FF7D /* Assets.xcassets in Resources */,
 				3E3953B320EFE6F800D0FF7D /* Main.storyboard in Resources */,
 			);
@@ -741,6 +751,7 @@
 				6C0A4A1D21067F320042C063 /* TinyPlayerViewController.m in Sources */,
 				3E35630420FEA86300DDAA9E /* LocationCell.m in Sources */,
 				6CB5858C21000184009BD66B /* PlaylistViewController.m in Sources */,
+				06D8D44021137D8100153017 /* FriendRequestCell.m in Sources */,
 				3E7A9A6221067EED007CB62B /* FavoriteViewController.m in Sources */,
 				3E3953AD20EFE6F800D0FF7D /* AppDelegate.m in Sources */,
 				3E7A9A6821067F9E007CB62B /* FavoriteCollectionViewCell.m in Sources */,
@@ -748,6 +759,7 @@
 				6C2C2E43210F61720070D8EA /* Track.m in Sources */,
 				060896AB210639B00041644D /* LocationSearchTable.m in Sources */,
 				3E097D3621010C18003FC5F6 /* GifViewController.m in Sources */,
+				06D8D43D21137A4000153017 /* FriendRequestViewConttoller.m in Sources */,
 				060896AE21065C990041644D /* PlayListCollectionHeader.m in Sources */,
 				3E7C233E2107EA7900E1C749 /* FavoriteTableViewCell.m in Sources */,
 				06F6BD6220FD102500E85B28 /* PlayerView.m in Sources */,
