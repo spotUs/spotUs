@@ -27,41 +27,45 @@
     // Configure the view for the selected state
 }
 - (IBAction)onTapAddFriend:(id)sender {
-    if ([self userAdded]){
-        [self removeRequest];
-    } else {
+ 
+
         [self addRequest];
-    }
+    
 }
 
 - (void) updateFriendSearchCellwithUser: (PFUser *)user{
     self.user = user;
     self.nameLabel.text = user.username;
-    self.addUserBtn.selected = [self userAdded];
-}
-
-- (BOOL) userAdded {
-    return [[PFUser currentUser][@"sentFriendRequests"] containsObject: self.user.username];
-}
-
-- (void) removeRequest {
-    self.addUserBtn.selected = NO;
     
-    NSMutableArray *friends = [PFUser currentUser][@"friends"];
-    [friends removeObject:self.user.username];
-    [[PFUser currentUser] setObject:friends forKey:@"friends"];
-    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (error){
+    PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
+    query.limit = 20;
+    [query includeKey:@"sender"];
+    [query includeKey:@"receiver"];
+    [query includeKey:@"accepted"];
+    [query whereKey:@"receiver" equalTo:self.user];
+    [query whereKey:@"dead" notEqualTo:@(YES)];
+    [query whereKey:@"accepted" notEqualTo:@(YES)];
+
+    [query orderByAscending:@"reciever"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        if(objects.count > 0){
+            NSArray<PFUser*> *users = objects;
             self.addUserBtn.selected = YES;
+
+        }
+        else{
+            self.addUserBtn.selected = NO;
+
             
-            NSLog(@"error removing friend: %@",error.localizedDescription);
-        } else {
-            NSLog(@"succesfully removed friend");
-            [self updateFriendSearchCellwithUser:self.user];
-       
         }
     }];
+    
+    
+    
 }
+
 
 - (void) addRequest{
     self.addUserBtn.selected = YES;
@@ -76,11 +80,12 @@
     [[PFUser currentUser] setObject:requests forKey:@"sentFriendRequests"];
     [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error){
+            self.addUserBtn.selected = NO;
+
             
             NSLog(@"error adding friend: %@",error.localizedDescription);
         } else {
             NSLog(@"succesfully added friend request");
-            [self updateFriendSearchCellwithUser:self.user];
     
             
             
