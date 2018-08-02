@@ -7,6 +7,7 @@
 //
 
 #import "FriendSearchTableViewCell.h"
+#import "FriendRequest.h"
 
 @interface FriendSearchTableViewCell()
 
@@ -102,13 +103,44 @@
     [[PFUser currentUser] setObject:friends forKey:@"friends"];
     [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error){
+            
             self.addUserBtn.selected = NO;
             
             NSLog(@"error adding friend: %@",error.localizedDescription);
         } else {
+            
+            
+            
             NSLog(@"succesfully added friend");
             [self updateFriendSearchCellwithUser:self.user];
             [self.delegate didChangeFriendStatus];
+            
+            
+            PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
+            query.limit = 20;
+            [query includeKey:@"sender"];
+            [query includeKey:@"receiver"];
+            [query includeKey:@"accepted"];
+            [query whereKey:@"receiver" equalTo:[PFUser currentUser]];
+            [query whereKey:@"sender" equalTo:self.user];
+
+            [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+                
+                FriendRequest *request = (FriendRequest *)object;
+                request.accepted = YES;
+                NSLog(@"Set to accepted");
+                
+                [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    
+                    if(succeeded){
+                        
+                        NSLog(@"updated request");
+
+                        
+                        
+                    }
+                }];
+            }];
             
         }
     }];
