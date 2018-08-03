@@ -9,6 +9,7 @@
 #import "ParentViewController.h"
 #import "ProfileViewController.h"
 #import "TinyPlayerViewController.h"
+#import "FavoriteViewController.h"
 
 @interface ParentViewController ()
 @property (weak, nonatomic) IBOutlet UIView *container;
@@ -21,17 +22,20 @@
         //remove current navController top child VCs from stack
         
         if(![self.navController.visibleViewController isKindOfClass:ProfileViewController.class]){
-
-        
+            if ([self.navController.visibleViewController isKindOfClass:FavoriteViewController.class]){
+                [self.navController popToRootViewControllerAnimated:NO];
+            }
+        /*
         [self.navController willMoveToParentViewController:nil];
         [self.navController.view removeFromSuperview];
-        [self.navController removeFromParentViewController];
+        [self.navController removeFromParentViewController];*/
         //clear the navController's hierarchy history of stack VCs
         [self.navController popToRootViewControllerAnimated:YES];
         
         
             
         //add the navController back to the container
+            /*
         [self addChildViewController:self.navController];
         CATransition *applicationLoadViewIn =[CATransition animation];
         [applicationLoadViewIn setDuration:.2];
@@ -39,7 +43,7 @@
         [applicationLoadViewIn setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
         [[self.navController.view layer]addAnimation:applicationLoadViewIn forKey:kCATransitionReveal];
         [self.container addSubview:self.navController.view];
-        [self.navController didMoveToParentViewController:self];
+        [self.navController didMoveToParentViewController:self];*/
         }
     }];
 }
