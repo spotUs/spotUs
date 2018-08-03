@@ -16,8 +16,16 @@
 
 @end
 
+@protocol RemoveFriendDelegate
+
+- (void)showAlert:(UIAlertController*)alert;
+
+@end
+
 @interface FriendSearchTableViewCell : UITableViewCell
 @property (nonatomic, weak) id<FriendStatusDelegate> delegate;
+@property (nonatomic, weak) id<RemoveFriendDelegate> removeDelegate;
+
 @property BOOL isRequest;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;

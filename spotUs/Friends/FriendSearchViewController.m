@@ -12,7 +12,7 @@
 #import "SVProgressHUD.h"
 #import "FriendRequest.h"
 
-@interface FriendSearchViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, FriendStatusDelegate>
+@interface FriendSearchViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, FriendStatusDelegate, RemoveFriendDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -165,6 +165,7 @@
     } else {
         FriendSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FriendSearchCell" forIndexPath:indexPath];
         cell.delegate = self;
+        cell.removeDelegate = self;
         if (indexPath.row - 1 < self.filteredFriends.count){
             cell.isRequest = NO;
             [cell updateFriendSearchCellwithUser:self.filteredFriends[indexPath.row - 1]];
@@ -215,6 +216,11 @@
 
     
     
+}
+
+- (void)showAlert:(UIAlertController *)alert{
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 

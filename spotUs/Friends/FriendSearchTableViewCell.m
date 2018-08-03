@@ -36,13 +36,37 @@
     
     else{
         
-    
-    
-    if ([self userAdded]){
-        [self removeFriend];
-    } else {
-        [self addFriend];
-    }
+        UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle:@"Remove Friend"
+                                     message:@"Are you sure you want to delete this friend? You won't be able to see their profile!"
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        //Add Buttons
+        
+        UIAlertAction* yes = [UIAlertAction
+                                actionWithTitle:@"Yes"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+                                    [self removeFriend];
+
+                                  
+                                }];
+        UIAlertAction* no = [UIAlertAction
+                              actionWithTitle:@"No"
+                              style:UIAlertActionStyleDefault
+                              handler:^(UIAlertAction * action) {
+                                  
+                              }];
+        
+        [alert addAction:yes];
+        [alert addAction:no];
+        
+        
+        [self.removeDelegate showAlert:alert];
+        
+        
+        
+        
         
     }
 }
@@ -76,25 +100,7 @@
     }];
 }
 
-- (void) addFriend{
-    self.addUserBtn.selected = YES;
 
-    NSMutableArray *friends = [PFUser currentUser][@"friends"];
-    [friends addObject:self.user.username];
-    [[PFUser currentUser] setObject:friends forKey:@"friends"];
-    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (error){
-            self.addUserBtn.selected = NO;
-
-            NSLog(@"error adding friend: %@",error.localizedDescription);
-        } else {
-            NSLog(@"succesfully added friend");
-            [self updateFriendSearchCellwithUser:self.user];
-            [self.delegate didChangeFriendStatus];
-
-        }
-    }];
-}
 
 - (void) acceptRequest{
     
