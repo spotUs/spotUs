@@ -404,6 +404,9 @@
 
 - (IBAction)shareButton:(UIBarButtonItem *)sender
 {
+    
+
+
     NSString * recommend = @"I recommend the song, ";
     NSString *connected = [recommend stringByAppendingString:self.songTitle.text];
     NSString *by = @" by ";
