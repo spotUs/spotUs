@@ -8,6 +8,7 @@
 
 #import "FriendSearchTableViewCell.h"
 #import "FriendRequest.h"
+#import "SVProgressHUD.h"
 
 @interface FriendSearchTableViewCell()
 
@@ -82,6 +83,7 @@
 }
 
 - (void) removeFriend {
+    [SVProgressHUD showWithStatus:@"Removing Friend :("];
     self.addUserBtn.selected = NO;
     
     PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
@@ -141,6 +143,7 @@
 
 
 - (void) acceptRequest{
+    [SVProgressHUD showWithStatus:@"Adding Friend..."];
     
     NSMutableArray *friends = [PFUser currentUser][@"friends"];
     [friends addObject:self.user.username];
