@@ -1524,12 +1524,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBh-vW-zqY">
-                                <rect key="frame" x="16" y="298" width="339" height="71"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="71" id="4SH-3q-Rmo"/>
-                                    <constraint firstAttribute="width" constant="339" id="FgS-ZF-9b2"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBh-vW-zqY">
+                                <rect key="frame" x="188" y="334" width="0.0" height="64"/>
                                 <fontDescription key="fontDescription" name="HindVadodara-Regular" family="Hind Vadodara" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1546,13 +1542,13 @@
                             <constraint firstItem="ntA-bk-3aY" firstAttribute="top" secondItem="BG8-oW-Nah" secondAttribute="bottom" id="6Zu-Sy-5z3"/>
                             <constraint firstItem="BG8-oW-Nah" firstAttribute="leading" secondItem="oXy-Hi-2cZ" secondAttribute="leading" id="Ck4-um-7Ry"/>
                             <constraint firstItem="oXy-Hi-2cZ" firstAttribute="bottom" secondItem="ntA-bk-3aY" secondAttribute="bottom" id="Pm1-h2-hjP"/>
-                            <constraint firstItem="UBh-vW-zqY" firstAttribute="leading" secondItem="oXy-Hi-2cZ" secondAttribute="leading" constant="16" id="VIt-U5-TlH"/>
+                            <constraint firstItem="UBh-vW-zqY" firstAttribute="centerY" secondItem="mKm-zW-GCn" secondAttribute="centerY" constant="32.5" id="XUN-Cl-egm"/>
                             <constraint firstItem="BG8-oW-Nah" firstAttribute="trailing" secondItem="oXy-Hi-2cZ" secondAttribute="trailing" id="eN5-9O-5vp"/>
+                            <constraint firstItem="UBh-vW-zqY" firstAttribute="centerX" secondItem="mKm-zW-GCn" secondAttribute="centerX" id="g1z-oP-CgW"/>
                             <constraint firstItem="4wg-6n-rT3" firstAttribute="trailing" secondItem="oXy-Hi-2cZ" secondAttribute="trailing" id="hMv-6C-EIm"/>
                             <constraint firstItem="ntA-bk-3aY" firstAttribute="trailing" secondItem="oXy-Hi-2cZ" secondAttribute="trailing" id="k3V-aI-ErR"/>
                             <constraint firstItem="4wg-6n-rT3" firstAttribute="top" secondItem="BG8-oW-Nah" secondAttribute="bottom" id="kNh-bs-peK"/>
                             <constraint firstItem="4wg-6n-rT3" firstAttribute="top" secondItem="BG8-oW-Nah" secondAttribute="bottom" id="lhV-OJ-wfP"/>
-                            <constraint firstItem="UBh-vW-zqY" firstAttribute="top" secondItem="BG8-oW-Nah" secondAttribute="bottom" constant="222" id="mDK-K0-HW9"/>
                             <constraint firstItem="ntA-bk-3aY" firstAttribute="leading" secondItem="oXy-Hi-2cZ" secondAttribute="leading" id="wxb-1g-OK8"/>
                             <constraint firstItem="BG8-oW-Nah" firstAttribute="top" secondItem="oXy-Hi-2cZ" secondAttribute="top" id="yyH-3k-9oh"/>
                         </constraints>

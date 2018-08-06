@@ -75,6 +75,9 @@
     return cell;
     
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.friendTable deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 
 //search bar
