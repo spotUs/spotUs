@@ -46,8 +46,6 @@
     //if editing city get index of current city
     if (self.signup == NO){
         NSUInteger index = [self.cities indexOfObjectWithOptions:NSEnumerationConcurrent passingTest:^BOOL(City * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSLog(@"obj: %@",obj.name);
-            NSLog(@"usercity: %@",self.userCity.name);
             if ([obj.name isEqualToString: self.userCity.name]) {
                 return YES;
             } else {
@@ -75,9 +73,10 @@
     //query the city object
     NSInteger row = [self.cityPicker selectedRowInComponent:0];
     self.selectedCity = self.cities[row];
+    NSLog(@"usercity: %@",self.selectedCity);
     currUser[@"city"] = self.selectedCity;
-    currUser[@"favs"] = [NSMutableArray array];
-    currUser[@"friends"] = [NSMutableArray array];
+    currUser[@"favs"] = [NSMutableArray arrayWithArray:currUser[@"favs"]];
+    currUser[@"friends"] = [NSMutableArray arrayWithArray:currUser[@"friends"]];
     [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (error != nil) {
             NSLog(@"Error saving city: %@", error.localizedDescription);
@@ -112,43 +111,48 @@
 - (void) getUserTopTracks {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:@"https://api.spotify.com/v1/me/top/tracks"]];
-    NSDictionary *headers = @{@"Authorization":[@"Bearer " stringByAppendingString:self.auth.session.accessToken]};
-    [request setAllHTTPHeaderFields:(headers)];
-    [request setHTTPMethod:@"GET"];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSDictionary *datadict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        NSArray *tracksArray = datadict[@"items"]; //iterate through the array to get the id of each song
-        NSMutableArray<NSString*> *songIDs = [NSMutableArray new];
-        for(NSDictionary *dictionary in tracksArray){
-            NSString *spotifyID = dictionary[@"id"];
-            [songIDs addObject:spotifyID];
-            //create track obj and add it
-            [Track addNewTrack:spotifyID in:self.selectedCity.name withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-                if (error){
-                    NSLog(@"error making new track: %@",error.localizedDescription);
+    NSLog(@"accesstoken: %@", self.auth.session.accessToken);
+    if (self.auth.session.accessToken){
+        NSDictionary *headers = @{@"Authorization":[@"Bearer " stringByAppendingString:self.auth.session.accessToken]};
+        [request setAllHTTPHeaderFields:(headers)];
+        [request setHTTPMethod:@"GET"];
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            NSDictionary *datadict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            NSArray *tracksArray = datadict[@"items"]; //iterate through the array to get the id of each song
+            NSMutableArray<NSString*> *songIDs = [NSMutableArray new];
+            for(NSDictionary *dictionary in tracksArray){
+                NSString *spotifyID = dictionary[@"id"];
+                [songIDs addObject:spotifyID];
+                //create track obj and add it
+                [Track addNewTrack:spotifyID in:self.selectedCity.name withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                    if (error){
+                        NSLog(@"error making new track: %@",error.localizedDescription);
+                    }
+                }];
+            }
+            self.mostPlayedIDs = songIDs;
+            NSMutableArray<NSString*> *citySongs = [NSMutableArray arrayWithArray:self.selectedCity.tracks];
+            for(int i = 0; i < 5; i++){
+                if(![citySongs containsObject:self.mostPlayedIDs[i]]){
+                    [citySongs addObject:self.mostPlayedIDs[i]];
+                }
+                if( i == self.mostPlayedIDs.count-1){
+                    break;
+                }
+            }
+            self.selectedCity.tracks = citySongs;
+            [self.selectedCity saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                if(succeeded){
+                    NSLog(@"User tracks sucessfully added");
+                } else{
+                    NSLog(@"Error adding user top tracks : %@", error.localizedDescription);
                 }
             }];
-        }
-        self.mostPlayedIDs = songIDs;
-        NSMutableArray<NSString*> *citySongs = [NSMutableArray arrayWithArray:self.selectedCity.tracks];
-        for(int i = 0; i < 5; i++){
-            if(![citySongs containsObject:self.mostPlayedIDs[i]]){
-                [citySongs addObject:self.mostPlayedIDs[i]];
-            }
-            if( i == self.mostPlayedIDs.count-1){
-                break;
-            }
-        }
-        self.selectedCity.tracks = citySongs;
-        [self.selectedCity saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            if(succeeded){
-                NSLog(@"User tracks sucessfully added");
-            } else{
-                NSLog(@"Error adding user top tracks : %@", error.localizedDescription);
-            }
-        }];
-    }] resume];
+        }] resume];
+    } else {
+        NSLog(@"USER TOP TRACKS NOT SAVED");
+    }
 }
 
 

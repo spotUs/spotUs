@@ -9,6 +9,8 @@ target 'spotUs' do
   pod 'Parse'
   pod 'AFNetworking'
   pod 'SVProgressHUD'
+  pod 'TYAlertController'
+
 
   target 'spotUsTests' do
     inherit! :search_paths

@@ -378,7 +378,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ibN-fv-8F0">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendSearchCell" rowHeight="71" id="pit-y1-zAn" customClass="FriendSearchTableViewCell">
@@ -432,7 +432,7 @@
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="RHb-cS-H5A">
-                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -450,11 +450,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Friends" id="UvW-fH-Lfr">
                         <barButtonItem key="rightBarButtonItem" image="add-user" style="plain" id="Hw1-kq-0ZK">
+                            <inset key="imageInsets" minX="4" minY="0.0" maxX="-40" maxY="0.0"/>
                             <connections>
                                 <segue destination="ne9-1x-vwb" kind="show" id="y9v-ZD-0cm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="searchBar" destination="RHb-cS-H5A" id="KZK-bG-0hg"/>
                         <outlet property="tableView" destination="ibN-fv-8F0" id="aAx-Lp-Jl6"/>
@@ -465,7 +467,7 @@
             </objects>
             <point key="canvasLocation" x="2575" y="-636"/>
         </scene>
-        <!--Friend Request View Conttoller-->
+        <!--Add Friend-->
         <scene sceneID="4bj-Vi-Z43">
             <objects>
                 <viewController id="ne9-1x-vwb" customClass="FriendRequestViewConttoller" sceneMemberID="viewController">
@@ -474,7 +476,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3o0-HJ-sOo">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendRequestCell" rowHeight="71" id="YKA-yg-Ine" customClass="FriendRequestCell">
@@ -519,7 +521,7 @@
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="IJl-ET-vFd">
-                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -535,6 +537,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rf9-cg-tdH"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Friend" id="wlQ-Iy-IDV"/>
                     <connections>
                         <outlet property="friendTable" destination="3o0-HJ-sOo" id="QwX-0k-bkF"/>
                         <outlet property="searchBar" destination="IJl-ET-vFd" id="uQb-Gl-UIb"/>
@@ -730,20 +733,20 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6O9-g2-xSE">
-                                <rect key="frame" x="122" y="120" width="130" height="130"/>
+                                <rect key="frame" x="122" y="164" width="130" height="130"/>
                                 <color key="backgroundColor" red="0.97693405241296349" green="0.98579872044675765" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6O9-g2-xSE" secondAttribute="height" multiplier="1:1" id="WPu-ev-jHM"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Played Tracks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXN-As-HTF">
-                                <rect key="frame" x="10" y="255" width="355" height="21"/>
+                                <rect key="frame" x="10" y="299" width="355" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O4H-0B-eW6">
-                                <rect key="frame" x="0.0" y="286" width="375" height="381"/>
+                                <rect key="frame" x="0.0" y="330" width="375" height="337"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PlaylistTableCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stats" rowHeight="52" id="SWI-3t-9XR" customClass="PlaylistTableViewCell">
@@ -822,7 +825,7 @@
             </objects>
             <point key="canvasLocation" x="1000.3597122302159" y="-1489.4784172661871"/>
         </scene>
-        <!--Photo Map View Controller-->
+        <!--Discover-->
         <scene sceneID="0g0-PM-RNF">
             <objects>
                 <viewController storyboardIdentifier="map" id="NH1-rC-6tQ" customClass="PhotoMapViewController" sceneMemberID="viewController">
@@ -831,10 +834,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j8u-RV-yRn">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
                             <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fiS-ZA-l3J">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2DL-E6-Inc">
                                 <rect key="frame" x="305" y="597" width="50" height="50"/>
@@ -886,9 +889,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ege-q5-UYR"/>
                     </view>
-                    <navigationItem key="navigationItem" id="p5N-st-vJh">
+                    <navigationItem key="navigationItem" title="Discover" id="p5N-st-vJh">
                         <barButtonItem key="backBarButtonItem" title="Map" id="UAL-OE-LuC"/>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="checkInButton" destination="2DL-E6-Inc" id="f6s-UF-YLs"/>
                         <outlet property="friendsMapView" destination="fiS-ZA-l3J" id="YX0-Zi-zJJ"/>
@@ -974,7 +978,7 @@
             </objects>
             <point key="canvasLocation" x="-1852" y="-904"/>
         </scene>
-        <!--Playlist View Controller-->
+        <!--Discover-->
         <scene sceneID="Pxc-0c-wfg">
             <objects>
                 <viewController id="XYl-M6-THt" customClass="PlaylistViewController" sceneMemberID="viewController">
@@ -987,7 +991,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tmw-Y8-jpA">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PlaylistTableCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaylistTableCell" rowHeight="90" id="Ksl-Xp-oV8" customClass="PlaylistTableViewCell">
@@ -1062,7 +1066,7 @@
                                 </prototypes>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zSC-Er-mCe">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R9e-hD-3aX">
                                     <size key="itemSize" width="165" height="167"/>
                                     <size key="headerReferenceSize" width="50" height="119"/>
@@ -1153,7 +1157,7 @@
                                 </collectionReusableView>
                             </collectionView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="iag-Wo-gMA">
-                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -1173,7 +1177,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Yl-uy-cpk"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2Jj-CF-uDX"/>
+                    <navigationItem key="navigationItem" title="Discover" id="2Jj-CF-uDX"/>
                     <connections>
                         <outlet property="collectionView" destination="zSC-Er-mCe" id="QD5-Il-Ode"/>
                         <outlet property="searchBar" destination="iag-Wo-gMA" id="2RJ-aE-ugf"/>
@@ -1476,8 +1480,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBh-vW-zqY">
-                                <rect key="frame" x="187.5" y="333.5" width="0.0" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBh-vW-zqY">
+                                <rect key="frame" x="16" y="298" width="339" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="4SH-3q-Rmo"/>
+                                    <constraint firstAttribute="width" constant="339" id="FgS-ZF-9b2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HindVadodara-Regular" family="Hind Vadodara" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1494,13 +1502,13 @@
                             <constraint firstItem="ntA-bk-3aY" firstAttribute="top" secondItem="BG8-oW-Nah" secondAttribute="bottom" id="6Zu-Sy-5z3"/>
                             <constraint firstItem="BG8-oW-Nah" firstAttribute="leading" secondItem="oXy-Hi-2cZ" secondAttribute="leading" id="Ck4-um-7Ry"/>
                             <constraint firstItem="oXy-Hi-2cZ" firstAttribute="bottom" secondItem="ntA-bk-3aY" secondAttribute="bottom" id="Pm1-h2-hjP"/>
-                            <constraint firstItem="UBh-vW-zqY" firstAttribute="centerX" secondItem="mKm-zW-GCn" secondAttribute="centerX" id="QEc-bP-DJF"/>
-                            <constraint firstItem="UBh-vW-zqY" firstAttribute="centerY" secondItem="mKm-zW-GCn" secondAttribute="centerY" id="RwC-lx-ROZ"/>
+                            <constraint firstItem="UBh-vW-zqY" firstAttribute="leading" secondItem="oXy-Hi-2cZ" secondAttribute="leading" constant="16" id="VIt-U5-TlH"/>
                             <constraint firstItem="BG8-oW-Nah" firstAttribute="trailing" secondItem="oXy-Hi-2cZ" secondAttribute="trailing" id="eN5-9O-5vp"/>
                             <constraint firstItem="4wg-6n-rT3" firstAttribute="trailing" secondItem="oXy-Hi-2cZ" secondAttribute="trailing" id="hMv-6C-EIm"/>
                             <constraint firstItem="ntA-bk-3aY" firstAttribute="trailing" secondItem="oXy-Hi-2cZ" secondAttribute="trailing" id="k3V-aI-ErR"/>
                             <constraint firstItem="4wg-6n-rT3" firstAttribute="top" secondItem="BG8-oW-Nah" secondAttribute="bottom" id="kNh-bs-peK"/>
                             <constraint firstItem="4wg-6n-rT3" firstAttribute="top" secondItem="BG8-oW-Nah" secondAttribute="bottom" id="lhV-OJ-wfP"/>
+                            <constraint firstItem="UBh-vW-zqY" firstAttribute="top" secondItem="BG8-oW-Nah" secondAttribute="bottom" constant="222" id="mDK-K0-HW9"/>
                             <constraint firstItem="ntA-bk-3aY" firstAttribute="leading" secondItem="oXy-Hi-2cZ" secondAttribute="leading" id="wxb-1g-OK8"/>
                             <constraint firstItem="BG8-oW-Nah" firstAttribute="top" secondItem="oXy-Hi-2cZ" secondAttribute="top" id="yyH-3k-9oh"/>
                         </constraints>
@@ -1549,7 +1557,7 @@
         <image name="spotifyWhite" width="2400" height="2400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RfA-zM-nwX"/>
+        <segue reference="nbH-iS-X6V"/>
         <segue reference="aPd-C3-D0H"/>
         <segue reference="KW6-86-RT6"/>
         <segue reference="U8D-uR-5nx"/>

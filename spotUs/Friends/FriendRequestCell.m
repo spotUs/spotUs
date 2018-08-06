@@ -28,8 +28,10 @@
 }
 - (IBAction)onTapAddFriend:(id)sender {
  
-
+    if(!self.addUserBtn.selected){
+    
         [self addRequest];
+    }
     
 }
 
@@ -51,7 +53,6 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
         if(objects.count > 0){
-            NSArray<PFUser*> *users = objects;
             self.addUserBtn.selected = YES;
 
         }

@@ -16,6 +16,8 @@
 @property (strong,nonatomic) PFUser * _Nonnull receiver;
 @property BOOL accepted;
 @property BOOL dead;
+@property BOOL removed;
+
 
 
 + (FriendRequest*) sendRequestFrom: (PFUser *)sender To:(PFUser *)receiver withCompletion: (PFBooleanResultBlock  _Nullable)completion;

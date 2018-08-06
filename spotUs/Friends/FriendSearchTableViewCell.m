@@ -8,6 +8,7 @@
 
 #import "FriendSearchTableViewCell.h"
 #import "FriendRequest.h"
+#import "SVProgressHUD.h"
 
 @interface FriendSearchTableViewCell()
 
@@ -35,31 +36,18 @@
     }
     
     else{
-        
-        UIAlertController * alert = [UIAlertController
-                                     alertControllerWithTitle:@"Remove Friend"
-                                     message:@"Are you sure you want to delete this friend? You won't be able to see their profile!"
-                                     preferredStyle:UIAlertControllerStyleAlert];
-        
-        //Add Buttons
-        
-        UIAlertAction* yes = [UIAlertAction
-                                actionWithTitle:@"Yes"
-                                style:UIAlertActionStyleDefault
-                                handler:^(UIAlertAction * action) {
-                                    [self removeFriend];
+        TYAlertView *alert = [TYAlertView alertViewWithTitle:@"Remove Friend" message:@"Are you sure you want to delete this friend? You won't be able to see their profile!"];
 
-                                  
-                                }];
-        UIAlertAction* no = [UIAlertAction
-                              actionWithTitle:@"No"
-                              style:UIAlertActionStyleDefault
-                              handler:^(UIAlertAction * action) {
-                                  
-                              }];
+        [alert addAction:[TYAlertAction actionWithTitle:@"Yes" style:TYAlertActionStyleDefault handler:^(TYAlertAction *action) {
+            [self removeFriend];
+        }]];
         
-        [alert addAction:yes];
-        [alert addAction:no];
+        [alert addAction:[TYAlertAction actionWithTitle:@"No" style:TYAlertActionStyleCancel handler:^(TYAlertAction *action) {
+        }]];
+        
+
+        
+        
         
         
         [self.removeDelegate showAlert:alert];
@@ -82,7 +70,46 @@
 }
 
 - (void) removeFriend {
+    [SVProgressHUD showWithStatus:@"Removing Friend :("];
     self.addUserBtn.selected = NO;
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
+    query.limit = 20;
+    [query includeKey:@"sender"];
+    [query includeKey:@"receiver"];
+    [query includeKey:@"accepted"];
+    [query includeKey:@"dead"];
+    [query includeKey:@"removed"];
+
+
+    [query whereKey:@"accepted" equalTo:@(YES)];
+    [query whereKey:@"dead" equalTo:@(YES)];
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+
+        NSArray<FriendRequest*> *requests = objects;
+        
+        for(FriendRequest *request in requests){
+            
+            if(([request.receiver.username isEqualToString:self.user.username] && [request.sender.username isEqualToString:[PFUser currentUser].username]) || ([request.receiver.username isEqualToString:[PFUser currentUser].username] && [request.sender.username isEqualToString:self.user.username])){
+                
+                request.removed = YES;
+                [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    
+                    if(succeeded){
+                        
+                        
+                        NSLog(@"updated request");
+                        
+                        
+                        
+                    }
+                }];
+            }
+        }
+        
+   
+    }];
 
     NSMutableArray *friends = [PFUser currentUser][@"friends"];
     [friends removeObject:self.user.username];
@@ -103,6 +130,7 @@
 
 
 - (void) acceptRequest{
+    [SVProgressHUD showWithStatus:@"Adding Friend..."];
     
     NSMutableArray *friends = [PFUser currentUser][@"friends"];
     [friends addObject:self.user.username];
@@ -119,7 +147,6 @@
             
             NSLog(@"succesfully added friend");
             [self updateFriendSearchCellwithUser:self.user];
-            [self.delegate didChangeFriendStatus];
             
             
             PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
@@ -139,6 +166,8 @@
                 [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                     
                     if(succeeded){
+                        [self.delegate didChangeFriendStatus];
+
                         
                         NSLog(@"updated request");
 
