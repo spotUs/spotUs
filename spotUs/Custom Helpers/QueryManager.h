@@ -49,4 +49,5 @@
 
 + (void) setLastPlayedCity: (City *_Nonnull)city withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
++(void) buttonBump:(UIButton*)button;
 @end

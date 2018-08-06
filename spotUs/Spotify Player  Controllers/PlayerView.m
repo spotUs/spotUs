@@ -29,6 +29,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *repeatButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 @property (strong ,nonatomic) UIImage *notificationImage;
+@property (weak, nonatomic) IBOutlet UIButton *flagButton;
+@property (weak, nonatomic) IBOutlet UIButton *forwardButton;
+@property (weak, nonatomic) IBOutlet UIButton *rewindButton;
 @property(strong, nonatomic)NSTimer *favsBubbles;
 
 @property int * loopCount;
@@ -39,6 +42,7 @@
 
 @implementation PlayerView
 - (IBAction)didClickBack:(id)sender {
+
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.dismissDelegate didDismissWithIndex:[NSNumber numberWithUnsignedInteger:self.currentSongIndex]];
 }
@@ -140,6 +144,8 @@
     // start music again and seek when user lets go
 }
 - (IBAction)goBack:(id)sender {
+    [QueryManager buttonBump:self.rewindButton];
+
     
     
     if(self.player.playbackState.position < 5){
@@ -170,10 +176,14 @@
 }
 
 - (IBAction)goFoward:(id)sender {
+    [QueryManager buttonBump:self.forwardButton];
+
     [self.player skipNext:nil];
 }
 
 - (IBAction)pauseOrUnpause:(id)sender {
+    [QueryManager buttonBump:self.pauseButton];
+
     if(self.player.playbackState.isPlaying){
         [self.player setIsPlaying:NO callback:nil];
         [self.pauseButton setSelected:YES];
@@ -184,6 +194,10 @@
 }
 
 - (IBAction)repeatOrUnrepeat:(id)sender {
+    
+    [QueryManager buttonBump:self.repeatButton];
+
+    
     if (self.player.playbackState.isRepeating) {
         [self.player setRepeat:SPTRepeatOff callback:nil];
         [self.repeatButton setSelected:NO];
@@ -404,7 +418,12 @@
 
 
 - (IBAction)isFavorite:(id)sender {
+
     _loopCount = 0;
+
+    [QueryManager buttonBump:self.favoriteButton];
+
+
     NSString *stringID = [self.player.metadata.currentTrack.uri substringFromIndex:14];
     [QueryManager addFavSongId:stringID withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         
@@ -443,6 +462,9 @@
 }
 
 - (IBAction)flagged:(id)sender {
+    
+    [QueryManager buttonBump:self.flagButton];
+
     
     TYAlertView * alert = [TYAlertView alertViewWithTitle:@"Flagged" message:@"Why did you flag this song?"];
                          

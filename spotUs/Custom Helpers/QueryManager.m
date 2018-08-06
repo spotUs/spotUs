@@ -355,6 +355,24 @@ static SPTAuth *_auth = nil;
     
     
 }
+
++(void) buttonBump:(UIButton*)button{
+    
+    [UIView animateWithDuration:0.3/1.5 animations:^{
+        button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.1, 1.1);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.3/2 animations:^{
+            button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.9, 0.9);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.3/2 animations:^{
+                button.transform = CGAffineTransformIdentity;
+            }];
+        }];
+    }];
+    
+    
+    
+}
  
 + (void) getUserfromUsername: (NSString *)username withCompletion:(void(^)(PFUser *user, NSError *error))completion {
     PFQuery *query = [PFUser query];
