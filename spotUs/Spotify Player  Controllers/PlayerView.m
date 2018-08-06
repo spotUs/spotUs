@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeElapsedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLeftLabel;
 
+@property (weak, nonatomic) IBOutlet UIView *favoriteView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *songImage;
 @property (weak, nonatomic) IBOutlet UILabel *songTitle;
@@ -31,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *flagButton;
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
 @property (weak, nonatomic) IBOutlet UIButton *rewindButton;
+@property(strong, nonatomic)NSTimer *favsBubbles;
 
 
 @property (strong, nonatomic) NSMutableArray *ina;
@@ -51,6 +53,72 @@
     self.timeLeftLabel.text = [self stringFromTimeInterval:self.player.metadata.currentTrack.duration-self.musicSlider.value];
     // update times while user is dragging
     
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(createBubble)];
+    singleTap.numberOfTapsRequired = 1;
+    [self.favoriteButton setUserInteractionEnabled:YES];
+    [self.favoriteButton addGestureRecognizer:singleTap];
+    
+}
+
+- (void)createBubble {
+    UIImageView *bubbleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"favHeart"]];
+   
+     [bubbleImageView setFrame:CGRectMake((self.favoriteButton.frame.size.width)/2, self.favoriteButton.frame.origin.y, 5, 5)];
+    [self.favoriteView addSubview:bubbleImageView];
+    [CATransaction begin];
+//    [CATransaction setCompletionBlock:^{
+//        // transform the image to be 1.3 sizes larger to
+//        // give the impression that it is popping
+//        [UIView transitionWithView:bubbleImageView
+//                          duration:1.6f
+//                           options:UIViewAnimationOptionTransitionCrossDissolve
+//                        animations:^{
+//                            bubbleImageView.transform = CGAffineTransformMakeScale(4.3, 4.3);
+//                        } completion:^(BOOL finished) {
+//                            [bubbleImageView removeFromSuperview];
+//                            [CATransaction commit];
+//
+//                        }];
+//
+//    }];
+    UIBezierPath *zigzagPath = [[UIBezierPath alloc] init];
+    CGFloat oX = bubbleImageView.frame.origin.x;
+    CGFloat oY = bubbleImageView.frame.origin.y;
+    CGFloat eX = oX;
+    CGFloat eY = oY - [self randomFloatBetween:50 and:300];
+    CGFloat t = [self randomFloatBetween:20 and:100];
+
+    CGPoint cp1 = CGPointMake(oX - t, ((oY + eY) / 2));
+    CGPoint cp2 = CGPointMake(oX + t, cp1.y);
+    // the moveToPoint method sets the starting point of the line
+    [zigzagPath moveToPoint:CGPointMake(oX, oY)];
+    // add the end point and the control points
+    NSInteger r = arc4random() % 2;
+    if (r == 1) {
+        CGPoint temp = cp1;
+        cp1 = cp2;
+        cp2 = temp;
+    }
+  
+    bubbleImageView.alpha = [self randomFloatBetween:.1 and:1];
+    [zigzagPath addCurveToPoint:CGPointMake(eX, eY) controlPoint1:cp1 controlPoint2:cp2];
+    
+    CAKeyframeAnimation *pathAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    pathAnimation.duration = 2;
+    pathAnimation.path = zigzagPath.CGPath;
+    // remains visible in it's final state when animation is finished
+    // in conjunction with removedOnCompletion
+   // pathAnimation.fillMode = kCAFillModeForwards;
+    pathAnimation.removedOnCompletion = NO;
+    for(int i = 0; i < 100; i++)
+        [bubbleImageView.layer addAnimation:pathAnimation forKey:@"movingAnimation"];
+    
+    
+}
+
+- (float)randomFloatBetween:(float)smallNumber and:(float)bigNumber {
+    float diff = bigNumber - smallNumber;
+    return (((float) (arc4random() % ((unsigned)RAND_MAX + 1)) / RAND_MAX) * diff) + smallNumber;
 }
 - (IBAction)didStartSeek:(id)sender {
     [self.player setIsPlaying:NO callback:nil];
@@ -138,6 +206,10 @@
     self.musicSlider.minimumValue = 0.0;
     self.musicSlider.value = 0;
     [self refreshSongData];
+    
+  
+    
+ 
     
     /*
     UIBarButtonItem *listButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"list"]
@@ -351,8 +423,23 @@
     }
     else {
         [self.favoriteButton setSelected:YES];
+        
+        [NSTimer scheduledTimerWithTimeInterval:.03
+                                         target:self
+                                       selector:@selector(createBubble)
+                                       userInfo:nil
+                                        repeats:YES];
+      
+        
+        
     }
     
+    
+}
+- (void) stopTimer
+{
+    [self.favsBubbles invalidate];
+    self.favsBubbles = nil;
 }
 
 
