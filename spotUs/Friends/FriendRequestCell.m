@@ -28,8 +28,10 @@
 }
 - (IBAction)onTapAddFriend:(id)sender {
  
-
+    if(!self.addUserBtn.selected){
+    
         [self addRequest];
+    }
     
 }
 

@@ -466,7 +466,7 @@
             </objects>
             <point key="canvasLocation" x="2575" y="-636"/>
         </scene>
-        <!--Friend Request View Conttoller-->
+        <!--Add Friend-->
         <scene sceneID="4bj-Vi-Z43">
             <objects>
                 <viewController id="ne9-1x-vwb" customClass="FriendRequestViewConttoller" sceneMemberID="viewController">
@@ -536,6 +536,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rf9-cg-tdH"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Friend" id="wlQ-Iy-IDV"/>
                     <connections>
                         <outlet property="friendTable" destination="3o0-HJ-sOo" id="QwX-0k-bkF"/>
                         <outlet property="searchBar" destination="IJl-ET-vFd" id="uQb-Gl-UIb"/>
@@ -823,7 +824,7 @@
             </objects>
             <point key="canvasLocation" x="1000.3597122302159" y="-1489.4784172661871"/>
         </scene>
-        <!--Photo Map View Controller-->
+        <!--Discover-->
         <scene sceneID="0g0-PM-RNF">
             <objects>
                 <viewController storyboardIdentifier="map" id="NH1-rC-6tQ" customClass="PhotoMapViewController" sceneMemberID="viewController">
@@ -887,7 +888,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ege-q5-UYR"/>
                     </view>
-                    <navigationItem key="navigationItem" id="p5N-st-vJh">
+                    <navigationItem key="navigationItem" title="Discover" id="p5N-st-vJh">
                         <barButtonItem key="backBarButtonItem" title="Map" id="UAL-OE-LuC"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -976,7 +977,7 @@
             </objects>
             <point key="canvasLocation" x="-1852" y="-904"/>
         </scene>
-        <!--Playlist View Controller-->
+        <!--Discover-->
         <scene sceneID="Pxc-0c-wfg">
             <objects>
                 <viewController id="XYl-M6-THt" customClass="PlaylistViewController" sceneMemberID="viewController">
@@ -1175,7 +1176,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Yl-uy-cpk"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2Jj-CF-uDX"/>
+                    <navigationItem key="navigationItem" title="Discover" id="2Jj-CF-uDX"/>
                     <connections>
                         <outlet property="collectionView" destination="zSC-Er-mCe" id="QD5-Il-Ode"/>
                         <outlet property="searchBar" destination="iag-Wo-gMA" id="2RJ-aE-ugf"/>
@@ -1478,8 +1479,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBh-vW-zqY">
-                                <rect key="frame" x="187.5" y="333.5" width="0.0" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBh-vW-zqY">
+                                <rect key="frame" x="16" y="298" width="339" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="4SH-3q-Rmo"/>
+                                    <constraint firstAttribute="width" constant="339" id="FgS-ZF-9b2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HindVadodara-Regular" family="Hind Vadodara" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1496,13 +1501,13 @@
                             <constraint firstItem="ntA-bk-3aY" firstAttribute="top" secondItem="BG8-oW-Nah" secondAttribute="bottom" id="6Zu-Sy-5z3"/>
                             <constraint firstItem="BG8-oW-Nah" firstAttribute="leading" secondItem="oXy-Hi-2cZ" secondAttribute="leading" id="Ck4-um-7Ry"/>
                             <constraint firstItem="oXy-Hi-2cZ" firstAttribute="bottom" secondItem="ntA-bk-3aY" secondAttribute="bottom" id="Pm1-h2-hjP"/>
-                            <constraint firstItem="UBh-vW-zqY" firstAttribute="centerX" secondItem="mKm-zW-GCn" secondAttribute="centerX" id="QEc-bP-DJF"/>
-                            <constraint firstItem="UBh-vW-zqY" firstAttribute="centerY" secondItem="mKm-zW-GCn" secondAttribute="centerY" id="RwC-lx-ROZ"/>
+                            <constraint firstItem="UBh-vW-zqY" firstAttribute="leading" secondItem="oXy-Hi-2cZ" secondAttribute="leading" constant="16" id="VIt-U5-TlH"/>
                             <constraint firstItem="BG8-oW-Nah" firstAttribute="trailing" secondItem="oXy-Hi-2cZ" secondAttribute="trailing" id="eN5-9O-5vp"/>
                             <constraint firstItem="4wg-6n-rT3" firstAttribute="trailing" secondItem="oXy-Hi-2cZ" secondAttribute="trailing" id="hMv-6C-EIm"/>
                             <constraint firstItem="ntA-bk-3aY" firstAttribute="trailing" secondItem="oXy-Hi-2cZ" secondAttribute="trailing" id="k3V-aI-ErR"/>
                             <constraint firstItem="4wg-6n-rT3" firstAttribute="top" secondItem="BG8-oW-Nah" secondAttribute="bottom" id="kNh-bs-peK"/>
                             <constraint firstItem="4wg-6n-rT3" firstAttribute="top" secondItem="BG8-oW-Nah" secondAttribute="bottom" id="lhV-OJ-wfP"/>
+                            <constraint firstItem="UBh-vW-zqY" firstAttribute="top" secondItem="BG8-oW-Nah" secondAttribute="bottom" constant="222" id="mDK-K0-HW9"/>
                             <constraint firstItem="ntA-bk-3aY" firstAttribute="leading" secondItem="oXy-Hi-2cZ" secondAttribute="leading" id="wxb-1g-OK8"/>
                             <constraint firstItem="BG8-oW-Nah" firstAttribute="top" secondItem="oXy-Hi-2cZ" secondAttribute="top" id="yyH-3k-9oh"/>
                         </constraints>
