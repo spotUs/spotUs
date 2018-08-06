@@ -153,7 +153,9 @@
             query.limit = 20;
             [query includeKey:@"sender"];
             [query includeKey:@"receiver"];
-            [query includeKey:@"accepted"];
+            [query whereKey:@"dead" equalTo:@(NO)];
+            [query whereKey:@"accepted" equalTo:@(NO)];
+            [query whereKey:@"removed" equalTo:@(NO)];
             [query whereKey:@"receiver" equalTo:[PFUser currentUser]];
             [query whereKey:@"sender" equalTo:self.user];
 
