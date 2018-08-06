@@ -119,7 +119,6 @@
             
             NSLog(@"succesfully added friend");
             [self updateFriendSearchCellwithUser:self.user];
-            [self.delegate didChangeFriendStatus];
             
             
             PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
@@ -139,6 +138,8 @@
                 [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                     
                     if(succeeded){
+                        [self.delegate didChangeFriendStatus];
+
                         
                         NSLog(@"updated request");
 
