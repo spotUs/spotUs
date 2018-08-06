@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "UIView+TYAlertView.h"
 
 
 @protocol FriendStatusDelegate
@@ -18,7 +19,7 @@
 
 @protocol RemoveFriendDelegate
 
-- (void)showAlert:(UIAlertController*)alert;
+- (void)showAlert:(TYAlertView*)alert;
 
 @end
 

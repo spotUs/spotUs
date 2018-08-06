@@ -36,31 +36,18 @@
     }
     
     else{
-        
-        UIAlertController * alert = [UIAlertController
-                                     alertControllerWithTitle:@"Remove Friend"
-                                     message:@"Are you sure you want to delete this friend? You won't be able to see their profile!"
-                                     preferredStyle:UIAlertControllerStyleAlert];
-        
-        //Add Buttons
-        
-        UIAlertAction* yes = [UIAlertAction
-                                actionWithTitle:@"Yes"
-                                style:UIAlertActionStyleDefault
-                                handler:^(UIAlertAction * action) {
-                                    [self removeFriend];
+        TYAlertView *alert = [TYAlertView alertViewWithTitle:@"Remove Friend" message:@"Are you sure you want to delete this friend? You won't be able to see their profile!"];
 
-                                  
-                                }];
-        UIAlertAction* no = [UIAlertAction
-                              actionWithTitle:@"No"
-                              style:UIAlertActionStyleDefault
-                              handler:^(UIAlertAction * action) {
-                                  
-                              }];
+        [alert addAction:[TYAlertAction actionWithTitle:@"Yes" style:TYAlertActionStyleDefault handler:^(TYAlertAction *action) {
+            [self removeFriend];
+        }]];
         
-        [alert addAction:yes];
-        [alert addAction:no];
+        [alert addAction:[TYAlertAction actionWithTitle:@"No" style:TYAlertActionStyleCancel handler:^(TYAlertAction *action) {
+        }]];
+        
+
+        
+        
         
         
         [self.removeDelegate showAlert:alert];

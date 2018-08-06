@@ -11,6 +11,7 @@
 #import "StatsViewController.h"
 #import "SVProgressHUD.h"
 #import "FriendRequest.h"
+#import "UIView+TYAlertView.h"
 
 @interface FriendSearchViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, FriendStatusDelegate, RemoveFriendDelegate>
 
@@ -293,9 +294,12 @@
     
 }
 
-- (void)showAlert:(UIAlertController *)alert{
+- (void)showAlert:(TYAlertController *)alert{
     
-    [self presentViewController:alert animated:YES completion:nil];
+    
+    TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alert preferredStyle:TYAlertControllerStyleAlert transitionAnimation:TYAlertTransitionAnimationDropDown ];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 

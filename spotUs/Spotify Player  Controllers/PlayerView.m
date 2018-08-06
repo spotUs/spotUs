@@ -10,6 +10,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "PlaylistViewController.h"
 #import "QueryManager.h"
+#import "UIView+TYAlertView.h"
 
 
 
@@ -348,17 +349,14 @@
 
 - (IBAction)flagged:(id)sender {
     
-    UIAlertController * alert = [UIAlertController
-                                 alertControllerWithTitle:@"Flagged"
-                                 message:@"Why did you flag this song?"
-                                 preferredStyle:UIAlertControllerStyleAlert];
-    
+    TYAlertView * alert = [TYAlertView alertViewWithTitle:@"Flagged" message:@"Why did you flag this song?"];
+                         
     //Add Buttons
-    
-    UIAlertAction* inapp = [UIAlertAction
+
+    TYAlertAction* inapp = [TYAlertAction
                             actionWithTitle:@"Inappropiate Material"
-                            style:UIAlertActionStyleDefault
-                            handler:^(UIAlertAction * action) {
+                            style:TYAlertActionStyleDefault
+                            handler:^(TYAlertAction * action) {
                                 //Handle your yes please button action here
                                 NSLog(@"inappropriate Material");
                                 NSString *stringID = [self.player.metadata.currentTrack.uri substringFromIndex:14];
@@ -374,10 +372,10 @@
                             
                       
     
-    UIAlertAction* noMatch = [UIAlertAction
+    TYAlertAction* noMatch = [TYAlertAction
                               actionWithTitle:@"Does not match city"
-                              style:UIAlertActionStyleDefault
-                              handler:^(UIAlertAction * action) {
+                              style:TYAlertActionStyleDefault
+                              handler:^(TYAlertAction * action) {
                                   NSString *stringID = [self.player.metadata.currentTrack.uri substringFromIndex:14];
                                   [QueryManager flagMismatchWithID:stringID withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                                       if(succeeded){
@@ -388,10 +386,10 @@
                                   }];
                               }];
                                   
-    UIAlertAction* cancel = [UIAlertAction
+    TYAlertAction* cancel = [TYAlertAction
                              actionWithTitle:@"Cancel"
-                             style:UIAlertActionStyleDefault
-                             handler:^(UIAlertAction * action) {
+                             style:TYAlertActionStyleCancel
+                             handler:^(TYAlertAction * action) {
                          
                                  
                              }];
@@ -399,9 +397,12 @@
     [alert addAction:inapp];
     [alert addAction:noMatch];
     [alert addAction:cancel];
+    
+    TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alert preferredStyle:TYAlertControllerStyleAlert transitionAnimation:TYAlertTransitionAnimationFade ];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 
     
-    [self presentViewController:alert animated:YES completion:nil];
 
 }
 

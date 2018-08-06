@@ -20,11 +20,13 @@ PODS:
   - Parse/Core (1.17.1):
     - Bolts/Tasks (~> 1.9)
   - SVProgressHUD (2.2.5)
+  - TYAlertController (1.2.0)
 
 DEPENDENCIES:
   - AFNetworking
   - Parse
   - SVProgressHUD
+  - TYAlertController
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -32,13 +34,15 @@ SPEC REPOS:
     - Bolts
     - Parse
     - SVProgressHUD
+    - TYAlertController
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
 
-PODFILE CHECKSUM: a502ee22689e12e98c52e445f44957fccebf86f1
+PODFILE CHECKSUM: b81ad29603ba588e2ee097d63027dbd244d11805
 
 COCOAPODS: 1.5.3
