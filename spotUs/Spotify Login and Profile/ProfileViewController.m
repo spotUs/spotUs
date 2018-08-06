@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *blurredImage;
 @property (weak, nonatomic) IBOutlet UIImageView *skylineImageView;
 @property (strong, nonatomic) City *userCity;
-
+@property (strong, nonatomic) UIImageView *planeImageView;
 @end
 
 @implementation ProfileViewController
@@ -85,9 +85,20 @@
     [myString appendAttributedString:attachmentString];
     
     self.hometownLabel.attributedText = myString;
-
+    
+    self.planeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.center.x - 100, self.view.center.y - 100, 200, 200)];
+    self.planeImageView.image = [UIImage imageNamed:@"plane"];
+    [self.view addSubview:self.planeImageView];
+ [self goPlaneGo];
 }
-
+- (void)goPlaneGo {
+    [UIView animateWithDuration:5 animations:^{
+        self.planeImageView.frame = CGRectMake(self.view.frame.size.width + 200, self.view.center.y - 100, 200, 200);
+    } completion:^(BOOL finished) {
+        self.planeImageView.frame = CGRectMake(self.view.frame.origin.x - 200, self.view.center.y - 100, 200, 200);
+        [self goPlaneGo];
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
