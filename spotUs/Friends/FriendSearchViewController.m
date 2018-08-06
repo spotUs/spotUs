@@ -65,24 +65,28 @@
 - (void) updateUsers {
     // get users that are not current user and friends
     
+    PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
+    query.limit = 20;
+    [query includeKey:@"sender"];
+    [query includeKey:@"receiver"];
+    [query includeKey:@"accepted"];
+    [query whereKey:@"sender" equalTo:[PFUser currentUser]];
+    [query orderByAscending:@"reciever"];
     
-    PFQuery *acceptQuery = [PFUser query];
-    [acceptQuery whereKey:@"username" notEqualTo:[PFUser currentUser].username];
-    [acceptQuery whereKey:@"friends" containsString:[PFUser currentUser].username];
-    [acceptQuery orderByAscending:@"username"];
-    [acceptQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
-        NSArray <PFUser*> *friendUsers = objects;
+        NSArray <FriendRequest*> *requests = objects;
         
         [[PFUser currentUser] fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
             
             NSMutableArray<NSString*> *friends = [NSMutableArray arrayWithArray:object[@"friends"]];
             
-            for( PFUser *user in friendUsers){
+            for( FriendRequest *request in requests){
                 
-                if(![friends containsObject:user.username]){
+                if(![friends containsObject:request.receiver.username] && request.accepted){
                     
-                    [friends addObject:user.username];
+                    [friends addObject:request.receiver.username];
                 }
             }
             
