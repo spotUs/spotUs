@@ -61,13 +61,13 @@
 }
 
 - (void)createBubble {
-    UIImageView *bubbleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"favHeart"]];
+    UIImageView *bubbleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"redLike"]];
     
   
     _loopCount++;
     
     
-    if (_loopCount >200) {
+    if (_loopCount >300) {
         [_favsBubbles invalidate];
         _favsBubbles = nil;
     } else {
@@ -81,7 +81,7 @@
 //                          duration:1.6f
 //                           options:UIViewAnimationOptionTransitionCrossDissolve
 //                        animations:^{
-//                            bubbleImageView.transform = CGAffineTransformMakeScale(4.3, 4.3);
+ //                          bubbleImageView.transform = CGAffineTransformMakeScale(100.3, 100.3);
 //                        } completion:^(BOOL finished) {
                            [bubbleImageView removeFromSuperview];
 //                            [CATransaction commit];
@@ -93,7 +93,7 @@
     CGFloat oX = bubbleImageView.frame.origin.x;
     CGFloat oY = bubbleImageView.frame.origin.y;
     CGFloat eX = oX;
-    CGFloat eY = oY - [self randomFloatBetween:50 and:300];
+    CGFloat eY = oY - [self randomFloatBetween:50 and:1000];
     CGFloat t = [self randomFloatBetween:20 and:100];
 
     CGPoint cp1 = CGPointMake(oX - t, ((oY + eY) / 2));
