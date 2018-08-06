@@ -84,7 +84,10 @@
             
             for( FriendRequest *request in requests){
                 
-                if(![friends containsObject:request.receiver.username] && request.accepted){
+                if(![friends containsObject:request.receiver.username] && request.accepted && !request.dead){
+                    
+                    request.dead = @(YES);
+                    [request saveInBackground];
                     
                     [friends addObject:request.receiver.username];
                 }
