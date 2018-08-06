@@ -31,7 +31,7 @@
 @property (strong ,nonatomic) UIImage *notificationImage;
 @property(strong, nonatomic)NSTimer *favsBubbles;
 
-
+@property int * loopCount;
 @property (strong, nonatomic) NSMutableArray *ina;
 
 
@@ -57,6 +57,12 @@
 }
 
 - (void)createBubble {
+    
+    _loopCount++;
+    if (_loopCount >200) {
+        [_favsBubbles invalidate];
+        _favsBubbles = nil;
+    } else {
     UIImageView *bubbleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"favHeart"]];
    
      [bubbleImageView setFrame:CGRectMake((self.favoriteButton.frame.size.width)/2, self.favoriteButton.frame.origin.y, 5, 5)];
@@ -100,16 +106,21 @@
     [zigzagPath addCurveToPoint:CGPointMake(eX, eY) controlPoint1:cp1 controlPoint2:cp2];
     
     CAKeyframeAnimation *pathAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    pathAnimation.duration = 2;
+    pathAnimation.duration = 3;
     pathAnimation.path = zigzagPath.CGPath;
     // remains visible in it's final state when animation is finished
     // in conjunction with removedOnCompletion
    // pathAnimation.fillMode = kCAFillModeForwards;
     pathAnimation.removedOnCompletion = NO;
-    for(int i = 0; i < 100; i++)
+
         [bubbleImageView.layer addAnimation:pathAnimation forKey:@"movingAnimation"];
     
+         }
     
+    NSLog(@"%@", @"COUNT");
+    NSLog(@"%d", _loopCount);
+   
+ 
 }
 
 - (float)randomFloatBetween:(float)smallNumber and:(float)bigNumber {
@@ -393,7 +404,7 @@
 
 
 - (IBAction)isFavorite:(id)sender {
-    
+    _loopCount = 0;
     NSString *stringID = [self.player.metadata.currentTrack.uri substringFromIndex:14];
     [QueryManager addFavSongId:stringID withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         
@@ -407,15 +418,12 @@
     }
     else {
         [self.favoriteButton setSelected:YES];
-        
-        [NSTimer scheduledTimerWithTimeInterval:.03
+       _favsBubbles = [NSTimer scheduledTimerWithTimeInterval:.03
                                          target:self
                                        selector:@selector(createBubble)
                                        userInfo:nil
                                         repeats:YES];
       
-        
-        
     }
     
     
