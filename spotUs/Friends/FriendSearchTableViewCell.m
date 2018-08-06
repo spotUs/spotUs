@@ -83,6 +83,44 @@
 
 - (void) removeFriend {
     self.addUserBtn.selected = NO;
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
+    query.limit = 20;
+    [query includeKey:@"sender"];
+    [query includeKey:@"receiver"];
+    [query includeKey:@"accepted"];
+    [query includeKey:@"dead"];
+    [query includeKey:@"removed"];
+
+
+    [query whereKey:@"accepted" equalTo:@(YES)];
+    [query whereKey:@"dead" equalTo:@(YES)];
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+
+        NSArray<FriendRequest*> *requests = objects;
+        
+        for(FriendRequest *request in requests){
+            
+            if(([request.receiver.username isEqualToString:self.user.username] && [request.sender.username isEqualToString:[PFUser currentUser].username]) || ([request.receiver.username isEqualToString:[PFUser currentUser].username] && [request.sender.username isEqualToString:self.user.username])){
+                
+                request.removed = YES;
+                [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    
+                    if(succeeded){
+                        
+                        
+                        NSLog(@"updated request");
+                        
+                        
+                        
+                    }
+                }];
+            }
+        }
+        
+   
+    }];
 
     NSMutableArray *friends = [PFUser currentUser][@"friends"];
     [friends removeObject:self.user.username];
