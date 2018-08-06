@@ -43,5 +43,6 @@
 
 @property (nonatomic, weak) id<DismissDelegate> dismissDelegate;
 
-
+@property(nonatomic, retain) NSTimer *yourTimer;
+@property(weak) NSTimer *repeatingTimer;
 @end
