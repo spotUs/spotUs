@@ -16,6 +16,9 @@
         <array key="HindVadodara-Bold.ttf">
             <string>HindVadodara-Bold</string>
         </array>
+        <array key="HindVadodara-Medium.ttf">
+            <string>HindVadodara-Medium</string>
+        </array>
         <array key="HindVadodara-Regular.ttf">
             <string>HindVadodara-Regular</string>
         </array>
@@ -1271,13 +1274,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SpotUs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cy2-g6-XYx">
-                                <rect key="frame" x="153" y="15" width="68" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HindVadodara-Regular" family="Hind Vadodara" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="OEq-cv-Eal">
                                 <rect key="frame" x="0.0" y="0.5" width="375" height="6"/>
                                 <constraints>
@@ -1286,6 +1282,12 @@
                                 <color key="progressTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="trackTintColor" red="0.75615284969999996" green="0.75615284969999996" blue="0.75615284969999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpotUs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cy2-g6-XYx">
+                                <rect key="frame" x="153.5" y="13" width="68.5" height="33"/>
+                                <fontDescription key="fontDescription" name="HindVadodara-Medium" family="Hind Vadodara" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -1302,11 +1304,15 @@
                             <constraint firstItem="PDC-u6-aQ0" firstAttribute="leading" secondItem="EAs-YU-6fn" secondAttribute="leading" constant="20" id="chg-fQ-aJA"/>
                             <constraint firstItem="EAs-YU-6fn" firstAttribute="bottom" secondItem="PDC-u6-aQ0" secondAttribute="bottom" constant="10" id="d2Y-1b-kIu"/>
                             <constraint firstItem="PDC-u6-aQ0" firstAttribute="top" secondItem="EAs-YU-6fn" secondAttribute="top" constant="10" id="eVr-b3-jsU"/>
+                            <constraint firstItem="F9f-cr-DAQ" firstAttribute="centerY" secondItem="j2M-H1-9hF" secondAttribute="centerY" id="g3y-Ol-DPx"/>
+                            <constraint firstItem="PDC-u6-aQ0" firstAttribute="centerY" secondItem="j2M-H1-9hF" secondAttribute="centerY" id="gl5-2X-ayW"/>
                             <constraint firstItem="OEq-cv-Eal" firstAttribute="leading" secondItem="j2M-H1-9hF" secondAttribute="leading" id="lL9-vL-p6J"/>
                             <constraint firstItem="hzy-QH-hT8" firstAttribute="centerX" secondItem="j2M-H1-9hF" secondAttribute="centerX" id="rUT-1c-OBx"/>
                             <constraint firstItem="jJ4-sI-JpK" firstAttribute="centerX" secondItem="j2M-H1-9hF" secondAttribute="centerX" id="rfx-ez-QJQ"/>
+                            <constraint firstItem="Cy2-g6-XYx" firstAttribute="centerY" secondItem="j2M-H1-9hF" secondAttribute="centerY" id="uRE-dS-fbl"/>
                             <constraint firstItem="hzy-QH-hT8" firstAttribute="top" secondItem="OEq-cv-Eal" secondAttribute="bottom" constant="10" id="x2P-c3-byb"/>
                             <constraint firstItem="OEq-cv-Eal" firstAttribute="top" secondItem="EAs-YU-6fn" secondAttribute="top" id="xCZ-5P-q8C"/>
+                            <constraint firstItem="Cy2-g6-XYx" firstAttribute="centerX" secondItem="j2M-H1-9hF" secondAttribute="centerX" id="xQc-nJ-hL3"/>
                             <constraint firstItem="F9f-cr-DAQ" firstAttribute="leading" secondItem="hzy-QH-hT8" secondAttribute="trailing" constant="10" id="y11-Jo-BKE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EAs-YU-6fn"/>
@@ -1330,7 +1336,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-98" y="92"/>
+            <point key="canvasLocation" x="-98.400000000000006" y="91.754122938530742"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="reQ-yK-zpY">
@@ -1594,7 +1600,6 @@
         <image name="spotifyWhite" width="2400" height="2400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wUC-mq-zGa"/>
         <segue reference="tkD-dk-LkX"/>
         <segue reference="lrd-t7-rkx"/>
         <segue reference="Is9-90-9Ke"/>
