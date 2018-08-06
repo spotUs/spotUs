@@ -248,6 +248,7 @@
                     <connections>
                         <outlet property="artistNameLabel" destination="FB9-wG-eKh" id="rvv-QJ-0ck"/>
                         <outlet property="favoriteButton" destination="Kbm-Kp-nvG" id="6Qy-us-Skv"/>
+                        <outlet property="favoriteView" destination="S52-oa-b8v" id="VOB-kh-xtk"/>
                         <outlet property="flagButton" destination="AEy-bS-e2N" id="Nrp-pe-tMY"/>
                         <outlet property="forwardButton" destination="3fM-ey-pfd" id="Ph0-bc-VWo"/>
                         <outlet property="musicSlider" destination="54k-zG-om8" id="SZ1-oM-2De"/>
