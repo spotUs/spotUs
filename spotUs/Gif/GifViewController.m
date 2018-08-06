@@ -161,7 +161,7 @@
                                 
                                 PFUser *currentUser = (PFUser *)object;
                                 
-                                //QueryManager.currentParseUser = currentUser;
+                                QueryManager.currentParseUser = currentUser;
 
                                 currentUser[@"profileImageURL"] = self.currentUser.largestImage.imageURL.absoluteString;
                                 [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
