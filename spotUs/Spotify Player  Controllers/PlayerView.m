@@ -61,32 +61,34 @@
 }
 
 - (void)createBubble {
+    UIImageView *bubbleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"favHeart"]];
     
+  
     _loopCount++;
+    
+    
     if (_loopCount >200) {
         [_favsBubbles invalidate];
         _favsBubbles = nil;
     } else {
-    UIImageView *bubbleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"favHeart"]];
-   
-     [bubbleImageView setFrame:CGRectMake((self.favoriteButton.frame.size.width)/2, self.favoriteButton.frame.origin.y, 5, 5)];
-    [self.favoriteView addSubview:bubbleImageView];
+ [self.favoriteView addSubview:bubbleImageView];
+          [bubbleImageView setFrame:CGRectMake((self.favoriteButton.frame.size.width)/2, self.favoriteButton.frame.origin.y, 5, 5)];
     [CATransaction begin];
-//    [CATransaction setCompletionBlock:^{
-//        // transform the image to be 1.3 sizes larger to
-//        // give the impression that it is popping
+    [CATransaction setCompletionBlock:^{
+        // transform the image to be 1.3 sizes larger to
+        // give the impression that it is popping
 //        [UIView transitionWithView:bubbleImageView
 //                          duration:1.6f
 //                           options:UIViewAnimationOptionTransitionCrossDissolve
 //                        animations:^{
 //                            bubbleImageView.transform = CGAffineTransformMakeScale(4.3, 4.3);
 //                        } completion:^(BOOL finished) {
-//                            [bubbleImageView removeFromSuperview];
+                           [bubbleImageView removeFromSuperview];
 //                            [CATransaction commit];
 //
 //                        }];
-//
-//    }];
+
+    }];
     UIBezierPath *zigzagPath = [[UIBezierPath alloc] init];
     CGFloat oX = bubbleImageView.frame.origin.x;
     CGFloat oY = bubbleImageView.frame.origin.y;
@@ -105,16 +107,16 @@
         cp1 = cp2;
         cp2 = temp;
     }
-  
+
     bubbleImageView.alpha = [self randomFloatBetween:.1 and:1];
     [zigzagPath addCurveToPoint:CGPointMake(eX, eY) controlPoint1:cp1 controlPoint2:cp2];
     
     CAKeyframeAnimation *pathAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     pathAnimation.duration = 3;
     pathAnimation.path = zigzagPath.CGPath;
-    // remains visible in it's final state when animation is finished
-    // in conjunction with removedOnCompletion
-   // pathAnimation.fillMode = kCAFillModeForwards;
+    //remains visible in it's final state when animation is finished
+     //in conjunction with removedOnCompletion
+  //  pathAnimation.fillMode = kCAFillModeForwards;
     pathAnimation.removedOnCompletion = NO;
 
         [bubbleImageView.layer addAnimation:pathAnimation forKey:@"movingAnimation"];
