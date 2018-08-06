@@ -53,15 +53,15 @@
     self.timeLeftLabel.text = [self stringFromTimeInterval:self.player.metadata.currentTrack.duration-self.musicSlider.value];
     // update times while user is dragging
     
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(createBubble)];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(createHeart)];
     singleTap.numberOfTapsRequired = 1;
     [self.favoriteButton setUserInteractionEnabled:YES];
     [self.favoriteButton addGestureRecognizer:singleTap];
     
 }
 
-- (void)createBubble {
-    UIImageView *bubbleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"redLike"]];
+- (void)createHeart {
+    UIImageView *heartImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"redLike"]];
     
   
     _loopCount++;
@@ -71,27 +71,27 @@
         [_favsBubbles invalidate];
         _favsBubbles = nil;
     } else {
- [self.favoriteView addSubview:bubbleImageView];
-          [bubbleImageView setFrame:CGRectMake((self.favoriteButton.frame.size.width)/2, self.favoriteButton.frame.origin.y, 5, 5)];
+ [self.favoriteView addSubview:heartImageView];
+          [heartImageView setFrame:CGRectMake((self.favoriteButton.frame.size.width)/2, self.favoriteButton.frame.origin.y, 5, 5)];
     [CATransaction begin];
     [CATransaction setCompletionBlock:^{
         // transform the image to be 1.3 sizes larger to
         // give the impression that it is popping
-//        [UIView transitionWithView:bubbleImageView
+//        [UIView transitionWithView:heartImageView
 //                          duration:1.6f
 //                           options:UIViewAnimationOptionTransitionCrossDissolve
 //                        animations:^{
- //                          bubbleImageView.transform = CGAffineTransformMakeScale(100.3, 100.3);
+ //                          heartImageView.transform = CGAffineTransformMakeScale(100.3, 100.3);
 //                        } completion:^(BOOL finished) {
-                           [bubbleImageView removeFromSuperview];
+                           [heartImageView removeFromSuperview];
 //                            [CATransaction commit];
 //
 //                        }];
 
     }];
     UIBezierPath *zigzagPath = [[UIBezierPath alloc] init];
-    CGFloat oX = bubbleImageView.frame.origin.x;
-    CGFloat oY = bubbleImageView.frame.origin.y;
+    CGFloat oX = heartImageView.frame.origin.x;
+    CGFloat oY = heartImageView.frame.origin.y;
     CGFloat eX = oX;
     CGFloat eY = oY - [self randomFloatBetween:50 and:1000];
     CGFloat t = [self randomFloatBetween:20 and:100];
@@ -108,7 +108,7 @@
         cp2 = temp;
     }
 
-    bubbleImageView.alpha = [self randomFloatBetween:.1 and:1];
+    heartImageView.alpha = [self randomFloatBetween:.1 and:1];
     [zigzagPath addCurveToPoint:CGPointMake(eX, eY) controlPoint1:cp1 controlPoint2:cp2];
     
     CAKeyframeAnimation *pathAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
@@ -119,7 +119,7 @@
   //  pathAnimation.fillMode = kCAFillModeForwards;
     pathAnimation.removedOnCompletion = NO;
 
-        [bubbleImageView.layer addAnimation:pathAnimation forKey:@"movingAnimation"];
+        [heartImageView.layer addAnimation:pathAnimation forKey:@"movingAnimation"];
     
          }
     
@@ -441,7 +441,7 @@
         [self.favoriteButton setSelected:YES];
        _favsBubbles = [NSTimer scheduledTimerWithTimeInterval:.03
                                          target:self
-                                       selector:@selector(createBubble)
+                                       selector:@selector(createHeart)
                                        userInfo:nil
                                         repeats:YES];
       
