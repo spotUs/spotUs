@@ -252,6 +252,7 @@
                         <outlet property="flagButton" destination="AEy-bS-e2N" id="Nrp-pe-tMY"/>
                         <outlet property="forwardButton" destination="3fM-ey-pfd" id="Ph0-bc-VWo"/>
                         <outlet property="musicSlider" destination="54k-zG-om8" id="SZ1-oM-2De"/>
+                        <outlet property="navBar" destination="kqH-yh-xgP" id="tWZ-58-2O1"/>
                         <outlet property="pauseButton" destination="4hG-LN-kxo" id="62v-PK-k2b"/>
                         <outlet property="repeatButton" destination="DZI-Sf-NGi" id="7Bt-fZ-sdr"/>
                         <outlet property="rewindButton" destination="7I6-an-6PL" id="qjn-Uf-n9J"/>
@@ -1605,7 +1606,6 @@
         <image name="spotifyWhite" width="2400" height="2400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wUC-mq-zGa"/>
         <segue reference="tkD-dk-LkX"/>
         <segue reference="aPd-C3-D0H"/>
         <segue reference="Is9-90-9Ke"/>
