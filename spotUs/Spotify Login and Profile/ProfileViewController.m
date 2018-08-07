@@ -87,16 +87,30 @@
     
     self.hometownLabel.attributedText = myString;
     
-    self.planeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.planeView.frame.origin.x, self.planeView.center.y - 50, 60, 50)];
+    self.planeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.planeView.frame.origin.x-70, self.planeView.center.y -50 , 60, 50)];
+    [self goPlaneGo];
+
     self.planeImageView.image = [UIImage imageNamed:@"plane"];
     [self.view addSubview:self.planeImageView];
- [self goPlaneGo];
+ 
 }
 - (void)goPlaneGo {
+     self.planeImageView.image = [UIImage imageNamed:@"plane"];
     [UIView animateWithDuration:5 animations:^{
-        self.planeImageView.frame = CGRectMake(self.planeView.frame.size.width + 50, self.planeView.center.y - 50  , 60, 50);
+       self.planeImageView.frame = CGRectMake(self.planeView.frame.size.width + 250, self.planeView.center.y - 50  , 60, 50);
     } completion:^(BOOL finished) {
-        self.planeImageView.frame = CGRectMake(self.planeView.frame.origin.x - 70, self.planeView.center.y -50 , 60, 50);
+        self.planeImageView.frame = CGRectMake(self.planeView.frame.size.width +250  , self.planeView.center.y -50 , 60, 50);
+        [self otherWay];
+    }];
+}
+
+- (void)otherWay {
+    self.planeImageView.image = [UIImage imageNamed:@"otherPlane"];
+    [UIView animateWithDuration:5 animations:^{
+         self.planeImageView.frame = CGRectMake(self.planeView.frame.origin.x-70, self.planeView.center.y -50 , 60, 50);
+     
+    } completion:^(BOOL finished) {
+          self.planeImageView.frame = CGRectMake(self.planeView.frame.origin.x-70,  self.planeView.center.y - 50 , 60, 50);
         [self goPlaneGo];
     }];
 }
