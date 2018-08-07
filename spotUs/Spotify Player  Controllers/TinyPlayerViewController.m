@@ -158,6 +158,15 @@
 }
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePosition:(NSTimeInterval)position{
+    NSInteger seconds = position;
+    [QueryManager getTrackfromID:self.citySongIDs[self.currentSongIndex] withCompletion:^(Track *track, NSError *error) {
+        if ([track[@"volumeDict"] valueForKey:[@(seconds) stringValue]]){
+            NSLog(@"sending post notif");
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"PlayingSongAtTime" object:self userInfo:[NSDictionary dictionaryWithObject:[track[@"volumeDict"] valueForKey:[@(seconds) stringValue]] forKey:@"volume"]];
+        }
+    }];
+   
+    
     self.progressBar.progress = position / self.player.metadata.currentTrack.duration;
     SPTPlaybackTrack *albumArtTrack = self.player.metadata.currentTrack;
     
@@ -264,7 +273,7 @@
     self.songTitle.text = albumArtTrack.name;
     self.artistNameLabel.text = albumArtTrack.artistName;
     
-    [self updateControlCenterImage:[ NSURL URLWithString:self.player.metadata.currentTrack.albumCoverArtURL]];
+    [self updateControlCenterImage:[NSURL URLWithString:self.player.metadata.currentTrack.albumCoverArtURL]];
     
     
     

@@ -9,7 +9,7 @@
 #import "Track.h"
 
 @implementation Track
-@dynamic spotifyID, citynames, flaggers;
+@dynamic spotifyID, citynames, flaggers, volumeDict;
 
 + (nonnull NSString *)parseClassName {
     return @"Track";
@@ -26,6 +26,7 @@
             newTrack.spotifyID = spotifyID;
             newTrack.flaggers = [NSMutableArray array];
             newTrack.citynames = [NSMutableArray array];
+            newTrack.volumeDict = [NSDictionary dictionary];
             [newTrack.citynames addObject:cityname];
             [newTrack saveInBackgroundWithBlock:completion];
         } else {

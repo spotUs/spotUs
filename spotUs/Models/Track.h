@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *spotifyID;
 @property (nonatomic, strong) NSMutableArray <NSString *> *citynames;
 @property (nonatomic) NSMutableArray<NSString*> *flaggers;
+@property (nonatomic, strong) NSDictionary *volumeDict;
 
 + (void) addNewTrack: (NSString *)spotifyID in:(NSString *)cityname withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
