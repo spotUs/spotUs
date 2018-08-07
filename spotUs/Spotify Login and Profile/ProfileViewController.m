@@ -96,7 +96,7 @@
     [UIView animateWithDuration:5 animations:^{
         self.planeImageView.frame = CGRectMake(self.planeView.frame.size.width + 50, self.planeView.center.y - 50  , 60, 50);
     } completion:^(BOOL finished) {
-        self.planeImageView.frame = CGRectMake(self.planeView.frame.origin.x, self.planeView.center.y -50 , 60, 50);
+        self.planeImageView.frame = CGRectMake(self.planeView.frame.origin.x - 70, self.planeView.center.y -50 , 60, 50);
         [self goPlaneGo];
     }];
 }
