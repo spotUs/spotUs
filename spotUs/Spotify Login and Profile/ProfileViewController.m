@@ -105,7 +105,7 @@
 }
 
 - (void)otherWay {
-    self.planeImageView.image = [UIImage imageNamed:@"otherPlane"];
+    self.planeImageView.image = [UIImage imageNamed:@"otherPlane-1"];
     [UIView animateWithDuration:5 animations:^{
          self.planeImageView.frame = CGRectMake(self.planeView.frame.origin.x-70, self.planeView.center.y -50 , 60, 50);
      
