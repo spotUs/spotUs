@@ -77,13 +77,10 @@
     query.limit = 20;
     [query includeKey:@"sender"];
     [query includeKey:@"receiver"];
-    [query includeKey:@"accepted"];
-    [query includeKey:@"dead"];
-    [query includeKey:@"removed"];
-
-
     [query whereKey:@"accepted" equalTo:@(YES)];
-    [query whereKey:@"dead" equalTo:@(YES)];
+    [query whereKey:@"notifiedAccepted" equalTo:@(YES)];
+    [query whereKey:@"removed" equalTo:@(NO)];
+    [query whereKey:@"notifiedRemoved" equalTo:@(NO)];
 
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
 
@@ -94,6 +91,7 @@
             if(([request.receiver.username isEqualToString:self.user.username] && [request.sender.username isEqualToString:[PFUser currentUser].username]) || ([request.receiver.username isEqualToString:[PFUser currentUser].username] && [request.sender.username isEqualToString:self.user.username])){
                 
                 request.removed = YES;
+                request.removee = self.user.username;
                 [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                     
                     if(succeeded){
@@ -132,56 +130,70 @@
 - (void) acceptRequest{
     [SVProgressHUD showWithStatus:@"Adding Friend..."];
     
-    NSMutableArray *friends = [PFUser currentUser][@"friends"];
-    [friends addObject:self.user.username];
-    [[PFUser currentUser] setObject:friends forKey:@"friends"];
-    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (error){
-            
-            self.addUserBtn.selected = NO;
-            
-            NSLog(@"error adding friend: %@",error.localizedDescription);
-        } else {
-            
-            
-            
-            NSLog(@"succesfully added friend");
-            [self updateFriendSearchCellwithUser:self.user];
-            
-            
-            PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
-            query.limit = 20;
-            [query includeKey:@"sender"];
-            [query includeKey:@"receiver"];
-            [query whereKey:@"dead" equalTo:@(NO)];
-            [query whereKey:@"accepted" equalTo:@(NO)];
-            [query whereKey:@"removed" equalTo:@(NO)];
-            [query whereKey:@"receiver" equalTo:[PFUser currentUser]];
-            [query whereKey:@"sender" equalTo:self.user];
-
-            [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+    [[PFUser currentUser] fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        
+        PFUser *me = (PFUser *)object;
+        
+        NSMutableArray *friends = me[@"friends"];
+        [friends addObject:self.user.username];
+        
+        [[PFUser currentUser] setObject:friends forKey:@"friends"];
+        [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (error){
                 
-                FriendRequest *request = (FriendRequest *)object;
-                request.accepted = YES;
-                NSLog(@"Set to accepted");
+                self.addUserBtn.selected = NO;
                 
-                [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                NSLog(@"error adding friend: %@",error.localizedDescription);
+            } else {
+                
+                
+                
+                NSLog(@"succesfully added friend");
+                [self updateFriendSearchCellwithUser:self.user];
+                
+                
+                PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
+                query.limit = 20;
+                [query includeKey:@"sender"];
+                [query includeKey:@"receiver"];
+                [query whereKey:@"notifiedAccepted" equalTo:@(NO)];
+                [query whereKey:@"accepted" equalTo:@(NO)];
+                [query whereKey:@"removed" equalTo:@(NO)];
+                [query whereKey:@"receiver" equalTo:[PFUser currentUser]];
+                [query whereKey:@"sender" equalTo:self.user];
+                
+                [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
                     
-                    if(succeeded){
-                        [self.delegate didChangeFriendStatus];
-
+                    FriendRequest *request = (FriendRequest *)object;
+                    
+                    request.accepted = YES;
+                    NSLog(@"Set to accepted");
+                    
+                    [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                         
-                        NSLog(@"updated request");
-
-                        
-                        
-                    }
+                        if(succeeded){
+                            [self.delegate didChangeFriendStatus];
+                            
+                            
+                            NSLog(@"updated request");
+                            
+                            
+                            
+                        }
+                    }];
                 }];
-            }];
-            
-        }
+                
+            }
+        }];
+        
+        
+        
+        
+        
+        
     }];
     
+
     
     
     

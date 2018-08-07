@@ -9,7 +9,7 @@
 #import "FriendRequest.h"
 
 @implementation FriendRequest
-@dynamic receiver,sender,accepted,dead,removed;
+@dynamic receiver,sender,accepted,notifiedAccepted,removed,notifiedRemoved,removee;
 
 + (nonnull NSString *)parseClassName {
     return @"FriendRequest";
@@ -22,8 +22,13 @@
     request.sender = sender;
     request.receiver = receiver;
     request.accepted = NO;
-    request.dead = NO;
+    request.notifiedAccepted = NO;
     request.removed = NO;
+    request.notifiedRemoved = NO;
+
+    request.removee = @"";
+
+    
     
     [request saveInBackgroundWithBlock: completion];
 
