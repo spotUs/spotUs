@@ -399,4 +399,38 @@ static SPTAuth *_auth = nil;
     [user saveInBackgroundWithBlock:completion];
 }
 
++ (void) makeVolumeDict: (NSString *)spotifyID withCompletion:(void(^)(NSDictionary *volumeDict, NSError *error))completion {
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:[@"https://api.spotify.com/v1/audio-analysis/" stringByAppendingString:spotifyID]]];
+    NSDictionary *headers = @{@"Authorization":[@"Bearer " stringByAppendingString:self.auth.session.accessToken]};
+    [request setAllHTTPHeaderFields:(headers)];
+    [request setHTTPMethod:@"GET"];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error){
+            if (completion) { completion(nil,error);}
+        } else {
+        NSDictionary *datadict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        NSArray *sectionsArray = datadict[@"segments"];
+        //NSMutableArray<NSString*> *songIDs = [NSMutableArray new];
+        NSMutableDictionary *volumeDict = [NSMutableDictionary dictionary];
+        for(NSDictionary *dict in sectionsArray){
+            NSLog(@"dictionary %@",dict);
+            float fnum = [[dict objectForKey:@"start"] floatValue];
+            int startTime = (int)roundf(fnum);
+            NSString *startTimeStr = [NSString stringWithFormat:@"%d", startTime];
+            if ([volumeDict objectForKey:startTimeStr]){
+                NSLog(@"not adding, there is already a key for that time");
+            } else {
+                NSLog(@"adding there is no key yet");
+                [volumeDict setObject:dict[@"loudness_start"] forKey:startTimeStr];
+            }
+        }
+        NSLog(@"dictionary volume!!! %@",volumeDict);
+            if (completion) {completion (volumeDict, nil);}
+        }
+    }] resume];
+    
+}
+
 @end

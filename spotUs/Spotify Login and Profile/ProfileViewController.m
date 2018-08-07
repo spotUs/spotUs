@@ -18,7 +18,9 @@
 #import "QueryManager.h"
 #import "StatsViewController.h"
 #import "FriendSearchViewController.h"
-@interface ProfileViewController () 
+#import <QuartzCore/QuartzCore.h>
+
+@interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *hometownLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *blurredImage;
@@ -26,6 +28,8 @@
 @property (strong, nonatomic) City *userCity;
 @property (weak, nonatomic) IBOutlet UIView *planeView;
 @property (strong, nonatomic) UIImageView *planeImageView;
+@property (strong, nonatomic) CAEmitterLayer *emitterLayer;
+
 @end
 
 @implementation ProfileViewController
@@ -65,6 +69,30 @@
         self.hometownLabel.attributedText = myString;
     }];
      */
+    
+    //delete later get dictionary volume for all tracks
+    /*
+    PFQuery *query = [PFQuery queryWithClassName:@"Track"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        NSArray<Track*> *tracks = objects;
+        for (Track *tr in tracks){
+            [QueryManager makeVolumeDict:tr.spotifyID withCompletion:^(NSDictionary *volumeDict, NSError *error) {
+                tr.volumeDict = volumeDict;
+                NSLog(@"volumedict %@",volumeDict);
+                [tr setObject:volumeDict forKey:@"volumeDict"];
+                [tr saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    NSLog(@"saved i guess lol");
+                    if (error) {
+                        NSLog(@"errorrr: %@",error.localizedDescription);
+                    }
+                }];
+            }];
+        }
+    }];*/
+    
+    
+    
     City *blankCity = currentUser[@"city"];
     
     self.userCity = (City* )[QueryManager getCityFromID:blankCity.objectId];
@@ -90,8 +118,50 @@
     self.planeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.planeView.frame.origin.x, self.planeView.center.y - 50, 60, 50)];
     self.planeImageView.image = [UIImage imageNamed:@"plane"];
     [self.view addSubview:self.planeImageView];
- [self goPlaneGo];
+    [self goPlaneGo];
+    
+    
+    //animations emitter
+    self.emitterLayer = [CAEmitterLayer layer];
+    self.emitterLayer.emitterPosition = CGPointMake(self.profileImageView.frame.origin.x + self.profileImageView.frame.size.width/2, self.profileImageView.frame.origin.y+self.profileImageView.frame.size.height/2);
+    
+    self.emitterLayer.emitterZPosition = 10;
+    self.emitterLayer.emitterSize = CGSizeMake(self.profileImageView.frame.size.width, 0);
+    self.emitterLayer.emitterShape = kCAEmitterLayerVolume;
+    
+    CAEmitterCell *cell = [CAEmitterCell emitterCell];
+    cell.scale = 0.1;
+    cell.scaleRange = 0.2;
+    cell.emissionRange = 5.0;
+    cell.lifetime = 5.0;
+    cell.birthRate = 1;
+    cell.velocity = 100;
+    cell.velocityRange = 0;
+    cell.yAcceleration = 0;
+    
+    cell.contents = (id)[[UIImage imageNamed:@"pin"] CGImage];
+    
+    self.emitterLayer.emitterCells = [NSArray arrayWithObject:cell];
+    
+    [self.view.layer addSublayer:self.emitterLayer];
+    [self.view bringSubviewToFront:self.profileImageView];
+    
+    //listener
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changeMusicAnimation:)
+                                                 name:@"PlayingSongAtTime"
+                                               object:nil];
 }
+
+- (void) changeMusicAnimation:(NSNotification *) notification{
+    NSDictionary *timeInfo = notification.userInfo;
+    if ([timeInfo valueForKey:@"volume"]){
+        NSNumber *vol = [timeInfo valueForKey:@"volume"];
+        NSLog(@"%@",vol);
+        self.emitterLayer.birthRate = ([vol floatValue] + (float)50.0) * (float)2;
+    }
+}
+
 - (void)goPlaneGo {
     [UIView animateWithDuration:5 animations:^{
         self.planeImageView.frame = CGRectMake(self.planeView.frame.size.width + 50, self.planeView.center.y - 50  , 60, 50);

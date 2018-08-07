@@ -50,4 +50,7 @@
 + (void) setLastPlayedCity: (City *_Nonnull)city withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 +(void) buttonBump:(UIButton*)button;
+
++ (void) makeVolumeDict: (NSString *)spotifyID withCompletion:(void(^)(NSDictionary *volumeDict, NSError *error))completion;
+
 @end
