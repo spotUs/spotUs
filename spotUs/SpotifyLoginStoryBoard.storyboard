@@ -289,6 +289,11 @@
                                     <segue destination="NH1-rC-6tQ" kind="show" id="gQn-Dh-zH8"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ry-fe-VCj">
+                                <rect key="frame" x="0.0" y="457" width="375" height="167"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OKskyline" translatesAutoresizingMaskIntoConstraints="NO" id="muF-28-aZ1">
                                 <rect key="frame" x="0.0" y="489" width="375" height="178"/>
                                 <gestureRecognizers/>
@@ -382,6 +387,7 @@
                     <connections>
                         <outlet property="blurredImage" destination="kvL-xe-bm4" id="PAT-dM-tVD"/>
                         <outlet property="hometownLabel" destination="Xzc-ku-SIA" id="016-tF-YQ9"/>
+                        <outlet property="planeView" destination="4Ry-fe-VCj" id="taY-YM-lQG"/>
                         <outlet property="profileImageView" destination="S2m-ff-JL2" id="EtJ-UU-asQ"/>
                         <outlet property="skylineImageView" destination="muF-28-aZ1" id="frJ-ea-W39"/>
                         <segue destination="XYl-M6-THt" kind="show" identifier="hometown" id="tkD-dk-LkX"/>
@@ -1597,6 +1603,7 @@
         <image name="spotifyWhite" width="2400" height="2400"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="wUC-mq-zGa"/>
         <segue reference="tkD-dk-LkX"/>
         <segue reference="lrd-t7-rkx"/>
         <segue reference="Is9-90-9Ke"/>
