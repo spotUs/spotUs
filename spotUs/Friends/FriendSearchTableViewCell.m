@@ -44,11 +44,7 @@
         
         [alert addAction:[TYAlertAction actionWithTitle:@"No" style:TYAlertActionStyleCancel handler:^(TYAlertAction *action) {
         }]];
-        
 
-        
-        
-        
         
         [self.removeDelegate showAlert:alert];
         
@@ -59,15 +55,7 @@
     }
 }
 
-- (void) updateFriendSearchCellwithUser: (PFUser *)user{
-    self.user = user;
-    self.nameLabel.text = user.username;
-    self.addUserBtn.selected = [self userAdded];
-}
 
-- (BOOL) userAdded {
-    return [[PFUser currentUser][@"friends"] containsObject: self.user.username];
-}
 
 - (void) removeFriend {
     [SVProgressHUD showWithStatus:@"Removing Friend :("];
@@ -119,7 +107,6 @@
             NSLog(@"error removing friend: %@",error.localizedDescription);
         } else {
             NSLog(@"succesfully removed friend");
-            [self updateFriendSearchCellwithUser:self.user];
             [self.delegate didChangeFriendStatus];
         }
     }];

@@ -201,7 +201,11 @@
 - (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText.length != 0) {
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(SPTTrack *evaluatedObject, NSDictionary *bindings){
-            return [[evaluatedObject.name lowercaseString] containsString:[searchText lowercaseString]];
+            NSArray<SPTPartialArtist*> *artists = evaluatedObject.artists;
+            
+            
+            return [[evaluatedObject.name lowercaseString] containsString:[searchText lowercaseString]] || [[artists[0].name lowercaseString] containsString:[searchText lowercaseString]];
+            
         }];
         self.filteredDataArray = [self.dataArray filteredArrayUsingPredicate:predicate];
         

@@ -35,6 +35,7 @@
 @property(strong, nonatomic)NSTimer *favsBubbles;
 
 @property int * loopCount;
+@property BOOL alreadyPaused;
 @property (strong, nonatomic) NSMutableArray *ina;
 
 
@@ -127,8 +128,7 @@
     
          }
     
-    NSLog(@"%@", @"COUNT");
-    NSLog(@"%d", _loopCount);
+
    
  
 }
@@ -138,15 +138,27 @@
     return (((float) (arc4random() % ((unsigned)RAND_MAX + 1)) / RAND_MAX) * diff) + smallNumber;
 }
 - (IBAction)didStartSeek:(id)sender {
+    if(!self.player.playbackState.isPlaying){
+        self.alreadyPaused = YES;
+    }
+    
+    else{
+    
     [self.player setIsPlaying:NO callback:nil];
     [self.pauseButton setSelected:YES];
+    }
     // pause music when user begins to seek
 }
 
 - (IBAction)didLetGo:(id)sender {
     [self.player seekTo:self.musicSlider.value callback:nil];
+    
+    if(!self.alreadyPaused){
+    
     [self.player setIsPlaying:YES callback:nil];
     [self.pauseButton setSelected:NO];
+    }
+    self.alreadyPaused = NO;
     // start music again and seek when user lets go
 }
 - (IBAction)goBack:(id)sender {
