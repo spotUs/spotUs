@@ -44,7 +44,11 @@
         
         [alert addAction:[TYAlertAction actionWithTitle:@"No" style:TYAlertActionStyleCancel handler:^(TYAlertAction *action) {
         }]];
+        
 
+        
+        
+        
         
         [self.removeDelegate showAlert:alert];
         
@@ -53,6 +57,11 @@
         
         
     }
+}
+
+- (void) updateFriendSearchCellwithUser: (PFUser *)user{
+    self.user = user;
+    self.nameLabel.text = user.username;
 }
 
 
