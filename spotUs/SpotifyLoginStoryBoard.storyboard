@@ -444,8 +444,8 @@
                                                         <constraint firstAttribute="width" constant="44" id="1Wj-zh-ABR"/>
                                                         <constraint firstAttribute="height" constant="44" id="SYE-rK-FWW"/>
                                                     </constraints>
-                                                    <state key="normal" title="add friend" image="profile-button"/>
-                                                    <state key="selected" image="check-user"/>
+                                                    <state key="normal" title="add friend" image="removeBlack"/>
+                                                    <state key="selected" image="friendWhite"/>
                                                     <connections>
                                                         <action selector="onTapAddFriend:" destination="pit-y1-zAn" eventType="touchUpInside" id="Szs-kv-AGY"/>
                                                     </connections>
@@ -493,8 +493,8 @@
                         <viewLayoutGuide key="safeArea" id="Bkm-XC-e9z"/>
                     </view>
                     <navigationItem key="navigationItem" title="Friends" id="UvW-fH-Lfr">
-                        <barButtonItem key="rightBarButtonItem" image="add-user" style="plain" id="Hw1-kq-0ZK">
-                            <inset key="imageInsets" minX="4" minY="0.0" maxX="-40" maxY="0.0"/>
+                        <barButtonItem key="rightBarButtonItem" image="friendBlue" style="plain" id="Hw1-kq-0ZK">
+                            <inset key="imageInsets" minX="4" minY="0.0" maxX="-3" maxY="0.0"/>
                             <connections>
                                 <segue destination="ne9-1x-vwb" kind="show" id="y9v-ZD-0cm"/>
                             </connections>
@@ -542,8 +542,8 @@
                                                         <constraint firstAttribute="width" constant="44" id="hcN-UV-dO5"/>
                                                         <constraint firstAttribute="height" constant="44" id="hjP-hI-PBJ"/>
                                                     </constraints>
-                                                    <state key="normal" title="add friend" image="add-user"/>
-                                                    <state key="selected" image="check-user"/>
+                                                    <state key="normal" title="add friend" image="friendWhite"/>
+                                                    <state key="selected" image="user-check-interface-symbol"/>
                                                     <connections>
                                                         <action selector="onTapAddFriend:" destination="YKA-yg-Ine" eventType="touchUpInside" id="gwn-MG-uKZ"/>
                                                     </connections>
@@ -1582,14 +1582,14 @@
     <resources>
         <image name="OKskyline" width="350" height="160"/>
         <image name="Screen Shot 2018-07-20 at 2.41.33 PM" width="1304" height="1350"/>
-        <image name="add-user" width="100" height="100"/>
         <image name="backward" width="512" height="512"/>
         <image name="black-location" width="50" height="50"/>
         <image name="bluePlay" width="24" height="24"/>
-        <image name="check-user" width="100" height="100"/>
         <image name="earth" width="64" height="64"/>
         <image name="fast-forward-2" width="512" height="512"/>
         <image name="flag" width="64" height="64"/>
+        <image name="friendBlue" width="32" height="32"/>
+        <image name="friendWhite" width="32" height="32"/>
         <image name="friends" width="100" height="100"/>
         <image name="grayfavorite" width="256" height="256"/>
         <image name="heart-button" width="128" height="128"/>
@@ -1597,13 +1597,14 @@
         <image name="martinspotus" width="1024" height="1024"/>
         <image name="pause-2" width="512" height="512"/>
         <image name="play-2" width="512" height="512"/>
-        <image name="profile-button" width="512" height="512"/>
         <image name="redLike" width="64" height="64"/>
+        <image name="removeBlack" width="32" height="32"/>
         <image name="repeat" width="32" height="32"/>
         <image name="repeat (2)" width="32" height="32"/>
         <image name="screen_shot_2018_07_18_at_4_11_56_pm_1" width="256" height="256"/>
         <image name="spotUsSlogan" width="868" height="726"/>
         <image name="spotifyWhite" width="2400" height="2400"/>
+        <image name="user-check-interface-symbol" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8a5-vN-qGZ"/>
