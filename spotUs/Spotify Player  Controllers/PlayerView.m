@@ -451,6 +451,7 @@
     
     if(self.favoriteButton.isSelected){
         [self.favoriteButton setSelected:NO];
+         [self.favsBubbles invalidate];
         
     }
     else {
