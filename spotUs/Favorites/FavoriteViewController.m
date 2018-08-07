@@ -34,8 +34,10 @@
 
 - (IBAction)didclickPlay:(id)sender {
     
-    NSDictionary *cityDic =  @{ @"citytracks"     : self.favorites,
+    NSDictionary *cityDic =  @{ @"tracks"     : self.favorites,
                                 @"index" : [NSNumber numberWithInt:0],
+                                @"title" : @"Favorites",
+
                                 };
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
                                                         object:self userInfo:cityDic];
@@ -141,10 +143,12 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSDictionary *cityDic =  @{ @"favtracks"     : self.favorites,
+    NSDictionary *cityDic =  @{ @"tracks"     : self.favorites,
                                 @"index" : [NSNumber numberWithInteger:indexPath.row],
+                                @"title" : @"Favorites",
+
                                 };
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Play Favorites"
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
                                                         object:self userInfo:cityDic];
     
 }
@@ -153,10 +157,11 @@
     [self.favoriteTableView deselectRowAtIndexPath:indexPath animated:YES];
 
     
-    NSDictionary *cityDic =  @{ @"favtracks"     : self.favorites,
+    NSDictionary *cityDic =  @{ @"tracks"     : self.favorites,
                                 @"index" : [NSNumber numberWithInteger:indexPath.row-1],
+                                @"title" : @"Favorites",
                                 };
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Play Favorites"
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
                                                         object:self userInfo:cityDic];
     
 }

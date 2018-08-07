@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
 @property (weak, nonatomic) IBOutlet UIButton *rewindButton;
 @property(strong, nonatomic)NSTimer *favsBubbles;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 
 @property int * loopCount;
 @property BOOL alreadyPaused;
@@ -235,6 +236,8 @@
     self.musicSlider.minimumValue = 0.0;
     self.musicSlider.value = 0;
     [self refreshSongData];
+    
+    self.navBar.topItem.title = self.playlistTitle;
     
   
     
