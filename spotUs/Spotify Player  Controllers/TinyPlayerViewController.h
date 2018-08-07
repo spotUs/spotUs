@@ -20,6 +20,8 @@
 @property (nonatomic, strong) SPTAuth *auth;
 @property BOOL nowPlaying;
 @property BOOL didSelect;
+@property (nonatomic, strong) NSString *playlistTitle;
+
 
 
 

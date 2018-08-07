@@ -70,13 +70,19 @@ CLLocationManager *locationManager;
     } else {
         self.mapToggleBtn.selected = YES;
     }
-    if ([self.mapView isHidden]){
-    [UIView transitionWithView:self.friendsMapView duration:0.5
+    if (self.mapView.alpha ==1){
+    [UIView transitionWithView:self.friendsMapView duration:0.38
                        options:UIViewAnimationOptionTransitionCrossDissolve
-                    animations:^{self.mapView.hidden = NO; self.friendsMapView.hidden = YES;}completion:NULL];
+                    animations:^{self.mapView.alpha = 0; self.friendsMapView.alpha = 1;}completion:NULL];
+        
     }
     else
-        [UIView transitionWithView:self.mapView duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{self.friendsMapView.hidden = NO; self.mapView.hidden = YES;  } completion:NULL];
+        [UIView transitionWithView:self.mapView duration:0.38 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+            self.friendsMapView.alpha = 0; self.mapView.alpha = 1;
+            
+            
+            
+        } completion:NULL];
         }
 
 - (void)ZoomInOnLocation:(CLLocation *)location{

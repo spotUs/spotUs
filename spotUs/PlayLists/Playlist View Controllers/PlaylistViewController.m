@@ -35,8 +35,10 @@
 - (IBAction)didClickPlay:(id)sender {
     
     [QueryManager setLastPlayedCity:self.city withCompletion:nil];
-    NSDictionary *cityDic =  @{ @"citytracks"     : self.city.tracks,
+    NSDictionary *cityDic =  @{ @"tracks"     : self.city.tracks,
                                 @"index" : [NSNumber numberWithInt:0],
+                                @"title" : self.city.name,
+
                                 };
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
                                                         object:self userInfo:cityDic];
@@ -163,8 +165,10 @@
     [QueryManager setLastPlayedCity:self.city withCompletion:nil];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    NSDictionary *cityDic =  @{ @"citytracks"     : self.city.tracks,
+    NSDictionary *cityDic =  @{ @"tracks"     : self.city.tracks,
                                 @"index" : [NSNumber numberWithInteger:indexPath.row-1],
+                                @"title" : self.city.name,
+
                                 };
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
                                                         object:self userInfo:cityDic];
@@ -191,8 +195,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [QueryManager setLastPlayedCity:self.city withCompletion:nil];
-    NSDictionary *cityDic =  @{ @"citytracks"     : self.city.tracks,
+    NSDictionary *cityDic =  @{ @"tracks"     : self.city.tracks,
                                 @"index" : [NSNumber numberWithInteger:indexPath.row],
+                                @"title" : self.city.name,
+
                                 };
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
                                                         object:self userInfo:cityDic];
@@ -201,7 +207,11 @@
 - (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText.length != 0) {
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(SPTTrack *evaluatedObject, NSDictionary *bindings){
-            return [[evaluatedObject.name lowercaseString] containsString:[searchText lowercaseString]];
+            NSArray<SPTPartialArtist*> *artists = evaluatedObject.artists;
+            
+            
+            return [[evaluatedObject.name lowercaseString] containsString:[searchText lowercaseString]] || [[artists[0].name lowercaseString] containsString:[searchText lowercaseString]];
+            
         }];
         self.filteredDataArray = [self.dataArray filteredArrayUsingPredicate:predicate];
         

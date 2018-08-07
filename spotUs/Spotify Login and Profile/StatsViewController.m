@@ -118,10 +118,12 @@
     
     
     
-    NSDictionary *cityDic =  @{ @"favtracks"     : self.lastPlayedIDs,
+    NSDictionary *cityDic =  @{ @"tracks"     : self.lastPlayedIDs,
                                 @"index" : [NSNumber numberWithInteger:indexPath.row],
+                                @"title" : [NSString stringWithFormat:@"%@%@", self.user.username, @"'s Last Played"]
+
                                 };
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Play Favorites"
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Chose Playlist"
                                                         object:self userInfo:cityDic];
     
 }

@@ -15,8 +15,12 @@
 @property (strong, nonatomic) PFUser * _Nonnull sender;
 @property (strong,nonatomic) PFUser * _Nonnull receiver;
 @property BOOL accepted;
-@property BOOL dead;
+@property BOOL notifiedAccepted;
 @property BOOL removed;
+@property BOOL notifiedRemoved;
+@property NSString *removee;
+
+
 
 
 

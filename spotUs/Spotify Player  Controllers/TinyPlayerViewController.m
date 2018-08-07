@@ -70,10 +70,6 @@
                                                  name:@"Chose Playlist"
                                                object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveTestNotification:)
-                                                 name:@"Play Favorites"
-                                               object:nil];
 
     
     self.player.playbackDelegate = self;
@@ -88,30 +84,18 @@
         self.player.playbackDelegate = self;
         NSDictionary *userInfo = notification.userInfo;
         NSLog(@"%@",notification);
-        self.citySongIDs = userInfo[@"citytracks"];
+        self.citySongIDs = userInfo[@"tracks"];
 
         self.currentSongIndex = [userInfo[@"index"] intValue];
+        self.playlistTitle = userInfo[@"title"];
+
         
 
         [self startMusic];
         
     }
     
-    else if ([[notification name] isEqualToString:@"Play Favorites"]){
-        
-        NSLog (@"Successfully received the favorites music!");
-        self.player.playbackDelegate = self;
-        NSDictionary *userInfo = notification.userInfo;
-        
-        self.currentSongIndex = [userInfo[@"index"] intValue];
-        self.citySongIDs = userInfo[@"favtracks"];
-        
-        [self startMusic];
-        
-        
-        
-        
-    }
+
     
 }
 
@@ -353,6 +337,7 @@
         playerView.currentSongIndex = self.currentSongIndex;
         playerView.nowPlaying = YES;
         playerView.dismissDelegate = self;
+        playerView.playlistTitle = self.playlistTitle;
     }
     
     

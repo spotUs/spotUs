@@ -25,7 +25,7 @@
             if ([self.navController.visibleViewController isKindOfClass:FavoriteViewController.class]){
                 
                 CATransition *applicationLoadViewIn =[CATransition animation];
-                [applicationLoadViewIn setDuration:.2];
+                [applicationLoadViewIn setDuration:.3];
                 [applicationLoadViewIn setType:kCATransitionPush];
                 applicationLoadViewIn.subtype = kCATransitionFromRight;
                 [applicationLoadViewIn setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
@@ -35,8 +35,13 @@
             
             else{
                 
-                [self.navController popToRootViewControllerAnimated:YES];
-            }
+                CATransition *applicationLoadViewIn =[CATransition animation];
+                [applicationLoadViewIn setDuration:.3];
+                [applicationLoadViewIn setType:kCATransitionPush];
+                applicationLoadViewIn.subtype = kCATransitionFromLeft;
+                [applicationLoadViewIn setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+                [[self.navController.view layer]addAnimation:applicationLoadViewIn forKey:kCATransitionReveal];
+                [self.navController popToRootViewControllerAnimated:YES];            }
             
             
             

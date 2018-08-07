@@ -252,6 +252,7 @@
                         <outlet property="flagButton" destination="AEy-bS-e2N" id="Nrp-pe-tMY"/>
                         <outlet property="forwardButton" destination="3fM-ey-pfd" id="Ph0-bc-VWo"/>
                         <outlet property="musicSlider" destination="54k-zG-om8" id="SZ1-oM-2De"/>
+                        <outlet property="navBar" destination="kqH-yh-xgP" id="tWZ-58-2O1"/>
                         <outlet property="pauseButton" destination="4hG-LN-kxo" id="62v-PK-k2b"/>
                         <outlet property="repeatButton" destination="DZI-Sf-NGi" id="7Bt-fZ-sdr"/>
                         <outlet property="rewindButton" destination="7I6-an-6PL" id="qjn-Uf-n9J"/>
@@ -443,8 +444,8 @@
                                                         <constraint firstAttribute="width" constant="44" id="1Wj-zh-ABR"/>
                                                         <constraint firstAttribute="height" constant="44" id="SYE-rK-FWW"/>
                                                     </constraints>
-                                                    <state key="normal" title="add friend" image="add-user"/>
-                                                    <state key="selected" image="check-user"/>
+                                                    <state key="normal" title="add friend" image="removeBlack"/>
+                                                    <state key="selected" image="friendWhite"/>
                                                     <connections>
                                                         <action selector="onTapAddFriend:" destination="pit-y1-zAn" eventType="touchUpInside" id="Szs-kv-AGY"/>
                                                     </connections>
@@ -492,8 +493,8 @@
                         <viewLayoutGuide key="safeArea" id="Bkm-XC-e9z"/>
                     </view>
                     <navigationItem key="navigationItem" title="Friends" id="UvW-fH-Lfr">
-                        <barButtonItem key="rightBarButtonItem" image="add-user" style="plain" id="Hw1-kq-0ZK">
-                            <inset key="imageInsets" minX="4" minY="0.0" maxX="-40" maxY="0.0"/>
+                        <barButtonItem key="rightBarButtonItem" image="friendBlue" style="plain" id="Hw1-kq-0ZK">
+                            <inset key="imageInsets" minX="4" minY="0.0" maxX="-3" maxY="0.0"/>
                             <connections>
                                 <segue destination="ne9-1x-vwb" kind="show" id="y9v-ZD-0cm"/>
                             </connections>
@@ -541,8 +542,8 @@
                                                         <constraint firstAttribute="width" constant="44" id="hcN-UV-dO5"/>
                                                         <constraint firstAttribute="height" constant="44" id="hjP-hI-PBJ"/>
                                                     </constraints>
-                                                    <state key="normal" title="add friend" image="add-user"/>
-                                                    <state key="selected" image="check-user"/>
+                                                    <state key="normal" title="add friend" image="friendWhite"/>
+                                                    <state key="selected" image="user-check-interface-symbol"/>
                                                     <connections>
                                                         <action selector="onTapAddFriend:" destination="YKA-yg-Ine" eventType="touchUpInside" id="gwn-MG-uKZ"/>
                                                     </connections>
@@ -776,20 +777,20 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6O9-g2-xSE">
-                                <rect key="frame" x="122" y="120" width="130" height="130"/>
+                                <rect key="frame" x="122" y="164" width="130" height="130"/>
                                 <color key="backgroundColor" red="0.97693405241296349" green="0.98579872044675765" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6O9-g2-xSE" secondAttribute="height" multiplier="1:1" id="WPu-ev-jHM"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Played Tracks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXN-As-HTF">
-                                <rect key="frame" x="10" y="255" width="355" height="21"/>
+                                <rect key="frame" x="10" y="299" width="355" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O4H-0B-eW6">
-                                <rect key="frame" x="0.0" y="286" width="375" height="381"/>
+                                <rect key="frame" x="0.0" y="330" width="375" height="337"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PlaylistTableCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stats" rowHeight="52" id="SWI-3t-9XR" customClass="PlaylistTableViewCell">
@@ -879,7 +880,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j8u-RV-yRn">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
-                            <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fiS-ZA-l3J">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fiS-ZA-l3J">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2DL-E6-Inc">
@@ -1581,14 +1582,14 @@
     <resources>
         <image name="OKskyline" width="350" height="160"/>
         <image name="Screen Shot 2018-07-20 at 2.41.33 PM" width="1304" height="1350"/>
-        <image name="add-user" width="100" height="100"/>
         <image name="backward" width="512" height="512"/>
         <image name="black-location" width="50" height="50"/>
         <image name="bluePlay" width="24" height="24"/>
-        <image name="check-user" width="100" height="100"/>
         <image name="earth" width="64" height="64"/>
         <image name="fast-forward-2" width="512" height="512"/>
         <image name="flag" width="64" height="64"/>
+        <image name="friendBlue" width="32" height="32"/>
+        <image name="friendWhite" width="32" height="32"/>
         <image name="friends" width="100" height="100"/>
         <image name="grayfavorite" width="256" height="256"/>
         <image name="heart-button" width="128" height="128"/>
@@ -1597,15 +1598,17 @@
         <image name="pause-2" width="512" height="512"/>
         <image name="play-2" width="512" height="512"/>
         <image name="redLike" width="64" height="64"/>
+        <image name="removeBlack" width="32" height="32"/>
         <image name="repeat" width="32" height="32"/>
         <image name="repeat (2)" width="32" height="32"/>
         <image name="screen_shot_2018_07_18_at_4_11_56_pm_1" width="256" height="256"/>
         <image name="spotUsSlogan" width="868" height="726"/>
         <image name="spotifyWhite" width="2400" height="2400"/>
+        <image name="user-check-interface-symbol" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8a5-vN-qGZ"/>
-        <segue reference="lrd-t7-rkx"/>
+        <segue reference="aPd-C3-D0H"/>
         <segue reference="Is9-90-9Ke"/>
         <segue reference="U8D-uR-5nx"/>
         <segue reference="MLP-iN-umP"/>
