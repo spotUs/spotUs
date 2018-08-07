@@ -443,7 +443,7 @@
                                                         <constraint firstAttribute="width" constant="44" id="1Wj-zh-ABR"/>
                                                         <constraint firstAttribute="height" constant="44" id="SYE-rK-FWW"/>
                                                     </constraints>
-                                                    <state key="normal" title="add friend" image="add-user"/>
+                                                    <state key="normal" title="add friend" image="profile-button"/>
                                                     <state key="selected" image="check-user"/>
                                                     <connections>
                                                         <action selector="onTapAddFriend:" destination="pit-y1-zAn" eventType="touchUpInside" id="Szs-kv-AGY"/>
@@ -776,20 +776,20 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6O9-g2-xSE">
-                                <rect key="frame" x="122" y="120" width="130" height="130"/>
+                                <rect key="frame" x="122" y="164" width="130" height="130"/>
                                 <color key="backgroundColor" red="0.97693405241296349" green="0.98579872044675765" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6O9-g2-xSE" secondAttribute="height" multiplier="1:1" id="WPu-ev-jHM"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Played Tracks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXN-As-HTF">
-                                <rect key="frame" x="10" y="255" width="355" height="21"/>
+                                <rect key="frame" x="10" y="299" width="355" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O4H-0B-eW6">
-                                <rect key="frame" x="0.0" y="286" width="375" height="381"/>
+                                <rect key="frame" x="0.0" y="330" width="375" height="337"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PlaylistTableCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stats" rowHeight="52" id="SWI-3t-9XR" customClass="PlaylistTableViewCell">
@@ -1040,7 +1040,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tmw-Y8-jpA">
-                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PlaylistTableCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaylistTableCell" rowHeight="90" id="Ksl-Xp-oV8" customClass="PlaylistTableViewCell">
@@ -1115,7 +1115,7 @@
                                 </prototypes>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zSC-Er-mCe">
-                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R9e-hD-3aX">
                                     <size key="itemSize" width="165" height="167"/>
                                     <size key="headerReferenceSize" width="50" height="119"/>
@@ -1206,7 +1206,7 @@
                                 </collectionReusableView>
                             </collectionView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="iag-Wo-gMA">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -1596,6 +1596,7 @@
         <image name="martinspotus" width="1024" height="1024"/>
         <image name="pause-2" width="512" height="512"/>
         <image name="play-2" width="512" height="512"/>
+        <image name="profile-button" width="512" height="512"/>
         <image name="redLike" width="64" height="64"/>
         <image name="repeat" width="32" height="32"/>
         <image name="repeat (2)" width="32" height="32"/>
@@ -1604,8 +1605,9 @@
         <image name="spotifyWhite" width="2400" height="2400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8a5-vN-qGZ"/>
-        <segue reference="lrd-t7-rkx"/>
+        <segue reference="wUC-mq-zGa"/>
+        <segue reference="tkD-dk-LkX"/>
+        <segue reference="aPd-C3-D0H"/>
         <segue reference="Is9-90-9Ke"/>
         <segue reference="U8D-uR-5nx"/>
         <segue reference="MLP-iN-umP"/>

@@ -258,11 +258,15 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     if (indexPath.row == 0){
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"divider" forIndexPath:indexPath];
-        cell.textLabel.text = @"Friends: ";
+        cell.textLabel.text = @" My Friends: ";
+        [cell.textLabel setFont:[UIFont fontWithName:@"HindVadodara-Bold" size:20]];
+    
+
         return cell;
     } else if (indexPath.row == self.filteredFriends.count + 1){
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"divider" forIndexPath:indexPath];
-        cell.textLabel.text = @"Friend Requests: ";
+        cell.textLabel.text = @"Friend Request: ";
+          [cell.textLabel setFont:[UIFont fontWithName:@"HindVadodara-Bold" size:20]];
         return cell;
     } else {
         FriendSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FriendSearchCell" forIndexPath:indexPath];
