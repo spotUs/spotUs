@@ -159,8 +159,8 @@
     NSDictionary *timeInfo = notification.userInfo;
     if ([timeInfo valueForKey:@"volume"]){
         NSNumber *vol = [timeInfo valueForKey:@"volume"];
-        NSLog(@"%@",vol);
-        self.emitterLayer.birthRate = ([vol floatValue] + (float)50.0) * (float)2;
+        NSLog(@"animation: %@",vol);
+        self.emitterLayer.birthRate = ([vol floatValue] + (float)60.0) * (float)2;
     }
 }
 
