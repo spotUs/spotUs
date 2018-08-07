@@ -153,7 +153,6 @@
                                              selector:@selector(changeMusicAnimation:)
                                                  name:@"PlayingSongAtTime"
                                                object:nil];
-=
 }
 
 - (void) changeMusicAnimation:(NSNotification *) notification{
