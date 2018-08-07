@@ -58,8 +58,13 @@ CLLocationManager *locationManager;
         }
     }
 }
+- (IBAction)didClickCheckIn:(id)sender {
+    
+    [QueryManager buttonBump:self.checkInButton];
+}
 
 - (IBAction)showOtherMapTapped:(id)sender {
+    [QueryManager buttonBump:self.mapToggleBtn];
     if (self.mapToggleBtn.selected) {
         self.mapToggleBtn.selected = NO;
     } else {

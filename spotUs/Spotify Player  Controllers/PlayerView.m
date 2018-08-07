@@ -41,6 +41,10 @@
 @end
 
 @implementation PlayerView
+- (IBAction)didClickCheckIn:(id)sender {
+    
+    
+}
 - (IBAction)didClickBack:(id)sender {
 
     [self dismissViewControllerAnimated:YES completion:nil];
