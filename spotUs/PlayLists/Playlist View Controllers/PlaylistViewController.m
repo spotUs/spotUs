@@ -93,10 +93,14 @@
     
     if ([self.collectionView isHidden]) {
         NSLog(@"changing tableview");
+        [self.collectionView setContentOffset:CGPointZero animated:NO];
+
         [self.collectionView setHidden:NO];
         [self.tableView setHidden:YES];
         self.navigationItem.rightBarButtonItem= self.listButton;
     } else {
+        [self.tableView setContentOffset:CGPointZero animated:NO];
+
         [self.collectionView setHidden:YES];
         [self.tableView setHidden:NO];
         self.navigationItem.rightBarButtonItem= self.gridButton;
