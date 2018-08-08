@@ -37,9 +37,9 @@
                                 [UIImage imageNamed:@"miamiskyline"],
                                 [UIImage imageNamed:@"nashville-skyline"], [UIImage imageNamed:@"neworleans-1"],
                                 [UIImage imageNamed:@"oaklahoma"],nil];
-    _slideShow.animationImages=animationImages;
-    [_slideShow setAnimationDuration:3];
-    [_slideShow startAnimating];
+    self.slideShow.animationImages=animationImages;
+    [self.slideShow setAnimationDuration:3];
+    [self.slideShow startAnimating];
 }
 
 - (void)didReceiveMemoryWarning {
