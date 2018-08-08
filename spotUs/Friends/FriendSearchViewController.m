@@ -14,6 +14,7 @@
 #import "UIView+TYAlertView.h"
 
 @interface FriendSearchViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, FriendStatusDelegate, RemoveFriendDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *slideShow;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -49,7 +50,11 @@
     self.tableView.rowHeight = 63;
     
     [SVProgressHUD showWithStatus:@"Loading Friends..."];
-    
+    NSArray *animationImages = [[NSArray alloc] initWithObjects:
+                                [UIImage imageNamed:@"play"],
+                                [UIImage imageNamed:@"pause"],nil];
+    _slideShow.animationImages=animationImages;
+    [_slideShow startAnimating];
     [self updateUsers];
     
 }
