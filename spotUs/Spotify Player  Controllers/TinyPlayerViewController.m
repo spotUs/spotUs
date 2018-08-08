@@ -158,13 +158,7 @@
 }
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePosition:(NSTimeInterval)position{
-    NSInteger seconds = position;
-    [QueryManager getTrackfromID:[self.player.metadata.currentTrack.uri substringFromIndex:14] withCompletion:^(Track *track, NSError *error) {
-        if ([track[@"volumeDict"] valueForKey:[@(seconds) stringValue]]){
-            NSLog(@"sending post notif");
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"PlayingSongAtTime" object:self userInfo:[NSDictionary dictionaryWithObject:[track[@"volumeDict"] valueForKey:[@(seconds) stringValue]] forKey:@"volume"]];
-        }
-    }];
+    
    
     
     self.progressBar.progress = position / self.player.metadata.currentTrack.duration;
@@ -172,7 +166,13 @@
     
     if(albumArtTrack != nil){
         
-        
+        NSInteger seconds = position;
+        [QueryManager getTrackfromID:[self.player.metadata.currentTrack.uri substringFromIndex:14] withCompletion:^(Track *track, NSError *error) {
+            if ([track[@"volumeDict"] valueForKey:[@(seconds) stringValue]]){
+                NSLog(@"sending post notif");
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"PlayingSongAtTime" object:self userInfo:[NSDictionary dictionaryWithObject:[track[@"volumeDict"] valueForKey:[@(seconds) stringValue]] forKey:@"volume"]];
+            }
+        }];
         
         NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
         if(self.notificationImage != nil){
