@@ -206,6 +206,10 @@
     if(self.player.playbackState.isPlaying){
         [self.player setIsPlaying:NO callback:nil];
         [self.pauseButton setSelected:YES];
+        NSMutableDictionary *tempdict = [NSMutableDictionary dictionary];
+        [tempdict setValue:[NSString stringWithFormat:@"%d",-60] forKey:@"volume"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PlayingSongAtTime" object:self userInfo:tempdict] ;
+        NSLog(@"sent pause notif");
     } else {
         [self.player setIsPlaying:YES callback:nil];
         [self.pauseButton setSelected:NO];
