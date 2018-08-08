@@ -96,6 +96,7 @@
     self.searchBar.delegate = self;
     // Do any additional setup after loading the view.
 
+
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*) self.favoriteCollectionView.collectionViewLayout;
     layout.minimumInteritemSpacing = 5;
     layout.minimumLineSpacing = 5;
