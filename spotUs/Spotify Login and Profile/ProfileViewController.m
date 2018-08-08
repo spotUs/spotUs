@@ -70,7 +70,7 @@
     }];
      */
     
-    //delete later get dictionary volume for all tracks
+    // populate dictionary volume for all tracks
     /*
     PFQuery *query = [PFQuery queryWithClassName:@"Track"];
     
@@ -129,15 +129,15 @@
     
     self.emitterLayer.emitterZPosition = 10;
     self.emitterLayer.emitterSize = CGSizeMake(self.profileImageView.frame.size.width, 0);
-    self.emitterLayer.emitterShape = kCAEmitterLayerVolume;
+    self.emitterLayer.emitterShape = kCAEmitterLayerPoint;
     
     CAEmitterCell *cell = [CAEmitterCell emitterCell];
     cell.scale = 0.1;
     cell.scaleRange = 0.2;
-    cell.emissionRange = 5.0;
-    cell.lifetime = 5.0;
+    cell.emissionRange = 2 * M_PI;
+    cell.lifetime = 3.0;
     cell.birthRate = 1;
-    cell.velocity = 100;
+    cell.velocity = 175;
     cell.velocityRange = 0;
     cell.yAcceleration = 0;
     
@@ -162,7 +162,8 @@
         if ([timeInfo valueForKey:@"volume"]){
             NSNumber *vol = [timeInfo valueForKey:@"volume"];
             NSLog(@"animation: %@",vol);
-            self.emitterLayer.birthRate = ([vol floatValue] + (float)60.0) * (float)5;
+            float fvol = ([vol floatValue] + (float)60.0);
+            self.emitterLayer.birthRate = fvol * 4.0;
         }
     } else {
         self.emitterLayer.birthRate = 0;

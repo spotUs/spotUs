@@ -418,12 +418,13 @@ static SPTAuth *_auth = nil;
             NSLog(@"dictionary %@",dict);
             float fnum = [[dict objectForKey:@"start"] floatValue];
             int startTime = (int)roundf(fnum);
+            NSLog(@"rouded: %d", startTime);
             NSString *startTimeStr = [NSString stringWithFormat:@"%d", startTime];
             if ([volumeDict objectForKey:startTimeStr]){
                 NSLog(@"not adding, there is already a key for that time");
             } else {
                 NSLog(@"adding there is no key yet");
-                [volumeDict setObject:dict[@"loudness_start"] forKey:startTimeStr];
+                [volumeDict setObject:dict[@"loudness_max"] forKey:startTimeStr];
             }
         }
         NSLog(@"dictionary volume!!! %@",volumeDict);
