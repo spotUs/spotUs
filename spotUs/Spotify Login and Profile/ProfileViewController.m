@@ -156,11 +156,16 @@
 }
 
 - (void) changeMusicAnimation:(NSNotification *) notification{
-    NSDictionary *timeInfo = notification.userInfo;
-    if ([timeInfo valueForKey:@"volume"]){
-        NSNumber *vol = [timeInfo valueForKey:@"volume"];
-        NSLog(@"animation: %@",vol);
-        self.emitterLayer.birthRate = ([vol floatValue] + (float)60.0) * (float)2;
+    if (self.player.playbackState.isPlaying){
+        NSDictionary *timeInfo = notification.userInfo;
+        NSLog(@"timeinfo: %@",timeInfo);
+        if ([timeInfo valueForKey:@"volume"]){
+            NSNumber *vol = [timeInfo valueForKey:@"volume"];
+            NSLog(@"animation: %@",vol);
+            self.emitterLayer.birthRate = ([vol floatValue] + (float)60.0) * (float)5;
+        }
+    } else {
+        self.emitterLayer.birthRate = 0;
     }
 }
 

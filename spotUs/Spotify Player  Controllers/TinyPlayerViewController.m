@@ -52,6 +52,10 @@
     if(self.player.playbackState.isPlaying){
         [self.player setIsPlaying:NO callback:nil];
         [self.pauseButton setSelected:YES];
+        NSMutableDictionary *tempdict = [NSMutableDictionary dictionary];
+        [tempdict setValue:[NSString stringWithFormat:@"%d",-60] forKey:@"volume"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PlayingSongAtTime" object:self userInfo:tempdict] ;
+        NSLog(@"sent pause notif");
     } else {
         [self.player setIsPlaying:YES callback:nil];
         [self.pauseButton setSelected:NO];
@@ -165,14 +169,15 @@
     SPTPlaybackTrack *albumArtTrack = self.player.metadata.currentTrack;
     
     if(albumArtTrack != nil){
-        
-        NSInteger seconds = position;
-        [QueryManager getTrackfromID:[self.player.metadata.currentTrack.uri substringFromIndex:14] withCompletion:^(Track *track, NSError *error) {
-            if ([track[@"volumeDict"] valueForKey:[@(seconds) stringValue]]){
-                NSLog(@"sending post notif");
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"PlayingSongAtTime" object:self userInfo:[NSDictionary dictionaryWithObject:[track[@"volumeDict"] valueForKey:[@(seconds) stringValue]] forKey:@"volume"]];
-            }
-        }];
+        if (![self.pauseButton isSelected]){
+            NSInteger seconds = position;
+            [QueryManager getTrackfromID:[self.player.metadata.currentTrack.uri substringFromIndex:14] withCompletion:^(Track *track, NSError *error) {
+                if ([track[@"volumeDict"] valueForKey:[@(seconds) stringValue]]){
+                    NSLog(@"sending post notif");
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"PlayingSongAtTime" object:self userInfo:[NSDictionary dictionaryWithObject:[track[@"volumeDict"] valueForKey:[@(seconds) stringValue]] forKey:@"volume"]];
+                }
+            }];
+        }
         
         NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
         if(self.notificationImage != nil){
