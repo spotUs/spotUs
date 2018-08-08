@@ -39,10 +39,10 @@
                                 <rect key="frame" x="20" y="40" width="335" height="581"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3y-aL-GLX">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="331"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="316"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wTs-Pr-lpJ">
-                                                <rect key="frame" x="30" y="48" width="275" height="275"/>
+                                                <rect key="frame" x="30" y="40.5" width="275" height="275"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="wTs-Pr-lpJ" secondAttribute="height" multiplier="1:1" id="EfJ-Xu-2sH"/>
                                                     <constraint firstAttribute="width" constant="275" id="Zqg-Kq-Hxz"/>
@@ -58,7 +58,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yw-Iu-WZD">
-                                        <rect key="frame" x="0.0" y="331" width="335" height="75"/>
+                                        <rect key="frame" x="0.0" y="316" width="335" height="75"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="54k-zG-om8">
                                                 <rect key="frame" x="-2" y="20" width="339" height="31"/>
@@ -109,7 +109,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGN-hr-Bq3">
-                                        <rect key="frame" x="0.0" y="406" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="391" width="335" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="3ZP-Vg-UjL"/>
                                         </constraints>
@@ -117,7 +117,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FB9-wG-eKh">
-                                        <rect key="frame" x="0.0" y="436" width="335" height="20"/>
+                                        <rect key="frame" x="0.0" y="421" width="335" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="ci9-3l-aEr"/>
                                         </constraints>
@@ -126,26 +126,30 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S52-oa-b8v">
-                                        <rect key="frame" x="0.0" y="456" width="335" height="75"/>
+                                        <rect key="frame" x="0.0" y="441" width="335" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZI-Sf-NGi">
-                                                <rect key="frame" x="286" y="8" width="49" height="49"/>
+                                                <rect key="frame" x="292" y="17.5" width="35" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="DZI-Sf-NGi" secondAttribute="height" multiplier="1:1" id="fMi-vy-rfc"/>
+                                                    <constraint firstAttribute="width" secondItem="DZI-Sf-NGi" secondAttribute="height" multiplier="1:1" id="7wz-XC-2eK"/>
+                                                    <constraint firstAttribute="height" constant="35" id="Q0s-fl-yXA"/>
+                                                    <constraint firstAttribute="width" constant="35" id="U4u-Lg-jvg"/>
                                                 </constraints>
-                                                <state key="normal" image="repeat (2)"/>
-                                                <state key="selected" image="repeat"/>
+                                                <state key="normal" image="PI-repeat"/>
+                                                <state key="selected" image="PI-repeat-blue">
+                                                    <color key="titleShadowColor" red="0.1450980392" green="0.2156862745" blue="0.39607843139999999" alpha="0.78000000000000003" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="repeatOrUnrepeat:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="jXC-0y-Bm6"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbm-Kp-nvG">
-                                                <rect key="frame" x="8" y="13" width="39" height="39"/>
+                                                <rect key="frame" x="8" y="17.5" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Kbm-Kp-nvG" secondAttribute="height" multiplier="1:1" id="gWw-2S-wl7"/>
                                                 </constraints>
-                                                <state key="normal" title="favorite" image="grayfavorite"/>
-                                                <state key="selected" image="redLike"/>
+                                                <state key="normal" title=" " image="PI-like"/>
+                                                <state key="selected" image="PI-like-red"/>
                                                 <connections>
                                                     <action selector="isFavorite:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="5Zz-SL-gx4"/>
                                                 </connections>
@@ -153,51 +157,51 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailingMargin" secondItem="DZI-Sf-NGi" secondAttribute="trailing" constant="-8" id="CD8-1R-vGc"/>
-                                            <constraint firstItem="DZI-Sf-NGi" firstAttribute="top" secondItem="S52-oa-b8v" secondAttribute="topMargin" id="G7A-F3-mVO"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="DZI-Sf-NGi" secondAttribute="bottom" constant="10" id="Pl7-8Y-GD3"/>
-                                            <constraint firstItem="Kbm-Kp-nvG" firstAttribute="top" secondItem="DZI-Sf-NGi" secondAttribute="top" constant="5" id="Ty8-Yz-oI3"/>
-                                            <constraint firstAttribute="height" constant="75" id="rnz-O1-o7w"/>
-                                            <constraint firstItem="DZI-Sf-NGi" firstAttribute="centerY" secondItem="S52-oa-b8v" secondAttribute="centerY" constant="-5" id="row-1q-SKt"/>
+                                            <constraint firstItem="Kbm-Kp-nvG" firstAttribute="width" secondItem="DZI-Sf-NGi" secondAttribute="width" id="Eb6-g4-VZG"/>
+                                            <constraint firstItem="DZI-Sf-NGi" firstAttribute="centerY" secondItem="S52-oa-b8v" secondAttribute="centerY" id="XKN-P0-SIB"/>
+                                            <constraint firstAttribute="trailing" secondItem="DZI-Sf-NGi" secondAttribute="trailing" constant="8" id="f93-iv-g42"/>
+                                            <constraint firstItem="Kbm-Kp-nvG" firstAttribute="height" secondItem="DZI-Sf-NGi" secondAttribute="height" id="rgb-wj-xrw"/>
+                                            <constraint firstAttribute="height" constant="70" id="rnz-O1-o7w"/>
                                             <constraint firstItem="Kbm-Kp-nvG" firstAttribute="leading" secondItem="S52-oa-b8v" secondAttribute="leading" constant="8" id="tfc-9g-rhP"/>
-                                            <constraint firstItem="Kbm-Kp-nvG" firstAttribute="width" secondItem="DZI-Sf-NGi" secondAttribute="width" constant="-10" id="toe-7q-34S"/>
+                                            <constraint firstItem="Kbm-Kp-nvG" firstAttribute="centerY" secondItem="S52-oa-b8v" secondAttribute="centerY" id="zgJ-fr-JWW"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6rY-wS-2F0">
-                                        <rect key="frame" x="0.0" y="531" width="335" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6rY-wS-2F0">
+                                        <rect key="frame" x="0.0" y="511" width="335" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7I6-an-6PL">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="0.0" y="10" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="8Bp-Q0-uPF"/>
-                                                    <constraint firstAttribute="height" constant="50" id="mlk-Fj-j4K"/>
+                                                    <constraint firstAttribute="height" constant="50" id="vP4-fK-pVl"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="backward"/>
+                                                <state key="normal" title="Button" image="PI-rewind"/>
                                                 <connections>
                                                     <action selector="goBack:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="NSA-4E-Re3"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hG-LN-kxo">
-                                                <rect key="frame" x="142.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="132.5" y="0.0" width="70" height="70"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="1gc-Bg-Vl3"/>
-                                                    <constraint firstAttribute="width" constant="50" id="Dlc-aR-GT1"/>
+                                                    <constraint firstAttribute="height" constant="70" id="1gc-Bg-Vl3"/>
+                                                    <constraint firstAttribute="width" constant="70" id="Dlc-aR-GT1"/>
                                                 </constraints>
-                                                <state key="normal" image="pause-2">
+                                                <state key="normal" image="PI-pause">
                                                     <color key="titleColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
-                                                <state key="selected" image="play-2"/>
+                                                <state key="selected" image="PI-play-button"/>
                                                 <connections>
                                                     <action selector="pauseOrUnpause:" destination="x5g-Cf-YmB" eventType="touchUpInside" id="UrC-KE-QRa"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fM-ey-pfd">
-                                                <rect key="frame" x="285" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="285" y="10" width="50" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="ZAT-3x-qum"/>
+                                                    <constraint firstAttribute="height" constant="50" id="1r5-Un-sAh"/>
                                                     <constraint firstAttribute="width" constant="50" id="Zog-vz-ep9"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="q1z-WY-26o"/>
                                                 </constraints>
-                                                <state key="normal" image="fast-forward-2">
+                                                <state key="normal" image="PI-fast-forward">
                                                     <color key="titleColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
@@ -205,6 +209,9 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="2tU-9x-asi"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -1414,7 +1421,6 @@
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.99097795050000004" green="0.99097795050000004" blue="0.99097795050000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="bB7-dN-RMS" firstAttribute="leading" secondItem="Sqc-55-kkM" secondAttribute="leadingMargin" constant="5" id="7ai-oZ-Rr6"/>
                                             <constraint firstItem="BG8-IP-ReO" firstAttribute="top" secondItem="bB7-dN-RMS" secondAttribute="bottom" constant="3" id="GiY-CW-Swf"/>
@@ -1490,7 +1496,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ble-7G-Atf">
-                                                    <rect key="frame" x="250" y="36" width="100" height="19.5"/>
+                                                    <rect key="frame" x="250" y="35" width="100" height="19.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="osr-xl-ujO"/>
                                                     </constraints>
@@ -1610,25 +1616,27 @@
     </scenes>
     <resources>
         <image name="OKskyline" width="350" height="160"/>
+        <image name="PI-fast-forward" width="128" height="128"/>
+        <image name="PI-like" width="128" height="128"/>
+        <image name="PI-like-red" width="128" height="128"/>
+        <image name="PI-pause" width="128" height="128"/>
+        <image name="PI-play-button" width="128" height="128"/>
+        <image name="PI-repeat" width="128" height="128"/>
+        <image name="PI-repeat-blue" width="128" height="128"/>
+        <image name="PI-rewind" width="128" height="128"/>
         <image name="Screen Shot 2018-07-20 at 2.41.33 PM" width="1304" height="1350"/>
-        <image name="backward" width="512" height="512"/>
         <image name="black-location" width="50" height="50"/>
         <image name="earth" width="64" height="64"/>
-        <image name="fast-forward-2" width="512" height="512"/>
         <image name="flag" width="64" height="64"/>
         <image name="friendBlue" width="32" height="32"/>
         <image name="friendWhite" width="32" height="32"/>
         <image name="friends" width="100" height="100"/>
-        <image name="grayfavorite" width="256" height="256"/>
         <image name="heart-button" width="128" height="128"/>
         <image name="home" width="64" height="64"/>
         <image name="martinspotus" width="1024" height="1024"/>
         <image name="pause-2" width="512" height="512"/>
         <image name="play-2" width="512" height="512"/>
-        <image name="redLike" width="64" height="64"/>
         <image name="removeBlack" width="32" height="32"/>
-        <image name="repeat" width="32" height="32"/>
-        <image name="repeat (2)" width="32" height="32"/>
         <image name="screen_shot_2018_07_18_at_4_11_56_pm_1" width="256" height="256"/>
         <image name="spotUsSlogan" width="868" height="726"/>
         <image name="spotifyWhite" width="2400" height="2400"/>

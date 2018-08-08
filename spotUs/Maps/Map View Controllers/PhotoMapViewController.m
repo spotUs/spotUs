@@ -194,7 +194,7 @@ CLLocationManager *locationManager;
         pinView.canShowCallout = YES;
         //pinView.animatesDrop = YES;
         
-        pinView.image = [UIImage imageNamed:@"friendmusic-black"];
+        pinView.image = [UIImage imageNamed:@"friendmusic-blue"];
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         UIImage *btnImage = [UIImage imageNamed:@"next-btn"];
         [btn setImage:btnImage forState:UIControlStateNormal];

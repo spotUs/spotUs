@@ -142,7 +142,7 @@
     cell.velocityRange = 0;
     cell.yAcceleration = 0;
     
-    cell.contents = (id)[[UIImage imageNamed:@"pin"] CGImage];
+    cell.contents = (id)[[UIImage imageNamed:@"music-note"] CGImage];
     
     self.emitterLayer.emitterCells = [NSArray arrayWithObject:cell];
     
