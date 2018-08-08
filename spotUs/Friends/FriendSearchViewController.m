@@ -271,6 +271,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"divider" forIndexPath:indexPath];
         cell.textLabel.text = @" My Friends: ";
         [cell.textLabel setFont:[UIFont fontWithName:@"HindVadodara-Bold" size:20]];
+         [cell.textLabel setTextColor:[UIColor colorWithRed:0.15 green:0.22 blue:0.40 alpha:1.0]];
     
 
         return cell;
@@ -278,6 +279,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"divider" forIndexPath:indexPath];
         cell.textLabel.text = @"Friend Request: ";
           [cell.textLabel setFont:[UIFont fontWithName:@"HindVadodara-Bold" size:20]];
+        [cell.textLabel setTextColor:[UIColor colorWithRed:0.15 green:0.22 blue:0.40 alpha:1.0]];
         return cell;
     } else {
         FriendSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FriendSearchCell" forIndexPath:indexPath];
