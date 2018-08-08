@@ -10,7 +10,14 @@
 
 @implementation PlayListCollectionHeader
 
-
+- (void)awakeFromNib{
+    
+    [super awakeFromNib];
+    
+    self.playButton.layer.cornerRadius = 10;
+    self.playButton.clipsToBounds = true;
+    
+}
 
 - (void)setIsEmpty:(BOOL)isEmpty{
     
