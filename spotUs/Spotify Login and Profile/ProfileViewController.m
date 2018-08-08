@@ -133,7 +133,7 @@
     self.emitterLayer.emitterShape = kCAEmitterLayerPoint;
     
     CAEmitterCell *cell = [CAEmitterCell emitterCell];
-    cell.scale = 0.1;
+    cell.scale = 0.2;
     cell.scaleRange = 0.2;
     cell.emissionRange = 2 * M_PI;
     cell.lifetime = 3.0;
@@ -142,7 +142,7 @@
     cell.velocityRange = 0;
     cell.yAcceleration = 0;
     
-    cell.contents = (id)[[UIImage imageNamed:@"music-note"] CGImage];
+    cell.contents = (id)[[UIImage imageNamed:@"circle"] CGImage];
     
     self.emitterLayer.emitterCells = [NSArray arrayWithObject:cell];
     
@@ -164,7 +164,7 @@
             NSNumber *vol = [timeInfo valueForKey:@"volume"];
             NSLog(@"animation: %@",vol);
             float fvol = ([vol floatValue] + (float)60.0);
-            self.emitterLayer.birthRate = fvol * 4.0;
+            self.emitterLayer.birthRate = fvol * 2.0;
         }
     } else {
         self.emitterLayer.birthRate = 0;
