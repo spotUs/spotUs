@@ -22,6 +22,9 @@
         <array key="HindVadodara-Regular.ttf">
             <string>HindVadodara-Regular</string>
         </array>
+        <array key="HindVadodara-SemiBold.ttf">
+            <string>HindVadodara-SemiBold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Player View-->
@@ -783,14 +786,9 @@
                                     <constraint firstAttribute="width" secondItem="6O9-g2-xSE" secondAttribute="height" multiplier="1:1" id="WPu-ev-jHM"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Played Tracks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXN-As-HTF">
-                                <rect key="frame" x="10" y="299" width="355" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O4H-0B-eW6">
-                                <rect key="frame" x="0.0" y="330" width="375" height="337"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O4H-0B-eW6">
+                                <rect key="frame" x="0.0" y="380" width="375" height="287"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PlaylistTableCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stats" rowHeight="52" id="SWI-3t-9XR" customClass="PlaylistTableViewCell">
@@ -832,28 +830,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Played Tracks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXN-As-HTF">
+                                <rect key="frame" x="115" y="323" width="144" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HindVadodara-SemiBold" family="Hind Vadodara" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6O9-g2-xSE" firstAttribute="centerX" secondItem="O4H-0B-eW6" secondAttribute="centerX" id="0CP-il-mw8"/>
-                            <constraint firstItem="kXN-As-HTF" firstAttribute="top" secondItem="6O9-g2-xSE" secondAttribute="bottom" constant="5" id="0Er-K3-rPT"/>
                             <constraint firstItem="Jax-Af-Jpr" firstAttribute="top" secondItem="dG6-ah-SRj" secondAttribute="top" id="2ji-bL-MI2"/>
                             <constraint firstItem="6O9-g2-xSE" firstAttribute="leading" secondItem="pc4-Pm-gUe" secondAttribute="leading" constant="122" id="4N4-WS-V8Y"/>
                             <constraint firstItem="Jax-Af-Jpr" firstAttribute="leading" secondItem="pc4-Pm-gUe" secondAttribute="leading" id="6kc-pu-qoN"/>
                             <constraint firstItem="V24-ZH-rWM" firstAttribute="leading" secondItem="Jax-Af-Jpr" secondAttribute="leading" id="Ia8-UV-gX4"/>
-                            <constraint firstItem="pc4-Pm-gUe" firstAttribute="trailing" secondItem="kXN-As-HTF" secondAttribute="trailing" constant="10" id="Jvo-p3-ZE6"/>
                             <constraint firstItem="V24-ZH-rWM" firstAttribute="height" secondItem="Jax-Af-Jpr" secondAttribute="height" id="NGm-tB-IMo"/>
-                            <constraint firstItem="pc4-Pm-gUe" firstAttribute="bottom" secondItem="O4H-0B-eW6" secondAttribute="bottom" id="X8r-gQ-qHk"/>
                             <constraint firstItem="V24-ZH-rWM" firstAttribute="top" secondItem="Jax-Af-Jpr" secondAttribute="top" id="XCz-2N-ZJj"/>
-                            <constraint firstItem="O4H-0B-eW6" firstAttribute="trailing" secondItem="pc4-Pm-gUe" secondAttribute="trailing" id="Zic-5r-vOd"/>
                             <constraint firstItem="6O9-g2-xSE" firstAttribute="centerX" secondItem="dG6-ah-SRj" secondAttribute="centerX" id="bDY-gu-c0q"/>
                             <constraint firstItem="6O9-g2-xSE" firstAttribute="top" secondItem="pc4-Pm-gUe" secondAttribute="top" constant="100" id="c2X-ab-wDL"/>
-                            <constraint firstItem="O4H-0B-eW6" firstAttribute="leading" secondItem="pc4-Pm-gUe" secondAttribute="leading" id="fqd-D6-u87"/>
                             <constraint firstItem="V24-ZH-rWM" firstAttribute="bottom" secondItem="Jax-Af-Jpr" secondAttribute="bottom" id="ggy-hO-9rp"/>
                             <constraint firstItem="V24-ZH-rWM" firstAttribute="width" secondItem="Jax-Af-Jpr" secondAttribute="width" id="kSB-J6-CDy"/>
                             <constraint firstItem="Jax-Af-Jpr" firstAttribute="trailing" secondItem="pc4-Pm-gUe" secondAttribute="trailing" id="nca-gu-NEB"/>
-                            <constraint firstItem="O4H-0B-eW6" firstAttribute="top" secondItem="kXN-As-HTF" secondAttribute="bottom" constant="10" id="r5z-wD-y8T"/>
-                            <constraint firstItem="kXN-As-HTF" firstAttribute="leading" secondItem="pc4-Pm-gUe" secondAttribute="leading" constant="10" id="rar-Oz-w3E"/>
                             <constraint firstItem="V24-ZH-rWM" firstAttribute="trailing" secondItem="Jax-Af-Jpr" secondAttribute="trailing" id="xXm-rS-FG4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pc4-Pm-gUe"/>
@@ -867,7 +864,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHR-ld-6uy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1000.3597122302159" y="-1489.4784172661871"/>
+            <point key="canvasLocation" x="999.20000000000005" y="-1490.1049475262371"/>
         </scene>
         <!--Discover-->
         <scene sceneID="0g0-PM-RNF">
@@ -1094,9 +1091,9 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPj-dC-0v5">
-                                                    <rect key="frame" x="172" y="46.5" width="30" height="32.5"/>
-                                                    <state key="normal" title="Play"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPj-dC-0v5">
+                                                    <rect key="frame" x="172" y="46.5" width="30" height="33"/>
+                                                    <state key="normal" title="Play" image="youtube-logo"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1187,7 +1184,7 @@
                                                 <constraint firstAttribute="height" constant="50" id="d30-Z3-SRb"/>
                                                 <constraint firstAttribute="width" constant="50" id="vME-Dl-bqh"/>
                                             </constraints>
-                                            <state key="normal" image="bluePlay"/>
+                                            <state key="normal" image="youtube-logo"/>
                                             <connections>
                                                 <action selector="didClickPlay:" destination="XYl-M6-THt" eventType="touchUpInside" id="9mQ-hx-SVD"/>
                                             </connections>
@@ -1433,7 +1430,7 @@
                                                 <constraint firstAttribute="width" constant="50" id="gLg-GW-HsL"/>
                                                 <constraint firstAttribute="height" constant="50" id="l12-zp-cFE"/>
                                             </constraints>
-                                            <state key="normal" image="bluePlay"/>
+                                            <state key="normal" image="youtube-logo"/>
                                             <connections>
                                                 <action selector="didclickPlay:" destination="doH-Xt-ZKf" eventType="touchUpInside" id="HIL-Tp-gdX"/>
                                             </connections>
@@ -1505,27 +1502,22 @@
                                             <outlet property="titleLabel" destination="3m2-TU-XgV" id="Ovb-tp-jBc"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlayListTableHeader" rowHeight="35" id="GfV-J0-3ab" customClass="PlayListTableHeader">
-                                        <rect key="frame" x="0.0" y="118" width="375" height="35"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlayListTableHeader" rowHeight="53" id="GfV-J0-3ab" customClass="PlayListTableHeader">
+                                        <rect key="frame" x="0.0" y="118" width="375" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GfV-J0-3ab" id="ztB-tr-MBc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="34.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZK1-MT-2n2">
-                                                    <rect key="frame" x="140" y="13" width="95" height="10"/>
-                                                    <state key="normal" title="Play Favorites"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZK1-MT-2n2">
+                                                    <rect key="frame" x="181" y="2" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Play Favorites" image="youtube-logo"/>
                                                     <connections>
                                                         <action selector="didclickPlay:" destination="doH-Xt-ZKf" eventType="touchUpInside" id="Heb-WR-M3X"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ZK1-MT-2n2" secondAttribute="trailing" constant="125" id="Hn9-W9-UXg"/>
-                                                <constraint firstItem="ZK1-MT-2n2" firstAttribute="leading" secondItem="ztB-tr-MBc" secondAttribute="leadingMargin" constant="125" id="LW0-qK-EKv"/>
-                                                <constraint firstItem="ZK1-MT-2n2" firstAttribute="top" secondItem="ztB-tr-MBc" secondAttribute="topMargin" constant="2" id="ehE-EE-CGM"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ZK1-MT-2n2" secondAttribute="bottom" constant="1" id="gAp-J5-5l9"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="playButton" destination="ZK1-MT-2n2" id="Ldx-vX-nGA"/>
@@ -1584,7 +1576,6 @@
         <image name="Screen Shot 2018-07-20 at 2.41.33 PM" width="1304" height="1350"/>
         <image name="backward" width="512" height="512"/>
         <image name="black-location" width="50" height="50"/>
-        <image name="bluePlay" width="24" height="24"/>
         <image name="earth" width="64" height="64"/>
         <image name="fast-forward-2" width="512" height="512"/>
         <image name="flag" width="64" height="64"/>
@@ -1605,9 +1596,10 @@
         <image name="spotUsSlogan" width="868" height="726"/>
         <image name="spotifyWhite" width="2400" height="2400"/>
         <image name="user-check-interface-symbol" width="32" height="32"/>
+        <image name="youtube-logo" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8a5-vN-qGZ"/>
+        <segue reference="RfA-zM-nwX"/>
         <segue reference="aPd-C3-D0H"/>
         <segue reference="Is9-90-9Ke"/>
         <segue reference="U8D-uR-5nx"/>
