@@ -51,10 +51,16 @@
     
     [SVProgressHUD showWithStatus:@"Loading Friends..."];
     NSArray *animationImages = [[NSArray alloc] initWithObjects:
-                                [UIImage imageNamed:@"play"],
-                                [UIImage imageNamed:@"pause"],nil];
+                                [UIImage imageNamed:@"Adelle"],
+                                [UIImage imageNamed:@"blake"],
+                                [UIImage imageNamed:@"bts"], [UIImage imageNamed:@"chris"],
+                                [UIImage imageNamed:@"drake"],[UIImage imageNamed:@"joan"],
+                                [UIImage imageNamed:@"reik"],[UIImage imageNamed:@"selena"],
+                                [UIImage imageNamed:@"taylor"],nil];
     _slideShow.animationImages=animationImages;
+    [_slideShow setAnimationDuration: 6];
     [_slideShow startAnimating];
+    
     [self updateUsers];
     
 }

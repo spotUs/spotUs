@@ -425,7 +425,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ibN-fv-8F0">
-                                <rect key="frame" x="0.0" y="278" width="375" height="389"/>
+                                <rect key="frame" x="0.0" y="324" width="375" height="343"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -479,17 +479,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RAd-2l-O6d">
-                                <rect key="frame" x="0.0" y="64" width="375" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RHb-cS-H5A">
-                                <rect key="frame" x="0.0" y="204" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="268" width="375" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RAd-2l-O6d">
+                                <rect key="frame" x="0.0" y="89" width="375" height="179"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Who are your friends listening?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JnK-0b-E3V">
+                                <rect key="frame" x="60" y="51" width="277" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HindVadodara-SemiBold" family="Hind Vadodara" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Bkm-XC-e9z"/>
                     </view>
                     <navigationItem key="navigationItem" title="Friends" id="UvW-fH-Lfr">
@@ -520,8 +527,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3o0-HJ-sOo">
-                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3o0-HJ-sOo">
+                                <rect key="frame" x="0.0" y="301" width="375" height="366"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendRequestCell" rowHeight="71" id="YKA-yg-Ine" customClass="FriendRequestCell">
@@ -565,32 +573,36 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="IJl-ET-vFd">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IJl-ET-vFd">
+                                <rect key="frame" x="0.0" y="245" width="375" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KUK-Wv-oHQ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="181"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spot new friends around the globe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E6e-pB-9fW">
+                                <rect key="frame" x="33" y="86" width="309" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HindVadodara-SemiBold" family="Hind Vadodara" pointSize="20"/>
+                                <color key="textColor" red="0.99097795050000004" green="0.99097795050000004" blue="0.99097795050000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="3o0-HJ-sOo" firstAttribute="trailing" secondItem="rf9-cg-tdH" secondAttribute="trailing" id="2Fe-wI-x9a"/>
-                            <constraint firstItem="3o0-HJ-sOo" firstAttribute="top" secondItem="IJl-ET-vFd" secondAttribute="bottom" id="Bb1-kB-ynR"/>
-                            <constraint firstItem="IJl-ET-vFd" firstAttribute="leading" secondItem="rf9-cg-tdH" secondAttribute="leading" id="FGU-Ss-wfr"/>
-                            <constraint firstItem="IJl-ET-vFd" firstAttribute="trailing" secondItem="rf9-cg-tdH" secondAttribute="trailing" id="HVN-Fy-mzk"/>
-                            <constraint firstItem="3o0-HJ-sOo" firstAttribute="leading" secondItem="rf9-cg-tdH" secondAttribute="leading" id="Kv6-xz-SNf"/>
-                            <constraint firstItem="rf9-cg-tdH" firstAttribute="bottom" secondItem="3o0-HJ-sOo" secondAttribute="bottom" id="RiF-oc-yPp"/>
-                            <constraint firstItem="IJl-ET-vFd" firstAttribute="top" secondItem="rf9-cg-tdH" secondAttribute="top" id="toR-pA-uJp"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rf9-cg-tdH"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Friend" id="wlQ-Iy-IDV"/>
                     <connections>
                         <outlet property="friendTable" destination="3o0-HJ-sOo" id="QwX-0k-bkF"/>
                         <outlet property="searchBar" destination="IJl-ET-vFd" id="uQb-Gl-UIb"/>
+                        <outlet property="slideShow" destination="KUK-Wv-oHQ" id="2if-un-JaD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQw-nS-xtO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3488.8000000000002" y="-601.34932533733138"/>
+            <point key="canvasLocation" x="3276" y="-636.4317841079461"/>
         </scene>
         <!--SignUpViewController-->
         <scene sceneID="OzT-d9-2xk">
