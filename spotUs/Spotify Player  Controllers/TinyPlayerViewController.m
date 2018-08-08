@@ -92,6 +92,7 @@
 
         self.currentSongIndex = [userInfo[@"index"] intValue];
         self.playlistTitle = userInfo[@"title"];
+        
 
         
 
@@ -278,7 +279,9 @@
     SPTPlaybackTrack *albumArtTrack = self.player.metadata.currentTrack;
     self.songTitle.text = albumArtTrack.name;
     self.artistNameLabel.text = albumArtTrack.artistName;
-    
+    [self.artistNameLabel setFont:[UIFont fontWithName:@"HindVadodara" size:13]];
+    [self.artistNameLabel setTextColor:[UIColor colorWithRed:0.15 green:0.22 blue:0.40 alpha:1.0]];
+    [self.songTitle setFont:[UIFont fontWithName:@"HindVadodara-Bold" size:20]];
     [self updateControlCenterImage:[NSURL URLWithString:self.player.metadata.currentTrack.albumCoverArtURL]];
     
     
