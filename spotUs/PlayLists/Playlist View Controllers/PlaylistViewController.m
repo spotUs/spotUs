@@ -93,10 +93,14 @@
     
     if ([self.collectionView isHidden]) {
         NSLog(@"changing tableview");
+        [self.collectionView setContentOffset:CGPointZero animated:NO];
+
         [self.collectionView setHidden:NO];
         [self.tableView setHidden:YES];
         self.navigationItem.rightBarButtonItem= self.listButton;
     } else {
+        [self.tableView setContentOffset:CGPointZero animated:NO];
+
         [self.collectionView setHidden:YES];
         [self.tableView setHidden:NO];
         self.navigationItem.rightBarButtonItem= self.gridButton;
@@ -139,6 +143,7 @@
         PlayListTableHeader * header = [tableView dequeueReusableCellWithIdentifier:@"PlayListTableHeader" forIndexPath:indexPath];
         
         header.cityLabel.text = self.city.name;
+        header.isEmpty = NO;
         header.layer.backgroundColor = [[UIColor clearColor] CGColor];
 
         return header;

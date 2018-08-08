@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray <PFUser *> *users;
 @property (strong, nonatomic) NSArray <PFUser *> *filteredUsers;
+@property (weak, nonatomic) IBOutlet UIImageView *slideShow;
 
 
 @end
@@ -30,6 +31,15 @@
     self.searchBar.delegate = self;
     [self updateUsers];
     // Do any additional setup after loading the view.
+    
+    NSArray *animationImages = [[NSArray alloc] initWithObjects:
+                                [UIImage imageNamed:@"Cancun-1"],
+                                [UIImage imageNamed:@"miamiskyline"],
+                                [UIImage imageNamed:@"nashville-skyline"], [UIImage imageNamed:@"neworleans-1"],
+                                [UIImage imageNamed:@"oaklahoma"],nil];
+    _slideShow.animationImages=animationImages;
+    [_slideShow setAnimationDuration:3];
+    [_slideShow startAnimating];
 }
 
 - (void)didReceiveMemoryWarning {

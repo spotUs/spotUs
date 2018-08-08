@@ -52,10 +52,13 @@
     
     if ([self.favoriteCollectionView isHidden]) {
         NSLog(@"changing tableview");
+        [self.favoriteCollectionView setContentOffset:CGPointZero animated:NO];
         [self.favoriteCollectionView setHidden:NO];
         [self.favoriteTableView setHidden:YES];
         self.navigationItem.leftBarButtonItem= self.listButton;
     } else {
+        [self.favoriteTableView setContentOffset:CGPointZero animated:NO];
+
         [self.favoriteCollectionView setHidden:YES];
         [self.favoriteTableView setHidden:NO];
         self.navigationItem.leftBarButtonItem= self.gridButton;
@@ -95,6 +98,7 @@
     self.favoriteCollectionView.dataSource = self;
     self.searchBar.delegate = self;
     // Do any additional setup after loading the view.
+
 
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*) self.favoriteCollectionView.collectionViewLayout;
     layout.minimumInteritemSpacing = 5;
