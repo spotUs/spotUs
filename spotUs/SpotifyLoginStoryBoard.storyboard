@@ -1063,14 +1063,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8q-PF-U2O">
-                                                    <rect key="frame" x="25" y="21" width="340" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="25" y="21" width="340" height="25.5"/>
+                                                    <fontDescription key="fontDescription" name="HindVadodara-SemiBold" family="Hind Vadodara" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlE-aY-sLz">
-                                                    <rect key="frame" x="25" y="45" width="325" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlE-aY-sLz">
+                                                    <rect key="frame" x="25" y="49.5" width="325" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="HindVadodara-Regular" family="Hind Vadodara" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1078,12 +1078,12 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="b8q-PF-U2O" secondAttribute="trailing" constant="10" id="0nf-IK-982"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="MlE-aY-sLz" secondAttribute="trailing" constant="10" id="4fw-NM-acB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="MlE-aY-sLz" secondAttribute="trailing" constant="10" id="Dqz-ye-NNe"/>
                                                 <constraint firstItem="b8q-PF-U2O" firstAttribute="leading" secondItem="vqr-3c-cEz" secondAttribute="leadingMargin" constant="10" id="HU3-mC-H9u"/>
                                                 <constraint firstItem="b8q-PF-U2O" firstAttribute="top" secondItem="vqr-3c-cEz" secondAttribute="topMargin" constant="10" id="IXS-LN-L5S"/>
-                                                <constraint firstItem="MlE-aY-sLz" firstAttribute="leading" secondItem="vqr-3c-cEz" secondAttribute="leadingMargin" constant="10" id="LFP-gK-22d"/>
-                                                <constraint firstItem="MlE-aY-sLz" firstAttribute="top" secondItem="b8q-PF-U2O" secondAttribute="bottom" constant="3" id="XEP-Vd-gl7"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="MlE-aY-sLz" secondAttribute="bottom" constant="10" id="tuk-YX-kG2"/>
+                                                <constraint firstItem="MlE-aY-sLz" firstAttribute="top" secondItem="b8q-PF-U2O" secondAttribute="bottom" constant="3" id="RC6-or-1n1"/>
+                                                <constraint firstItem="MlE-aY-sLz" firstAttribute="leading" secondItem="vqr-3c-cEz" secondAttribute="leadingMargin" constant="10" id="k0d-Lk-x18"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="MlE-aY-sLz" secondAttribute="bottom" constant="10" id="s5R-Wm-3al"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="0.99220105179999996" blue="0.11376490810000001" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1138,17 +1138,17 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zSC-Er-mCe">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R9e-hD-3aX">
-                                    <size key="itemSize" width="165" height="167"/>
-                                    <size key="headerReferenceSize" width="50" height="119"/>
+                                    <size key="itemSize" width="165" height="172"/>
+                                    <size key="headerReferenceSize" width="50" height="128"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="playlistCollectionCell" id="xgZ-oc-q89" customClass="PlaylistCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="119" width="165" height="167"/>
+                                        <rect key="frame" x="0.0" y="128" width="165" height="172"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="165" height="167"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="165" height="172"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Wn-Vh-WzK">
@@ -1160,14 +1160,14 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNV-pO-cUp">
-                                                    <rect key="frame" x="10" y="148" width="145" height="14.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <rect key="frame" x="10" y="155.5" width="145" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9h-9H-Ths">
-                                                    <rect key="frame" x="10" y="125" width="145" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <rect key="frame" x="10" y="125" width="145" height="25.5"/>
+                                                    <fontDescription key="fontDescription" name="HindVadodara-SemiBold" family="Hind Vadodara" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1191,17 +1191,17 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="header" id="pzH-Jz-a6n" customClass="PlayListCollectionHeader">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqv-tS-IUV">
-                                            <rect key="frame" x="0.0" y="8" width="375" height="29"/>
+                                            <rect key="frame" x="0.0" y="8" width="375" height="38"/>
                                             <fontDescription key="fontDescription" name="HindVadodara-Bold" family="Hind Vadodara" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMN-58-cS9">
-                                            <rect key="frame" x="132" y="41" width="111" height="34"/>
+                                            <rect key="frame" x="132" y="50" width="111" height="34"/>
                                             <color key="backgroundColor" red="0.1450980392" green="0.2156862745" blue="0.39607843139999999" alpha="0.78000000000000003" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="34" id="izk-lK-CSA"/>
@@ -1407,19 +1407,19 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BG8-IP-ReO">
-                                                    <rect key="frame" x="5" y="145" width="168" height="12"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" red="0.6475055520304569" green="0.6475055520304569" blue="0.6475055520304569" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <rect key="frame" x="5" y="148.5" width="168" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="song" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bB7-dN-RMS">
-                                                    <rect key="frame" x="13" y="125" width="152" height="17"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <rect key="frame" x="13" y="125" width="152" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJG-ZD-6lN">
-                                                    <rect key="frame" x="5" y="160" width="168" height="0.0"/>
+                                                    <rect key="frame" x="5" y="167.5" width="168" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1486,13 +1486,13 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3m2-TU-XgV">
                                                             <rect key="frame" x="0.0" y="0.0" width="210" height="35"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="HindVadodara-SemiBold" family="Hind Vadodara" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQV-S9-cOO">
                                                             <rect key="frame" x="0.0" y="35" width="210" height="34.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <fontDescription key="fontDescription" name="HindVadodara-Regular" family="Hind Vadodara" pointSize="13"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1502,11 +1502,11 @@
                                                     </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ble-7G-Atf">
-                                                    <rect key="frame" x="250" y="37.5" width="100" height="14.5"/>
+                                                    <rect key="frame" x="250" y="36" width="100" height="19.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="osr-xl-ujO"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="HindVadodara-Regular" family="Hind Vadodara" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
