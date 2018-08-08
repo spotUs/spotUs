@@ -807,27 +807,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="51.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08H-Kh-DqK">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08H-Kh-DqK">
                                                     <rect key="frame" x="25" y="11" width="340" height="15"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsX-Sc-n3M">
                                                     <rect key="frame" x="25" y="29" width="325" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" red="0.1060273503" green="0.076197716600000007" blue="0.51035057110000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="fsX-Sc-n3M" firstAttribute="top" secondItem="08H-Kh-DqK" secondAttribute="bottom" constant="3.5" id="1Ft-Aa-gWa"/>
-                                                <constraint firstItem="fsX-Sc-n3M" firstAttribute="top" secondItem="08H-Kh-DqK" secondAttribute="bottom" constant="3.5" id="7sH-D6-lRD"/>
-                                                <constraint firstAttribute="trailing" secondItem="08H-Kh-DqK" secondAttribute="trailing" constant="10" id="Bh2-oc-UqY"/>
-                                                <constraint firstItem="08H-Kh-DqK" firstAttribute="leading" secondItem="TUs-U1-5Ip" secondAttribute="leadingMargin" constant="10" id="EYa-Wj-nXi"/>
                                                 <constraint firstItem="fsX-Sc-n3M" firstAttribute="leading" secondItem="TUs-U1-5Ip" secondAttribute="leading" constant="25" id="GYf-AM-D0a"/>
-                                                <constraint firstItem="08H-Kh-DqK" firstAttribute="top" secondItem="TUs-U1-5Ip" secondAttribute="topMargin" id="O6T-MQ-p9g"/>
                                                 <constraint firstAttribute="trailing" secondItem="fsX-Sc-n3M" secondAttribute="trailing" constant="25" id="otD-Pl-ZyI"/>
                                                 <constraint firstAttribute="bottom" secondItem="fsX-Sc-n3M" secondAttribute="bottom" constant="6.5" id="qbc-FL-Tzo"/>
                                             </constraints>
@@ -840,9 +836,9 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Played Tracks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXN-As-HTF">
-                                <rect key="frame" x="115" y="323" width="144" height="21"/>
+                                <rect key="frame" x="98" y="323" width="178" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HindVadodara-SemiBold" family="Hind Vadodara" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HindVadodara-SemiBold" family="Hind Vadodara" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1066,7 +1062,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlE-aY-sLz">
                                                     <rect key="frame" x="25" y="49.5" width="325" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="HindVadodara-Regular" family="Hind Vadodara" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" red="0.1060273503" green="0.076197716600000007" blue="0.51035057110000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1157,7 +1153,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNV-pO-cUp">
                                                     <rect key="frame" x="10" y="155.5" width="145" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" red="0.1060273503" green="0.076197716600000007" blue="0.51035057110000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9h-9H-Ths">
@@ -1315,7 +1311,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpotUs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cy2-g6-XYx">
                                 <rect key="frame" x="154" y="13" width="68.5" height="33"/>
                                 <fontDescription key="fontDescription" name="HindVadodara-Medium" family="Hind Vadodara" pointSize="22"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.1060273503" green="0.076197716600000007" blue="0.51035057110000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1404,7 +1400,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BG8-IP-ReO">
                                                     <rect key="frame" x="5" y="148.5" width="168" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" red="0.1060273503" green="0.076197716600000007" blue="0.51035057110000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="song" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bB7-dN-RMS">
@@ -1487,7 +1483,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQV-S9-cOO">
                                                             <rect key="frame" x="0.0" y="35" width="210" height="34.5"/>
                                                             <fontDescription key="fontDescription" name="HindVadodara-Regular" family="Hind Vadodara" pointSize="13"/>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" red="0.14509803921568626" green="0.21568627450980393" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
