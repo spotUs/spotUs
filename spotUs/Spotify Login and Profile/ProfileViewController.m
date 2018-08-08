@@ -44,7 +44,8 @@
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
     self.profileImageView.clipsToBounds = YES;
 
-    
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.15 green:0.22 blue:0.40 alpha:1.0];
+
 
     self.profileImageView.image = QueryManager.userImage;
     
