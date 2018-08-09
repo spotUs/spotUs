@@ -33,10 +33,6 @@
 
 @implementation TinyPlayerViewController
 - (IBAction)onTap:(id)sender {
-    
-    
-    
-    
     if(self.spotUsLabel.isHidden){
     [self performSegueWithIdentifier:@"expandplayer" sender:self];
     }
@@ -279,9 +275,9 @@
     SPTPlaybackTrack *albumArtTrack = self.player.metadata.currentTrack;
     self.songTitle.text = albumArtTrack.name;
     self.artistNameLabel.text = albumArtTrack.artistName;
-    [self.artistNameLabel setFont:[UIFont fontWithName:@"HindVadodara" size:13]];
+    [self.artistNameLabel setFont:[UIFont fontWithName:@"HindVadodara" size:7]];
     [self.artistNameLabel setTextColor:[UIColor colorWithRed:0.15 green:0.22 blue:0.40 alpha:1.0]];
-    [self.songTitle setFont:[UIFont fontWithName:@"HindVadodara-Bold" size:20]];
+    [self.songTitle setFont:[UIFont fontWithName:@"HindVadodara-Bold" size:17]];
     [self updateControlCenterImage:[NSURL URLWithString:self.player.metadata.currentTrack.albumCoverArtURL]];
     
     
