@@ -71,30 +71,16 @@
 - (void) addRequest{
     self.addUserBtn.selected = YES;
     
-    FriendRequest *request= [FriendRequest sendRequestFrom:[PFUser currentUser] To:self.user withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        
-        
-    }];
-    
-    NSMutableArray *requests = [NSMutableArray arrayWithArray:[PFUser currentUser][@"sentFriendRequests"]];
-    [requests addObject:request];
-    [[PFUser currentUser] setObject:requests forKey:@"sentFriendRequests"];
-    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (error){
+    [FriendRequest sendRequestFrom:[PFUser currentUser] To:self.user withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        if(error){
+            
             self.addUserBtn.selected = NO;
 
-            
-            NSLog(@"error adding friend: %@",error.localizedDescription);
-        } else {
-            NSLog(@"succesfully added friend request");
-    
-            
-            
-            
-            
-            
         }
+        
     }];
+    
+
 }
 
 @end
