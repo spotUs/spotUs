@@ -168,7 +168,6 @@
     if(albumArtTrack != nil){
         if (![self.pauseButton isSelected]){
             NSInteger seconds = position;
-            NSLog(@"seconds roundedd: %ld",(long)seconds);
             [QueryManager getTrackfromID:[self.player.metadata.currentTrack.uri substringFromIndex:14] withCompletion:^(Track *track, NSError *error) {
                 if ([track[@"volumeDict"] valueForKey:[@(seconds) stringValue]]){
                     NSLog(@"sending post notif");

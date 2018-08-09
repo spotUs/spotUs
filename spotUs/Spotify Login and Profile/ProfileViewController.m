@@ -83,9 +83,9 @@
                 NSLog(@"volumedict %@",volumeDict);
                 [tr setObject:volumeDict forKey:@"volumeDict"];
                 [tr saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-                    NSLog(@"saved i guess lol");
+                    NSLog(@"track vol dict saved");
                     if (error) {
-                        NSLog(@"errorrr: %@",error.localizedDescription);
+                        NSLog(@"track vol dict not saved: %@",error.localizedDescription);
                     }
                 }];
             }];
@@ -117,7 +117,6 @@
     self.hometownLabel.attributedText = myString;
     
     self.planeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.planeView.frame.origin.x-70, self.planeView.center.y - 100 , 60, 50)];
-   // [self goPlaneGo];
 
     self.planeImageView.image = [UIImage imageNamed:@"plane"];
     [self.view addSubview:self.planeImageView];
@@ -154,18 +153,18 @@
                                              selector:@selector(changeMusicAnimation:)
                                                  name:@"PlayingSongAtTime"
                                                object:nil];
+    //start at 0, no particles emitted when launch
     [self changeMusicAnimation:[NSNotification notificationWithName:@"PlayingSongAtTime" object:nil userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"%d",-60] forKey:@"volume"]]];
 }
 
 - (void) changeMusicAnimation:(NSNotification *) notification{
     if (self.player.playbackState.isPlaying){
         NSDictionary *timeInfo = notification.userInfo;
-        NSLog(@"timeinfo: %@",timeInfo);
         if ([timeInfo valueForKey:@"volume"]){
             NSNumber *vol = [timeInfo valueForKey:@"volume"];
             NSLog(@"animation: %@",vol);
             float fvol = ([vol floatValue] + (float)60.0);
-            self.emitterLayer.birthRate = fvol * 2.0;
+            self.emitterLayer.birthRate = fvol * 5.0;
         }
     } else {
         self.emitterLayer.birthRate = 0;
