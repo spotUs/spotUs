@@ -154,6 +154,7 @@
                                              selector:@selector(changeMusicAnimation:)
                                                  name:@"PlayingSongAtTime"
                                                object:nil];
+    [self changeMusicAnimation:[NSNotification notificationWithName:@"PlayingSongAtTime" object:nil userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"%d",-60] forKey:@"volume"]]];
 }
 
 - (void) changeMusicAnimation:(NSNotification *) notification{
