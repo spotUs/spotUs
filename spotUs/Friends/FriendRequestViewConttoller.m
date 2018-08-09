@@ -29,17 +29,11 @@
     self.friendTable.delegate = self;
     self.friendTable.dataSource = self;
     self.searchBar.delegate = self;
+    [SVProgressHUD showWithStatus:@"Loading Users..."];
     [self updateUsers];
     // Do any additional setup after loading the view.
     
-    NSArray *animationImages = [[NSArray alloc] initWithObjects:
-                                [UIImage imageNamed:@"Cancun-1"],
-                                [UIImage imageNamed:@"miamiskyline"],
-                                [UIImage imageNamed:@"nashville-skyline"], [UIImage imageNamed:@"neworleans-1"],
-                                [UIImage imageNamed:@"oaklahoma"],nil];
-    self.slideShow.animationImages=animationImages;
-    [self.slideShow setAnimationDuration:3];
-    [self.slideShow startAnimating];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +65,7 @@
             self.users = objects;
             self.filteredUsers = objects;
             [self.friendTable reloadData];
+            [SVProgressHUD dismiss];
         }
     }];
     

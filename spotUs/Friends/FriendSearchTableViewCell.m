@@ -62,6 +62,16 @@
 - (void) updateFriendSearchCellwithUser: (PFUser *)user{
     self.user = user;
     self.nameLabel.text = user.username;
+    
+    if(self.isRequest){
+        self.addUserBtn.selected = YES;
+    }
+    
+    else{
+        self.addUserBtn.selected = NO;
+
+        
+    }
 }
 
 
