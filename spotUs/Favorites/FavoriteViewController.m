@@ -84,6 +84,7 @@
 
     
     self.navigationItem.leftBarButtonItem= self.listButton;
+    
     //backbutton on right side
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
                                    initWithTitle:@"Back"
@@ -91,16 +92,12 @@
                                    target:self
                             action:@selector(backBtnClicked:)];
     self.navigationItem.rightBarButtonItem = backButton;
-    
-    
-    
+
     self.favoriteTableView.delegate = self;
     self.favoriteTableView.dataSource = self;
     self.favoriteCollectionView.delegate = self;
     self.favoriteCollectionView.dataSource = self;
     self.searchBar.delegate = self;
-    // Do any additional setup after loading the view.
-
 
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*) self.favoriteCollectionView.collectionViewLayout;
     layout.minimumInteritemSpacing = 5;
@@ -129,8 +126,8 @@
 }
 
 - (void)backBtnClicked:(id)sender{
-    NSLog(@"clicked back button");
-    [self performSegueWithIdentifier:@"favtohomesegue" sender:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"homeNotification"
+                                                        object:self];
 }
 
 
