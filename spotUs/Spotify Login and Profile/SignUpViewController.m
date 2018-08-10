@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSArray<City*> *cities;
 @property (strong, nonatomic) NSArray<NSString*> *mostPlayedIDs;
 @property (strong, nonatomic) City *selectedCity;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
 @end
 
@@ -36,6 +37,12 @@
     self.cityPicker.delegate = self;
     self.cities = QueryManager.citiesarray;
     [self.cityPicker reloadAllComponents];
+    
+    self.confirmButton.layer.cornerRadius = 10;
+    self.confirmButton.clipsToBounds = true;
+    
+
+
     
     //adding background image to view controller
 //    UIImage *backgroundImage = [UIImage imageNamed:@"colorfulMap"];
