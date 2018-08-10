@@ -80,21 +80,7 @@
  [self.favoriteView addSubview:heartImageView];
           [heartImageView setFrame:CGRectMake((self.favoriteButton.frame.size.width)/2, self.favoriteButton.frame.origin.y, 5, 5)];
     [CATransaction begin];
-    [CATransaction setCompletionBlock:^{
-        // transform the image to be 1.3 sizes larger to
-        // give the impression that it is popping
-//        [UIView transitionWithView:heartImageView
-//                          duration:1.6f
-//                           options:UIViewAnimationOptionTransitionCrossDissolve
-//                        animations:^{
- //                          heartImageView.transform = CGAffineTransformMakeScale(100.3, 100.3);
-//                        } completion:^(BOOL finished) {
-                           [heartImageView removeFromSuperview];
-//                            [CATransaction commit];
-//
-//                        }];
-
-    }];
+    [CATransaction setCompletionBlock:^{ [heartImageView removeFromSuperview]; }];
     UIBezierPath *zigzagPath = [[UIBezierPath alloc] init];
     CGFloat oX = heartImageView.frame.origin.x;
     CGFloat oY = heartImageView.frame.origin.y;
@@ -378,6 +364,8 @@
     SPTPlaybackTrack *albumArtTrack = self.player.metadata.currentTrack;
     self.songTitle.text = albumArtTrack.name;
     self.artistNameLabel.text = albumArtTrack.artistName;
+    [self.artistNameLabel setFont:[UIFont fontWithName:@"HindVadodara-Regular" size:17]];
+    [self.songTitle setFont:[UIFont fontWithName:@"HindVadodara-Bold" size:17]];
     NSURL *albumURL = [NSURL URLWithString:albumArtTrack.albumCoverArtURL];
     [QueryManager fadeImg:albumURL imgView:self.songImage];
     //[self.songImage setImageWithURL:albumURL];
