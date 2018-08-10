@@ -1014,12 +1014,16 @@
                             </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="HLp-1K-Goq" firstAttribute="top" secondItem="AIr-qO-7Pn" secondAttribute="bottom" id="3ew-Gn-TuY"/>
                             <constraint firstAttribute="trailing" secondItem="AIr-qO-7Pn" secondAttribute="trailing" id="5mj-V0-yRE"/>
+                            <constraint firstItem="AIr-qO-7Pn" firstAttribute="top" secondItem="znR-9i-PqC" secondAttribute="top" id="6wT-GB-0kl"/>
                             <constraint firstItem="AIr-qO-7Pn" firstAttribute="centerY" secondItem="znR-9i-PqC" secondAttribute="centerY" id="JeB-c9-zKK"/>
                             <constraint firstItem="AIr-qO-7Pn" firstAttribute="centerX" secondItem="znR-9i-PqC" secondAttribute="centerX" id="LIR-8c-oiD"/>
                             <constraint firstItem="AIr-qO-7Pn" firstAttribute="leading" secondItem="znR-9i-PqC" secondAttribute="leading" id="LiH-iV-GOp"/>
+                            <constraint firstItem="AIr-qO-7Pn" firstAttribute="leading" secondItem="EZp-KU-1SW" secondAttribute="leading" id="OIM-Bt-hyI"/>
                             <constraint firstItem="AIr-qO-7Pn" firstAttribute="top" secondItem="znR-9i-PqC" secondAttribute="top" id="UEa-cc-CmS"/>
                             <constraint firstItem="HLp-1K-Goq" firstAttribute="top" secondItem="kfL-Aj-zEY" secondAttribute="bottom" constant="142" id="Uw3-VB-hTi"/>
+                            <constraint firstItem="AIr-qO-7Pn" firstAttribute="trailing" secondItem="EZp-KU-1SW" secondAttribute="trailing" id="Vzl-ep-yZQ"/>
                             <constraint firstItem="kfL-Aj-zEY" firstAttribute="leading" secondItem="EZp-KU-1SW" secondAttribute="leading" constant="54" id="nCI-Ar-XPh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EZp-KU-1SW"/>
@@ -1638,8 +1642,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="RfA-zM-nwX"/>
         <segue reference="aPd-C3-D0H"/>
-        <segue reference="KW6-86-RT6"/>
-        <segue reference="U8D-uR-5nx"/>
+        <segue reference="Is9-90-9Ke"/>
+        <segue reference="hrC-93-B8F"/>
         <segue reference="MLP-iN-umP"/>
     </inferredMetricsTieBreakers>
 </document>
