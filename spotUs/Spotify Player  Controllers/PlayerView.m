@@ -546,7 +546,7 @@
     NSString *connected = [recommend stringByAppendingString:self.songTitle.text];
     NSString *by = @" by ";
     NSString *connected2 = [by stringByAppendingString:self.artistNameLabel.text];
-    NSString *listened = @" that I listened to on SpotUS";
+    NSString *listened = @" that I listened to on SpotUs";
     NSString *midString = [connected2 stringByAppendingString:listened];
     NSString *fullString = [connected stringByAppendingString:midString];
    
