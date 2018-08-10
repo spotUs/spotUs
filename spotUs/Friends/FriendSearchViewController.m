@@ -129,16 +129,18 @@
                 
                 [PFUser currentUser][@"friends"] = mutableFriends;
                 
-                PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
-                query.limit = 20;
-                [query includeKey:@"sender"];
-                [query includeKey:@"receiver"];
-                [query includeKey:@"accepted"];
-                [query whereKey:@"sender" equalTo:[PFUser currentUser]];
-                [query orderByAscending:@"reciever"];
+                PFQuery *notifyAcceptQuery = [PFQuery queryWithClassName:@"FriendRequest"];
+                notifyAcceptQuery.limit = 20;
+                [notifyAcceptQuery includeKey:@"receiver"];
+                [notifyAcceptQuery whereKey:@"sender" equalTo:[PFUser currentUser]];
+                [notifyAcceptQuery orderByAscending:@"reciever"];
+                [notifyAcceptQuery whereKey:@"accepted" equalTo:@(YES)];
+                [notifyAcceptQuery whereKey:@"notifiedAccepted" equalTo:@(NO)];
+                [notifyAcceptQuery whereKey:@"removed" equalTo:@(NO)];
+                [notifyAcceptQuery whereKey:@"notifiedRemoved" equalTo:@(NO)];
                 
                 
-                [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+                [notifyAcceptQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
                     
                     NSArray <FriendRequest*> *requests = objects;
                     
@@ -148,7 +150,7 @@
                     
                     for( FriendRequest *request in requests){
                         
-                        if(![friends containsObject:request.receiver.username] && request.accepted && !request.notifiedAccepted){
+                        if(![friends containsObject:request.receiver.username]){
                             
                             request.notifiedAccepted = YES;
                             
@@ -181,33 +183,26 @@
                             NSLog(@"filteredfriends %@",self.filteredFriends);
                             
                             // get requests
-                            PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
-                            query.limit = 20;
-                            [query includeKey:@"sender"];
-                            [query includeKey:@"receiver"];
-                            [query includeKey:@"accepted"];
-                            [query whereKey:@"receiver" equalTo:[PFUser currentUser]];
-                            [query orderByAscending:@"reciever"];
+                            PFQuery *requestQuery = [PFQuery queryWithClassName:@"FriendRequest"];
+                            requestQuery.limit = 20;
+                            [requestQuery includeKey:@"sender"];
+                            [requestQuery includeKey:@"receiver"];
                             
-                            [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+                            [requestQuery whereKey:@"receiver" equalTo:[PFUser currentUser]];
+                            [requestQuery orderByAscending:@"reciever"];
+                            [requestQuery whereKey:@"accepted" equalTo:@(NO)];
+                            [requestQuery whereKey:@"notifiedAccepted" equalTo:@(NO)];
+                            [requestQuery whereKey:@"removed" equalTo:@(NO)];
+                            [requestQuery whereKey:@"notifiedRemoved" equalTo:@(NO)];
+                            
+                            [requestQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
                                 if (error) {
                                     NSLog(@"error fetching non friends: %@", error.localizedDescription);
                                 } else {
                                     
-                                    NSMutableArray *senderNames = [NSMutableArray array];
-                                    for(FriendRequest *request in objects){
-                                        
-                                        if(!request.accepted){
-                                            
-                                            [senderNames addObject:request.sender];
-                                        }
-                                        
-                                        
-                                        
-                                    }
-                                    
-                                    self.usersNotFriends = senderNames;
-                                    self.filteredNotFriends = senderNames;
+                                 
+                                    self.usersNotFriends = objects;
+                                    self.filteredNotFriends = objects;
                                     [self.tableView reloadData];
                                     [[PFUser currentUser] saveInBackground];
                                     [SVProgressHUD dismiss];
@@ -216,22 +211,7 @@
                             }];
                         }
                     }];
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+
                     
                 }];
                 
@@ -240,25 +220,11 @@
             
             
             
-            
-            
-            
-            
         }];
         
-        
-        
-        
-        
-        
+ 
     }];
-    
-    
-    
-    
-    
-    
-    
+
     
 }
 
