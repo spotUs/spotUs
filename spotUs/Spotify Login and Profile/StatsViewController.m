@@ -23,7 +23,6 @@
 @property (strong, nonatomic) City * selectedCity;
 
 
-
 @end
 
 @implementation StatsViewController
@@ -114,10 +113,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [self.statsTableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    
-    
-    
     NSDictionary *cityDic =  @{ @"tracks"     : self.lastPlayedIDs,
                                 @"index" : [NSNumber numberWithInteger:indexPath.row],
                                 @"title" : [NSString stringWithFormat:@"%@%@", self.user.username, @"'s Last Played"]
@@ -138,7 +133,6 @@
     
 
         FavoriteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"stats" forIndexPath:indexPath];
-        NSLog(@"updating?");
         cell.layer.backgroundColor = [[UIColor clearColor] CGColor];
         
         [cell updateTrackCellwithData:self.lastPlayed[indexPath.row]];
@@ -151,9 +145,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
 
 
 #pragma mark - Navigation

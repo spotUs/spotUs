@@ -157,7 +157,6 @@ CLLocationManager *locationManager;
                     City *friendloc = (City *)user[@"lastPlayedCity"];
                     double lng = [friendloc[@"lng"] doubleValue];
                     double lat = [friendloc[@"lat"] doubleValue];
-                    NSLog(@"%f",lng );
                     CLLocationCoordinate2D location;
                     location.latitude = lat;
                     location.longitude = lng;
@@ -227,12 +226,9 @@ CLLocationManager *locationManager;
 - (void) mapView: (MKMapView *)mapView annotationView:(nonnull MKAnnotationView *)view calloutAccessoryControlTapped:(nonnull UIControl *)control {
     if (mapView == self.friendsMapView){
         NSString *cityname = [view.annotation.subtitle substringWithRange:NSMakeRange(18, [view.annotation.subtitle length] - 18)];
-        NSLog(@"%@",cityname);
         self.searchCity = [QueryManager getCityFromName:cityname];
         [self performSegueWithIdentifier:@"playlist" sender:self];
     } else {
-    NSLog(@"%@",view.annotation.title);
-
     self.searchCity = [QueryManager getCityFromName:view.annotation.title];
     [self performSegueWithIdentifier:@"playlist" sender:self];
     }
@@ -262,12 +258,8 @@ CLLocationManager *locationManager;
         
         PlaylistViewController *playlistController = (PlaylistViewController*)[segue destinationViewController];
         if([sender isKindOfClass:UIButton.class]){
-         
             playlistController.city = self.locationCity;
-            
-        }
-        
-        else{
+        } else{
             playlistController.city = self.searchCity;
             
         }

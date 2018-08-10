@@ -51,7 +51,6 @@
 -(void)toggleView{
     
     if ([self.favoriteCollectionView isHidden]) {
-        NSLog(@"changing tableview");
         [self.favoriteCollectionView setContentOffset:CGPointZero animated:NO];
         [self.favoriteCollectionView setHidden:NO];
         [self.favoriteTableView setHidden:YES];
@@ -201,7 +200,6 @@
     else{
         
         FavoriteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavoriteTableViewCell" forIndexPath:indexPath];
-        NSLog(@"updating?");
         cell.layer.backgroundColor = [[UIColor clearColor] CGColor];
         
         [cell updateTrackCellwithData:self.filteredDataArray[indexPath.row-1]];
@@ -211,9 +209,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"%lu",self.filteredDataArray.count);
-    
-    
     return self.filteredDataArray.count+1;
 }
 
@@ -253,7 +248,6 @@
 
 -(void)updateFavData{
     [QueryManager fetchFavs:^(NSArray *favs, NSError *error) {
-        //NSLog(@"FAVS %@", favs);
         self.favorites = favs;
         if(self.favorites.count > 0){
             self.favoritesMessageLabel.text = @"";

@@ -94,7 +94,6 @@
 -(void)toggleView{
     
     if ([self.collectionView isHidden]) {
-        NSLog(@"changing tableview");
         [self.collectionView setContentOffset:CGPointZero animated:NO];
 
         [self.collectionView setHidden:NO];
@@ -154,7 +153,6 @@
     else{
     
     PlaylistTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlaylistTableCell" forIndexPath:indexPath];
-    NSLog(@"updating?");
      cell.layer.backgroundColor = [[UIColor clearColor] CGColor];
 
     [cell updateTrackCellwithData:self.filteredDataArray[indexPath.row-1]];
@@ -164,7 +162,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"%lu",self.filteredDataArray.count);
     return self.filteredDataArray.count+1;
 }
 
@@ -221,8 +218,6 @@
             
         }];
         self.filteredDataArray = [self.dataArray filteredArrayUsingPredicate:predicate];
-        
-        NSLog(@"%@",self.dataArray);
     }
     else {
         self.filteredDataArray = self.dataArray;

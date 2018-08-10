@@ -79,7 +79,6 @@
     NSURL *authURL = [self.auth spotifyWebAuthenticationURL];
     // Present in a SafariViewController
     self.authViewController = [[SFSafariViewController alloc] initWithURL:authURL];
-    NSLog(@"hereee");
     NSLog(@"%@",self.authViewController);
     [self  presentViewController:self.authViewController animated:YES completion:nil];
 }
