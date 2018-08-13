@@ -44,6 +44,8 @@
     [query includeKey:@"sender"];
     [query includeKey:@"receiver"];
     [query includeKey:@"accepted"];
+    [query whereKey:@"sender" equalTo:[PFUser currentUser]];
+
     [query whereKey:@"receiver" equalTo:self.user];
     [query whereKey:@"dead" notEqualTo:@(YES)];
     [query whereKey:@"accepted" notEqualTo:@(YES)];
