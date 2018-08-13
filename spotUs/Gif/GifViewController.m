@@ -40,6 +40,8 @@
     
     self.loginWithSpotify.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.loginWithSpotify.layer.borderWidth = 2.0;
+    _loginWithSpotify.layer.cornerRadius = 10; // this value vary as per your desire
+    _loginWithSpotify.clipsToBounds = YES;
     
     //spotify login setup
     self.auth = [SPTAuth defaultInstance];
@@ -61,6 +63,7 @@
     if (![self.player startWithClientId:self.auth.clientID error:&audioStreamingInitError]) {
         NSLog(@"There was a problem starting the Spotify SDK: %@", audioStreamingInitError.description);
     }
+   
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -90,6 +93,7 @@
         [self.player loginWithAccessToken:self.auth.session.accessToken];
         NSLog(@"loggedin");
         self.loginButton.hidden = YES;
+        
         self.spotifylogoimage.hidden = YES;
         [SPTUser requestCurrentUserWithAccessToken:self.auth.session.accessToken callback:^(NSError *error, id object) {
             SPTUser *currentUser = (SPTUser *)object;
