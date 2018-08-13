@@ -200,9 +200,21 @@
                                     NSLog(@"error fetching non friends: %@", error.localizedDescription);
                                 } else {
                                     
-                                 
-                                    self.usersNotFriends = objects;
-                                    self.filteredNotFriends = objects;
+                                    NSMutableArray *senderNames = [NSMutableArray array];
+                                    for(FriendRequest *request in objects){
+                                        
+                                        
+                                        [senderNames addObject:request.sender];
+                                        
+                                        
+                                        
+                                        
+                                    }
+                                    
+                                    
+                                    
+                                    self.usersNotFriends = senderNames;
+                                    self.filteredNotFriends = senderNames;
                                     [self.tableView reloadData];
                                     [[PFUser currentUser] saveInBackground];
                                     [SVProgressHUD dismiss];
